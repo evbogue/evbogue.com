@@ -6,7 +6,7 @@ const head = '<html><head><title>Everett Bogue\'s Website on the World Wide Web<
 const foot = '</body></html>'
 
 function body () { 
-  return head + Marked.parse(Deno.readTextFileSync('./post.txt')).content + foot
+  return head + Marked.parse(Deno.readTextFileSync('./post.md')).content + foot
 }
 
 serve(() => new Response(body(), { 
