@@ -1,9 +1,9 @@
 import { serve } from 'https://deno.land/std@0.137.0/http/server.ts'
 import { Marked } from 'https://deno.land/x/markdown@v2.0.0/mod.ts'
 
-const head = '<html><head><title>Everett Bogue\'s Website on the World Wide Web</title></head><body>'
+const head = '<html><head><title>Everett Bogue\'s Website on the World Wide Web</title><meta name="viewport" content="width=device-width initial-scale=1" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body>'
 
-const foot = '</body></html>'
+const foot = '<iframe src="http://bogbook.com"></iframe></body></html>'
 
 function body () { 
   return head + Marked.parse(Deno.readTextFileSync('./post.md')).content + foot
