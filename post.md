@@ -15,4 +15,3 @@ You can talk to me using the web application below.
 
 Follow the instructions to generate yourself a keypair and you will see my posts, be able to post messages, and reply to me in public. [Full Screen](http://bogbook.com/#e+2bu3W0KeR00URX75mVtFsFrTgTfAW2R3+F9W+s324=)
 
-<iframe src="http://bogbook.com/#e+2bu3W0KeR00URX75mVtFsFrTgTfAW2R3+F9W+s324=" width="100%" height="450px">

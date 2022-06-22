@@ -7,7 +7,6 @@ const foot = '</body></html>'
 
 const content = await Deno.readTextFile('./post.md')
 
-
 function body () { 
   return head + content + foot
 }
