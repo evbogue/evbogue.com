@@ -3,9 +3,10 @@ import { serve } from 'https://deno.land/std@0.137.0/http/server.ts'
 
 const head = '<html><head><title>Everett Bogue\'s Website on the World Wide Web</title><meta name="viewport" content="width=device-width initial-scale=1" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body>'
 
-const foot = '<iframe src="http://bogbook.com"></iframe></body></html>'
+const foot = '</body></html>'
 
-const content = 'Hello World'
+const content = await Deno.readTextFile('./post.md')
+
 
 function body () { 
   return head + content + foot
