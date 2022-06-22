@@ -5,8 +5,10 @@ const head = '<html><head><title>Everett Bogue\'s Website on the World Wide Web<
 
 const foot = '<iframe src="http://bogbook.com"></iframe></body></html>'
 
+const content = await Deno.readFile('./post.md')
+
 function body () { 
-  return head + Marked.parse(await Deno.readFile('./post.md')).content + foot
+  return head + Marked.parse(content).content + foot
 }
 
 serve(() => new Response(body(), { 
