@@ -2,7 +2,7 @@
 
 #### This is my website right now.
 
-I am working on...
+<mark>Moving Infrastructure to Deno Deploy</mark> -- some websites are still down.
 
 + Bogbook - a distributed social networking platform - http://bogbook.com/ [code](http://git.sr.ht/~ev/bogbookv3)
 + Denobook - a book about Deno - http://denobook.com/ [code](http://git.sr.ht/~ev/denobook/)
