@@ -1,0 +1,7 @@
+body {
+  background: #f5f5f5;
+  font-family: sans-serif;
+  margin-left: 2em; margin-right: 2em;
+}
+
+img, iframe { border: 1px solid #ccc; border-radius: 5px;}
