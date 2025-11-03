@@ -1,2 +1,17 @@
+  <textarea id='textarea' placeholder='Send a message'></textarea>
+  <button id='send'>Send</button>
+  <span>Powered by <a href='https://ntfy.sh/'>ntfy.sh</a></span>
+  <script>
+    const ta = document.getElementById('textarea')
+    const send = document.getElementById('send')
+    send.onclick = async () => {
+      if (ta.value) {
+        fetch('https://ntfy.sh/evbogue', {
+          method: 'POST',
+          body: ta.value
+        })
+      }
+    }
+  </script>
   </body>
 </html>
