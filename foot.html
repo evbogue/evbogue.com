@@ -1,6 +1,7 @@
   <textarea id='textarea' placeholder='Send a message'></textarea>
   <button id='send'>Send</button>
   <span>Powered by <a href='https://ntfy.sh/'>ntfy.sh</a></span>
+  <hr>
   <script>
     const ta = document.getElementById('textarea')
     const send = document.getElementById('send')
@@ -10,6 +11,8 @@
           method: 'POST',
           body: ta.value
         })
+        ta.value = ''
+        ta.placeholder = "Sent!"
       }
     }
   </script>
