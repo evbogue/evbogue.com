@@ -1,0 +1,53 @@
+---
+title: "The Minimalist’s Guide to Launching an E-Book"
+slug: "the-minimalist-s-guide-to-launching-an-e-book"
+date: "2010-01-29"
+tags: [archive, import]
+draft: false
+excerpt: "As many of you know, I’m putting the final touches on my e-book The Art of Being Minimalist ."
+original_source_pdf: "fbts_evbogue_mnml/20100129_The Minimalist’s Guide to Launching an E-Book.pdf"
+original_url: "http://www.farbeyondthestars.com/the-minimalists-guide-to-launching-an-e-book/"
+wayback_snapshot_url: "https://web.archive.org/web/20100619085947/http://www.farbeyondthestars.com/the-minimalists-guide-to-launching-an-e-book/"
+---
+
+<p><em> </em></p>
+<p><img class=" alignleft" src="/assets/posts/the-minimalist-s-guide-to-launching-an-e-book-img1.jpg" alt="" width="263" height="350"/></p>
+<p>As many of you know, I&#8217;m putting the final touches on my e-book <em>The Art of Being Minimalist</em>.</p>
+<p><em>The Art of Being Minimalist</em> is essentially the culmination of the ideas I&#8217;ve put out on this blog, along with my experiences traveling around the country over the last four months.</p>
+<p>I&#8217;ve integrated some of the best articles from the blog (so you&#8217;ll recognize or have read some of the content before) with a lot of all new content that expands on my ideas.</p>
+<p><strong>How I went from zero to done in two weeks.</strong></p>
+<p>Some people have asked me how I went from having no plans for an e-book to selling in e-book in two weeks.</p>
+<p>The truth is that I&#8217;ve always planned on having an e-book available through Far Beyond The Stars. This is why I&#8217;ve worked so hard on the content here, because I&#8217;ve wanted to put all of the ideas that I&#8217;ve developed here into an e-book.</p>
+<p>The final product came together over the last two weeks. I felt like I had completed enough of the e-book to make it worth reading. So, I finished it.</p>
+<p>I&#8217;ll be releasing <em>The Art of Being Minimalist</em> on Monday, February 1st at 6am.</p>
+<p>I&#8217;ll be giving away the e-book for free for 24 hours, with the request that you spread to as many people as possible during that time. I&#8217;d rather this e-book be read by 10,000 people, than forcing 1000 people to buy it. All of you reading this now deserve to read it for free, because you&#8217;ve been so supportive over the last few months.</p>
+<p>You&#8217;ve helped me write every word of this e-book, thank you.</p>
+<p>I&#8217;m going to be offering the opportunity to earn 50% commission selling the ebook to everyone. There are many great minimalist blogs out there, I hope this e-book can help support your writing as well as my own.</p>
+<p>Here&#8217;s what I&#8217;ve learned about launching an e-book. I hope this can help you with yours.</p>
+<p><strong>12 things I&#8217;ve learned about launching a minimalist e-book.</strong></p>
+<p><strong>1, Make the end the priority. </strong></p>
+<p>My aim for this blog has always been to launch e-books, much like <a href="http://chrisguillebeau.com/3x5/overnight-success/">Chris Guillebeau</a> does at The Art of Nonconformity. Every day I sat down at the computer, and when I wrote I was focusing on the end product. This created a consistency to my blog that wouldn&#8217;t have been there otherwise. From day 1 to day 124 this has been about The Art of Being Minimalist, and nothing else.</p>
+<p><strong>2, Write content that helps people. </strong></p>
+<p>Your blog and your e-book has to have the goal of helping people. Self-referential blogs are a dime a dozen out there on the net, and there is a reason why everyone&#8217;s eyes gloss over when they come across a diary blog. This blog and this e-book has always been about helping you, the audience. I want you to join me in living this life of minimalist freedom. I hope this e-book can help you achieve your goals.</p>
+<p><strong>3, Give yourself no other options.</strong></p>
+<p>I quit my job to become a minimalist and move to Portland. I&#8217;ve passed up other opportunities in order to focus on writing this e-book, because I knew I had to create something of value for the community. I also knew that I wouldn&#8217;t be happy if I wasn&#8217;t creating something that was going to build my legacy project. I was tired of my work going to benefit large corporations, so my focus has been on creating useful information for people. I hope this writing can help you. I also hope that enough people will buy it that I can support myself until I write the next ebook.</p>
+<p><strong>4, Write what you know. </strong></p>
+<p>This blog and the e-book are about the life that I live. I couldn&#8217;t have written this sitting at a desk in an office, because I wouldn&#8217;t have experienced the depth of being minimalist that occurs when you get on a plane with all of your stuff on your back. There is simply no way to have that experience while being safe at the same time. This writing wouldn&#8217;t have happened without making the leap to see if the life I dreamed about was possible. It is possible, I&#8217;ve been there.</p>
+<p><strong>5, Don&#8217;t stop doing the work. </strong></p>
+<p>This is probably the most important. Don&#8217;t stop working. I&#8217;ve never missed a scheduled post in the last 4 months. Once I settled on a publishing schedule of three articles a week, I didn&#8217;t take a break. I did the work every day towards this goal. If I knew I was going to have other commitments, or I&#8217;d be out of contact, I scheduled posts ahead of time. It&#8217;s a really bad idea to drop off the planet while trying to run a successful blog, if you do that the momentum is gone and you don&#8217;t have an e-book after 124 days.</p>
+<p><strong>6, Participate in the community. </strong></p>
+<p>I wouldn&#8217;t be here without the minimalist community. I&#8217;ve met some amazing people, and they&#8217;ve helped me more than they&#8217;ll ever know. See the blogroll on the side to meet some of these awesome individuals. I&#8217;ve received emails asking for help that made me think about how to help people better. I&#8217;ve received some emails challenging my positions, which made me think more about whether they were valid. I changed things if they were crazy. I stood fast if I found I could defend them. All because of the amazing people who read this blog. Thank you everyone.</p>
+<p><strong>7, Choose a mentor. </strong></p>
+<p>I also wouldn&#8217;t be here without the help of <a href="http://www.zenhabits.net/">Leo Babauta</a>, the author of <a href="https://www.e-junkie.com/ecom/gb.php?ii=329069&amp;c=ib&amp;aff=91858&amp;cl=10747"><em>The Simple Guide to a Minimalist Life</em></a>. 1, Because the sales of his e-book helped support me while I worked on my own e-book. 2, Because many of you probably found my blog through him. When I say mentor, I don&#8217;t mean that I bothered Leo all of the time for help. We&#8217;ve probably spent three minutes interacting over the last four months, mostly on Twitter. I wouldn&#8217;t dream of taking up any more of his time. He&#8217;s made the decision to link to my blog a few times over the last few months, and that has made a huge difference in how much traffic I&#8217;ve received. Thank you Leo.</p>
+<p><strong>8, Study the best. </strong></p>
+<p>I spent the last year studying e-book launches. I did this by watching some of the best. <a href="http://www.problogger.net/archives/2009/12/03/72000-in-e-books-in-a-week-8-lessons-i-learned/">Darren Rowse</a> of Problogger, <a href="http://chrisguillebeau.com/3x5/overnight-success/">Chris Guillebeau</a> of The Art of Nonconformity, <a href="http://www.jonathanfields.com/blog/7-questions-with-leo-babauta-and-glen-stansberry-about-their-e-publishing-venture-web-warrior-tools/">Jonathan Fields</a> of Awake at the Wheel, and many more. These people are the masters of creating e-books that help people. I spent endless hours reading their material and learning how they do what they do.</p>
+<p><strong>9, Spend less time with hype. </strong></p>
+<p>I&#8217;ve noticed that many bloggers announce the e-books they&#8217;re working on around a year in advance, and then every couple of weeks they write a post about how hard it is to write an e-book. That&#8217;s cool, but it&#8217;s not helping anyone until you&#8217;ve finished it. I also have artist friends that spend years talking about &#8220;amazing projects that will rock the world&#8221; that they never finish. I figured the minimalist approach to launching a blog e-book would be to not speak of it at all until it was ready to go. Then launch quickly, decisively, and actually launch (most people don&#8217;t get to the launch point.)</p>
+<p><strong>10, Let people help you. </strong></p>
+<p>I&#8217;m so thankful that I&#8217;m not doing this alone. <a href="http://www.chrisobyrne.com/">Chris O&#8217;Byrne</a> was thoughtful enough to email me a few days ago offering to copy edit my e-book, he did a great job. As you all know, clean copy is definitely not my strong point. I&#8217;m so thankful for his help. I&#8217;m also thankful to all of the people who have offered to help market the book on their own blogs, such as <a href="http://www.rowdykittens.com/">Tammy Strobel</a>, Jules of <a href="http://thestonesoup.com/blog/">Stone Soup</a>, and <a href="http://www.moreminimal.com/">Chris Baskind</a> of the upcoming blog The Minimalist Century. I&#8217;ll be releasing more details on how you can earn 50% commission selling my e-book on Monday. If you want to get on board earlier than that, <a href="mailto:evbogue@gmail.com">drop me an email</a> and I&#8217;ll get you what you need to make sales and get commission.</p>
+<p><strong>11, Ship the e-book. </strong></p>
+<p>As Seth Godin writes in his new book Linchpin: the <a href="http://sethgodin.typepad.com/seths_blog/2010/01/quieting-the-lizard-brain.html">enemy of shipping is the resistance</a>. Making the decision to overcome all of the fears that are associated with publishing a work is hard. I&#8217;m sure there will be people who read this book and decide to criticize me for living the way that I do. I&#8217;m okay with that. I could have let fear overcome the decision to publish this, but I didn&#8217;t. I fought it, I wrote for hundreds of hours. I did all of the design and photography on this e-book. I set a date and I shipped.</p>
+<p>On Monday it will be available for the world.</p>
+<p>I believe this e-book will help a lot of people begin living a simple and more minimalist life. I hope that you will enjoy it.</p>
+<p>Thank you for making this possible.</p>
+<p>-Everett Bogue</p>

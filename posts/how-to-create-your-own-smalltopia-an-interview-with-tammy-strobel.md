@@ -1,0 +1,45 @@
+---
+title: "How to Create Your Own Smalltopia: An Interview with Tammy Strobel"
+slug: "how-to-create-your-own-smalltopia-an-interview-with-tammy-strobel"
+date: "2010-08-31"
+tags: [archive, import]
+draft: false
+excerpt: "Tammy runs the super-popular small living blog Rowdy Kittens . She was recently featured in not just The New York Times, but also MSNBC.com, Yahoo Finance, and a bunch of other places. Why? Because she’s one of the pione"
+original_source_pdf: "fbts_evbogue_mnml/20100831_How to Create Your Own Smalltopia - An Interview with Tammy Strobel.pdf"
+original_url: "http://www.farbeyondthestars.com/create-your-own-smalltopia/"
+wayback_snapshot_url: "https://web.archive.org/web/20100903121903/http://www.farbeyondthestars.com/create-your-own-smalltopia/"
+---
+
+<p><a href="/assets/posts/how-to-create-your-own-smalltopia-an-interview-with-tammy-strobel-img1.jpg"><img class="alignleft size-full wp-image-1989" title="tammystrobel" src="/assets/posts/how-to-create-your-own-smalltopia-an-interview-with-tammy-strobel-img1.jpg" alt="" width="250" height="250"/></a></p>
+<p>Tammy runs the super-popular small living blog <a href="http://www.rowdykittens.com/">Rowdy Kittens</a>. She was recently featured in not just The New York Times, but also MSNBC.com, Yahoo Finance, and a bunch of other places. Why? Because she&#8217;s one of the pioneers of the minimalist movement that is changing the foundations of our society.</p>
+<p>Tammy just released an amazing digital work:<a href="https://www.e-junkie.com/ecom/gb.php?cl=100096&amp;c=ib&amp;aff=91858"> </a><em><a href="https://www.e-junkie.com/ecom/gb.php?cl=100096&amp;c=ib&amp;aff=91858">Smalltopia: A Practical Guide to Working for Yourself</a>.</em></p>
+<p>I was lucky enough to still be able to interview her after all of her recent media coverage.</p>
+<p>I&#8217;ve read the e-book from start to finish, and it is one of the more remarkable guides to self-employment that I&#8217;ve read this year. I&#8217;m not going to say anymore, and let the interview with Tammy do the talking. I even contributed a small bit on my own experience creating a minimalist business.</p>
+<p>On to the interview! We spoke about developing multiple streams of income, quitting your day job, and how simplicity is the ultimate freedom:</p>
+<p><strong>Everett: </strong>For our readers who haven&#8217;t been following your exploits religiously on your blog, Rowdykittens, can you briefly describe what a Smalltopia is?</p>
+<p><strong>Tammy:</strong> Smalltopia is a practical guide to working for yourself. The guide reviews tips, tools, and strategies that will help folks leave a traditional 9-5 job and create personal freedom through a very small business. The guide is broken up into three sections: Smalltopia Philosophy, Smalltopia Essentials, and Smalltopia Case Studies.</p>
+<p>The part I&#8217;m most excited about is the case study section. <strong>It features stories from more than a dozen folks that run the gamut of experience.</strong> From those who are just getting ready to break up with their day job, to crazy successful small business owners. The list of rockstar contributors include: Leo Babauta, Chris Guillebeau, Jessica Reeder, Chris O&#8217;Byrne, Russ Roca, Laura Crawford, Karol Gajda, Chloe Adeline, Victoria Vargas, Karen Yaeger, Jules Clancy, Heather Levin, Matt Cheuvront, Tyler Tervooren, and the one and only Everett Bogue!</p>
+<p><strong>Everett:</strong> Imagine I&#8217;m the average reader of Far Beyond The Stars, why would I want to create a Smalltopia?</p>
+<p><strong>Tammy:</strong> You said in a recent blog post that Far Beyond the Stars is about one very specific thing, freedom. Creating your own Smalltopia will give you the structure to <strong>live life on your own terms and the freedom to pursue your dreams.</strong></p>
+<p><strong>Everett</strong>: You recently quit your job in order to build your own very small business. Why did you decide that working for other people wasn&#8217;t what you were into?</p>
+<p><strong>Tammy:</strong> During the past ten years, I spent time working in the investment management industry and then transitioned into the social service sector. I learned a lot in both of these fields, but working for someone else wasn&#8217;t fulfilling.</p>
+<p>I love working with others, but I disliked the rigid routines and unequal ranking of people in traditional office environments. And <strong>spending over 40 hours a week trapped indoors was starting to make me feel crazy</strong>. I wanted the freedom to be able to work on projects that made me happy, and more importantly, <strong>I wanted the freedom to choose when, where, and with whom I wanted to work with.</strong></p>
+<p><strong>Everett:</strong> In Smalltopia you talk about the importance of diversifying your &#8220;moolah&#8221;. Most people have all of their income coming from one source, which obviously means if you lose that job you&#8217;re sunk. How important is it to have multiple streams of income?</p>
+<p><strong>Tammy:</strong> I believe <strong>having multiple streams of income is essential to financial security.</strong> For example, my income streams currently come from freelance writing projects, books sales, consulting, and some web design work. For instance, if my book sales decrease one month, I can easily take on more freelance writing projects and adapt accordingly.</p>
+<p>Like you said, if you&#8217;re laid off from a &#8220;traditional job&#8221; you&#8217;re stuck with no income stream. <strong>So in reality, I don&#8217;t think traditional jobs are very safe</strong>. It&#8217;s a myth that many of us (including myself) buy into. The generation of folks working for one company and building a pension is fading away. The collapse of Enron and recent bankruptcy of many financial management corporations demonstrate the illusion of &#8220;stable&#8221; income. Everything changes with time so it&#8217;s better to build a diverse and dynamic income model.</p>
+<p><strong>Everett:</strong> How has living a small lifestyle allowed you to focus on creating multiple income sources?</p>
+<p><strong>Tammy</strong>: Living a small lifestyle has reduced my expenses tremendously. I can afford to gamble on &#8220;risky&#8221; opportunities to develop more markets for my work. Now that I&#8217;m not shopping so much or constantly worrying about maintaining my stuff, I have the time and energy to focus on a variety of projects.</p>
+<p><strong>Everett:</strong> How has living a minimalist life contributed towards building your successful Smalltopia?</p>
+<p><strong> </strong></p>
+<p><strong><img class=" alignright" src="/assets/posts/how-to-create-your-own-smalltopia-an-interview-with-tammy-strobel-img2.jpg" alt="" width="240" height="204"/></strong></p>
+<p><strong> </strong></p>
+<p><strong>Tammy:</strong> Minimalism allows me the freedom and focus to pursue projects I&#8217;m passionate about which makes a huge difference in the quality of work I&#8217;m producing. Being happy and motivated comes through in my work and has contributed to a greater success in my business <img src="/assets/posts/how-to-create-your-own-smalltopia-an-interview-with-tammy-strobel-img2.gif" alt=":)" class="wp-smiley"/> </p>
+<p>In addition, I have the time to build relationships with people. And that is critically important to creating a resilient business.</p>
+<p><strong>Everett:</strong> What is one action that our readers can take towards moving towards building a Smalltopia of their own?</p>
+<p><strong>Tammy:</strong> Well you only asked for one action, but I&#8217;m going to give our readers two tips.</p>
+<p>First, get your finances together and pay of any outstanding debts. This is essential because it will give you a lot of freedom and flexibility in the long run. Make sure you <strong>prioritize paying off your debt</strong> by setting aside part of each paycheck. Little by little your debt will decrease and you&#8217;ll have more freedom to do what you love.</p>
+<p>Second, start a blog. <strong>Blogging is an incredible way to connect with like minded individuals,</strong> the perfect place to test business ideas, and build a fan base. For instance, all of my freelance writing contracts and books sales have occurred because RowdyKittens. Without a home base on the Internet, building a small small business can be difficult.</p>
+<p>&#8211;</p>
+<p>You can check out Tammy Strobel&#8217;s new e-book <em><a href="https://www.e-junkie.com/ecom/gb.php?cl=100096&amp;c=ib&amp;aff=91858">Smalltopia: A Practical Guide to Working for Yourself</a></em> here.
+
+<iframe src="https://web.archive.org/web/20100903121903if_/http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.farbeyondthestars.com%2Fcreate-your-own-smalltopia%2F&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:450px; height: 30px; align: left; margin: 2px 0px 2px 0px"></iframe>
