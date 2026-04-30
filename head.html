@@ -1,42 +1,257 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Everett Bogue</title>
-    <meta name='viewport' content='width=device-width initial-scale=1' />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <title>evbogue.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Writing by Everett Bogue." />
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+    <script>
+      const savedTheme = localStorage.getItem('theme')
+      if (savedTheme) document.documentElement.dataset.theme = savedTheme
+    </script>
     <style>
-      body {
-        background-color: #f2f2f2;
-        color: #444;
-        font-family: "Source Sans 3", sans-serif;
-        margin-left: auto;
-        margin-right: auto;
-        width: 860px;
-        max-width: 92%;
+      :root {
+        --pico-font-family: Inter, sans-serif;
+        --pico-font-weight: 400;
+        --pico-line-height: 1.65;
+        --pico-typography-spacing-vertical: 1rem;
       }
 
-      hr { border: 1px solid #e4e4e4;}
+      body > header,
+      body > main,
+      body > footer {
+        margin-inline: auto;
+        padding-inline: 1rem;
+      }
 
-      a {
-        color: #045fd0;
+      body > header,
+      body > footer {
+        max-width: 42rem;
+      }
+
+      body > main {
+        max-width: 58rem;
+      }
+
+      body > header {
+        padding-top: 3rem;
+        padding-bottom: 1.5rem;
+      }
+
+      body > footer {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+      }
+
+      nav ul:first-child strong a {
+        color: inherit;
         text-decoration: none;
       }
-      
-      a:hover {
-        color: #8d82fe;
+
+      nav ul:first-child strong a:hover {
+        text-decoration: underline;
       }
-      textarea { background: #fff; border: none; border-radius: 5px; color: #444; width: 98%;}
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #181818;
-          color: #ccc;
+
+      form[role="search"] {
+        margin-top: 1rem;
+      }
+
+      .theme-toggle {
+        align-items: center;
+        display: inline-flex;
+        gap: 0.4rem;
+        margin: 0;
+      }
+
+      .theme-toggle input {
+        margin: 0;
+      }
+
+      article {
+        border: 0;
+        box-shadow: none;
+        margin: 0 0 2.5rem;
+        padding: 0;
+      }
+
+      body > main > article {
+        max-width: 42rem;
+        margin-inline: auto;
+      }
+
+      .home-layout {
+        display: grid;
+        gap: 3rem;
+        grid-template-areas: "posts bio";
+        grid-template-columns: minmax(0, 1fr) 14rem;
+      }
+
+      .home-posts {
+        grid-area: posts;
+      }
+
+      .intro {
+        align-self: start;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        grid-area: bio;
+        position: sticky;
+        top: 1rem;
+      }
+
+      .intro img {
+        aspect-ratio: 1;
+        border-radius: 50%;
+        height: 84px;
+        object-fit: cover;
+        width: 84px;
+      }
+
+      .intro p {
+        margin: 0;
+      }
+
+      .sidebar-subscribe {
+        margin-top: 1rem;
+      }
+
+      .sidebar-subscribe label {
+        font-weight: 600;
+      }
+
+      .sidebar-subscribe button {
+        width: 100%;
+      }
+
+      .meta {
+        color: var(--pico-muted-color);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .entry h2,
+      .post h1 {
+        margin-bottom: 0.25rem;
+      }
+
+      .entry h2 a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .entry h2 a:hover {
+        text-decoration: underline;
+      }
+
+      .more-link {
+        font-weight: 600;
+      }
+
+      .post-body img {
+        display: block;
+        margin: 1.5rem auto;
+      }
+
+      .search-summary,
+      .empty-state {
+        color: var(--pico-muted-color);
+      }
+
+      .archive-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .archive-list li {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+      }
+
+      .archive-list time {
+        color: var(--pico-muted-color);
+        flex: 0 0 auto;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 640px) {
+        body > header {
+          padding-top: 1.5rem;
         }
-        a {color: #50afe4;}
-        hr { border: 1px solid #333;}
-        textarea { background: #333; border: none; border-radius: 5px; color: #ccc;}
+
+        body > main {
+          max-width: 42rem;
+        }
+
+        .home-layout {
+          gap: 2rem;
+          grid-template-areas:
+            "bio"
+            "posts";
+          grid-template-columns: 1fr;
+        }
+
+        .intro {
+          align-items: center;
+          flex-direction: row;
+          position: static;
+        }
+
+        .intro > div {
+          flex: 1;
+        }
+
+        .intro img {
+          height: 64px;
+          width: 64px;
+        }
+
+        .archive-list li {
+          display: block;
+        }
       }
     </style>
   </head>
   <body>
-
+    <header>
+      <nav>
+        <ul>
+          <li><strong><a href="/">evbogue.com</a></strong></li>
+        </ul>
+        <ul>
+          <li><a href="/posts">Posts</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+          <li>
+            <label class="theme-toggle">
+              <input id="theme-toggle" type="checkbox" role="switch" aria-label="Use dark mode">
+              <span>Dark</span>
+            </label>
+          </li>
+        </ul>
+      </nav>
+      <form role="search" action="/" method="GET">
+        <input type="search" name="q" placeholder="Search the archive" aria-label="Search the archive">
+        <button type="submit">Search</button>
+      </form>
+      <script>
+        const themeToggle = document.getElementById('theme-toggle')
+        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        const currentTheme = localStorage.getItem('theme') || preferredTheme
+        document.documentElement.dataset.theme = currentTheme
+        themeToggle.checked = currentTheme === 'dark'
+        themeToggle.addEventListener('change', () => {
+          const nextTheme = themeToggle.checked ? 'dark' : 'light'
+          document.documentElement.dataset.theme = nextTheme
+          localStorage.setItem('theme', nextTheme)
+        })
+      </script>
+    </header>
+    <main>
