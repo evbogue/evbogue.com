@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "start": "deno serve --allow-net --allow-read --allow-write --port 8082 serve.js"
+  }
+}

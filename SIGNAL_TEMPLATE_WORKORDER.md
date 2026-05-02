@@ -54,7 +54,7 @@ Deliverable:
 Baseline results from 2026-05-02:
 
 - `deno check serve.js` passed.
-- Local server started with `deno serve --allow-net --allow-read --allow-write --port 8787 serve.js`.
+- Local server started with `deno task start`.
 - `GET /` returned `200 text/html; charset=UTF-8`.
 - `GET /posts` returned `200 text/html; charset=UTF-8`.
 - `GET /posts/hello-world` returned `200 text/html; charset=UTF-8`.
@@ -300,21 +300,21 @@ Run:
 
 ```sh
 deno check serve.js
-deno serve --allow-net --allow-read --allow-write --port 8787 serve.js
+deno task start
 ```
 
 Check:
 
-- `http://localhost:8787/`
-- `http://localhost:8787/posts`
-- One real post, for example `http://localhost:8787/posts/hello-world`
-- `http://localhost:8787/about`
-- `http://localhost:8787/feed.xml`
-- `http://localhost:8787/beta`
-- `http://localhost:8787/beta/archive`
-- `http://localhost:8787/beta/posts/how-to-fire-up-a-blog-with-openclaw`
-- `http://localhost:8787/beta/tag/minimalism`
-- `http://localhost:8787/assets/signal.css?v=20260502c`
+- `http://localhost:8082/`
+- `http://localhost:8082/posts`
+- One real post, for example `http://localhost:8082/posts/hello-world`
+- `http://localhost:8082/about`
+- `http://localhost:8082/feed.xml`
+- `http://localhost:8082/beta`
+- `http://localhost:8082/beta/archive`
+- `http://localhost:8082/beta/posts/how-to-fire-up-a-blog-with-openclaw`
+- `http://localhost:8082/beta/tag/minimalism`
+- `http://localhost:8082/assets/signal.css?v=20260502c`
 
 Latest verification from 2026-05-02:
 

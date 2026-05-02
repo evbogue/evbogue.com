@@ -224,7 +224,7 @@ Avoid growth by:
 The server reads `head.html` and `foot.html` once at startup:
 
 ```sh
-deno serve --allow-net --allow-read --allow-write --port 8787 serve.js
+deno task start
 ```
 
 Restart the local server after template edits.
@@ -233,6 +233,6 @@ Useful verification:
 
 ```sh
 deno check serve.js
-curl -s http://127.0.0.1:8787/ | rg "home-layout|sidebar-subscribe|theme-toggle"
-curl -s http://127.0.0.1:8787/posts | rg "archive-list"
+curl -s http://127.0.0.1:8082/ | rg "home-layout|sidebar-subscribe|theme-toggle"
+curl -s http://127.0.0.1:8082/posts | rg "archive-list"
 ```

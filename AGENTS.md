@@ -18,7 +18,7 @@ A minimal blog for Ev Bogue (ev@evbogue.com). The goal is a professional publish
 ## Run locally
 
 ```
-deno serve --allow-net --allow-read --allow-write --port 8787 serve.js
+deno task start
 ```
 
 ## File structure

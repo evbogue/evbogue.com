@@ -34,14 +34,14 @@ Run the most relevant checks:
 
 ```sh
 deno check serve.js
-curl -s http://127.0.0.1:8787/ | rg "expected text"
-curl -s http://127.0.0.1:8787/feed.xml | rg "<rss|<item"
+curl -s http://127.0.0.1:8082/ | rg "expected text"
+curl -s http://127.0.0.1:8082/feed.xml | rg "<rss|<item"
 ```
 
 Start or restart the local server when the change affects runtime behavior:
 
 ```sh
-deno serve --allow-net --allow-read --allow-write --port 8787 serve.js
+deno task start
 ```
 
 ## Report format

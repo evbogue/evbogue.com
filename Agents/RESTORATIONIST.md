@@ -334,7 +334,7 @@ deno run --allow-read --allow-write scripts/strip_post_garbage.js posts
 Run the site locally:
 
 ```sh
-deno serve --allow-net --allow-read --allow-write --port 8787 serve.js
+deno task start
 ```
 
 ## Report Format

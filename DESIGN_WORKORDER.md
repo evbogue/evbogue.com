@@ -156,16 +156,16 @@ Run:
 
 ```sh
 deno check serve.js
-deno serve --allow-net --allow-read --allow-write --port 8787 serve.js
+deno task start
 ```
 
 Browser checks:
 
-- `http://localhost:8787/` desktop width
-- `http://localhost:8787/` mobile width around 390px
-- `http://localhost:8787/?q=minimalist`
-- `http://localhost:8787/posts`
-- `http://localhost:8787/about`
+- `http://localhost:8082/` desktop width
+- `http://localhost:8082/` mobile width around 390px
+- `http://localhost:8082/?q=minimalist`
+- `http://localhost:8082/posts`
+- `http://localhost:8082/about`
 
 Mobile acceptance criteria:
 
@@ -182,4 +182,3 @@ Commit message:
 ```sh
 git commit -m "Refine mobile-first publication layout"
 ```
-

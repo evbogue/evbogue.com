@@ -230,7 +230,7 @@ deno run --allow-read --allow-write --allow-net scripts/bulk_localize_post_image
 Run the site locally:
 
 ```sh
-deno serve --allow-net --allow-read --allow-write --port 8787 serve.js
+deno task start
 ```
 
 ## Promotion Policy

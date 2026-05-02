@@ -1,0 +1,15 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@hono/hono@*": "4.12.15"
+  },
+  "jsr": {
+    "@hono/hono@4.12.15": {
+      "integrity": "06a0aef73d9072e73b8db570b81a5b56a94095d697578202a87fccdf04ce352d"
+    }
+  },
+  "remote": {
+    "https://esm.sh/gh/evbogue/bog5@de70376265/denonext/lib/marked.esm.mjs": "12805228999bc30d4c7b1f5493bffd6f498b36915690621baf509c54f61e73f3",
+    "https://esm.sh/gh/evbogue/bog5@de70376265/lib/marked.esm.js": "8f39f99f43e1a6310c9ba897be5e721514af8aa63dad985f7256539c28a29508"
+  }
+}
