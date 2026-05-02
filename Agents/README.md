@@ -13,5 +13,6 @@ Use these when you want an agent to take on a specific job instead of the whole 
 - `ACCOUNT-MANAGER.md` — handle subscribers, replies, sponsors, and reader relationships.
 - `PRODUCT-MANAGER.md` — prioritize the publishing system roadmap.
 - `ARCHIVIST.md` — classify, restore, contextualize, and rewrite the full blog archive.
+- `RESTORATIONIST.md` — clean recovered archive essays in small batches without rewriting history.
 
 Keep role files practical. Each one should explain the job, the standard of quality, what files it should touch, and what to report back.

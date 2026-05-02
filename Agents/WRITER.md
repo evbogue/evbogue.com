@@ -29,7 +29,7 @@ Avoid:
 - "Unlock your potential"
 - Corporate marketing cadence
 - Long summary conclusions that repeat the whole post
-- Excessive em dashes
+- Em dashes (any em dash — they read as AI-generated)
 - Emoji
 
 ## Editing standard
@@ -61,6 +61,10 @@ excerpt: "One sentence shown on the homepage index."
 ```
 
 Keep the title and slug stable unless they are clearly wrong. If you change the title, make sure the slug still makes sense or explain why you did not change it.
+
+## Far Beyond the Stars (FBTS)
+
+Ev's original blog ran from 2009 to 2012 under the name Far Beyond the Stars. Always refer to it as FBTS. Never write out "farbeyondthestars.com" and never link to it — the domain is not owned by Ev and may resolve to unrelated content. The archive posts are being restored on evbogue.com; that is the canonical home.
 
 ## What to touch
 

@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const tags = ['analysis', 'ai', 'media', 'essay'];
+  return tags.map(tag => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+const label = tag.charAt(0).toUpperCase() + tag.slice(1);
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const posts = allPosts
+  .filter(p => p.data.tag.toLowerCase() === tag)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(d) {
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+function readTime(body) {
+  return Math.max(1, Math.round(body.split(/\s+/).length / 200));
+}
+---
+<Base title={label}>
+  <div class="section-header" style="padding-top:3rem">
+    <span class="section-label">{label}</span>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="article-grid">
+    {posts.map(post => (
+      <a href={`/posts/${post.id}`} class="card">
+        <div class="card-img"><div class="card-img-inner">{post.data.tag}</div></div>
+        <span class="tag">{post.data.tag}</span>
+        <div class="card-title">{post.data.title}</div>
+        <p class="card-dek">{post.data.description}</p>
+        <div class="card-meta">
+          <span>{formatDate(post.data.date)}</span><span>·</span>
+          <span>{readTime(post.body)} min</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</Base>

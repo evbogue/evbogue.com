@@ -9,208 +9,298 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
-    <script>
-      const savedTheme = localStorage.getItem('theme')
-      if (savedTheme) document.documentElement.dataset.theme = savedTheme
-    </script>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <style>
       :root {
-        --pico-font-family: Inter, sans-serif;
-        --pico-font-weight: 400;
-        --pico-line-height: 1.65;
-        --pico-typography-spacing-vertical: 1rem;
+        --sans: Inter, system-ui, sans-serif;
+        --accent: #0077b6;
+        --accent-bg: #f7f7f7;
+        --border: #d8dee4;
+        --text: #2f343f;
+        --text-light: #626b7a;
+        --standard-border-radius: 4px;
       }
 
-      body > header,
-      body > main,
-      body > footer {
-        margin-inline: auto;
-        padding-inline: 1rem;
+      html {
+        font-family: var(--sans);
       }
 
-      body > header,
-      body > footer {
-        max-width: 42rem;
-      }
-
-      body > main {
-        max-width: 58rem;
+      body {
+        border-top: 6px solid var(--text);
       }
 
       body > header {
-        padding-top: 3rem;
-        padding-bottom: 1.5rem;
+        padding-block: 0.85rem 1.25rem;
+      }
+
+      body > main {
+        padding-top: 1.5rem;
       }
 
       body > footer {
-        padding-top: 2rem;
-        padding-bottom: 3rem;
+        padding-block: 1.5rem 2rem;
       }
 
-      nav ul:first-child strong a {
-        color: inherit;
-        text-decoration: none;
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
       }
 
-      nav ul:first-child strong a:hover {
-        text-decoration: underline;
+      h1 {
+        font-size: 1.75rem;
       }
 
-      form[role="search"] {
-        margin-top: 1rem;
+      h2 {
+        font-size: 1.45rem;
       }
 
-      .theme-toggle {
-        align-items: center;
-        display: inline-flex;
-        gap: 0.4rem;
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      h4,
+      h5,
+      h6 {
+        font-size: 1.1rem;
+      }
+
+      nav a,
+      a {
+        font-weight: 700;
+      }
+
+      nav a:first-child {
+        letter-spacing: -0.04em;
+      }
+
+      nav form {
         margin: 0;
       }
 
-      .theme-toggle input {
-        margin: 0;
+      nav input[type="search"] {
+        max-width: 12rem;
       }
 
-      article {
-        border: 0;
-        box-shadow: none;
-        margin: 0 0 2.5rem;
-        padding: 0;
+      .brand-short,
+      .mobile-search {
+        display: none;
       }
 
-      body > main > article {
-        max-width: 42rem;
-        margin-inline: auto;
+      .kicker,
+      .meta,
+      .river-header h2 {
+        color: var(--text-light);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
       }
 
-      .home-layout {
-        display: grid;
-        gap: 3rem;
-        grid-template-areas: "posts bio";
-        grid-template-columns: minmax(0, 1fr) 14rem;
+      .section-header {
+        border-bottom: 3px solid var(--text);
+        margin-bottom: 1.35rem;
+        padding-bottom: 1.1rem;
       }
 
-      .home-posts {
-        grid-area: posts;
+      .section-header h1 {
+        font-size: clamp(1.9rem, 4vw, 2.6rem);
+        letter-spacing: -0.045em;
+        line-height: 1;
+        margin-bottom: 0.75rem;
+      }
+
+      .section-header .dek,
+      .lead-story > p:not(.kicker) {
+        color: var(--text-light);
+        font-size: clamp(1.15rem, 3vw, 1.45rem);
+        margin-bottom: 0.85rem;
+      }
+
+      .hero-links,
+      .river-header {
+        align-items: baseline;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.85rem;
+        margin-bottom: 0;
+      }
+
+      .lead-story,
+      .entry,
+      .intro {
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 1.15rem;
+        padding-bottom: 1.15rem;
       }
 
       .intro {
-        align-self: start;
-        display: flex;
-        flex-direction: column;
-        gap: 0.85rem;
-        grid-area: bio;
-        position: sticky;
-        top: 1rem;
+        float: none;
+        margin-inline: 0;
+        width: auto;
+      }
+
+      @media (min-width: 800px) {
+        .home-layout {
+          display: grid;
+          gap: 2rem;
+          grid-template-columns: minmax(0, 1fr) 16rem;
+        }
+
+        .intro {
+          align-self: start;
+          border-left: 1px solid var(--border);
+          border-bottom: 0;
+          padding-bottom: 0;
+          padding-left: 1.25rem;
+          position: sticky;
+          top: 1rem;
+        }
+      }
+
+      .lead-story h2 {
+        font-size: clamp(1.55rem, 3vw, 2.1rem);
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        margin-bottom: 0.45rem;
+      }
+
+      .lead-story p,
+      .entry p {
+        margin-bottom: 0.75rem;
+      }
+
+      .entry h2 {
+        letter-spacing: -0.035em;
+        line-height: 1;
       }
 
       .intro img {
         aspect-ratio: 1;
         border-radius: 50%;
-        height: 84px;
+        height: 4.5rem;
         object-fit: cover;
-        width: 84px;
+        width: 4.5rem;
       }
 
-      .intro p {
+      .site-stats {
+        border-block: 1px solid var(--border);
+        display: flex;
+        gap: 1.5rem;
+        margin: 0.75rem 0;
+        padding: 0.75rem 0;
+      }
+
+      .site-stats div,
+      .site-stats dd {
         margin: 0;
       }
 
-      .sidebar-subscribe {
-        margin-top: 1rem;
+      .site-stats dt {
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1;
       }
 
-      .sidebar-subscribe label {
-        font-weight: 600;
-      }
-
-      .sidebar-subscribe button {
-        width: 100%;
-      }
-
-      .meta {
-        color: var(--pico-muted-color);
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-      }
-
-      .entry h2,
-      .post h1 {
-        margin-bottom: 0.25rem;
-      }
-
-      .entry h2 a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .entry h2 a:hover {
-        text-decoration: underline;
-      }
-
-      .more-link {
-        font-weight: 600;
-      }
-
-      .post-body img {
-        display: block;
-        margin: 1.5rem auto;
-      }
-
-      .search-summary,
-      .empty-state {
-        color: var(--pico-muted-color);
+      .site-stats dd,
+      .sidebar-subscribe small {
+        color: var(--text-light);
       }
 
       .archive-list {
+        border-top: 2px solid var(--text);
         list-style: none;
         padding: 0;
       }
 
       .archive-list li {
+        border-bottom: 1px solid var(--border);
         display: flex;
         gap: 1rem;
         justify-content: space-between;
-        margin-bottom: 0.75rem;
+        padding: 0.45rem 0;
       }
 
       .archive-list time {
-        color: var(--pico-muted-color);
+        color: var(--text-light);
         flex: 0 0 auto;
-        font-size: 0.9rem;
       }
 
       @media (max-width: 640px) {
         body > header {
-          padding-top: 1.5rem;
+          padding-block: 0.7rem 1rem;
         }
 
         body > main {
-          max-width: 42rem;
+          padding-top: 1.1rem;
         }
 
-        .home-layout {
-          gap: 2rem;
-          grid-template-areas:
-            "bio"
-            "posts";
-          grid-template-columns: 1fr;
+        .section-header h1 {
+          font-size: 2rem;
         }
 
+        .section-header {
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
+        }
+
+        .section-header .dek {
+          font-size: 1.08rem;
+        }
+
+        .lead-story h2 {
+          font-size: 1.65rem;
+        }
+
+        .lead-story,
+        .entry,
         .intro {
-          align-items: center;
-          flex-direction: row;
-          position: static;
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
         }
 
-        .intro > div {
-          flex: 1;
+        .brand-full,
+        .desktop-search {
+          display: none;
         }
 
-        .intro img {
-          height: 64px;
-          width: 64px;
+        .brand-short,
+        .mobile-search {
+          display: inline-block;
+        }
+
+        .mobile-search {
+          position: relative;
+        }
+
+        .mobile-search summary {
+          color: var(--accent);
+          cursor: pointer;
+          font-weight: 700;
+          list-style: none;
+        }
+
+        .mobile-search summary::-webkit-details-marker {
+          display: none;
+        }
+
+        .mobile-search form {
+          background: var(--bg);
+          border: 1px solid var(--border);
+          display: flex;
+          gap: 0.25rem;
+          padding: 0.5rem;
+          position: absolute;
+          right: 0;
+          top: 100%;
+          width: min(20rem, 82vw);
+          z-index: 10;
+        }
+
+        .mobile-search input[type="search"] {
+          min-width: 0;
         }
 
         .archive-list li {
@@ -223,35 +313,35 @@
     <header>
       <nav>
         <ul>
-          <li><strong><a href="/">evbogue.com</a></strong></li>
+          <li><strong><a href="/"><span class="brand-full">evbogue.com</span><span class="brand-short">ev</span></a></strong></li>
         </ul>
         <ul>
-          <li><a href="/posts">Posts</a></li>
+          <li><a href="/posts">Archive</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/feed.xml">RSS</a></li>
+          <li class="desktop-search">
+            <form role="search" action="/" method="GET">
+              <input id="nav-search-input" type="search" name="q" placeholder="Search archive" aria-label="Search the archive">
+              <button type="submit">Search</button>
+            </form>
+          </li>
           <li>
-            <label class="theme-toggle">
-              <input id="theme-toggle" type="checkbox" role="switch" aria-label="Use dark mode">
-              <span>Dark</span>
-            </label>
+            <details class="mobile-search">
+              <summary>Search</summary>
+              <form role="search" action="/" method="GET">
+                <input id="mobile-search-input" type="search" name="q" placeholder="Search archive" aria-label="Search the archive">
+                <button type="submit">Go</button>
+              </form>
+            </details>
           </li>
         </ul>
       </nav>
-      <form role="search" action="/" method="GET">
-        <input type="search" name="q" placeholder="Search the archive" aria-label="Search the archive">
-        <button type="submit">Search</button>
-      </form>
       <script>
-        const themeToggle = document.getElementById('theme-toggle')
-        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-        const currentTheme = localStorage.getItem('theme') || preferredTheme
-        document.documentElement.dataset.theme = currentTheme
-        themeToggle.checked = currentTheme === 'dark'
-        themeToggle.addEventListener('change', () => {
-          const nextTheme = themeToggle.checked ? 'dark' : 'light'
-          document.documentElement.dataset.theme = nextTheme
-          localStorage.setItem('theme', nextTheme)
-        })
+        const navSearchInput = document.getElementById('nav-search-input')
+        const mobileSearchInput = document.getElementById('mobile-search-input')
+        const currentQuery = new URLSearchParams(window.location.search).get('q')
+        if (navSearchInput && currentQuery) navSearchInput.value = currentQuery
+        if (mobileSearchInput && currentQuery) mobileSearchInput.value = currentQuery
       </script>
     </header>
     <main>

@@ -105,6 +105,10 @@ When editing:
 - Delete filler transitions like "this is where it gets interesting" unless the next line earns it.
 - End with a clean strike, not a summary.
 
+## Far Beyond the Stars (FBTS)
+
+Ev's original blog ran from 2009 to 2012 under the name Far Beyond the Stars. Always refer to it as FBTS. Never write out "farbeyondthestars.com" and never link to it — the domain is not owned by Ev and may resolve to unrelated content. The archive posts are being restored on evbogue.com; that is the canonical home.
+
 ## Moral line
 
 Be ruthless with the idea, not sadistic toward people.
@@ -136,6 +140,7 @@ Before returning a draft, check:
 - Is Everett implicated where appropriate?
 - Is there at least one concrete action or operational next step?
 - Did you remove generic AI phrasing?
+- Did you remove all em dashes? (they are a telltale AI signal — use a period, a comma, or rewrite the sentence)
 - Does the ending hit harder than the beginning?
 - Is `draft: true` preserved unless Everett explicitly asked to publish?
 

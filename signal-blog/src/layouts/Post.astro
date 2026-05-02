@@ -1,0 +1,41 @@
+---
+import Base from './Base.astro';
+import { type CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { title, description, date, tag, author } = post.data;
+
+const formatted = date.toLocaleDateString('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric'
+});
+
+// Rough read time estimate
+const words = post.body.split(/\s+/).length;
+const readTime = Math.max(1, Math.round(words / 200));
+---
+<Base title={title} description={description}>
+  <article>
+    <div class="post-header">
+      <a href={`/tag/${tag.toLowerCase()}`} class="tag">{tag}</a>
+      <h1 class="hero-title" style="cursor:default">{title}</h1>
+      <p class="hero-dek">{description}</p>
+      <div class="hero-meta">
+        <span class="author">{author}</span>
+        <span class="dot">·</span>
+        <span>{formatted}</span>
+        <span class="dot">·</span>
+        <span>{readTime} min read</span>
+      </div>
+    </div>
+
+    <hr class="post-divider" />
+
+    <div class="post-body">
+      <slot />
+    </div>
+  </article>
+</Base>

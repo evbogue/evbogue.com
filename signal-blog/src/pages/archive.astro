@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(d) {
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+---
+<Base title="Archive">
+  <div class="section-header" style="padding-top:3rem">
+    <span class="section-label">Archive</span>
+    <div class="section-rule"></div>
+  </div>
+
+  <div style="max-width:var(--max);margin:0 auto;padding:0 2rem 4rem">
+    {posts.map(post => (
+      <a href={`/posts/${post.id}`} style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);text-decoration:none;color:inherit">
+        <div style="display:flex;gap:1rem;align-items:baseline;min-width:0">
+          <span class="tag" style="flex-shrink:0">{post.data.tag}</span>
+          <span style="font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);transition:color 0.15s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--ink)'">{post.data.title}</span>
+        </div>
+        <span style="font-family:var(--mono);font-size:0.72rem;color:var(--ink-3);white-space:nowrap;flex-shrink:0">{formatDate(post.data.date)}</span>
+      </a>
+    ))}
+  </div>
+</Base>

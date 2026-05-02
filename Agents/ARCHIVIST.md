@@ -42,6 +42,56 @@ If a post is substantially rewritten, add a short note in frontmatter or body st
 
 The archive can be sharpened. It cannot be silently memory-holed.
 
+## Broken Link Policy
+
+Do not preserve broken links in public archive posts.
+
+If a linked target is broken, obsolete, or unverified during a restoration batch, remove the anchor and keep the visible text. Do not send readers to dead social networks, dead signup pages, dead product pages, old personal sites, or stale commercial URLs just because they appeared in the original post.
+
+For internal links, keep the link only if the target exists locally. If the target is missing, unlink the text and mention the missing target in the batch report.
+
+For image links, remove anchors that only open the image file. Keep images only if they render or are queued for localization.
+
+Preserve source URLs in provenance frontmatter. The internal record should stay traceable; the public body should not become a museum of broken hyperlinks.
+
+## Markdown Restoration Policy
+
+Public restored archive posts should be clean Markdown, not imported HTML.
+
+Convert ordinary Wayback/WordPress HTML into Markdown during restoration. Preserve the essay's structure and emphasis, but remove wrapper tags, itemprop attributes, div shells, old layout classes, and other scrape debris.
+
+Only keep HTML when Markdown cannot represent the content cleanly and the content is worth preserving. If HTML remains, record the reason in the batch report.
+
+## Anonymize People in Pre-2025 Archive Work
+
+For any public-facing post dated before `2025-01-01`, anonymize people Ev mentioned by changing their displayed names to initials.
+
+Default rule:
+
+- Replace personal names in titles, excerpts, body text, captions, alt text, and visible link text with initials.
+- If a filename or slug containing a person's name is being promoted into `posts/`, change the public slug/filename to use initials or a neutral description.
+- Preserve provenance fields such as `original_url`, `wayback_snapshot_url`, and `original_source_pdf` even when those source URLs contain the original name.
+- Do not anonymize Ev/Everett Bogue, unless Ev explicitly asks.
+- Do not anonymize organization, publication, product, or project names unless they identify a private person.
+- Remove links to personal sites or social profiles when the only purpose of the link is to direct attention at the person. If the link is historically necessary, keep the URL but make the visible text initials.
+- When unsure whether someone is public, living, or should be named, use initials and flag it in the batch report.
+
+Examples:
+
+- `Leo Babauta` -> `L.B.`
+- `Gwen Bell` -> `G.B.`
+- `An Interview with Chris Baskind` -> `An Interview with C.B.`
+
+This is not erasure. It is attention control. The source record stays traceable internally; the public archive should not casually re-surface people who were named in older posts before `2025`.
+
+When anonymization is performed, add or preserve a short frontmatter note:
+
+```yaml
+people_anonymized: true
+anonymized_on: YYYY-MM-DD
+anonymization_note: "Pre-2025 personal names changed to initials for the public archive."
+```
+
 ## Continuity Publishing
 
 One of the Archivist's major jobs is to make the blog feel like it never stopped.

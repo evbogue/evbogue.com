@@ -71,6 +71,7 @@ Specialized role files now live in `Agents/`. Use them when the task is narrower
 | Writer | `Agents/WRITER.md` | Turning rough notes into publishable drafts |
 | Editor | `Agents/EDITOR.md` | Sharpening posts into Ev's punchier 2010/Gawker-informed voice |
 | Archivist | `Agents/ARCHIVIST.md` | Full-blog rewrite, archive restoration, continuity posts back in time |
+| Restorationist | `Agents/RESTORATIONIST.md` | Cleaning recovered archive essays in small batches without rewriting history |
 | Designer | `Agents/DESIGNER.md` | Site readability, layout, and visual restraint |
 | Coder | `Agents/CODER.md` | Small blog features and tooling |
 | DevOps | `Agents/DEVOPS.md` | VPS, pull process, deployment, route health |

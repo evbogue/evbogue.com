@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'SIGNAL', description = 'Tech, Media & AI' } = Astro.props;
+const fullTitle = title === 'SIGNAL' ? 'SIGNAL — Tech, Media & AI' : `${title} — SIGNAL`;
+
+const now = new Date().toLocaleDateString('en-US', {
+  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+});
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{fullTitle}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="SIGNAL" href="/rss.xml" />
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="wordmark">SIGNAL<span>.</span></a>
+    <nav>
+      <a href="/tag/analysis">Analysis</a>
+      <a href="/tag/ai">AI</a>
+      <a href="/tag/media">Media</a>
+      <a href="/archive">Archive</a>
+      <a href="/subscribe" class="subscribe-btn">Subscribe</a>
+    </nav>
+  </div>
+</header>
+
+<div class="date-ribbon">{now} &nbsp;·&nbsp; Tech · Media · AI</div>
+
+<slot />
+
+<div class="newsletter">
+  <div class="newsletter-inner">
+    <div class="newsletter-copy">
+      <h3>Get Signal in your inbox.</h3>
+      <p>One essay, three stories, no noise. Published weekdays.</p>
+    </div>
+    <form class="newsletter-form" action="/subscribe" method="POST">
+      <input type="email" name="email" placeholder="your@email.com" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="wordmark">SIGNAL<span>.</span></a>
+    <div class="footer-links">
+      <a href="/about">About</a>
+      <a href="/archive">Archive</a>
+      <a href="/rss.xml">RSS</a>
+    </div>
+    <span class="footer-copy">© {new Date().getFullYear()} Signal Media</span>
+  </div>
+</footer>
+
+</body>
+</html>
