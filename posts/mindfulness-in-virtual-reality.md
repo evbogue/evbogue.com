@@ -8,43 +8,79 @@ excerpt: "This is an excerpt from the work I’m doing on developing a second se
 original_source_pdf: "fbts_evbogue_mnml/20110119_Mindfulness in Virtual Reality.pdf"
 original_url: "http://www.farbeyondthestars.com/mindful-virtual-reality/"
 wayback_snapshot_url: "https://web.archive.org/web/20110122124235/http://www.farbeyondthestars.com/mindful-virtual-reality/"
+archive_status: "restored"
+restored_on: "2026-05-03"
+restoration_note: "Mechanical cleanup only; original essay preserved."
 ---
 
-<p><em>This is an excerpt from the work I&#8217;m doing on developing a second self on the Internet that will take care of you (what is a second self? See <a href="www.ted.com/talks/amber_case_we_are_all_cyborgs_now.html">Amber Case&#8217;s Ted talk on cyborgs</a>.) </em></p>
-<p><em>If you like this work, I&#8217;ve set up a <a href="http://letter.ly/evbogue">Letter.ly</a> where I will be sending <a href="http://letter.ly/evbogue">dispatches from the future</a> that is now. For more details on the Letter.ly scroll down to the end of this post. Thank you.</em></p>
-<p><em> </em></p>
-<p><em>Written on January 18th, 2011. The Ace Hotel, 29th Street. Manhattan, New York.</em></p>
-<p><a href="http://instagr.am/p/BFKL0/?ref=nf"><img class="alignleft" src="/assets/posts/mindfulness-in-virtual-reality-img1.jpg" alt="" width="300" height="300"/></a>As I&#8217;m writing this, I&#8217;m sitting on a couch at the Ace Hotel in New York next to <a href="http://www.gwenbell.com/blog">Gwen Bell</a>. If you haven&#8217;t seen the interior of the Ace Hotel, google it. It&#8217;s astonishing. Basically, it feels like you&#8217;ve time traveled back to the 1940s, where everything was beautiful and you&#8217;re a part of it. It&#8217;s doing it&#8217;s best to represent the golden age of amazingness.</p>
-<p>The thing is, the 1940s didn&#8217;t look at all like the Ace Hotel. The rustic metal tables, the luxuriously simple Edison bulbs that Edison never would have dreamed of creating. The couch we&#8217;re sitting on has so many buttons on it, like 160 buttons probably, it&#8217;s just absurd.</p>
-<p>Basically, The Ace Hotel is virtual reality manifested in real reality. It&#8217;s a dream world that&#8217;s been constructed in real space and time. It doesn&#8217;t matter that it doesn&#8217;t look at all like the past, you still feel like you&#8217;re there.</p>
-<p>In fact, you&#8217;re not in the past at all. The Ace Hotel is the future. We want to feel like we&#8217;re connected to the past, and thus we&#8217;re teleporting ourselves into the future where everything feels and looks like amazingness.</p>
-<p>Ray Kurzweil believes that in a very short time we&#8217;re not going to need to build virtual reality in reality like the Ace Hotel has done here in New york. Instead virtual reality will become indistinguishable from what is real. Instead of transporting our bodies from where we live to 29th Street and Broadway, we will teleporting our minds to places that look and feel real.</p>
-<p>Like woah! Craziness, right? But not so much. We&#8217;re already doing this with increasingly complex games like World of Warcraft and Second Life, but soon we&#8217;re going to get to a point where we can shut down our neural receivers and plug in an experience that looks and feels exactly like the Ace Hotel, but probably a million times better.</p>
-<p>We won&#8217;t be conscious of the fact that we&#8217;re sitting on a rustic/destroyed couch that feels like they beamed it to the future. Instead, we&#8217;ll be in a world where anything is possible. If we want to be in the past, we&#8217;ll be there. If we want to be in never never land, we&#8217;ll be there. Why wouldn&#8217;t we want to be?</p>
-<p>Everyone will want to be a part of this, the problem is that no one will know how to deal with it. We&#8217;re all going to jump in head first to whatever reality we want to be in, and in the meantime we&#8217;re going to forget about our physical selves. We do still have physical bodies. They are real, and our experience of virtual reality is highly dependent on how our physical bodies feel.</p>
-<p>Our second self will not be beautiful if we aren&#8217;t beautiful. We can&#8217;t be beautiful if we don&#8217;t eat right, or practice our yoga (or whatever practice you prefer.)</p>
-<p>&#8211;</p>
-<p>Let&#8217;s rewind back to the future that we&#8217;re living in now. Everyone around us is texting from New York to LA, when there&#8217;s a real human being across the table from them. This isn&#8217;t presence, it&#8217;s absence. Ambient intimacy is amazing, but there&#8217;s a real human across the table from you, and they need you to be here with them.</p>
-<p>How do we get there? I believe it has to do with cultivating your second self.</p>
-<p>When you have a second self that&#8217;s strong enough to take care of you, you no longer need to be waiting around for that SMS message from LA. Your second self can take care of it for you.</p>
-<p>When we think of cyborgs, the first thing that comes to mind is people who are plugged in, tethered to their phones or soon their headsets. The thing is, it isn&#8217;t the cyborgs who are tethered, it&#8217;s the humans. They&#8217;re the ones who are being forced to be ready all of the time for another incoming message from the ethersphere.</p>
-<p>The truth is that the more people I meet from cyborgia, the more I realize that they&#8217;re all incredibly present in their real lives. They have another self that&#8217;s out there, working incredibly well for them &#8212; why be on the Internet all day long? They only need to check in for an hour a day, or every once in awhile they&#8217;ll plug into Twitter for a little dose of ambient intimacy if they need it.</p>
-<p>Eventually, we get to a point with being a cyborg that we don&#8217;t need to check in with our second self at all. We simply let it do it&#8217;s thing, it takes care of us, and we sit back, relax and enjoy the show that is real life.</p>
-<p>Being present with the person who&#8217;s sitting next to your at the Ace Hotel is what is beautiful. Not waiting for another text from LA.</p>
-<p>&#8211;</p>
-<p>When reality becomes indistinguishable from virtual reality, this will only become more insane for the ones of us who haven&#8217;t developed these second selves. If we haven&#8217;t, we&#8217;ll be force to beam back and forth into different virtual worlds for the whims of others.</p>
-<p>If we wanted to hang out at the the V-Ace Hotel all day long, we can&#8217;t, because someone wants us to come to the V-McDonalds for a crap cup of coffee. Just like we can&#8217;t respond to every email that comes in from randomness, we can&#8217;t be expected to jump between virtual worlds at everyone else&#8217;s beck and call. It just won&#8217;t be emotionally or physically sustainable for our human bodies as we traverse the real world.</p>
-<p>We&#8217;re going to have to set expectations for how others interact with us in virtual worlds, especially when we can&#8217;t tell the difference between there and here. Our second selves will have to deal with all of the incoming noise, from the space and also from other humans who want us.</p>
-<p>Just as now I can&#8217;t be expected to personally respond to every email that I receive asking me &#8216;WTF is a cyborg?&#8217;. You won&#8217;t be expected to beam to V-Starbucks and personally meet with anyone who wants to see you. You&#8217;re going to have to let your second self bring all of these people up to speed.</p>
-<p>In fact, email will soon be obsolete for most cyborgs. So will Facebook. Cyborgs only use <a href="http://www.twitter.com/evbogue/">Twitter</a> to communicate, which builds intuition. Eventually they may not need Twitter at all.</p>
-<p>This future is uncertain, that&#8217;s for sure. Initially we don&#8217;t trust our second selves, we aren&#8217;t sure if we gave them the right information in order to teach the others who are interested in our work about the work that they need to learn about.</p>
-<p>In essence, you&#8217;ll be less successful in the future if you try to do everything yourself. Everyone else will be outsourcing all of most people&#8217;s experience to their second selves, and if you insist on doing everything yourself. Just as you might be doing now with your own interactions online, you&#8217;ll end up supernovaing if you don&#8217;t build a second self that takes care of you.</p>
-<p>&#8211;</p>
-<p>I&#8217;m writing my next book on Letter.ly, which is a subscription-based email service. Until February 1st 2011, you&#8217;ll be able to <a href="http://letter.ly/evbogue">subscribe for $20 per month</a>. You can unsubscribe at any time. There&#8217;s an unsubscribe link at the bottom of every email you receive.</p>
-<p>For more on how Letter.ly works, see <a href="http://rosshill.com.au/letterly/">Ross Hill&#8217;s post on how to use it</a>.</p>
-<p>I currently subscribe to two incredibly valuable Letter.ly newsletters. The first is <a href="http://www.letter.ly/rosshill">Ross Hill</a>&#8216;s, the second is <a href="http://letter.ly/crystalsilver">Crystal Silver</a>&#8216;s. More bloggers will be switching to this platform, because creation is evolving away from blogs and towards paid subscription content.</p>
-<p>My new book is about how to build a second self that will take care of your physical body. Essentially achieving financial freedom and location independence. It isn&#8217;t for everyone, but many people have and will achieve this.</p>
-<p>I&#8217;ll be posting much less on this blog, and more on the letter.ly. I&#8217;m doing this because the work I&#8217;m doing now is right on the border of genius/insanity. Information like this can rip people through the space/time continuum in a way that burns people&#8217;s brains. I need to know who&#8217;s getting it, and help them understand what&#8217;s happening to them when they read it.</p>
-<p>If you <a href="http://letter.ly/evbogue">join now</a> you&#8217;ll be locked in at the $20 rate unless you unsubscribe. The subscription price will be going up on February 1st.
+*This is an excerpt from the work I'm doing on developing a second self on the Internet that will take care of you (what is a second self? See Amber Case's Ted talk on cyborgs.) *
 
-<iframe src="https://web.archive.org/web/20110122124235if_/http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.farbeyondthestars.com%2Fmindful-virtual-reality%2F&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:450px; height: 30px; align: left; margin: 2px 0px 2px 0px"></iframe>
+*If you like this work, I've set up a Letter.ly where I will be sending dispatches from the future that is now. For more details on the Letter.ly scroll down to the end of this post. Thank you.*
+
+* *
+
+*Written on January 18th, 2011. The Ace Hotel, 29th Street. Manhattan, New York.*
+
+![](/assets/posts/mindfulness-in-virtual-reality-img1.jpg)As I'm writing this, I'm sitting on a couch at the Ace Hotel in New York next to Gwen Bell. If you haven't seen the interior of the Ace Hotel, google it. It's astonishing. Basically, it feels like you've time traveled back to the 1940s, where everything was beautiful and you're a part of it. It's doing it's best to represent the golden age of amazingness.
+
+The thing is, the 1940s didn't look at all like the Ace Hotel. The rustic metal tables, the luxuriously simple Edison bulbs that Edison never would have dreamed of creating. The couch we're sitting on has so many buttons on it, like 160 buttons probably, it's just absurd.
+
+Basically, The Ace Hotel is virtual reality manifested in real reality. It's a dream world that's been constructed in real space and time. It doesn't matter that it doesn't look at all like the past, you still feel like you're there.
+
+In fact, you're not in the past at all. The Ace Hotel is the future. We want to feel like we're connected to the past, and thus we're teleporting ourselves into the future where everything feels and looks like amazingness.
+
+Ray Kurzweil believes that in a very short time we're not going to need to build virtual reality in reality like the Ace Hotel has done here in New york. Instead virtual reality will become indistinguishable from what is real. Instead of transporting our bodies from where we live to 29th Street and Broadway, we will teleporting our minds to places that look and feel real.
+
+Like woah! Craziness, right? But not so much. We're already doing this with increasingly complex games like World of Warcraft and Second Life, but soon we're going to get to a point where we can shut down our neural receivers and plug in an experience that looks and feels exactly like the Ace Hotel, but probably a million times better.
+
+We won't be conscious of the fact that we're sitting on a rustic/destroyed couch that feels like they beamed it to the future. Instead, we'll be in a world where anything is possible. If we want to be in the past, we'll be there. If we want to be in never never land, we'll be there. Why wouldn't we want to be?
+
+Everyone will want to be a part of this, the problem is that no one will know how to deal with it. We're all going to jump in head first to whatever reality we want to be in, and in the meantime we're going to forget about our physical selves. We do still have physical bodies. They are real, and our experience of virtual reality is highly dependent on how our physical bodies feel.
+
+Our second self will not be beautiful if we aren't beautiful. We can't be beautiful if we don't eat right, or practice our yoga (or whatever practice you prefer.)
+
+-
+
+Let's rewind back to the future that we're living in now. Everyone around us is texting from New York to LA, when there's a real human being across the table from them. This isn't presence, it's absence. Ambient intimacy is amazing, but there's a real human across the table from you, and they need you to be here with them.
+
+How do we get there? I believe it has to do with cultivating your second self.
+
+When you have a second self that's strong enough to take care of you, you no longer need to be waiting around for that SMS message from LA. Your second self can take care of it for you.
+
+When we think of cyborgs, the first thing that comes to mind is people who are plugged in, tethered to their phones or soon their headsets. The thing is, it isn't the cyborgs who are tethered, it's the humans. They're the ones who are being forced to be ready all of the time for another incoming message from the ethersphere.
+
+The truth is that the more people I meet from cyborgia, the more I realize that they're all incredibly present in their real lives. They have another self that's out there, working incredibly well for them -- why be on the Internet all day long? They only need to check in for an hour a day, or every once in awhile they'll plug into Twitter for a little dose of ambient intimacy if they need it.
+
+Eventually, we get to a point with being a cyborg that we don't need to check in with our second self at all. We simply let it do it's thing, it takes care of us, and we sit back, relax and enjoy the show that is real life.
+
+Being present with the person who's sitting next to your at the Ace Hotel is what is beautiful. Not waiting for another text from LA.
+
+-
+
+When reality becomes indistinguishable from virtual reality, this will only become more insane for the ones of us who haven't developed these second selves. If we haven't, we'll be force to beam back and forth into different virtual worlds for the whims of others.
+
+If we wanted to hang out at the the V-Ace Hotel all day long, we can't, because someone wants us to come to the V-McDonalds for a crap cup of coffee. Just like we can't respond to every email that comes in from randomness, we can't be expected to jump between virtual worlds at everyone else's beck and call. It just won't be emotionally or physically sustainable for our human bodies as we traverse the real world.
+
+We're going to have to set expectations for how others interact with us in virtual worlds, especially when we can't tell the difference between there and here. Our second selves will have to deal with all of the incoming noise, from the space and also from other humans who want us.
+
+Just as now I can't be expected to personally respond to every email that I receive asking me 'WTF is a cyborg?'. You won't be expected to beam to V-Starbucks and personally meet with anyone who wants to see you. You're going to have to let your second self bring all of these people up to speed.
+
+In fact, email will soon be obsolete for most cyborgs. So will Facebook. Cyborgs only use Twitter to communicate, which builds intuition. Eventually they may not need Twitter at all.
+
+This future is uncertain, that's for sure. Initially we don't trust our second selves, we aren't sure if we gave them the right information in order to teach the others who are interested in our work about the work that they need to learn about.
+
+In essence, you'll be less successful in the future if you try to do everything yourself. Everyone else will be outsourcing all of most people's experience to their second selves, and if you insist on doing everything yourself. Just as you might be doing now with your own interactions online, you'll end up supernovaing if you don't build a second self that takes care of you.
+
+-
+
+I'm writing my next book on Letter.ly, which is a subscription-based email service. Until February 1st 2011, you'll be able to subscribe for $20 per month. You can unsubscribe at any time. There's an unsubscribe link at the bottom of every email you receive.
+
+For more on how Letter.ly works, see Ross Hill's post on how to use it.
+
+I currently subscribe to two incredibly valuable Letter.ly newsletters. The first is Ross Hill's, the second is Crystal Silver's. More bloggers will be switching to this platform, because creation is evolving away from blogs and towards paid subscription content.
+
+My new book is about how to build a second self that will take care of your physical body. Essentially achieving financial freedom and location independence. It isn't for everyone, but many people have and will achieve this.
+
+I'll be posting much less on this blog, and more on the letter.ly. I'm doing this because the work I'm doing now is right on the border of genius/insanity. Information like this can rip people through the space/time continuum in a way that burns people's brains. I need to know who's getting it, and help them understand what's happening to them when they read it.
+
+If you join now you'll be locked in at the $20 rate unless you unsubscribe. The subscription price will be going up on February 1st.

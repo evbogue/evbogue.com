@@ -8,39 +8,75 @@ excerpt: "If you caught me a year ago and asked me whether I could have left my 
 original_source_pdf: "fbts_evbogue_mnml/20100304_How to Succeed by Being Completely Unrealistic.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-succeed-by-being-completely-unrealistic/"
 wayback_snapshot_url: "https://web.archive.org/web/20100527092231/http://www.farbeyondthestars.com/how-to-succeed-by-being-completely-unrealistic/"
+archive_status: "restored"
+restored_on: "2026-05-03"
+restoration_note: "Mechanical cleanup only; original essay preserved."
 ---
 
-<p><a href="http://www.flickr.com/photos/bogue/4401949418/"><img class="alignleft" src="/assets/posts/how-to-succeed-by-being-completely-unrealistic-img1.jpg" alt="" width="263" height="350"/></a>If you caught me a year ago and asked me whether I could have left my job, started a very small business, and would be earning enough passive income to live in New York City in only one year&#8217;s time, I would have told you that you were crazy.</p>
-<p>And yet, here I am, doing all of those things.</p>
-<p>In July of 2009, I set a series of seemingly unrealistic expectations, (to myself at the time), all of which have come true in a remarkably short period of time.</p>
-<p><strong>The reason is simple: it&#8217;s lonely at the top.</strong></p>
-<p>99% of the people in the world are content to exist within the confines of their own settled mediocrity. The boredom of sitting under florescent lights all day begins to set in over time. Their current situation burns into their psyche, and they stagnate.</p>
-<p>The thought of rejecting the status-quo scares the crap out of them.</p>
-<p>It starts with the idea that you have to be realistic. Everyone knows a horde of people who either are being realistic or will tell you to be realistic. Well, these people are wrong. They&#8217;re blinded by their own passivity.</p>
-<p>They&#8217;ve given up. They&#8217;re walking zombies. You don&#8217;t want to be one of these people.</p>
-<p>And more importantly, <a href="http://www.google.com/url?sa=t&amp;source=web&amp;ct=res&amp;cd=8&amp;ved=0CB0QFjAH&amp;url=http%3A%2F%2Fwww.farbeyondthestars.com%2F%3Fp%3D782&amp;ei=TcuOS8XAFIjOlAeh3MivDQ&amp;usg=AFQjCNFfgVOXQAqbDctjDSrXMQxM86_juQ&amp;sig2=GpHf_bGbRknNmZsOlHNSKw">don&#8217;t  listen to these people</a>.</p>
-<p>They call them worker drones for a reason. These people are not being compared to busy bees, they&#8217;re being compared to <a href="http://www.google.com/url?sa=t&amp;source=web&amp;ct=res&amp;cd=1&amp;ved=0CAYQFjAA&amp;url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FBorg_(Star_Trek)&amp;ei=aU-NS765EYTSlAeBi9V6&amp;usg=AFQjCNE0pz0piVhbjmic8ZFI8pe81BqmzA&amp;sig2=ZAZYjpRKAmnAkhwsh4mofA">The Borg</a>.</p>
-<p>Does this sound familiar? When you look at yourself in the mirror are you beginning to see the last remnants of life seeping out of your soul?</p>
-<p><strong>It&#8217;s never too late to start having unreasonable expectations for yourself. </strong></p>
-<p>You can make a change, you can make a difference in your own life and the lives of others.</p>
-<p>Since I&#8217;ve already achieved my &#8220;unrealistic&#8221; goal of living and working from anywhere and earning at least $30,000 a year (by current approximations) it&#8217;s time to up the ante.</p>
-<p>Here&#8217;s my new unreasonable goal: By this time next year I want to earn $100,000 a year, in addition to all of the other accomplishments I&#8217;ve unrealistically achieved over the last four months.</p>
-<p>I don&#8217;t want to do this so I can spend it all on hookers and plasma TV&#8217;s. Because of my minimalist lifestyle, I&#8217;ve estimated that I can live comfortably making around $25,000. When I make this unrealistic amount of money, I will use it to help as many people as I can achieve exactly what I did. This blog will teach how to achieve everything that I&#8217;ve accomplished.</p>
-<p>But enough about my unrealistic goals, and more about yours.</p>
-<p><strong>Here are 13 ways to start thinking about achieving unrealistic success.</strong></p>
-<p><strong>1. Set at least one unrealistic goal to achieve in the next year.</strong> I&#8217;ve become a firm believer that everyone should set unrealistic goals for themselves. Take a moment and think, draw, write down your unrealistic goals. For reference: last year my unrealistic goal was to work from anywhere, quit my job, and move to another city. Done. Done. Done.</p>
-<p><strong>2. Map out your ideal life.</strong> So you&#8217;ve set your unrealistic goals, now you need to visualize them. Tim Ferriss calls this practice <a href="http://www.google.com/url?sa=t&amp;source=web&amp;ct=res&amp;cd=3&amp;ved=0CBQQFjAC&amp;url=http%3A%2F%2Fwww.jetsetlife.tv%2Frobsblog%2Fdreamlining-the-four-hour-work-week-and-living-jet-set%2F&amp;ei=BlCNS4T4CNXGlAeDpMh6&amp;usg=AFQjCNH6fVIJ1kWzgxaBzxj6gbgpPFiGxA&amp;sig2=jKNiQxzrLKyt_1dzIVNeWA">Dreamlining</a>. It&#8217;s the idea of mapping out your unrealistic ideal life. On that piece of paper, start adding more details to the unrealistic world you&#8217;re creating. Do you want to be sipping margaritas on the beach? Swigging wine with <a href="http://www.exilelifestyle.com/">Colin Wright in New Zealand</a>? Training to run marathon? Ask the girl of your dreams out on a date? Write it all down: but please, do NOT be realistic.</p>
-<p><strong>3. Change your career.</strong> Have you always wanted to be a writer? A photographer? A chef? Now is the time to make that change in your life. Now, I don&#8217;t want you to be an ordinary member of these careerists. I want you to think unrealistically: contemplate how you can rise to become the best in your field in just one year, using very few resources. It&#8217;s hard, but possible.</p>
-<p><strong>4. Remove the floor.</strong> Many people exist with a constant safety net to catch them if they fall. What if you remove that net? Take it away, and then start to have unreasonable expectations for yourself. The Bahamas or the gutter, which will it be? You&#8217;ll have no choice to fly to the top, because there are no other options.</p>
-<p><strong>5. Be unrealistic about what you don&#8217;t need.</strong> Just like thinking about what you unrealistically want, but the opposite. What can you survive without? Basically, everything. You can live in a room, eat Brussels sprouts and be happy. It&#8217;s very hard to hit the bottom when you have big ambitions. Trust me, I&#8217;ve tried to hit the bottom.</p>
-<p><strong>6. Learn a new skill that you never thought you could master.</strong> When I was 16, I decided that I had to go to New York. The only way I could see to do that, at the time, was to become a professional ballet dancer. So, I took 14-17 dance classes a week for months on end. I lost 40lbs and became a vegetarian. Eventually I auditioned for NYU&#8217;s Tisch dance department and was one of 24 dancers accepted into their program. I did the same routine with this blog. What can you train to do that&#8217;s theoretically impossible?</p>
-<p><strong>7. Gatejump your way to unrealistic success.</strong> The last 150 years were defined by Gatekeepers. These were the head honchos in charge. A few television networks, newspapers, and publishing houses had all of the power. But no longer: everything has changed. If you&#8217;re still waiting for a Gatekeeper to come along and let you in, you&#8217;re going to be waiting a long time. We now live in a bottom-up media society, and everyone has the power to develop a following on the Internet. These <a href="http://www.amazon.com/gp/product/1591842336?ie=UTF8&amp;tag=farbeythestam-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1591842336">Tribes</a> are the basis for our existence. These people who support you are your power. How can you harness your tribe to <a href="http://www.google.com/url?sa=t&amp;source=web&amp;ct=res&amp;cd=1&amp;ved=0CAoQFjAA&amp;url=http%3A%2F%2Finoveryourhead.net%2Fwhy-gatejumping-is-vital%2F&amp;ei=IlGNS9nOOpWMlAepk715&amp;usg=AFQjCNEttozCvNrxNikcS9ZXhlmYT1AQ6w&amp;sig2=Eo3rZdrBY2-UdOWX83p2lQ">Gatejump your way to success</a>?</p>
-<p><strong>9. Leave your old life behind. </strong>Over time we humans get sedentary. We have our old friends, our old habits, and we keep returning to them. Where do you want to go? Who do you be? I&#8217;m going to live in Oakland California, and I&#8217;m going to be a blogger who earns $100,000 a year.</p>
-<p><strong>10. Ignore everybody.</strong> People will nay-say you into oblivion, and they are not to be trusted. Do not listen to negative opinions or influences. You are able to accomplish anything if you put your mind to it. And ultimately, it doesn&#8217;t matter anyway, because nothing you do matters. Man has gone to the moon, you can leave your day job, trust me.</p>
-<p><strong>11. Concentrate on existing systems to amplify your unrealistic success.</strong> One of the biggest mistakes that people make when they&#8217;re being unrealistic is to try and build everything from the ground up. Don&#8217;t! There are tools available to amplify your success. Use social media to have a 1:100 connection with your Tribe. Use a blog to publish big ideas. Use automated services to make your income come without effort. Nothing can stop you if you use tools that already exist.</p>
-<p><strong>12. Quit early and often.</strong> If you&#8217;re unrealistic and it&#8217;s not working, don&#8217;t be afraid to change course. There&#8217;s a huge difference between being unrealistic and being a stubborn numb-nut. Set your sights above 99% of the population, but don&#8217;t be stupid. If you&#8217;re in <a href="http://www.amazon.com/gp/product/1591841666?ie=UTF8&amp;tag=farbeythestam-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1591841666">The Dip</a>, push on, if you&#8217;re just failing constantly, learn to abandon your projects and focus on ones that have a chance of success.</p>
-<p><strong>13. Read books about achieving unrealistic success.</strong> I owe a great deal of my success to the work of a couple of authors. I&#8217;d suggest reading these books, as they will help you start to think bigger about what you can actually accomplish. There are no doubt many more books that will encourage you to think  unrealistically, these are just a few of my inspirations. <a href="http://www.amazon.com/gp/product/1591843162?ie=UTF8&amp;tag=farbeythestam-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1591843162">Linchpin</a> by Seth Godin. <a href="http://www.amazon.com/gp/product/1401309704?ie=UTF8&amp;tag=farbeythestam-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=1401309704">The Power of Less</a> by Leo Babauta. <a href="http://www.amazon.com/gp/product/0307465357?ie=UTF8&amp;tag=farbeythestam-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0307465357">The 4 Hour Workweek</a> by Timothy Ferriss. <a href="http://www.amazon.com/gp/product/0470743085?ie=UTF8&amp;tag=farbeythestam-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0470743085">Trust Agents</a> by Chris Brogan and Julien Smith.</p>
-<p>&#8211;</p>
-<p><img class="alignleft" src="/assets/posts/how-to-succeed-by-being-completely-unrealistic-img2.png" alt="" width="175" height="175"/>It&#8217;s my birthday today. I&#8217;m 25. The best gift you could give me is to purchase a copy of <a href="http://www.artofbeingminimalist.com/"><em>The Art of Being Minimalist</em></a>. It&#8217;s only $9.95.</p>
-<p>If you&#8217;ve already purchased the book, thank you so much. I&#8217;d love it if you could email your copy to five friends.</p>
-<p>Thank you.</p>
+![](/assets/posts/how-to-succeed-by-being-completely-unrealistic-img1.jpg)If you caught me a year ago and asked me whether I could have left my job, started a very small business, and would be earning enough passive income to live in New York City in only one year's time, I would have told you that you were crazy.
+
+And yet, here I am, doing all of those things.
+
+In July of 2009, I set a series of seemingly unrealistic expectations, (to myself at the time), all of which have come true in a remarkably short period of time.
+
+**The reason is simple: it's lonely at the top.**
+
+99% of the people in the world are content to exist within the confines of their own settled mediocrity. The boredom of sitting under florescent lights all day begins to set in over time. Their current situation burns into their psyche, and they stagnate.
+
+The thought of rejecting the status-quo scares the crap out of them.
+
+It starts with the idea that you have to be realistic. Everyone knows a horde of people who either are being realistic or will tell you to be realistic. Well, these people are wrong. They're blinded by their own passivity.
+
+They've given up. They're walking zombies. You don't want to be one of these people.
+
+And more importantly, don't  listen to these people.
+
+They call them worker drones for a reason. These people are not being compared to busy bees, they're being compared to The Borg.
+
+Does this sound familiar? When you look at yourself in the mirror are you beginning to see the last remnants of life seeping out of your soul?
+
+**It's never too late to start having unreasonable expectations for yourself. **
+
+You can make a change, you can make a difference in your own life and the lives of others.
+
+Since I've already achieved my "unrealistic" goal of living and working from anywhere and earning at least $30,000 a year (by current approximations) it's time to up the ante.
+
+Here's my new unreasonable goal: By this time next year I want to earn $100,000 a year, in addition to all of the other accomplishments I've unrealistically achieved over the last four months.
+
+I don't want to do this so I can spend it all on hookers and plasma TV's. Because of my minimalist lifestyle, I've estimated that I can live comfortably making around $25,000. When I make this unrealistic amount of money, I will use it to help as many people as I can achieve exactly what I did. This blog will teach how to achieve everything that I've accomplished.
+
+But enough about my unrealistic goals, and more about yours.
+
+**Here are 13 ways to start thinking about achieving unrealistic success.**
+
+**1. Set at least one unrealistic goal to achieve in the next year.** I've become a firm believer that everyone should set unrealistic goals for themselves. Take a moment and think, draw, write down your unrealistic goals. For reference: last year my unrealistic goal was to work from anywhere, quit my job, and move to another city. Done. Done. Done.
+
+**2. Map out your ideal life.** So you've set your unrealistic goals, now you need to visualize them. Tim Ferriss calls this practice Dreamlining. It's the idea of mapping out your unrealistic ideal life. On that piece of paper, start adding more details to the unrealistic world you're creating. Do you want to be sipping margaritas on the beach? Swigging wine with Colin Wright in New Zealand? Training to run marathon? Ask the girl of your dreams out on a date? Write it all down: but please, do NOT be realistic.
+
+**3. Change your career.** Have you always wanted to be a writer? A photographer? A chef? Now is the time to make that change in your life. Now, I don't want you to be an ordinary member of these careerists. I want you to think unrealistically: contemplate how you can rise to become the best in your field in just one year, using very few resources. It's hard, but possible.
+
+**4. Remove the floor.** Many people exist with a constant safety net to catch them if they fall. What if you remove that net? Take it away, and then start to have unreasonable expectations for yourself. The Bahamas or the gutter, which will it be? You'll have no choice to fly to the top, because there are no other options.
+
+**5. Be unrealistic about what you don't need.** Just like thinking about what you unrealistically want, but the opposite. What can you survive without? Basically, everything. You can live in a room, eat Brussels sprouts and be happy. It's very hard to hit the bottom when you have big ambitions. Trust me, I've tried to hit the bottom.
+
+**6. Learn a new skill that you never thought you could master.** When I was 16, I decided that I had to go to New York. The only way I could see to do that, at the time, was to become a professional ballet dancer. So, I took 14-17 dance classes a week for months on end. I lost 40lbs and became a vegetarian. Eventually I auditioned for NYU's Tisch dance department and was one of 24 dancers accepted into their program. I did the same routine with this blog. What can you train to do that's theoretically impossible?
+
+**7. Gatejump your way to unrealistic success.** The last 150 years were defined by Gatekeepers. These were the head honchos in charge. A few television networks, newspapers, and publishing houses had all of the power. But no longer: everything has changed. If you're still waiting for a Gatekeeper to come along and let you in, you're going to be waiting a long time. We now live in a bottom-up media society, and everyone has the power to develop a following on the Internet. These Tribes are the basis for our existence. These people who support you are your power. How can you harness your tribe to Gatejump your way to success?
+
+**9. Leave your old life behind. **Over time we humans get sedentary. We have our old friends, our old habits, and we keep returning to them. Where do you want to go? Who do you be? I'm going to live in Oakland California, and I'm going to be a blogger who earns $100,000 a year.
+
+**10. Ignore everybody.** People will nay-say you into oblivion, and they are not to be trusted. Do not listen to negative opinions or influences. You are able to accomplish anything if you put your mind to it. And ultimately, it doesn't matter anyway, because nothing you do matters. Man has gone to the moon, you can leave your day job, trust me.
+
+**11. Concentrate on existing systems to amplify your unrealistic success.** One of the biggest mistakes that people make when they're being unrealistic is to try and build everything from the ground up. Don't! There are tools available to amplify your success. Use social media to have a 1:100 connection with your Tribe. Use a blog to publish big ideas. Use automated services to make your income come without effort. Nothing can stop you if you use tools that already exist.
+
+**12. Quit early and often.** If you're unrealistic and it's not working, don't be afraid to change course. There's a huge difference between being unrealistic and being a stubborn numb-nut. Set your sights above 99% of the population, but don't be stupid. If you're in The Dip, push on, if you're just failing constantly, learn to abandon your projects and focus on ones that have a chance of success.
+
+**13. Read books about achieving unrealistic success.** I owe a great deal of my success to the work of a couple of authors. I'd suggest reading these books, as they will help you start to think bigger about what you can actually accomplish. There are no doubt many more books that will encourage you to think  unrealistically, these are just a few of my inspirations. Linchpin by Seth Godin. The Power of Less by Leo Babauta. The 4 Hour Workweek by Timothy Ferriss. Trust Agents by Chris Brogan and Julien Smith.
+
+-
+
+![](/assets/posts/how-to-succeed-by-being-completely-unrealistic-img2.png)It's my birthday today. I'm 25. The best gift you could give me is to purchase a copy of *The Art of Being Minimalist*. It's only $9.95.
+
+If you've already purchased the book, thank you so much. I'd love it if you could email your copy to five friends.
+
+Thank you.

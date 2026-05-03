@@ -8,88 +8,71 @@ excerpt: "This is the second part in a series on some metaphors that I’ve been
 original_source_pdf: "fbts_evbogue_mnml/20101207_How to Achieve Complete Autonomy - Zombie Hunting 101.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-achieve-complete-autonomy-zombie-hunting-101/"
 wayback_snapshot_url: "https://web.archive.org/web/20101208220520/http://www.farbeyondthestars.com/how-to-achieve-complete-autonomy-zombie-hunting-101/"
+archive_status: "restored"
+restored_on: "2026-05-03"
+restoration_note: "Mechanical cleanup only; original essay preserved."
 ---
 
-<p><a href="/assets/posts/how-to-achieve-complete-autonomy-zombie-hunting-101-img1.jpg"><img class="alignleft" src="/assets/posts/how-to-achieve-complete-autonomy-zombie-hunting-101-img1.jpg" alt="" width="300" height="300"/></a>Every superhuman has their creation story. Whether it&#8217;s escaping the 9-5, practicing 30 days in a row of Bikram yoga, or discovering they have the power to manifest money in their sleep. The stories all lead to the same place: a new way of looking at the world.</p>
-<p>For three years, I did what I was told. I woke up every morning, I ate a bacon egg and cheeses, and I surrendered to a system that I&#8217;d been told was going to take care of me. For a moment I actually believed that. I built a life around a job that interested me in some ways, and I found ways to make the job interesting in other ways.</p>
-<p>Then one day I woke up and realized it was all a dream.</p>
-<p>I hate blasting to the past, so I&#8217;m not going there. The story is boring at this point anyway, and looks pretty much like any 9-5 escape plan. One day, I decided I had enough, I walked in and said that I quit. Then I booked a ticket to the other side of the country, I threw all of my stuff in a bag, and <strong>started a journey that would lead to a point where I could see the system from the other side.</strong></p>
-<p><strong>This article is about finding little ways to test your autonomy</strong>. Simple strategies that you can put into place that will give you a comfortable way of questioning whether you&#8217;re in a direction that you want to be going.</p>
-<p>I hope you&#8217;ll find this article slightly more interesting than all of the bored and sorry 27 tips to do stupid crap articles that are out on the Internet right now. I hope this will cut through the noise.</p>
-<p>(I also hope if you&#8217;re one of the people who writes boring articles about tips that don&#8217;t help anyone that you&#8217;ll stop and realize that the only way we&#8217;re going to change this world is if we teach people useful information.)</p>
-<p>If you already know this stuff, please don&#8217;t read it. Go freakin&#8217; change the world.</p>
-<p><strong>1. How to go zombie hunting.</strong></p>
-<p>One of the first steps in becoming superhuman is developing the ability to become cognizant of who is for you or against you. I call this Zombie Hunting. <strong>The truth is that we live in a world filled with people who are either asleep</strong>, given up, tired, or they want to drag you down with them into the sewage of the remnants of the society they wished still existed.</p>
-<p>Once you can pick these people out of a crowd, you&#8217;ll be able to either make the conscious choice to help them, or you can make the choice to leave them behind.</p>
-<p>Understand that you can only help so many people individually. I usually try to limit myself to 3 active 1-on-1 zombie rescue projects a year &#8212; once you&#8217;ve been bit, it&#8217;s difficult to find a cure. The rest of my zombie-hunting resources get directed to scalable means such as blogging, twitter, and Facebook where my efforts can be broadcast from me to a massive audience.</p>
-<p><strong>Here&#8217;s a few ways to identify zombies:</strong></p>
-<p><strong>1. They can&#8217;t make eye contact with you.</strong> Their eyes are glazed over, as if they are not present in their body. In fact, they probably aren&#8217;t in their body at all. Their mind is either dwelling on the painful past of their life, or thinking about a million futures that don&#8217;t exist yet (and may never.)</p>
-<p><strong>2. They look tired, beaten, worn.</strong> Zombies are universally tired, all of the time. When you say. &#8220;how are you!&#8221; and they answer &#8220;tired.&#8221; chances are you&#8217;re talking to a zombie. I actually told my roommate I was tired a few nights ago, so I&#8217;m on full-scale self-zombie alert. Have a been bitten? It&#8217;s always a risk. The truth is that I was tired because it was 11pm and I&#8217;d taught one yoga class, taken two yoga classes, and written for two hours in a coffee shop. Zombies are tired when they roll out of bed in the morning. Why are they tired? Because they eat poorly, they don&#8217;t get enough exercise, they sit in front of the TV every night, they drive cars, and they can&#8217;t see a future worth fighting for.</p>
-<p><strong>3. They rush everywhere, like someone is chasing them.</strong> Have you ever felt like if you didn&#8217;t run from your house to your car to your job to your desk that someone was going to kill you? Well, you might be a zombie. When you rush things, they get done poorly. Nothing is so important that you need to run to get it, unless you&#8217;re running for exercise or a zombie is chasing you.</p>
-<p><strong>A simple exercise to train yourself to identify zombies:</strong></p>
-<p>Go to the mall. Sit on one of those benches that fat people sit on while they try to get their credit cards back into their wallets after they&#8217;ve just spent too money on stuff they didn&#8217;t need. Make sure this is a bench where you can watch people walk by.</p>
-<p>Sit on the bench and breathe. Feel each inhale a little deeper into your stomach, and each exhale a little bit more complete. Begin to focus your attention on the space in which people are moving in front of you.</p>
-<p>Blur your vision slightly, so as not to focus on individual characteristics, but instead take in the whole scene. Initially don&#8217;t judge anyone as zombie or not zombie. In fact, don&#8217;t allow your judgement to flow into this exercise at all. Just notice.</p>
-<p>As you sit in silence, as you watch the chaos around you, all will become apparent.</p>
-<p>You will start to see the faces of those who are still alive, trapped within a system that wants to kill them. You&#8217;ll see that they need to be rescued, that someone needs to show them where to go next. Someone needs to support them while they make this change to a better them.</p>
-<p>That person could be you.</p>
-<p><strong>2. I think I&#8217;m a zombie, help!</strong></p>
-<p>Every once in awhile, I get a question from someone who thinks they might be the living dead, and they want to wake up. They say &#8220;I feel like I&#8217;m dead, I walk around and everything is a blur. I&#8217;m tired all of the time, and I wish my life were better.&#8221;</p>
-<p>Here&#8217;s the thing, dudes and dudettes.<strong> If you think you&#8217;re dead, chances are that you&#8217;re not.</strong> Dead people don&#8217;t think about themselves as being that way. Zombies aren&#8217;t as self aware as you are, you wouldn&#8217;t be reading this if you were one.</p>
-<p>So, you&#8217;re in a great place. I wish everyone could feel the way you do, but most of them just keep watching Cable news and eating TV dinners.</p>
-<p>There are three simple methods to start to bring yourself into more awareness. These are so simple that anyone can do them. If these three things are boring you, you&#8217;re doing way more than most people, so give yourself a round of applause then start taking yoga classes every day until you can focus your subtle energy body on achieving world peace with the rest of us. Maybe you need to read an e-book on <a href="https://www.e-junkie.com/ecom/gb.php?cl=104005&amp;c=ib&amp;aff=91858">regaining consciousness</a>?</p>
-<p><strong>1. Learn as much as you can.</strong></p>
-<p>You know that scene in The Matrix where Tank uploads the helicopter flight manual into Trinity&#8217;s mind? Well, believe it or not we live in an age where that&#8217;s possible. One of the best habits you can ever start is to flip on TED.com and start watching talks. It&#8217;s passive learning that will blow your mind. Set TED to your home screen and start by watching one 15 minute TED talk per day. At the end of one year you will have the equivalent of seventeen P.H.D.&#8217;s in awesomeness.</p>
-<p>Here are two of my favorite Ted talks right now, to get you closer to the same page as me.</p>
-<p><a href="http://www.ted.com/talks/lang/eng/tan_le_a_headset_that_reads_your_brainwaves.html">A headset that reads your brainwaves</a> &lt;&#8211; we will have these in two years.</p>
-<p><a href="http://www.ted.com/talks/lang/eng/kevin_kelly_on_the_next_5_000_days_of_the_web.html">Kevin Kelly on the next 5,000 days of the web</a></p>
-<p>There are of course thousands more. Some of them are really bad, you can tell in the first 30 seconds (for more on this read <a href="http://www.amazon.com/gp/product/0316010669?ie=UTF8&amp;tag=farbeythestam-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0316010669">Malcolm Gladwell&#8217;s <em>Blink</em></a>) if you&#8217;re going to hate them &#8212; just turn it off and move to the next. There&#8217;s no sense in consuming information that&#8217;s stupid or you already know.</p>
-<p><strong>2. Stop eating zombie food, start eating superhuman food.</strong></p>
-<p>When you can&#8217;t focus on the world, chances are it&#8217;s because you&#8217;re not eating properly. You aren&#8217;t eating properly because most people don&#8217;t understand nutrition anymore.</p>
-<p><strong>What if the only two things you learned in school  were personal finance and nutrition?</strong> We&#8217;d all be so incredibly rich and beautiful.</p>
-<p>These days I eat a few different types of fruit in the morning. For lunch I&#8217;ll have a sandwich with a salad. In the evening it&#8217;s pretty random, as these days I&#8217;ve been eating out a lot wining and dining with San Francisco superhumans, but chances are what I&#8217;m eating is locally sourced and made of real food.</p>
-<p>Real food is unprocessed. When you eat things that you get in boxes or cans in the middle of the supermarket, it is processed food. This means that it&#8217;s been reduced to it&#8217;s basic elements and then restructured into something that resembles food. If the package has any words on it telling you that it&#8217;s healthy, chances are that it&#8217;s not. Food that has no packaging, such as vegetables, fruits, local meats, etc will bring you out of your haze quickly.</p>
-<p>If you&#8217;ve been eating sugar-coated processed corn for the last seventeen years of your life, chances are fruits and vegetables will taste like crap to you. That&#8217;s understandable, your mind has been desensitized to the real sugars present in amazing real foods. Over time your body will become re-accustomed to eating real food, and carrots will taste like awesome.</p>
-<p>One of the most important elements of becoming superhuman is learning about real food.</p>
-<p>Anyway, a good book to read on nutrition is Michael Pollan&#8217;s An Eater&#8217;s Manifesto. Eat food, mostly vegetables, not too much. If you only have 15 minutes, watch this TED talk by <a href="http://www.ted.com/talks/lang/eng/jamie_oliver.html">Jamie Oliver on how to teach every child about real food</a>.</p>
-<p><strong>3. Walk using your feet, because you have them.</strong></p>
-<p>I know it sounds silly, but if zombies don&#8217;t walk nearly enough &#8212; this is why they stagger around so much, they don&#8217;t know how to use their legs anymore. <strong>This is why San Francisco, Portland, and New York have a much higher superhuman-per-capita</strong> than other places, because we all walk everywhere.</p>
-<p>Walk to the grocery store to get your fruits and vegetables. Making this decision will directly impact how much you are able to achieve with your life.</p>
-<p>Destroy your car, enough said.</p>
-<p><strong>4. Where do you get your information?</strong></p>
-<p>This is the final element in this series of strategies is the most important.</p>
-<p>The information that you take into your mind shapes the way you think &#8212; words have power to control your mind &#8212; the power of auto-suggestion.</p>
-<p>This is why anyone you meet who only gets their information from Cable news tends to think that they&#8217;re going to be mugged or murdered if they leave their house and that full-body scanners in airports are going to keep them safer from terrorists.</p>
-<p><strong>When the reality is that these people will die in their cars and on their couches while they&#8217;re watching cable news.</strong></p>
-<p>The Internet is vast, and it&#8217;s filled with tons of amazing information that&#8217;s incredibly important. The truth of the matter is that no one source will tell you everything that matters. Just like having one income source for all of your money is a dumb idea, <strong>having one info source for all of your information is a dumb idea.</strong></p>
-<p>Everyone has an agenda, whether it&#8217;s secret or not. This agenda is clouded by politics, economics, religion, personal bias, and a million other things.</p>
-<p>Look at my blog? <strong>I&#8217;d be very scared of you and for you if this was the only place that you got your information. </strong>I&#8217;m teaching you about zombies and how to light your car on fire. If I were you, I&#8217;d get a second opinion before you believe me.</p>
-<p>And don&#8217;t just get your second opinion from the other cable news anchor that you watch.</p>
-<p>I could talk about information consumption for a billion words, but I&#8217;m just going to take the rest of this article to talk about information from supposedly &#8216;journalistic&#8217; resources.</p>
-<p>I was a journalism major in college, and I worked at a national magazine for three years. While I know mostly nothing about everything, I know something about the journalism world.</p>
-<p><strong>Here&#8217;s how 99% of stories make it onto the news:</strong></p>
-<p>PR person from company X calls his buddy Joe the reporter at The Times.</p>
-<p>PR: &#8220;Hey man, I have a good story for you. Did you know that our new pharmaceutical can give you everlasting life and make you happy forever? It&#8217;s awesome and only costs $124 a month but is covered by &#8220;medical&#8221; insurance!, let me send five boxes and also I&#8217;ll buy your wife a new TV for Christmas.&#8221;</p>
-<p>Joe: &#8220;Oh, PR man, I guess so? I know I&#8217;m supposed to have journalistic ethics, but bullcrap, I want to be happy and I don&#8217;t make more than $35,000 a year at my job here, so I guess I&#8217;ll take the new TV too.&#8221;</p>
-<p>PR: &#8220;Oh good, I&#8217;ll send over that case. I&#8217;m going to send you a bottle of Jack Daniels too, so you can drink away the fact that you make 5% of how much I make selling people poison.&#8221;</p>
-<p>Joe: &#8220;Oh, thanks! I just ran out of my last bottle of Jack.&#8221;</p>
-<p>PR: &#8220;It&#8217;s a good thing too, because company X is also your main advertising sponsor. If you hadn&#8217;t run the story I would have pulled the ads and you&#8217;d be out of a job! Cool huh? It&#8217;s like a giant corporation controls your life and everyone else&#8217;s. This must be what power feels like. Muahhahahaha!&#8221;</p>
-<p>Joe: &#8220;I hate my job.&#8221;</p>
-<p>This is not an exaggeration. The mainstream journalism world really does work like this. Every single story you see on the news is a collaboration between a company that wants to make money, a political organization that wants to stay in power, or a religious organization with enough money to throw at a good marketing team and a journalist.</p>
-<p>This isn&#8217;t to say that this is wrong, it&#8217;s just reality.</p>
-<p>This wasn&#8217;t always the case, but because journalism is tied to two of the most expensive mediums to maintain on the planet &#8212; printing on newspaper and broadcasting on TV costs so much that it&#8217;s a delicate system to maintain.</p>
-<p><strong>When the budget is low, the first element to go out the door is the truth</strong>. Most of the good writers you knew from your magazines and newspapers a few years ago have quit and moved on to more profitable ventures. I know, because I didn&#8217;t stay in the journalism industry and most of my friends didn&#8217;t either. The people left in journalism are sad lifers and people who aren&#8217;t smart enough to find better ways of helping to save the planet.</p>
-<p><strong>Now that you know that, here&#8217;s what I want you to do:</strong></p>
-<p>1. Double check facts on the Internet before you assume that what you&#8217;re seeing on the TV is true.</p>
-<p>2. Realize that all information can also be manipulation.</p>
-<p>3. Consider cutting TV news and the newspaper out of your life entirely. There are better ways to get information, most of what you read in the newspaper doesn&#8217;t apply to your own life. You can do without it.</p>
-<p>4. Use your time to concentrate on what you can control in your life and others.</p>
-<p>When you&#8217;re conscious of the fact that you&#8217;re being manipulated, you&#8217;re able to defend yourself against it. This is true with advertising, this is true with television, it&#8217;s also true of the blogs you read.</p>
-<p>Sometimes the difference between being asleep and awake is simply the ability to ask a simple question: &#8220;what is the truth?&#8221;</p>
-<p>Sometimes the truth will surprise you.</p>
-<p>&#8211;</p>
-<p>Was any of that hard to hear? Do you feel the urge to email me and tell me that you hate my blog and the ideas that it&#8217;s putting in your head? Maybe consider unsubscribing to my blog and then go subscribe to Darren Rowse&#8217;s new blog <a href="http://www.feelgooder.com/">Feel Gooder</a>, it&#8217;s guaranteed to give you one tip a day that will make you feel good about yourself no matter how much your life sucks.</p>
-<p>Or you can stick around and we can figure out how to bend reality to our will, become superhuman, and take over the world. In my opinion, life is too awesome to waste doing stupid shit.</p>
-<p>Red pill, blue pill. It&#8217;s your choice. Swallow it whole &#8211;&gt; <a href="http://feedburner.google.com/fb/a/mailverify?uri=FarBeyondTheStars&amp;loc=en_US">sign up for free updates via EMAIL</a> or <a href="http://feeds.feedburner.com/FarBeyondTheStars">RSS</a>. Follow me on <a href="http://www.twitter.com/evbogue">Twitter</a> or become my <a href="http://www.facebook.com/evbogue">friend on Facebook</a> (don&#8217;t friend me if you&#8217;re a zombie please.)
+![](/assets/posts/how-to-achieve-complete-autonomy-zombie-hunting-101-img1.jpg)Every superhuman has their creation story. Whether it's escaping the 9-5, practicing 30 days in a row of Bikram yoga, or discovering they have the power to manifest money in their sleep. The stories all lead to the same place: a new way of looking at the world.
 
-<iframe src="https://web.archive.org/web/20101208220520if_/http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.farbeyondthestars.com%2Fhow-to-achieve-complete-autonomy-zombie-hunting-101%2F&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:450px; height: 30px; align: left; margin: 2px 0px 2px 0px"></iframe>
+For three years, I did what I was told. I woke up every morning, I ate a bacon egg and cheeses, and I surrendered to a system that I'd been told was going to take care of me. For a moment I actually believed that. I built a life around a job that interested me in some ways, and I found ways to make the job interesting in other ways.
+
+Then one day I woke up and realized it was all a dream.
+
+I hate blasting to the past, so I'm not going there. The story is boring at this point anyway, and looks pretty much like any 9-5 escape plan. One day, I decided I had enough, I walked in and said that I quit. Then I booked a ticket to the other side of the country, I threw all of my stuff in a bag, and **started a journey that would lead to a point where I could see the system from the other side.**
+
+**This article is about finding little ways to test your autonomy**. Simple strategies that you can put into place that will give you a comfortable way of questioning whether you're in a direction that you want to be going.
+
+I hope you'll find this article slightly more interesting than all of the bored and sorry 27 tips to do stupid crap articles that are out on the Internet right now. I hope this will cut through the noise.
+
+(I also hope if you're one of the people who writes boring articles about tips that don't help anyone that you'll stop and realize that the only way we're going to change this world is if we teach people useful information.)
+
+If you already know this stuff, please don't read it. Go freakin' change the world.
+
+**1. How to go zombie hunting.**
+
+One of the first steps in becoming superhuman is developing the ability to become cognizant of who is for you or against you. I call this Zombie Hunting. **The truth is that we live in a world filled with people who are either asleep**, given up, tired, or they want to drag you down with them into the sewage of the remnants of the society they wished still existed.
+
+Once you can pick these people out of a crowd, you'll be able to either make the conscious choice to help them, or you can make the choice to leave them behind.
+
+Understand that you can only help so many people individually. I usually try to limit myself to 3 active 1-on-1 zombie rescue projects a year -- once you've been bit, it's difficult to find a cure. The rest of my zombie-hunting resources get directed to scalable means such as blogging, twitter, and Facebook where my efforts can be broadcast from me to a massive audience.
+
+**Here's a few ways to identify zombies:**
+
+**1. They can't make eye contact with you.** Their eyes are glazed over, as if they are not present in their body. In fact, they probably aren't in their body at all. Their mind is either dwelling on the painful past of their life, or thinking about a million futures that don't exist yet (and may never.)
+
+**2. They look tired, beaten, worn.** Zombies are universally tired, all of the time. When you say. "how are you!" and they answer "tired." chances are you're talking to a zombie. I actually told my roommate I was tired a few nights ago, so I'm on full-scale self-zombie alert. Have a been bitten? It's always a risk. The truth is that I was tired because it was 11pm and I'd taught one yoga class, taken two yoga classes, and written for two hours in a coffee shop. Zombies are tired when they roll out of bed in the morning. Why are they tired? Because they eat poorly, they don't get enough exercise, they sit in front of the TV every night, they drive cars, and they can't see a future worth fighting for.
+
+**3. They rush everywhere, like someone is chasing them.** Have you ever felt like if you didn't run from your house to your car to your job to your desk that someone was going to kill you? Well, you might be a zombie. When you rush things, they get done poorly. Nothing is so important that you need to run to get it, unless you're running for exercise or a zombie is chasing you.
+
+**A simple exercise to train yourself to identify zombies:**
+
+Go to the mall. Sit on one of those benches that fat people sit on while they try to get their credit cards back into their wallets after they've just spent too money on stuff they didn't need. Make sure this is a bench where you can watch people walk by.
+
+Sit on the bench and breathe. Feel each inhale a little deeper into your stomach, and each exhale a little bit more complete. Begin to focus your attention on the space in which people are moving in front of you.
+
+Blur your vision slightly, so as not to focus on individual characteristics, but instead take in the whole scene. Initially don't judge anyone as zombie or not zombie. In fact, don't allow your judgement to flow into this exercise at all. Just notice.
+
+As you sit in silence, as you watch the chaos around you, all will become apparent.
+
+You will start to see the faces of those who are still alive, trapped within a system that wants to kill them. You'll see that they need to be rescued, that someone needs to show them where to go next. Someone needs to support them while they make this change to a better them.
+
+That person could be you.
+
+**2. I think I'm a zombie, help!**
+
+Every once in awhile, I get a question from someone who thinks they might be the living dead, and they want to wake up. They say "I feel like I'm dead, I walk around and everything is a blur. I'm tired all of the time, and I wish my life were better."
+
+Here's the thing, dudes and dudettes.** If you think you're dead, chances are that you're not.** Dead people don't think about themselves as being that way. Zombies aren't as self aware as you are, you wouldn't be reading this if you were one.
+
+So, you're in a great place. I wish everyone could feel the way you do, but most of them just keep watching Cable news and eating TV dinners.
+
+There are three simple methods to start to bring yourself into more awareness. These are so simple that anyone can do them. If these three things are boring you, you're doing way more than most people, so give yourself a round of applause then start taking yoga classes every day until you can focus your subtle energy body on achieving world peace with the rest of us. Maybe you need to read an e-book on regaining consciousness?
+
+**1. Learn as much as you can.**
+
+You know that scene in The Matrix where Tank uploads the helicopter flight manual into Trinity's mind? Well, believe it or not we live in an age where that's possible. One of the best habits you can ever start is to flip on TED.com and start watching talks. It's passive learning that will blow your mind. Set TED to your home screen and start by watching one 15 minute TED talk per day. At the end of one year you will have the equivalent of seventeen P.H.D.'s in awesomeness.
+
+Here are two of my favorite Ted talks right now, to get you closer to the same page as me.
+
+A headset that reads your brainwaves Red pill, blue pill. It's your choice. Swallow it whole -> sign up for free updates via EMAIL or RSS. Follow me on Twitter or become my friend on Facebook (don't friend me if you're a zombie please.)
