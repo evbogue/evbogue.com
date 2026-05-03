@@ -23,11 +23,19 @@ Let me also say the other thing, the part I have been avoiding.
 
 The world accelerated while I was being careful.
 
-AI went from a curiosity to infrastructure in roughly two years. The people who picked it up early are running faster now. The people who waited are explaining why they are still thinking about it. And the people who refused are writing blog posts about authenticity on platforms that are feeding their refusal into a training set.
+In 2011 I published an ebook called Augmented Humanity. The argument was that some people were developing superhuman mental tools and others were being left behind. I believed it then. I still believe it. I just stopped acting on it.
+
+AI went from a curiosity to infrastructure in roughly two years. ChatGPT reached 100 million users in two months -- faster than any consumer product in internet history. It hit 700 million by early 2025. By 2026 it was approaching a billion weekly users. This is not a trend you observe from a comfortable distance. This is a rewrite of the operating environment happening in real time.
+
+Ray Kurzweil published "The Singularity Is Nearer" in 2024 and reaffirmed his prediction that AI reaches human-level intelligence by 2029. He then said 2029 was starting to look pessimistic. Andrej Karpathy, the former Tesla AI director, wrote in 2025 that the programmer profession is being "dramatically refactored" and that anyone whose AI knowledge is thirty days out of date already holds obsolete views.
+
+Thirty days.
+
+The people who picked it up early are running faster now. The people who waited are explaining why they are still thinking about it. And the people who refused are writing essays about authenticity on platforms that are feeding their refusal into a training set without asking.
 
 Everyone is getting used whether they said yes or not. The question is whether you are using back.
 
-I was not using back. I was preserving a voice that could not survive the preservation.
+I was not using back. I was preserving a voice that could not survive the preservation. I was the person I warned about in 2011, being left behind while insisting I had a reason.
 
 --
 
