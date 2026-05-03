@@ -47,13 +47,39 @@ Not to write posts from scratch. Not to generate content and stamp my name on it
 
 What they can do is catch an idea before it cools down.
 
-I speak something into a voice memo or a message. The agent transcribes it, finds the sentence that has a pulse, and builds around that. Then I come back and apply judgment: is this true? Is this what I meant? Is this the part that actually matters?
+The capture method is voice memos.
+
+Not sitting at a desk, not opening a markdown file, not waiting for the right moment to write a draft. A voice memo takes thirty seconds. You say the thing. You stop recording. You send it to the agent and keep moving.
+
+This matters because I am not always near a desk. I'm on a river. I'm kayaking. I'm living out of a backpack somewhere with a view and a mediocre wifi signal and absolutely no patience for the performance of sitting down to write a blog post like a civilized person.
+
+The 2010 version of this blog was location independent. That was the whole point. The laptop came with. The bag was small. The income, such as it was, did not require a specific room.
+
+That model still works, but it requires content, and content requires capture, and capture on a river requires something faster than a keyboard.
+
+So: voice memo. Thirty seconds of talking into a phone while the kayak drifts. The agent gets the audio, pulls out the idea, and turns it into a draft that is waiting when the paddle hits the car roof and the day is over.
+
+Then I read it. I decide what's true and what the agent invented from the shape of the thought. I cut the soft parts. I sharpen the ending.
 
 The agent does the lifting. I do the deciding.
 
 This is not dishonest. It is, if anything, more honest than what I was doing before, which was nothing. Not writing because I couldn't get the 2010 voice back on my own, and not willing to write something that felt like a lesser version.
 
 The silence was the dishonest part.
+
+--
+
+There is also a practical case for this, which I might as well say plainly.
+
+A professional blog with a lot of content generates revenue. Not immediately, and not from a single post, but from accumulation. The archive is the asset. Each post is a small machine that earns attention over time, sends people to other posts, builds the case that this is a place worth returning to.
+
+In 2010, I understood this instinctively without being able to say it in those terms. I published constantly. I published too much, sometimes. But the volume was part of how the thing worked.
+
+The voice memo pipeline lets me publish constantly again, without it consuming the day.
+
+Kayak in the morning. Talk about what happened. Post about what happened. Repeat.
+
+That is a publishing operation that fits inside a backpack.
 
 --
 
