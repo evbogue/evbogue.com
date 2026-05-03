@@ -4,107 +4,89 @@ slug: why-i-am-using-agents-to-write-this-blog
 date: 2026-05-03
 tags: [ai, blogging, agents, writing]
 draft: false
-excerpt: "The 2010 voice isn't gone. I just can't get to it anymore. Agents can."
+excerpt: "The 2010 voice isn't gone. I just can't get to it anymore. Agents can. And if that bothers you, you're already behind."
 ---
 
-Here is a confession.
+I lost the voice.
 
-I cannot write the way I wrote in 2010.
+Not the words. Not the ability to string sentences together. The voice. The one that published three posts a week from coffee shops and airports and yoga studios without asking anyone's permission, without knowing how it would turn out, without caring whether the paragraph was structurally sound before it went out the door.
 
-Not because I've gotten worse at writing. I've probably gotten better in the technical sense: cleaner sentences, better structure, fewer crashes into the guardrails of logic. The craft is there.
+That voice is gone from me. I killed it with competence.
 
-But the urgency isn't.
+I got good enough at writing to know when a sentence was weak, and that knowledge destroyed the thing that made the writing work. The recklessness. The willingness to publish something before it was ready, because the thought was alive and that mattered more than the execution.
 
-In 2010, I was writing blog posts at 7am in coffee shops before anyone told me that was a genre. I was announcing things before I knew how they would turn out. I was confessing to wearing $200 Diesel jeans in a minimalism blog without a second thought about whether that was inconsistent, because the inconsistency was the point.
-
-There was a recklessness to it that worked. Not because I was young and reckless, although I was. Because the ideas felt like genuine discoveries happening in real time, and the writing reflected that.
-
-Now I know too much about what I'm doing.
-
-I know when a post has a weak opening. I know when the third paragraph is buying time. I know when I'm writing the careful version instead of the true version. And because I know these things, I fix them before they can do their weird useful damage.
-
-The result is that I write more correctly, and less alive.
+Now I write correctly. Which means I barely write at all.
 
 --
 
-The 2010 archive still exists. It's all here, on this site, restored from PDFs and Wayback snapshots. A hundred and something posts from a blog called Far Beyond the Stars, which I'll always call FBTS because someone else owns the domain now and I'd rather not think about that.
+Let me also say the other thing, the part I have been avoiding.
 
-Those posts have something I cannot fake.
+The world accelerated while I was being careful.
 
-They have the specificity of someone who is figuring things out and saying so. They have the confidence of someone who hadn't yet learned to hedge. They have the unnerving quality of a person talking directly to you from inside whatever room they were in that morning.
+AI went from a curiosity to infrastructure in roughly two years. The people who picked it up early are running faster now. The people who waited are explaining why they are still thinking about it. And the people who refused are writing blog posts about authenticity on platforms that are feeding their refusal into a training set.
 
-Reading them now, I recognize the voice. I just can't get back into it.
+Everyone is getting used whether they said yes or not. The question is whether you are using back.
 
-It's like trying to feel the way you felt about a song before you played it too many times.
+I was not using back. I was preserving a voice that could not survive the preservation.
 
 --
 
-So here is what I'm doing instead.
+So here is what the actual workflow looks like now.
 
-I'm using agents.
+Voice memo. Thirty seconds. I am on the river, I am in the kayak, I am somewhere with a good view and no interest in sitting at a desk. I say the thing. The agent gets the audio and turns it into a draft.
 
-Not to write posts from scratch. Not to generate content and stamp my name on it. The agents don't have opinions. They don't have the experience that accumulated between 2010 and now. They can't tell you what it was actually like to live out of a bag, or what yoga felt like when it was still new, or what the internet felt like before it calcified into what it is today.
+The agent does not have my opinions. It does not know what it felt like to live out of a bag in 2010, or what the blog meant when it was growing, or what it cost to stop. It cannot write from experience it does not have.
 
-What they can do is catch an idea before it cools down.
+What it can do is catch the thought before I edit it to death.
 
-The capture method is voice memos.
+I send thirty seconds of talking. The agent returns a draft. Then I come back and apply the only thing I actually have that the agent does not: judgment. Is this true? Is this what I meant? Does this have a nerve in it, or is it just tidy?
 
-Not sitting at a desk, not opening a markdown file, not waiting for the right moment to write a draft. A voice memo takes thirty seconds. You say the thing. You stop recording. You send it to the agent and keep moving.
-
-This matters because I am not always near a desk. I'm on a river. I'm kayaking. I'm living out of a backpack somewhere with a view and a mediocre wifi signal and absolutely no patience for the performance of sitting down to write a blog post like a civilized person.
-
-The 2010 version of this blog was location independent. That was the whole point. The laptop came with. The bag was small. The income, such as it was, did not require a specific room.
-
-That model still works, but it requires content, and content requires capture, and capture on a river requires something faster than a keyboard.
-
-So: voice memo. Thirty seconds of talking into a phone while the kayak drifts. The agent gets the audio, pulls out the idea, and turns it into a draft that is waiting when the paddle hits the car roof and the day is over.
-
-Then I read it. I decide what's true and what the agent invented from the shape of the thought. I cut the soft parts. I sharpen the ending.
+I cut what is tidy. I keep what has a nerve.
 
 The agent does the lifting. I do the deciding.
 
-This is not dishonest. It is, if anything, more honest than what I was doing before, which was nothing. Not writing because I couldn't get the 2010 voice back on my own, and not willing to write something that felt like a lesser version.
+This is not dishonest. The silence was dishonest. Three years of not publishing because the voice felt wrong was dishonest. The blog is a public record of thinking, and I stopped keeping the record because I was precious about how it sounded.
 
-The silence was the dishonest part.
-
---
-
-There is also a practical case for this, which I might as well say plainly.
-
-A professional blog with a lot of content generates revenue. Not immediately, and not from a single post, but from accumulation. The archive is the asset. Each post is a small machine that earns attention over time, sends people to other posts, builds the case that this is a place worth returning to.
-
-In 2010, I understood this instinctively without being able to say it in those terms. I published constantly. I published too much, sometimes. But the volume was part of how the thing worked.
-
-The voice memo pipeline lets me publish constantly again, without it consuming the day.
-
-Kayak in the morning. Talk about what happened. Post about what happened. Repeat.
-
-That is a publishing operation that fits inside a backpack.
+That was the failure. Not this.
 
 --
 
-The other thing agents do is remember.
+The capture method is voice memos and that is not an accident.
 
-The FBTS archive is all here. The agents can read it. They know what the posts sounded like. They know what topics mattered. They know that the voice was direct and confessional and unafraid of announcing things that hadn't happened yet.
+The 2010 blog was location independent because that was the point. The laptop came with. The bag was small. The income, such as it was, did not require a specific room or a specific continent.
 
-That is useful training data, not because the agents are going to impersonate 2010 Ev, but because they can work against the drift. They can flag when a sentence sounds like LinkedIn. They can find the version of a paragraph that has more in common with writing from the interesting period.
+That is still the operating model. Kayak in the morning. Talk about what happened or what I am thinking. Send it to the agent. Keep moving. Post exists by evening.
 
-I still have to want to say the thing. The agent just helps me say it before it dies in revision.
+That is a publishing operation that fits inside a backpack. That is what the blog was supposed to be. That is what it can be again, if I stop treating the friction as proof of virtue.
+
+High volume matters. Not because more is always better, but because the archive is the asset. One post is a note. A hundred posts is a position. A thousand posts is an institution with a point of view that compounds over time.
+
+The voice memo pipeline is how you get to a thousand posts without the blog becoming a full-time job that destroys the freedom it was supposed to produce.
 
 --
 
-I realize this post might be the most 2010 thing I've written in years, which is either evidence that the system works or evidence that thinking about it too hard brings it back temporarily.
+The FBTS archive is all here, restored from PDFs and Wayback snapshots, over a hundred posts from a blog I ran from 2009 to 2012. I will always call it FBTS. Someone else owns the domain and I would rather not think about that.
 
-Either way, the blog is publishing again.
+The agents have read it. They know what the posts sounded like. They know the voice was direct, confessional, unafraid of announcing things before they happened.
 
-That's the point.
+They use it as a baseline. Not to impersonate a younger version of me, but to push against the drift. When a sentence sounds like a LinkedIn newsletter, the agent knows that is wrong because it has a better reference. When the ending wanders off instead of landing, the agent finds the sharper version.
 
-Not to relitigate what the blog was in 2010, or pretend that a lot of things didn't change in the sixteen years between then and now. I'm not trying to go back. The ideas I had in 2010 were right for that moment, and some of them I no longer believe, and that's fine.
+I still have to want to say the thing. The agent just stops me from killing it in revision.
 
-What I want is the spirit of it: the willingness to say something before it's finished, to use the blog as a place where thinking accumulates in public, to treat readers like people who can handle an idea that hasn't been fully wrapped yet.
+--
 
-Agents are how I get there. Not because I'm lazy, but because the friction was killing it. The gap between having the thought and publishing the post had gotten too wide, and too many things were falling in.
+If this makes you uncomfortable, that is worth examining.
 
-The agents help close the gap.
+The discomfort is usually one of two things. Either you think AI-assisted writing is cheating, in which case I would like to know what you think is being cheated and who holds the trophy. Or you are still waiting to figure out how you feel about AI before you start using it, which is a decision you are making slower than the acceleration warrants.
 
-That's enough.
+The acceleration does not wait for the feeling.
+
+Every month you spend deciding whether AI is philosophically acceptable is a month of output you do not have. It is a month of archive that does not exist. It is a month of thinking that happened but did not get recorded, which means it did not compound, which means it is gone.
+
+I did that for three years. I would not recommend it.
+
+The blog is publishing again.
+
+That is not a small thing. That is the whole thing.
+
+Pick up the tool.
