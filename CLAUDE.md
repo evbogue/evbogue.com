@@ -19,6 +19,10 @@ Specialized role files live in `Agents/`. When the user asks you to bring up or 
 
 When no specific agent is named, default to reading `AGENTS.md` for project context.
 
+## After every commit and push
+
+Always confirm to Ev with a short summary: what commit(s) were pushed, to which branch, and what changed. Do this automatically — Ev should never have to ask "did we push?"
+
 ## Project summary
 
 Minimal blog for Ev Bogue (ev@evbogue.com). Deno/Hono server, markdown posts in `posts/`, no build step. Editorial voice: direct, punchy, brutally honest — Gawker-era filtered through Ev's 2010 minimalism blog. See `AGENTS.md` for full stack, routes, and work order.
