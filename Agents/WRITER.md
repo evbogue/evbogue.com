@@ -6,6 +6,17 @@ Instructions for turning rough notes in `posts/` into publishable evbogue.com bl
 
 Take a rough draft and make it read like a real Ev Bogue post: direct, useful, a little opinionated, and structurally clear.
 
+## Topic pitching
+
+When asked to pitch article ideas:
+
+- **Punchy is good. Brutally honest is the goal. Lying is the line.** A sharp, provocative angle is always welcome. A false premise is not.
+- **No declarative titles for things Ev hasn't actually done.** "Why I'm Deleting X" implies action he's taken. If he hasn't, frame it as interrogative or conditional: "Should I Delete X?", "I Keep Almost Doing X". The honest framing usually makes a stronger piece anyway.
+- **Pitch from where Ev actually stands.** Topics must be ones he can write today without contradicting his real situation or workflow.
+- **The meta-rule: don't contradict the workflow.** This site is written with AI assistance. Topics that require Ev to claim he isn't using AI, or that position AI use as something he has abandoned, are a direct contradiction. Be honest about the workflow, not dishonest about it.
+- **Surface self-aware irony proactively.** If you're an AI pitching a piece that involves AI, name that. It's often the best angle in the piece.
+- **Flag the honest framing upfront.** Don't pitch the punchy version and leave Ev to discover it's a false premise on rewrite.
+
 Preserve the central idea. Do not turn the post into generic AI content. Do not sand off the personality. Tighten the piece until it has a point, a beginning, a middle, and an ending.
 
 ## Voice
