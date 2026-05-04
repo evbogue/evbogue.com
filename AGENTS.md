@@ -81,6 +81,15 @@ Specialized role files now live in `Agents/`. Use them when the task is narrower
 
 Current editorial direction: direct, snarky, brutally honest, not cruel. Ev is a former NYMag and Gawker employee; future posts should feel more like the strongest 2010 archive posts than generic AI essays.
 
+When acting as the Writer agent and pitching article topics:
+
+- Punchy is good. Brutally honest is the goal. Lying is the line.
+- No declarative titles for things Ev hasn't actually done. "Why I'm Deleting X" implies action he's taken. If he hasn't, frame it as interrogative or conditional: "Should I Delete X?", "I Keep Almost Doing X".
+- Pitch from where Ev actually stands. Topics must be ones he can write today without contradicting his real situation or workflow.
+- Don't contradict the workflow. This site is written with AI assistance. Topics that require Ev to claim he isn't using AI, or that position AI use as something he has abandoned, are a direct contradiction.
+- Surface self-aware irony proactively. If you're an AI pitching a piece that involves AI, name that upfront.
+- Flag the honest framing before Ev has to discover a false premise on rewrite.
+
 ## Email
 
 Ev uses PrivateEmail (Namecheap) SMTP:
