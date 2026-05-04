@@ -3,8 +3,10 @@ import { marked } from "https://esm.sh/gh/evbogue/bog5@de70376265/lib/marked.esm
 
 const app = new Hono()
 
-const head = await Deno.readTextFile('./head.html')
-const foot = await Deno.readTextFile('./foot.html')
+const ROOT = import.meta.dirname
+
+const head = await Deno.readTextFile(`${ROOT}/head.html`)
+const foot = await Deno.readTextFile(`${ROOT}/foot.html`)
 
 function parseFrontmatter(text) {
   const m = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
@@ -28,10 +30,10 @@ function parseFrontmatter(text) {
 
 async function loadPosts() {
   const posts = []
-  for await (const entry of Deno.readDir('./posts')) {
+  for await (const entry of Deno.readDir(`${ROOT}/posts`)) {
     if (!entry.isFile || !entry.name.endsWith('.md')) continue
     const fileSlug = entry.name.replace(/\.md$/, '')
-    const text = await Deno.readTextFile(`./posts/${entry.name}`)
+    const text = await Deno.readTextFile(`${ROOT}/posts/${entry.name}`)
     const { data, body } = parseFrontmatter(text)
     if (data.draft) continue
     posts.push({ ...data, slug: data.slug || fileSlug, body })
@@ -501,7 +503,7 @@ app.get('/assets/*', async (c) => {
     .map((part) => part.replace(/[^a-zA-Z0-9._-]/g, ''))
     .filter(Boolean)
     .join('/')
-  const path = `./assets/${normalized}`
+  const path = `${ROOT}/assets/${normalized}`
   try {
     const data = await Deno.readFile(path)
     return new Response(data, {
@@ -557,7 +559,7 @@ app.get('/posts/:slug', async (c) => {
 })
 
 app.get('/about', async (c) => {
-  const doc = await Deno.readTextFile('./about.md')
+  const doc = await Deno.readTextFile(`${ROOT}/about.md`)
   return c.html(signalPage({
     title: "About",
     description: "About Everett Bogue.",
@@ -627,14 +629,20 @@ app.post('/subscribe', async (c) => {
   const email = form.get('email')?.toString().trim().toLowerCase()
   if (!email || !email.includes('@')) return c.redirect('/?error=invalid')
 
+  const subscribersPath = `${ROOT}/subscribers.json`
   let subscribers = []
   try {
-    subscribers = JSON.parse(await Deno.readTextFile('./subscribers.json'))
+    subscribers = JSON.parse(await Deno.readTextFile(subscribersPath))
   } catch { /* file doesn't exist yet */ }
 
   if (!subscribers.includes(email)) {
     subscribers.push(email)
-    await Deno.writeTextFile('./subscribers.json', JSON.stringify(subscribers, null, 2))
+    try {
+      await Deno.writeTextFile(subscribersPath, JSON.stringify(subscribers, null, 2))
+    } catch (err) {
+      console.error('subscribe write failed:', err)
+      return c.redirect('/?error=server')
+    }
   }
 
   return c.redirect('/?subscribed=1')
