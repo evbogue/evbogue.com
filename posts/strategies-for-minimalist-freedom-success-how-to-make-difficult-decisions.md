@@ -3,7 +3,6 @@ title: "Strategies for Minimalist Freedom Success: How to Make Difficult Decisio
 slug: "strategies-for-minimalist-freedom-success-how-to-make-difficult-decisions"
 date: "2010-10-11"
 tags: [archive, import]
-draft: false
 excerpt: "One of the most common emails I get is from people who have difficult decisions to make."
 original_source_pdf: "fbts_evbogue_mnml/20101011_Strategies for Minimalist Freedom Success - How to Make Difficult Decisions.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-freedom-success-difficult-decisions/"

@@ -3,7 +3,6 @@ title: "Agentic Harnesses and the Discipline of Attention"
 slug: agentic-harnesses-and-the-discipline-of-attention
 date: 2026-05-05
 tags: [ai, agents, yoga]
-draft: false
 excerpt: "Yoga is not a productivity hack for LLMs. It is a discipline for paying attention before the machine runs away with your mind."
 ---
 

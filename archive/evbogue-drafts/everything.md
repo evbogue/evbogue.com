@@ -3,7 +3,6 @@ title: "When We’ve Captured Everything"
 slug: "everything"
 date: "2011-10-20"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 18, 2011"
 original_url: "http://evbogue.com/everything"
 wayback_snapshot_url: "https://web.archive.org/web/20111020011423/http://evbogue.com/everything"

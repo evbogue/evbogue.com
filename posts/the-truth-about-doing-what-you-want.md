@@ -3,7 +3,6 @@ title: "The Truth About Doing What You Want (cause you only have one life)"
 slug: the-truth-about-doing-what-you-want
 date: 2026-05-02
 tags: [minimalism, life, freedom]
-draft: false
 excerpt: "You make a few reasonable decisions in a row, and one day you look up and you're just a person with stuff and a routine, same as everyone else."
 ---
 

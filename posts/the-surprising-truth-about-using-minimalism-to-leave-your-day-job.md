@@ -3,7 +3,6 @@ title: "The Surprising Truth About Using Minimalism to Leave Your Day Job"
 slug: "the-surprising-truth-about-using-minimalism-to-leave-your-day-job"
 date: "2010-03-31"
 tags: [archive, import]
-draft: false
 excerpt: "This is the 3rd part in a now 4-part series on leaving your day job. The 1st was on preparing to leave your day job the 2nd was on how to make money online ."
 original_source_pdf: "fbts_evbogue_mnml/20100331_The Surprising Truth About Using Minimalism to Leave Your Day Job.pdf"
 original_url: "http://www.farbeyondthestars.com/the-surprising-truth-about-using-minimalism-to-leave-your-day-job/"

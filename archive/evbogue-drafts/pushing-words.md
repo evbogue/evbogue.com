@@ -3,7 +3,6 @@ title: "Pushing Words"
 slug: "pushing-words"
 date: "2011-09-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "“Do You Need to Promote Your Writing?”"
 original_url: "http://evbogue.com/pushing-words"
 wayback_snapshot_url: "https://web.archive.org/web/20110923180828/http://evbogue.com/pushing-words"

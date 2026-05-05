@@ -3,7 +3,6 @@ title: "Why Being Minimalist is Actually About Saving The Planet"
 slug: "why-being-minimalist-is-actually-about-saving-the-planet"
 date: "2009-12-03"
 tags: [archive, import]
-draft: false
 excerpt: "I believe were all pursuing this minimalist life because somewhere, deep down below the surface, we know being minimalist is the only way we’re going to save the planet."
 original_source_pdf: "fbts_evbogue_mnml/20091203_Why Being Minimalist is Actually About Saving The Planet.pdf"
 original_url: "http://www.farbeyondthestars.com/why-being-minimalist-is-actually-about-saving-the-planet/"

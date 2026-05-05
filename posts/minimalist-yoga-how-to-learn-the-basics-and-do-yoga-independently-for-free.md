@@ -3,7 +3,6 @@ title: "Minimalist Yoga: How to Learn the Basics and Do Yoga Independently for F
 slug: "minimalist-yoga-how-to-learn-the-basics-and-do-yoga-independently-for-free"
 date: "2009-12-07"
 tags: [archive, import]
-draft: false
 excerpt: "Yoga is one of the most important things you can do for the balance of your body mind and soul. It’s also one of the most minimalist forms of stretching and exercise tools that exists."
 original_source_pdf: "fbts_evbogue_mnml/20091207_Minimalist Yoga - How to Learn the Basics and Do Yoga Independently for Free.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-yoga-how-to-learn-the-basics-and-do-yoga-independently-for-free/"

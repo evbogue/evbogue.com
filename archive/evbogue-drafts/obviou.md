@@ -3,7 +3,6 @@ title: "Why I (sometimes) Write the Obvious"
 slug: "obviou"
 date: "2011-10-19"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 15, 2011"
 original_url: "http://evbogue.com/obviou"
 wayback_snapshot_url: "https://web.archive.org/web/20111019141326/http://evbogue.com/obviou"

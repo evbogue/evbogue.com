@@ -3,7 +3,6 @@ title: "How to Erase the Past"
 slug: "erase"
 date: "2011-02-28"
 tags: [archive, evbogue]
-draft: true
 excerpt: "This blog post originally ran on our Letter.ly . A paid subscription newsletter, where you can receive dispatches from the collective at the edge of human evolution (before everyone else.)"
 original_url: "http://evbogue.com/erase"
 wayback_snapshot_url: "https://web.archive.org/web/20110301160620/http://evbogue.com/erase"

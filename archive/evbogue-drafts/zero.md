@@ -3,7 +3,6 @@ title: "Zero"
 slug: "zero"
 date: "2011-08-14"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/zero"
 wayback_snapshot_url: "https://web.archive.org/web/20110814063321/http://evbogue.com/zero"

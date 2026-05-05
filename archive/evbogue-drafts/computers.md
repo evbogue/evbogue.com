@@ -3,7 +3,6 @@ title: "Computers (they can do it better)"
 slug: "computers"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Whenever I try to do something that a computer can do better, I fail."
 original_url: "http://evbogue.com/computers"
 wayback_snapshot_url: "https://web.archive.org/web/20110924031643/http://evbogue.com/computers"

@@ -3,7 +3,6 @@ title: "How Creating Space Can Lead to a Healthy Creativity Habit"
 slug: "how-creating-space-can-lead-to-a-healthy-creativity-habit"
 date: "2009-11-10"
 tags: [archive, import]
-draft: false
 excerpt: "I recently read Twyla Tharp’s Creative Habit , and she starts the book with this line: “I walk into a large white room.” She then explains how she’s expected to create something beautiful out of nothing. All dancers have"
 original_source_pdf: "fbts_evbogue_mnml/20091110_How Creating Space Can Lead to a Healthy Creativity Habit.pdf"
 original_url: "http://www.farbeyondthestars.com/how-creating-space-can-lead-to-a-healthy-creativity-habit/"

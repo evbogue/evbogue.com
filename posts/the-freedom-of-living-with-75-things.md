@@ -3,7 +3,6 @@ title: "The Freedom of Living with 75 Things"
 slug: "the-freedom-of-living-with-75-things"
 date: "2010-02-19"
 tags: [archive, import]
-draft: false
 excerpt: "It’s been awhile since I counted how many objects I own, so I was surprised when I got everything out today."
 original_source_pdf: "fbts_evbogue_mnml/20100219_The Freedom of Living with 75 Things.pdf"
 original_url: "http://www.farbeyondthestars.com/the-freedom-of-living-with-75-things/"

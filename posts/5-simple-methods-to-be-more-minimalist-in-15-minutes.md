@@ -3,7 +3,6 @@ title: "5 Simple Methods to Be More Minimalist in 15 Minutes"
 slug: "5-simple-methods-to-be-more-minimalist-in-15-minutes"
 date: "2009-12-23"
 tags: [archive, import]
-draft: false
 excerpt: "I recently spoke to a reader who was thoroughly overwhelmed with the idea of embracing minimalism. While he was well aware of the high level of clutter in his life, trying to wrap his head around how to solve the problem"
 original_source_pdf: "fbts_evbogue_mnml/20091223_5 Simple Methods to Be More Minimalist in 15 Minutes.pdf"
 original_url: "http://www.farbeyondthestars.com/5-simple-ways-to-apply-minimalism-this-week/"

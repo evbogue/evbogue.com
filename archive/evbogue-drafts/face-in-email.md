@@ -3,7 +3,6 @@ title: "My Face in Your Email"
 slug: "face-in-email"
 date: "2011-11-10"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 9, 2011"
 original_url: "http://evbogue.com/face-in-email"
 wayback_snapshot_url: "https://web.archive.org/web/20111110143047/http://evbogue.com/face-in-email"

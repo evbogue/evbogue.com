@@ -3,7 +3,6 @@ title: "How I Organize Circles on Google+"
 slug: "google-circles"
 date: "2011-10-01"
 tags: [archive, evbogue]
-draft: true
 excerpt: "I’ve been asked a few times on Google+ how I ‘manage’ my circles."
 original_url: "http://evbogue.com/google-circles"
 wayback_snapshot_url: "https://web.archive.org/web/20111001004647/http://evbogue.com/google-circles"

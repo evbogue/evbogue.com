@@ -3,7 +3,6 @@ title: "Should I Delete Every AI-Generated File From My Machine?"
 slug: "should-i-delete-every-ai-generated-file-from-my-machine"
 date: "2026-05-04"
 tags: [ai, minimalism, writing, tools]
-draft: false
 excerpt: "Yes, this article was written by an AI. That's the question."
 ---
 

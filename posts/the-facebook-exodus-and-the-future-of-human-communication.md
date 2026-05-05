@@ -3,7 +3,6 @@ title: "The Facebook Exodus and the Future of Human Communication"
 slug: "the-facebook-exodus-and-the-future-of-human-communication"
 date: "2011-01-26"
 tags: [archive, import]
-draft: false
 excerpt: "Boulder, CO. January 26th 2011."
 original_source_pdf: "fbts_evbogue_mnml/20110126_The Facebook Exodus and the Future of Human Communication.pdf"
 original_url: "http://www.farbeyondthestars.com/the-facebook-exodus-and-the-future-of-human-communication/"

@@ -3,7 +3,6 @@ title: "The World is (a lot) Less Concrete Than You Think"
 slug: "the-world-is-a-lot-less-concrete-than-you-think"
 date: "2009-11-01"
 tags: [archive, import]
-draft: false
 excerpt: "I had a conversation with someone last night that ended up trapped in my head for the entire night, even after meditating and staying in sarvangasana for fifteen minutes–a yoga pose which is supposed to clear your head!"
 original_source_pdf: "fbts_evbogue_mnml/20091101_The World is a lot Less Concrete Than You Think.pdf"
 original_url: "http://www.farbeyondthestars.com/the-world-is-a-lot-less-concrete-than-you-think/"

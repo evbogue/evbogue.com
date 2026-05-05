@@ -3,7 +3,6 @@ title: "Holding a Mirror to the Future of Our Humanity"
 slug: "holding-a-mirror-to-the-future-of-our-humanity"
 date: "2010-12-21"
 tags: [archive, import]
-draft: false
 excerpt: "Lately I’ve been asking this question daily:"
 original_source_pdf: "fbts_evbogue_mnml/20101221_Holding a Mirror to the Future of Our Humanity.pdf"
 original_url: "http://www.farbeyondthestars.com/holdin-a-mirror-to-the-future-of-our-humanity/"

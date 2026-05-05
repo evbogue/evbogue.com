@@ -3,7 +3,6 @@ title: "Insecurity on the Internet"
 slug: "insecurity"
 date: "2011-04-04"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Over the weekend (April 2nd-3rd 2011) Letter.ly lost their .ly domain name to the war in Libya. This morning they relaunched the service as Letterly.net — and are hoping to get their old domain back as soon as things coo"
 original_url: "http://evbogue.com/insecurity"
 wayback_snapshot_url: "https://web.archive.org/web/20110407015338/http://evbogue.com/insecurity"

@@ -3,7 +3,6 @@ title: "What is Evolving Your Digital Work?"
 slug: "letter"
 date: "2011-08-16"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Alright, so you’ve been reading Ev Bogue for awhile now. You get the blog posts, and you’ve watched him on Google+. He seems a little mysterious, even secretive sometimes. Why? What’s he hiding? Nothing, probably."
 original_url: "http://evbogue.com/letter"
 wayback_snapshot_url: "https://web.archive.org/web/20110816085004/http://evbogue.com/letter"

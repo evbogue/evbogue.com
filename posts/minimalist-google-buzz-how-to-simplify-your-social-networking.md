@@ -3,7 +3,6 @@ title: "Minimalist Google Buzz: How To Simplify Your Social Networking"
 slug: "minimalist-google-buzz-how-to-simplify-your-social-networking"
 date: "2010-02-12"
 tags: [archive, import]
-draft: false
 excerpt: "It’s been a few days since the release of Google Buzz, but it’s already very clear that the way we interact with each other on the Internet has changed on a fundamental level."
 original_source_pdf: "fbts_evbogue_mnml/20100212_Minimalist Google Buzz - How To Simplify Your Social Networking.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-google-buzz-how-to-simplify-your-social-networking/"

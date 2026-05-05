@@ -3,7 +3,6 @@ title: "How to Achieve a State of Flow"
 slug: "how-to-achieve-a-state-of-flow"
 date: "2010-02-18"
 tags: [archive, import]
-draft: false
 excerpt: "I have a guest post up at Leo Babauta’s brilliant blog Zen Habits ."
 original_source_pdf: "fbts_evbogue_mnml/20100218_How to Achieve a State of Flow.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-achieve-a-state-of-flow/"

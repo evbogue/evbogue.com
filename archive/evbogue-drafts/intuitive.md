@@ -3,7 +3,6 @@ title: "Creating for the Intuitive Net"
 slug: "intuitive"
 date: "2011-02-21"
 tags: [archive, evbogue]
-draft: true
 excerpt: "“The power of Twitter language is in intuitive transmission.” – @janstewart"
 original_url: "http://evbogue.com/intuitive"
 wayback_snapshot_url: "https://web.archive.org/web/20110223090721/http://evbogue.com/intuitive"

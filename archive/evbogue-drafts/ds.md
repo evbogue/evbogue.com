@@ -3,7 +3,6 @@ title: "Digital Sabbatical"
 slug: "ds"
 date: "2011-08-10"
 tags: [archive, evbogue]
-draft: true
 excerpt: "I’m taking the entire month of July off from the Internet."
 original_url: "http://evbogue.com/ds"
 wayback_snapshot_url: "https://web.archive.org/web/20110810180110/http://evbogue.com/ds"

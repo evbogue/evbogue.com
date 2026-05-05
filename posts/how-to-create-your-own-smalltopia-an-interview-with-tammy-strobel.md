@@ -3,7 +3,6 @@ title: "How to Create Your Own Smalltopia: An Interview with Tammy Strobel"
 slug: "how-to-create-your-own-smalltopia-an-interview-with-tammy-strobel"
 date: "2010-08-31"
 tags: [archive, import]
-draft: false
 excerpt: "Tammy runs the super-popular small living blog Rowdy Kittens . She was recently featured in not just The New York Times, but also MSNBC.com, Yahoo Finance, and a bunch of other places. Why? Because she’s one of the pione"
 original_source_pdf: "fbts_evbogue_mnml/20100831_How to Create Your Own Smalltopia - An Interview with Tammy Strobel.pdf"
 original_url: "http://www.farbeyondthestars.com/create-your-own-smalltopia/"

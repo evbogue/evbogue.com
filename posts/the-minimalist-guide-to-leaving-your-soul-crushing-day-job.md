@@ -3,7 +3,6 @@ title: "The Minimalist Guide to Leaving Your Soul-Crushing Day Job"
 slug: "the-minimalist-guide-to-leaving-your-soul-crushing-day-job"
 date: "2010-03-18"
 tags: [archive, import]
-draft: false
 excerpt: "This is the first of a three part series on using minimalism to leave your day job in order to live and work anywhere."
 original_source_pdf: "fbts_evbogue_mnml/20100318_The Minimalist Guide to Leaving Your Soul-Crushing Day Job.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-guide-how-to-prepare-to-leave-your-day-job/"

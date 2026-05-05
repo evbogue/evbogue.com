@@ -3,7 +3,6 @@ title: "An Interview with Leo Babauta, Being Minimalist: “It’s truly liberat
 slug: "an-interview-with-leo-babauta-being-minimalist"
 date: "2009-12-02"
 tags: [archive, import]
-draft: false
 excerpt: "Every week on Far Beyond The Stars I interview an important person on the subject of being minimalist. Last week I spoke to Colin Wright about what you take with you when you work from anywhere . Next week I’ll be speaki"
 original_source_pdf: "fbts_evbogue_mnml/20091202_An Interview with Leo Babauta - Being Minimalist.pdf"
 original_url: "http://www.farbeyondthestars.com/an-interview-with-leo-babauta-being-minimalist-its-truly-liberating/"

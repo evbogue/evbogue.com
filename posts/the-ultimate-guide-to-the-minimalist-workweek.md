@@ -3,7 +3,6 @@ title: "The Ultimate Guide to the Minimalist Workweek"
 slug: "the-ultimate-guide-to-the-minimalist-workweek"
 date: "2010-01-04"
 tags: [archive, import]
-draft: false
 excerpt: "This is the first of a series of three articles on minimalist workplace philosophy. Check back on Wednesday for a guest post by David Damron of T he Minimalist Path ."
 original_source_pdf: "fbts_evbogue_mnml/20100104_The Ultimate Guide to the Minimalist Workweek.pdf"
 original_url: "http://www.farbeyondthestars.com/the-ultimate-guide-to-the-minimalist-workweek/"

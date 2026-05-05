@@ -3,7 +3,6 @@ title: "How I Chose Liberation: The Decision to be Minimalist"
 slug: "how-i-chose-liberation-the-decision-to-be-minimalist"
 date: "2009-11-03"
 tags: [archive, import]
-draft: false
 excerpt: "Written and photographed by Everett Bogue | Follow me on Twitter"
 original_source_pdf: "fbts_evbogue_mnml/20091103_How I Chose Liberation - The Decision to be Minimalist.pdf"
 original_url: "http://www.farbeyondthestars.com/liberate-yourself-making-the-minimalist-decision/"

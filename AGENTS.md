@@ -27,7 +27,8 @@ deno task start
 serve.js          — all routes; `signalPage()` is the page wrapper
 assets/signal.css — site stylesheet (cache-busted via ?v= query)
 about.md          — bio + contact info (rendered at /about)
-posts/            — one .md file per post
+drafts/           — unpublished markdown drafts
+posts/            — published markdown posts
 Agents/           — specialized role instructions for writing, editing, ops, archive work, etc.
 send-post.js      — emails a post to subscribers via SMTP (run manually after publishing)
 subscribers.json  — email list (gitignored, lives only on server)
@@ -45,7 +46,7 @@ test-email.js     — SMTP test script (gitignored)
 
 ## Posts
 
-Drop a markdown file into `posts/` with this frontmatter:
+Draft a markdown file in `drafts/` with this frontmatter:
 
 ```
 ---
@@ -53,14 +54,17 @@ title: "Post title"
 slug: post-slug
 date: 2026-04-24
 tags: [tag1, tag2]
-draft: false
 excerpt: "One-liner shown on the homepage index."
 ---
 
 Body text...
 ```
 
-`draft: true` hides the post from the index and feed. Push to GitHub and the VPS pulls automatically (see work order below).
+Publish by moving the file from `drafts/` to `posts/`. Anything in `posts/` is public and appears in the index and feed. Anything in `drafts/` is private to the repo and ignored by the server. Do not use a `draft` frontmatter field.
+
+## Code direction
+
+Prefer the clean current model over backward-compatibility shims. If preserving old behavior is not required to keep the codebase working, remove the old path and update the docs/agents so the repo has one obvious way to do the thing.
 
 ## Agent roles
 
@@ -120,7 +124,7 @@ git -C /path/to/evbogue.com pull --ff-only
 The server reads markdown at request time so no restart is needed after a pull. Needs a deploy key or HTTPS token with read access to the GitHub repo.
 
 ### 2. End-to-end dry run
-Write a real post in Obsidian, drop the `.md` file into `posts/`, push to GitHub, confirm it appears on the live site and in `/feed.xml`, then run `send-post.js <slug>` and verify the subscriber email lands cleanly.
+Write a real post in Obsidian, save the `.md` file in `drafts/`, move it into `posts/` when ready, push to GitHub, confirm it appears on the live site and in `/feed.xml`, then run `send-post.js <slug>` and verify the subscriber email lands cleanly.
 
 ## Recently completed
 

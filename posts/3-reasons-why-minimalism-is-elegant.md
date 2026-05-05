@@ -3,7 +3,6 @@ title: "3 Reasons Why Minimalism is Elegant"
 slug: "3-reasons-why-minimalism-is-elegant"
 date: "2009-11-04"
 tags: [archive, import]
-draft: false
 excerpt: "I’m going to get a little scientific on you, and let me tell you in advance that I’m no scientist, so forgive me if I have this all wrong. I was reading My Stroke of Insight this afternoon, which is a brilliant book abou"
 original_source_pdf: "fbts_evbogue_mnml/20091104_3 Reasons Why Minimalism is Elegant.pdf"
 original_url: "http://www.farbeyondthestars.com/3-reasons-why-minimalism-is-elegant/"

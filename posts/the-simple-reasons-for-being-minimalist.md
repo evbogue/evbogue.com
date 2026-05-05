@@ -3,7 +3,6 @@ title: "The Simple Reasons For Being Minimalist"
 slug: "the-simple-reasons-for-being-minimalist"
 date: "2009-11-14"
 tags: [archive, import]
-draft: false
 excerpt: "Being minimalist is about having an honest relationship with your life."
 original_source_pdf: "fbts_evbogue_mnml/20091114_The Simple Reasons For Being Minimalist.pdf"
 original_url: "http://www.farbeyondthestars.com/the-simple-reasons-for-mininalism/"

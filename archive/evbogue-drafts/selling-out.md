@@ -3,7 +3,6 @@ title: "Selling Out"
 slug: "selling-out"
 date: "2011-08-26"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/selling-out"
 wayback_snapshot_url: "https://web.archive.org/web/20110826021952/http://evbogue.com/selling-out"

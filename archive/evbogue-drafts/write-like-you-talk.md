@@ -3,7 +3,6 @@ title: "How to Write Like You Talk"
 slug: "write-like-you-talk"
 date: "2011-08-14"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/write-like-you-talk"
 wayback_snapshot_url: "https://web.archive.org/web/20110814071236/http://evbogue.com/write-like-you-talk"

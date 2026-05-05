@@ -3,7 +3,6 @@ title: "27 Reasons Why You Should Never Have a Job"
 slug: "27-reasons-why-you-should-never-have-a-job"
 date: "2010-05-26"
 tags: [archive, import]
-draft: false
 excerpt: "It’s Monday morning in Oakland, California, as I’m writing this. I’m sipping a cup of coffee, looking at the rolling hills behind Berkeley from a coffee shop in Rockridge. Clouds are rolling in from the Bay, it’s absolut"
 original_source_pdf: "fbts_evbogue_mnml/20100526_27 Reasons Why You Should Never Have a Job.pdf"
 original_url: "http://www.farbeyondthestars.com/27-reasons-why-you-should-never-have-a-job/"

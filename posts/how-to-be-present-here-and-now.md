@@ -3,7 +3,6 @@ title: "How to Be Present, Here and Now"
 slug: "how-to-be-present-here-and-now"
 date: "2010-10-18"
 tags: [archive, import]
-draft: false
 excerpt: "When I walk into the world, I walk. I look around, I see the faces. Most of the faces are somewhere else."
 original_source_pdf: "fbts_evbogue_mnml/20101018_How to Be Present - Here and Now.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-be-present-here-and-now/"

@@ -3,7 +3,6 @@ title: "My First $1,000 in Recurring Writing Income"
 slug: "first1000"
 date: "2011-10-05"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 5, 2011"
 original_url: "http://evbogue.com/first1000"
 wayback_snapshot_url: "https://web.archive.org/web/20111005195137/http://evbogue.com/first1000"

@@ -3,7 +3,6 @@ title: "Measuring Business Experiments"
 slug: "measuring"
 date: "2011-08-11"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/measuring"
 wayback_snapshot_url: "https://web.archive.org/web/20110811141122/http://evbogue.com/measuring"

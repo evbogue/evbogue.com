@@ -3,7 +3,6 @@ title: "Transparency and Your Digital Self"
 slug: "transparency-and-your-digital-self"
 date: "2011-01-08"
 tags: [archive, import]
-draft: false
 excerpt: "January 8th 2011, Brooklyn NY, The School House."
 original_source_pdf: "fbts_evbogue_mnml/20110108_Transparency and Your Digital Self.pdf"
 original_url: "http://www.farbeyondthestars.com/transparency-and-your-digital-self/"

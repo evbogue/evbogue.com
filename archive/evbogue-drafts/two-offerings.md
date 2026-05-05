@@ -3,7 +3,6 @@ title: "Two Types of Offerings"
 slug: "two-offerings"
 date: "2011-10-29"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 27, 2011"
 original_url: "http://evbogue.com/two-offerings"
 wayback_snapshot_url: "https://web.archive.org/web/20111029060443/http://evbogue.com/two-offerings"

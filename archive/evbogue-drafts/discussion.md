@@ -3,7 +3,6 @@ title: "How to Start a Discussion (around someone’s work)"
 slug: "discussion"
 date: "2011-10-21"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 20, 2011"
 original_url: "http://evbogue.com/discussion"
 wayback_snapshot_url: "https://web.archive.org/web/20111021053053/http://evbogue.com/discussion"

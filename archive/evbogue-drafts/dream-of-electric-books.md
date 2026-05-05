@@ -3,7 +3,6 @@ title: "Do Authors Dream of Electric Books?"
 slug: "dream-of-electric-books"
 date: "2011-10-22"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 21, 2011"
 original_url: "http://evbogue.com/dream-of-electric-books"
 wayback_snapshot_url: "https://web.archive.org/web/20111022163006/http://evbogue.com/dream-of-electric-books"

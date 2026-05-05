@@ -3,7 +3,6 @@ title: "How to Destroy Your Past Lives (starting over)"
 slug: "how-to-destroy-your-past-lives-starting-over"
 date: "2010-11-08"
 tags: [archive, import]
-draft: false
 excerpt: "“The hydrogen atoms in a human body completely refresh every seven years. As we age we are really a river of cosmically old atoms. The carbons in our bodies were produced in the dust of a star. The bulk of matter in our "
 original_source_pdf: "fbts_evbogue_mnml/20101108_How to Destroy Your Past Lives - starting over.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-destroy-your-past-lives-starting-over/"

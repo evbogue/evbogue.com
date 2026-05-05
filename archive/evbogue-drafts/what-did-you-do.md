@@ -3,7 +3,6 @@ title: "What did you do and how did that go?"
 slug: "what-did-you-do"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "What did you do and how did that go?"
 original_url: "http://evbogue.com/what-did-you-do"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034622/http://evbogue.com/what-did-you-do"

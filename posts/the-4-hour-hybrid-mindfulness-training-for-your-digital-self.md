@@ -3,7 +3,6 @@ title: "The 4-Hour Hybrid: Mindfulness Training for Your Digital Self"
 slug: "the-4-hour-hybrid-mindfulness-training-for-your-digital-self"
 date: "2010-12-14"
 tags: [archive, import]
-draft: false
 excerpt: "Throughout all of history, all mediums, all languages there is a common character that I associate with. I’m not sure what to call this character. The diver, the journeyman, the prophet. Frank the mysterious time traveli"
 original_source_pdf: "fbts_evbogue_mnml/20101214_The 4-Hour Hybrid - Mindfulness Training for Your Digital Self.pdf"
 original_url: "http://www.farbeyondthestars.com/the-4-hour-hybrid-mindfulness-training-for-your-digital-self/"

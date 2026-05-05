@@ -3,7 +3,6 @@ title: "Shared Ownership"
 slug: "shared-ownership"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "It’s my experience that owning Things, in many cases, gives me less options, and restricted freedoms."
 original_url: "http://evbogue.com/shared-ownership"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034618/http://evbogue.com/shared-ownership"

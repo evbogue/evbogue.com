@@ -3,7 +3,6 @@ title: "Why I Live With 57 Things (and what they are)"
 slug: "why-i-live-with-57-things-and-what-they-are"
 date: "2010-07-30"
 tags: [archive, import]
-draft: false
 excerpt: "Long time readers of this blog, and anyone who’s picked up a copy of The Art of Being Minimalist know that I’ve had a storied relationship with the personal possessions that I own and acquire."
 original_source_pdf: "fbts_evbogue_mnml/20100730_Why I Live With 57 Things and what they are.pdf"
 original_url: "http://www.farbeyondthestars.com/57-things/"

@@ -3,7 +3,6 @@ title: "100 Things: Buy Less Things, Have Less Impact, and be Free."
 slug: "100-things-buy-less-things-have-less-impact-and-be-free"
 date: "2009-11-13"
 tags: [archive, import]
-draft: false
 excerpt: "Writing and Photography by Everett Bogue | Follow me on Twitter"
 original_source_pdf: "fbts_evbogue_mnml/20091113_100 Things - Buy Less Things Have Less Impact and be Free.pdf"
 original_url: "http://www.farbeyondthestars.com/100-things-buy-less-things-have-less-impact-and-be-free/"

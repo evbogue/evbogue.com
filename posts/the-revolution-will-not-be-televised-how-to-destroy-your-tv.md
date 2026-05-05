@@ -3,7 +3,6 @@ title: "The Revolution Will NOT Be Televised: How to Destroy Your TV"
 slug: "the-revolution-will-not-be-televised-how-to-destroy-your-tv"
 date: "2009-11-23"
 tags: [archive, import]
-draft: false
 excerpt: "I just read a story over at Get Rich Slowly about a frugal man who is trying to live a minimalist life, but was being made fun of by his peers for not owning a TV."
 original_source_pdf: "fbts_evbogue_mnml/20091123_The Revolution Will NOT Be Televised - How to Destroy Your TV.pdf"
 original_url: "http://www.farbeyondthestars.com/the-revolution-will-not-be-televised-how-to-destory-your-tv/"

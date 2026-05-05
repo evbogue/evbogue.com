@@ -3,7 +3,6 @@ title: "3 Web Services (that I pay for)"
 slug: "web-services"
 date: "2011-10-12"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 10, 2011"
 original_url: "http://evbogue.com/web-services"
 wayback_snapshot_url: "https://web.archive.org/web/20111012174501/http://evbogue.com/web-services"

@@ -3,7 +3,6 @@ title: "Minimalist Guide to Personal Finance (and the stuff that dreams are made
 slug: "minimalist-guide-to-personal-finance-and-the-stuff-that-dreams-are-made-of"
 date: "2009-10-29"
 tags: [archive, import]
-draft: false
 excerpt: "I’m going to say a slogan that you have probably heard before: spend less than you earn . It’s the only way to get out of debt. We nod, we get it. It makes sense, right?"
 original_source_pdf: "fbts_evbogue_mnml/20091029_Minimalist Guide to Personal Finance and the stuff that dreams are made of.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-guide-to-personal-finance-and-the-stuff-that-dreams-are-made-of/"

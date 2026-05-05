@@ -3,7 +3,6 @@ title: "Doing the Work (every single day)"
 slug: "doing-the-work"
 date: "2011-10-08"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 7, 2011"
 original_url: "http://evbogue.com/doing-the-work"
 wayback_snapshot_url: "https://web.archive.org/web/20111008013629/http://evbogue.com/doing-the-work"

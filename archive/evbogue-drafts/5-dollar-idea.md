@@ -3,7 +3,6 @@ title: "If An Idea is Worth $5, Give It Away"
 slug: "5-dollar-idea"
 date: "2011-11-07"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 5, 2011"
 original_url: "http://evbogue.com/5-dollar-idea"
 wayback_snapshot_url: "https://web.archive.org/web/20111107125911/http://evbogue.com/5-dollar-idea"

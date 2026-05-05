@@ -6,7 +6,7 @@ Instructions for reviewing posts in `archive/evbogue-drafts/` and deciding what 
 
 Read each draft. Make a publish/skip/fix decision. Act on it.
 
-- **Publish** → move file to `posts/`, set `draft: false`
+- **Publish** → move file to `posts/`
 - **Fix** → edit the file in place (fix frontmatter, trim garbage), then publish
 - **Skip** → leave in `archive/evbogue-drafts/`, add a comment at the top of the file explaining why
 
@@ -57,12 +57,6 @@ These posts are Ev's real published work. The bar for publishing is: *would Ev b
 - Posts that advertise a paid product but contain real writing around it → fix (strip the sales section, keep the essay)
 - Posts with broken image references → publish anyway, note in a comment; image localization is a separate step
 
-## Frontmatter to set on publish
-
-```yaml
-draft: false
-```
-
 Keep all other frontmatter fields as-is (`original_url`, `wayback_snapshot_url`, `archive_layout` are useful provenance).
 
 If the excerpt is missing or clearly wrong (e.g. extracted from a nav element), rewrite it as a single sentence summarizing the post.
@@ -80,8 +74,6 @@ To move a post to `posts/`:
 ```sh
 mv archive/evbogue-drafts/SLUG.md posts/SLUG.md
 ```
-
-Then open the file and set `draft: false`.
 
 ## Report format
 

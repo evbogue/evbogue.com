@@ -3,7 +3,6 @@ title: "It’s a Minimalist Christmas! How to Give (what matters) This Holiday S
 slug: "it-is-a-minimalist-christmas-how-to-give-what-matters-this-holiday-season"
 date: "2009-11-24"
 tags: [archive, import]
-draft: false
 excerpt: "Uh oh , it’s almost Black Friday."
 original_source_pdf: "fbts_evbogue_mnml/20091124_It is a Minimalist Christmas! How to Give what matters This Holiday Season.pdf"
 original_url: "http://www.farbeyondthestars.com/its-a-minimalist-christmas-how-to-give-the-best-gift-this-holiday-nothing/"

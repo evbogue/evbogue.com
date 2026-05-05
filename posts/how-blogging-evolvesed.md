@@ -3,7 +3,6 @@ title: "How Blogging Evolves(ed)"
 slug: "how-blogging-evolvesed"
 date: "2011-02-01"
 tags: [archive, import]
-draft: false
 excerpt: "Blogging is in transition."
 original_source_pdf: "fbts_evbogue_mnml/20110201_How Blogging Evolvesed.pdf"
 original_url: "http://www.farbeyondthestars.com/how-blogging-evolved/"

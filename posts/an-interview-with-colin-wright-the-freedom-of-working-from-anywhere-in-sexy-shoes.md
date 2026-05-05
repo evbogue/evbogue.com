@@ -3,7 +3,6 @@ title: "An Interview with Colin Wright: The Freedom of Working From Anywhere in 
 slug: "an-interview-with-colin-wright-the-freedom-of-working-from-anywhere-in-sexy-shoes"
 date: "2009-11-25"
 tags: [archive, import]
-draft: false
 excerpt: "Every Wednesday on Far Beyond The Stars I interview an important person on the subject of being minimalist."
 original_source_pdf: "fbts_evbogue_mnml/20091125_An Interview with Colin Wright - The Freedom of Working From Anywhere in Sexy Shoes.pdf"
 original_url: "http://www.farbeyondthestars.com/an-interview-with-colin-wright-freedom-of-location-and-sexy-shoes/"

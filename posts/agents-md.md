@@ -3,7 +3,6 @@ title: "AGENTS.md"
 slug: agents-md
 date: 2026-04-24
 tags: [meta, ai, blogging]
-draft: false
 excerpt: "A new convention for telling AI agents how to work on your project."
 ---
 

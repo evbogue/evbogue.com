@@ -3,7 +3,6 @@ title: "Ev in 75 Words"
 slug: "ev-in-75-words"
 date: "2011-02-18"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Ev Bogue is a cybernetic yogi supporting mindfulness at the edge of human evolution. He’s the author of Augmented Humanity and Minimalist Business ."
 original_url: "http://evbogue.com/ev-in-75-words"
 wayback_snapshot_url: "https://web.archive.org/web/20110218151141/http://evbogue.com/ev-in-75-words"

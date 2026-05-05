@@ -3,7 +3,6 @@ title: "1 Simple Strategy to Save $2,000 this Holiday and Make Everyone Love You
 slug: "1-simple-strategy-to-save-2000-dollar-this-holiday-and-make-everyone-love-you-forever"
 date: "2010-11-26"
 tags: [archive, import]
-draft: false
 excerpt: "This post is going to go viral, so if you’re here for the first time let me introduce myself to those of you who are new."
 original_source_pdf: "fbts_evbogue_mnml/20101126_1 Simple Strategy to Save 2000 Dollar this Holiday and Make Everyone Love You Forever.pdf"
 original_url: "http://www.farbeyondthestars.com/1-simple-strategy-to-save-2000-this-holiday-and-make-everyone-love-you-forever/"

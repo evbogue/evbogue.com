@@ -3,7 +3,6 @@ title: "9 Minimalist Steps Towards Passive Income"
 slug: "9-minimalist-steps-towards-passive-income"
 date: "2010-02-10"
 tags: [archive, import]
-draft: false
 excerpt: "Don’t miss anything! Sign up to receive free updates via RSS or Email ."
 original_source_pdf: "fbts_evbogue_mnml/20100210_9 Minimalist Steps Towards Passive Income.pdf"
 original_url: "http://www.farbeyondthestars.com/9-minimalist-steps-towards-passive-income/"

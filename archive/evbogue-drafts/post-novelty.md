@@ -3,7 +3,6 @@ title: "Blogging in the Post-Novelty Age"
 slug: "post-novelty"
 date: "2011-08-26"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/post-novelty"
 wayback_snapshot_url: "https://web.archive.org/web/20110826192912/http://evbogue.com/post-novelty"

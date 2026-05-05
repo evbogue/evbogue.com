@@ -3,7 +3,6 @@ title: "Why This Minimalist Life Has No Manual"
 slug: "why-this-minimalist-life-has-no-manual"
 date: "2010-04-20"
 tags: [archive, import]
-draft: false
 excerpt: "Yesterday I took Yoga from a teacher who was simply reading the manual."
 original_source_pdf: "fbts_evbogue_mnml/20100420_Why This Minimalist Life Has No Manual.pdf"
 original_url: "http://www.farbeyondthestars.com/why-this-minimalist-life-has-no-manual/"

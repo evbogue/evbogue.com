@@ -3,7 +3,6 @@ title: "The Minimalist Business Journey Towards Freedom"
 slug: "the-minimalist-business-journey-towards-freedom"
 date: "2010-05-03"
 tags: [archive, import]
-draft: false
 excerpt: "As I’m writing this, I’m flying high above Lake Michigan towards Chicago, where we’ll stop over for a few minutes before heading on to Denver and then Boulder, Colorado."
 original_source_pdf: "fbts_evbogue_mnml/20100503_The Minimalist Business Journey Towards Freedom.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-business-journey-towards-freedom/"

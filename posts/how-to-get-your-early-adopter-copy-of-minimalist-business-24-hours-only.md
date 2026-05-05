@@ -3,7 +3,6 @@ title: "How to Get Your Early Adopter Copy of Minimalist Business (24 hours only
 slug: "how-to-get-your-early-adopter-copy-of-minimalist-business-24-hours-only"
 date: "2010-05-10"
 tags: [archive, import]
-draft: false
 excerpt: "[UPDATE: The limited release of Minimalist Business is now over. I'll be relaunching the guide in a month or so, be sure to sign up for free updates via RSS or EMAIL so you don't miss out!]"
 original_source_pdf: "fbts_evbogue_mnml/20100510_How to Get Your Early Adopter Copy of Minimalist Business 24 hours only.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-get-your-copy-of-minimalist-business-for-24-hours/"

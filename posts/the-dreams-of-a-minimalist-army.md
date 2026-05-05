@@ -3,7 +3,6 @@ title: "The Dreams of a Minimalist Army"
 slug: "the-dreams-of-a-minimalist-army"
 date: "2010-02-24"
 tags: [archive, import]
-draft: false
 excerpt: "The last few weeks have been quite a whirlwind of activity. I’ve released an e-book, I’ve had the honor of being featured on a number of amazing blogs, such as my article on creative flow at Zen Habits recently."
 original_source_pdf: "fbts_evbogue_mnml/20100224_The Dreams of a Minimalist Army.pdf"
 original_url: "http://www.farbeyondthestars.com/being-minimalist-is-about-your-dreams/"

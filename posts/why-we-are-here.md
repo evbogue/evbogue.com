@@ -3,7 +3,6 @@ title: "Why We’re Here"
 slug: "why-we-are-here"
 date: "2010-09-17"
 tags: [archive, import]
-draft: false
 excerpt: "People keep on bringing up Infinite Jest when they talk about my work, which kind of scares me."
 original_source_pdf: "fbts_evbogue_mnml/20100917_Why We are Here.pdf"
 original_url: "http://www.farbeyondthestars.com/why-were-here/"

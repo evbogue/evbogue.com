@@ -3,7 +3,6 @@ title: "16 Simple Ways to Clear Your Mind"
 slug: "16-simple-ways-to-clear-your-mind"
 date: "2009-11-30"
 tags: [archive, import]
-draft: false
 excerpt: "Mind-clutter is one of the biggest obstacles that I encounter daily on the path to my goals. I imagine you know what I’m talking about, the constant chatterbox that is our human brain."
 original_source_pdf: "fbts_evbogue_mnml/20091130_16 Simple Ways to Clear Your Mind.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-mind-16-simple-ways-to-clear-your-mind/"

@@ -3,7 +3,6 @@ title: "Blank Page (why I’ve started over)"
 slug: "clean-slate"
 date: "2011-02-14"
 tags: [archive, evbogue]
-draft: true
 excerpt: "San Francisco, CA. February 15th 2011."
 original_url: "http://evbogue.com/clean-slate"
 wayback_snapshot_url: "https://web.archive.org/web/20110218040704/http://evbogue.com/clean-slate"

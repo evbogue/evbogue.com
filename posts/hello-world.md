@@ -3,7 +3,6 @@ title: "Hello, world"
 slug: hello-world
 date: 2026-04-24
 tags: [meta]
-draft: false
 excerpt: "A first post to kick the tires on the new publishing pipeline."
 ---
 

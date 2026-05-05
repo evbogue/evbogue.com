@@ -3,7 +3,6 @@ title: "Owning Nothing: Describing the Ultimate Minimalist Society."
 slug: "owning-nothing-describing-the-ultimate-minimalist-society"
 date: "2009-10-28"
 tags: [archive, import]
-draft: false
 excerpt: "Leo Babauta just blogged at Mnmlist.com about a hypothetical minimalist society where no one owned anything, I think this is an outstanding idea."
 original_source_pdf: "fbts_evbogue_mnml/20091028_Owning Nothing - Describing the Ultimate Minimalist Society.pdf"
 original_url: "http://www.farbeyondthestars.com/owning-nothing-describing-the-ultimate-minimalist-society/"

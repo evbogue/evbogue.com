@@ -3,7 +3,6 @@ title: "Minimalist Relocation: Move to Any City for $125"
 slug: "minimalist-relocation-move-to-any-city-for-125"
 date: "2010-05-05"
 tags: [archive, import]
-draft: false
 excerpt: "Moving doesn’t have to be difficult, unless you make it that way."
 original_source_pdf: "fbts_evbogue_mnml/20100505_Minimalist Relocation - Move to Any City for $125.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-relocation-move-to-any-city-for-125/"

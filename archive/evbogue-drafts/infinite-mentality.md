@@ -3,7 +3,6 @@ title: "Infinite Mentality"
 slug: "infinite-mentality"
 date: "2011-08-11"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/infinite-mentality"
 wayback_snapshot_url: "https://web.archive.org/web/20110811180540/http://evbogue.com/infinite-mentality"

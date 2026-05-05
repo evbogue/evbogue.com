@@ -3,7 +3,6 @@ title: "Minimalize Your Life: Ten Simple Things You Can Do Today to Become A Min
 slug: "minimalize-your-life-ten-simple-things-you-can-do-today-to-become-a-minimalist"
 date: "2009-10-19"
 tags: [archive, import]
-draft: false
 excerpt: "Right now I’m pretty pared down, with only a bag of clothes, a Macbook, a camera bag, a hard-drive, a sleeping bag, and a yoga mat. I know, that’s pretty minimal, but at this moment in time it’s where I need to be."
 original_source_pdf: "fbts_evbogue_mnml/20091019_Minimalize Your Life - Ten Simple Things You Can Do Today to Become A Minimalist.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalize-your-life-ten-simple-things-you-can-do-today-to-become-a-minimalist/"

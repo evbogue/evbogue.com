@@ -3,7 +3,6 @@ title: "My Year of Zipcar Driving"
 slug: "zipcar-driving-year"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "For the last year, I decided that every time I needed to drive a car, I’d rent a Zipcar."
 original_url: "http://evbogue.com/zipcar-driving-year"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034638/http://evbogue.com/zipcar-driving-year"

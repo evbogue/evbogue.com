@@ -3,7 +3,6 @@ title: "How to Live Like a Prince on Less Than Six-Figures a Year"
 slug: "how-to-live-like-a-prince-on-less-than-six-figures-a-year"
 date: "2010-06-01"
 tags: [archive, import]
-draft: false
 excerpt: "It’s been a little over two weeks since Alix and I (and Lola the cat) moved to Oakland, CA. and one of the things that struck me recently was how good life is out here."
 original_source_pdf: "fbts_evbogue_mnml/20100601_How to Live Like a Prince on Less Than Six-Figures a Year.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-live-like-a-prince-on-less-than-six-figures-a-year/"

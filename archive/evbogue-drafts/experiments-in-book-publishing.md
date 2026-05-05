@@ -3,7 +3,6 @@ title: "Experiments in Book Publishing"
 slug: "experiments-in-book-publishing"
 date: "2011-08-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/experiments-in-book-publishing"
 wayback_snapshot_url: "https://web.archive.org/web/20110823095704/http://evbogue.com/experiments-in-book-publishing"

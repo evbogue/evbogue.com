@@ -3,7 +3,6 @@ title: "Things I own"
 slug: "things"
 date: "2011-03-15"
 tags: [archive, evbogue]
-draft: true
 excerpt: "You can count, there aren’t many."
 original_url: "http://evbogue.com/things"
 wayback_snapshot_url: "https://web.archive.org/web/20110315202815/http://evbogue.com/things"

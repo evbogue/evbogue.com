@@ -3,7 +3,6 @@ title: "Where to Build Digital Foundations"
 slug: "digital-foundations"
 date: "2011-09-01"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/digital-foundations"
 wayback_snapshot_url: "https://web.archive.org/web/20110901160457/http://evbogue.com/digital-foundations"

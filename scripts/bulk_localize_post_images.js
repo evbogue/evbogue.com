@@ -1,6 +1,6 @@
 import { localizePostImages } from "./localize_post_images.js";
 
-const dirs = ["posts", "archive/evbogue-drafts", "archive/drafts"];
+const dirs = ["posts", "drafts", "archive/evbogue-drafts", "archive/drafts"];
 const args = Deno.args;
 const targetDirs = args.length ? args : dirs;
 

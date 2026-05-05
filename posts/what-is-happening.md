@@ -3,7 +3,6 @@ title: "What’s happening?"
 slug: "what-is-happening"
 date: "2010-09-24"
 tags: [archive, import]
-draft: false
 excerpt: "A lot of people don’t know what’s going on, so I thought I might try and convey it to you."
 original_source_pdf: "fbts_evbogue_mnml/20100924_What is happening.pdf"
 original_url: "http://www.farbeyondthestars.com/whats-happening/"

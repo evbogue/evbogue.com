@@ -3,7 +3,6 @@ title: "How to Untether from Facebook (once and for all)"
 slug: "untether-from-facebook"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "I was just reading an article somewhere about new changes coming to Facebook. It basically said the following: Facebook wants to be more like Google+ and many users visit Facebook out of a sense of obligation."
 original_url: "http://evbogue.com/untether-from-facebook"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034500/http://evbogue.com/untether-from-facebook"

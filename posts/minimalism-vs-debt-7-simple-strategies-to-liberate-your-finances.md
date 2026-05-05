@@ -3,7 +3,6 @@ title: "Minimalism Vs Debt: 7 Simple Strategies to Liberate Your Finances"
 slug: "minimalism-vs-debt-7-simple-strategies-to-liberate-your-finances"
 date: "2010-06-21"
 tags: [archive, import]
-draft: false
 excerpt: "“Too often, a vast collection of possessions ends up possessing its owner.” – Warren Buffett"
 original_source_pdf: "fbts_evbogue_mnml/20100621_Minimalism Vs Debt - 7 Simple Strategies to Liberate Your Finances.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalism-vs-debt-7-simple-strategies-to-liberate-your-finances/"

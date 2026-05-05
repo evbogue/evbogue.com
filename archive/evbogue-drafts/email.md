@@ -3,7 +3,6 @@ title: "Email is Your Sanctuary"
 slug: "email"
 date: "2011-03-03"
 tags: [archive, evbogue]
-draft: true
 excerpt: "I believe that email is my sanctuary."
 original_url: "http://evbogue.com/email"
 wayback_snapshot_url: "https://web.archive.org/web/20110307023611/http://evbogue.com/email"

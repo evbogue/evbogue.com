@@ -3,7 +3,6 @@ title: "Minimalist Workday: 50 Strategies for Working Less\\\\\">Free E-book –
 slug: "free-e-book-minimalist-workday-50-strategies-for-working-less"
 date: "2010-08-03"
 tags: [archive, import]
-draft: false
 excerpt: "What is Minimalist Workday?"
 original_source_pdf: "fbts_evbogue_mnml/20100803_Free E-book – Minimalist Workday 50 Strategies for Working Less.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-workday/"

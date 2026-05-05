@@ -3,7 +3,6 @@ title: "$2,300 in a Day: How to Support Quality Work"
 slug: "2300-dollar-in-a-day-how-to-support-quality-work"
 date: "2010-06-13"
 tags: [archive, import]
-draft: false
 excerpt: "This is the second part in the series leading up to the re-release of Minimalist Business on June 15th at 10am PST. The first part was on paying your fans to support you . Don’t miss out on release day, sign up for free "
 original_source_pdf: "fbts_evbogue_mnml/20100613_2300 Dollar in a Day - How to Support Quality Work.pdf"
 original_url: "http://www.farbeyondthestars.com/2300-in-a-day-how-to-support-quality-work/"

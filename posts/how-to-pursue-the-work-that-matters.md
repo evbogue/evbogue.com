@@ -3,7 +3,6 @@ title: "How To Pursue The Work That Matters"
 slug: "how-to-pursue-the-work-that-matters"
 date: "2010-05-23"
 tags: [archive, import]
-draft: false
 excerpt: "One of the biggest questions that has been swirling about since the release of Minimalist Business is very simple:"
 original_source_pdf: "fbts_evbogue_mnml/20100523_How To Pursue The Work That Matters.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-pursue-the-work-that-matters/"

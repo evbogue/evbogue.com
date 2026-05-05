@@ -3,7 +3,6 @@ title: "Augmented Humanity"
 slug: "augmented-humanity"
 date: "2011-03-20"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Praise for Augmented Humanity …"
 original_url: "http://evbogue.com/augmented-humanity"
 wayback_snapshot_url: "https://web.archive.org/web/20110426011032/http://evbogue.com/augmented-humanity"

@@ -3,7 +3,6 @@ title: "How to find a quiet place to write"
 slug: "quiet"
 date: "2011-05-08"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Now that I’m writing Letters regularly, the depth of the writing requires a great deal of solitude."
 original_url: "http://evbogue.com/quiet"
 wayback_snapshot_url: "https://web.archive.org/web/20110511215752/http://evbogue.com/quiet"

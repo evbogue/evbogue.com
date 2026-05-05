@@ -3,7 +3,6 @@ title: "Why I Am Using Agents to Write This Blog"
 slug: why-i-am-using-agents-to-write-this-blog
 date: 2026-05-03
 tags: [ai, blogging, agents, writing]
-draft: false
 excerpt: "The 2010 voice isn't gone. I just can't get to it anymore. Agents can. And if that bothers you, you're already behind."
 ---
 

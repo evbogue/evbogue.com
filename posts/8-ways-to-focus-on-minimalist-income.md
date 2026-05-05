@@ -3,7 +3,6 @@ title: "8 Ways to Focus on Minimalist Income"
 slug: "8-ways-to-focus-on-minimalist-income"
 date: "2010-02-08"
 tags: [archive, import]
-draft: false
 excerpt: "The difference between high-impact and low-impact income."
 original_source_pdf: "fbts_evbogue_mnml/20100208_8 Ways to Focus on Minimalist Income.pdf"
 original_url: "http://www.farbeyondthestars.com/8-ways-to-focus-on-minimalist-income/"

@@ -3,7 +3,6 @@ title: "Idea-to-Publish Every Day"
 slug: "idea-to-publish"
 date: "2011-10-29"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 28, 2011"
 original_url: "http://evbogue.com/idea-to-publish"
 wayback_snapshot_url: "https://web.archive.org/web/20111029064259/http://evbogue.com/idea-to-publish"

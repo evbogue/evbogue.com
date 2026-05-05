@@ -3,7 +3,6 @@ title: "7 Simple Ways You Can Disconnect"
 slug: "7-simple-ways-you-can-disconnect"
 date: "2010-02-05"
 tags: [archive, import]
-draft: false
 excerpt: "In the modern age we think we have to constantly rush from this to that. We think we have to wake up and work every morning. We think we have to constantly respond to e-mails."
 original_source_pdf: "fbts_evbogue_mnml/20100205_7 Simple Ways You Can Disconnect.pdf"
 original_url: "http://www.farbeyondthestars.com/7-simple-ways-you-can-disconnect/"

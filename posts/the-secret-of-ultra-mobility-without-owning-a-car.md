@@ -3,7 +3,6 @@ title: "The Secret of Ultra-Mobility Without Owning a Car"
 slug: "the-secret-of-ultra-mobility-without-owning-a-car"
 date: "2010-07-26"
 tags: [archive, import]
-draft: false
 excerpt: "My girlfriend and I took a three-day mini-vacation last week, driving over to Lake Tahoe and down through Yosemite. We camped for two days on the banks of the Truckee river and enjoyed s’mores’ and wine by an open fire."
 original_source_pdf: "fbts_evbogue_mnml/20100726_The Secret of Ultra-Mobility Without Owning a Car.pdf"
 original_url: "http://www.farbeyondthestars.com/the-secret-of-ultra-mobility-without-owning-a-car/"

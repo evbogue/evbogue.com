@@ -3,7 +3,6 @@ title: "How Do You Do What You Do?"
 slug: "how-do-you-do-what-you-do"
 date: "2011-11-08"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 7, 2011"
 original_url: "http://evbogue.com/how-do-you-do-what-you-do"
 wayback_snapshot_url: "https://web.archive.org/web/20111108155917/http://evbogue.com/how-do-you-do-what-you-do"

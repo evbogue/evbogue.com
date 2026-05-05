@@ -3,7 +3,6 @@ title: "What are you doing right now?"
 slug: "what-are-you-doing-right-now"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "This is a little post about something that occurred to me in regards to why Twitter stopped working."
 original_url: "http://evbogue.com/what-are-you-doing-right-now"
 wayback_snapshot_url: "https://web.archive.org/web/20110924031703/http://evbogue.com/what-are-you-doing-right-now"

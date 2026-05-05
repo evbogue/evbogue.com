@@ -3,7 +3,6 @@ title: "27 Reasons Why Your Blog Doesn’t Deserve to Exist"
 slug: "no-one-cares"
 date: "2011-03-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "You’re probably not going to read this post all the way through, because you have a hard time focusing your attention over the course of 2,400+ words."
 original_url: "http://evbogue.com/no-one-cares"
 wayback_snapshot_url: "https://web.archive.org/web/20110325092426/http://evbogue.com/no-one-cares"

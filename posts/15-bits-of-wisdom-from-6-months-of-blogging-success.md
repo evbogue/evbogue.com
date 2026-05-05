@@ -3,7 +3,6 @@ title: "15 Bits of Wisdom from 6 Months of Blogging Success"
 slug: "15-bits-of-wisdom-from-6-months-of-blogging-success"
 date: "2010-04-04"
 tags: [archive, import]
-draft: false
 excerpt: "At some point at the end of last month we silently passed the 6-month mark since I began writing this blog. It’s time to celebrate!"
 original_source_pdf: "fbts_evbogue_mnml/20100404_15 Bits of Wisdom from 6 Months of Blogging Success.pdf"
 original_url: "http://www.farbeyondthestars.com/15-bits-of-wisdom-from-6-months-of-blogging-success/"

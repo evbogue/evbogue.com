@@ -3,7 +3,6 @@ title: "Why I use Letter.ly"
 slug: "letterly"
 date: "2011-02-13"
 tags: [archive, evbogue]
-draft: true
 excerpt: "This is the full text to an interview that Thom Chambers did with me. It was published in his beautiful design/marketing magazine In Treehouses: We’re All Publishers Now interwoven with an #ibced interview he did with Ro"
 original_url: "http://evbogue.com/letterly"
 wayback_snapshot_url: "https://web.archive.org/web/20110218151144/http://evbogue.com/letterly"

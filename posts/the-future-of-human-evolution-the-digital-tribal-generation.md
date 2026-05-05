@@ -3,7 +3,6 @@ title: "The Future of Human Evolution: The Digital-Tribal Generation"
 slug: "the-future-of-human-evolution-the-digital-tribal-generation"
 date: "2010-10-26"
 tags: [archive, import]
-draft: false
 excerpt: "Over the last two months I’ve met a lot of incredibly amazing people who are living with mostly nothing."
 original_source_pdf: "fbts_evbogue_mnml/20101026_The Future of Human Evolution - The Digital-Tribal Generation.pdf"
 original_url: "http://www.farbeyondthestars.com/the-future-of-human-evolution-the-digital-tribal-generation/"

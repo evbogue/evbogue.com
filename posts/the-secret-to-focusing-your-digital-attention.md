@@ -3,7 +3,6 @@ title: "The Secret to Focusing Your Digital Attention"
 slug: "the-secret-to-focusing-your-digital-attention"
 date: "2010-02-17"
 tags: [archive, import]
-draft: false
 excerpt: "Every day more people decide to start publishing. More voices enter the web, all frantically crying out for attention."
 original_source_pdf: "fbts_evbogue_mnml/20100217_The Secret to Focusing Your Digital Attention.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-become-a-filter-of-digital-reality/"

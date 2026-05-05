@@ -3,7 +3,6 @@ title: "How to Find Your Minimalist Edge"
 slug: "how-to-find-your-minimalist-edge"
 date: "2010-04-25"
 tags: [archive, import]
-draft: false
 excerpt: "I practice yoga regularly. On most days you’ll find me either on my mat at home, or at Yoga to the People — a donation-based yoga studio in Manhattan."
 original_source_pdf: "fbts_evbogue_mnml/20100425_How to Find Your Minimalist Edge.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-find-your-minimalist-edge/"

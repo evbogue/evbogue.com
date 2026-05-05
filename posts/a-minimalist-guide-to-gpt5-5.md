@@ -3,7 +3,6 @@ title: "A Minimalist Guide to GPT5.5"
 slug: a-minimalist-guide-to-gpt5-5
 date: 2026-04-24
 tags: [ai, agents, minimalism]
-draft: false
 excerpt: "GPT5.5 is not a chatbot upgrade. It is a warning shot at everyone still pretending knowledge work is sacred."
 continuity_post: true
 written_or_reconstructed: 2026-04-25

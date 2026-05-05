@@ -3,7 +3,6 @@ title: "The Solitary Minimalist Journey"
 slug: "the-solitary-minimalist-journey"
 date: "2010-01-17"
 tags: [archive, import]
-draft: false
 excerpt: "Over the last couple of months I’ve received a number of comments and tweets from people who want to share their minimalist ambitions with their spouse or their entire family."
 original_source_pdf: "fbts_evbogue_mnml/20100117_The Solitary Minimalist Journey.pdf"
 original_url: "http://www.farbeyondthestars.com/the-solitary-minimalist-journey/"

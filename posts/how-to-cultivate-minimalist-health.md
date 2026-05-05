@@ -3,7 +3,6 @@ title: "How to Cultivate Minimalist Health"
 slug: "how-to-cultivate-minimalist-health"
 date: "2010-04-19"
 tags: [archive, import]
-draft: false
 excerpt: "Our mind, body, and spirit are intimately connected."
 original_source_pdf: "fbts_evbogue_mnml/20100419_How to Cultivate Minimalist Health.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-cultivate-minimalist-health/"

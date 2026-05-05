@@ -3,7 +3,6 @@ title: "Why I Untethered from Comments (again)"
 slug: "untethered-comments"
 date: "2011-09-28"
 tags: [archive, evbogue]
-draft: true
 excerpt: "At the beginning of August 2011, I decided to experiment with re-introducing comments to Evbogue.com."
 original_url: "http://evbogue.com/untethered-comments"
 wayback_snapshot_url: "https://web.archive.org/web/20110928132344/http://evbogue.com/untethered-comments"

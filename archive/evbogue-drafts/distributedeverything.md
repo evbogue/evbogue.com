@@ -3,7 +3,6 @@ title: "evbogue.com Nav : Home | About | Archive I'm Ev Bogue. I'm a Minimalist 
 slug: "distributedeverything"
 date: "2013-06-26"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Please note: this was originally posted to Medium, then I deleted my account, and it was preserved here . Now I’ve reposted it to evbogue.com"
 original_url: "http://evbogue.com/distributedeverything"
 wayback_snapshot_url: "https://web.archive.org/web/20140414015958/http://evbogue.com/distributedeverything"

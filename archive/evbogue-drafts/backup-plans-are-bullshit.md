@@ -3,7 +3,6 @@ title: "Backup Plans Are Bullshit"
 slug: "backup-plans-are-bullshit"
 date: "2011-08-16"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/backup-plans-are-bullshit"
 wayback_snapshot_url: "https://web.archive.org/web/20110816075658/http://evbogue.com/backup-plans-are-bullshit"

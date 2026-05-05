@@ -3,7 +3,6 @@ title: "The Minimalist Diet: How to Eat Real Food"
 slug: "the-minimalist-diet-how-to-eat-real-food"
 date: "2009-10-13"
 tags: [archive, import]
-draft: false
 excerpt: "I went for a hike in the forest on Mt. Hood yesterday, where I learned how to find, identify, and harvest wild Chanterelle mushrooms . It was such a great experience, that I thought I’d share it with all of you."
 original_source_pdf: "fbts_evbogue_mnml/20091013_The Minimalist Diet - How to Eat Real Food.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-diet-how-to-eat-real-food/"

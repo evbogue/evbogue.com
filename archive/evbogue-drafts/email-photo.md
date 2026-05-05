@@ -3,7 +3,6 @@ title: "Email Needed Faces"
 slug: "email-photo"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Recently, faces started to show up in my Gmail inbox."
 original_url: "http://evbogue.com/email-photo"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034349/http://evbogue.com/email-photo"

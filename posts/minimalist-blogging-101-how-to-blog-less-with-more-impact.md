@@ -3,7 +3,6 @@ title: "Minimalist Blogging 101: How to Blog Less With More Impact"
 slug: "minimalist-blogging-101-how-to-blog-less-with-more-impact"
 date: "2009-12-11"
 tags: [archive, import]
-draft: false
 excerpt: "A few days ago I had a conversation with a friend who recently started a blog. She eventually wants to take her blog to a professional level, but was getting distracted by all of the bells and whistles that surround the "
 original_source_pdf: "fbts_evbogue_mnml/20091211_Minimalist Blogging 101 - How to Blog Less With More Impact.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-blogging-11-ways-to-blog-more-productively/"

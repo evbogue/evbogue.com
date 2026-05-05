@@ -3,7 +3,6 @@ title: "Living Data"
 slug: "living-data"
 date: "2011-03-07"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Kevin Kelly recently noted that the web has evolved from many linked pages to an interconnected flow state ."
 original_url: "http://evbogue.com/living-data"
 wayback_snapshot_url: "https://web.archive.org/web/20110307234424/http://evbogue.com/living-data"

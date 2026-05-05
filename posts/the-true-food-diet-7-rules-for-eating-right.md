@@ -3,7 +3,6 @@ title: "The True Food Diet: 7 Rules for Eating Right"
 slug: "the-true-food-diet-7-rules-for-eating-right"
 date: "2009-11-21"
 tags: [archive, import]
-draft: false
 excerpt: "As I write this I’m sitting in the lounge car of the Empire Builder Express, cruising through the middle of rural Montana. It’s pretty sweet."
 original_source_pdf: "fbts_evbogue_mnml/20091121_The True Food Diet - 7 Rules for Eating Right.pdf"
 original_url: "http://www.farbeyondthestars.com/the-true-food-diet-7-rules-for-eating-right/"

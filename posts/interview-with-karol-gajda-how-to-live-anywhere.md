@@ -3,7 +3,6 @@ title: "Interview with Karol Gajda: How to Live Anywhere"
 slug: "interview-with-karol-gajda-how-to-live-anywhere"
 date: "2010-06-08"
 tags: [archive, import]
-draft: false
 excerpt: "Karol Gajda is a globe-trotting minimalist rockstar –he even brings his hand-made guitar with them anywhere. He lives a simple life, has traveled through India, Thailand, and is currently in Poland. He’s dedicated to hel"
 original_source_pdf: "fbts_evbogue_mnml/20100608_Interview with Karol Gajda - How to Live Anywhere.pdf"
 original_url: "http://www.farbeyondthestars.com/interview-with-karol-gajda-how-to-live-anywhere/"

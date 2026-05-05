@@ -3,7 +3,6 @@ title: "The Minimalist Manifesto: Freedom to Work From Anywhere"
 slug: "the-minimalist-manifesto-freedom-to-work-from-anywhere"
 date: "2010-02-14"
 tags: [archive, import]
-draft: false
 excerpt: "This is the first part in a series of articles focusing on the key elements of being minimalist. At the end of the series I’ll be packaging the whole deal and releasing it as a free e-book."
 original_source_pdf: "fbts_evbogue_mnml/20100214_The Minimalist Manifesto - Freedom to Work From Anywhere.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-manifesto-freedom-to-work-from-anywhere/"

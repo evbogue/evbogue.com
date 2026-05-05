@@ -3,7 +3,6 @@ title: "Ways to Get Followed (on Google+)"
 slug: "get-followed"
 date: "2011-10-31"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 30, 2011"
 original_url: "http://evbogue.com/get-followed"
 wayback_snapshot_url: "https://web.archive.org/web/20111031140504/http://evbogue.com/get-followed"

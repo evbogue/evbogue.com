@@ -3,7 +3,6 @@ title: "How to Untether from Twitter"
 slug: "twitter"
 date: "2011-06-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "“Often learning a new tool requires unlearning the old one. The habits of using a land line phone don’t work in email or cell phone. The habits of email don’t work in twitter. The habits of twitter won’t work in what is "
 original_url: "http://evbogue.com/twitter"
 wayback_snapshot_url: "https://web.archive.org/web/20110626072350/http://evbogue.com/twitter"

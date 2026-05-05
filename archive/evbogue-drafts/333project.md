@@ -3,7 +3,6 @@ title: "The 333 Project: How to Create a Six-Figure Writing Career in 2011"
 slug: "333project"
 date: "2011-04-25"
 tags: [archive, evbogue]
-draft: true
 excerpt: "At Think Coffee on The Bowery, finishing up the edit on this in the sunlight of Manhattan."
 original_url: "http://evbogue.com/333project"
 wayback_snapshot_url: "https://web.archive.org/web/20110429014812/http://evbogue.com/333project"

@@ -3,7 +3,6 @@ title: "How I Pack for the Unknown"
 slug: "vagabond-things"
 date: "2011-10-19"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 17, 2011"
 original_url: "http://evbogue.com/vagabond-things"
 wayback_snapshot_url: "https://web.archive.org/web/20111019133526/http://evbogue.com/vagabond-things"

@@ -3,7 +3,6 @@ title: "Observations on Yoga as a Basis for Existence."
 slug: "observations-on-yoga-as-a-basis-for-existence"
 date: "2009-10-16"
 tags: [archive, import]
-draft: false
 excerpt: "I’ve been doing Yoga daily since I arrived in Portland, almost to the point of having my practice be the focus of my day, and it’s had some interesting effects:"
 original_source_pdf: "fbts_evbogue_mnml/20091016_Observations on Yoga as a Basis for Existence.pdf"
 original_url: "http://www.farbeyondthestars.com/observations-on-yoga-as-a-basis-for-existence/"

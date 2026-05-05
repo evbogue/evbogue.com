@@ -3,7 +3,6 @@ title: "How to Untether from the Internet"
 slug: "untether-internet"
 date: "2011-07-01"
 tags: [archive, evbogue]
-draft: true
 excerpt: "“Each refresh takes us one refresh closer to death.” – Gwen Bell"
 original_url: "http://evbogue.com/untether-internet"
 wayback_snapshot_url: "https://web.archive.org/web/20110704085005/http://evbogue.com/untether-internet"

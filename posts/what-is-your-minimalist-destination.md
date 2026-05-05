@@ -3,7 +3,6 @@ title: "What is Your Minimalist Destination?"
 slug: "what-is-your-minimalist-destination"
 date: "2009-12-18"
 tags: [archive, import]
-draft: false
 excerpt: "Being minimalist is having the flexibility to do what you want, when you wish to do it."
 original_source_pdf: "fbts_evbogue_mnml/20091218_What is Your Minimalist Destination.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-be-mindful-of-flexibility/"

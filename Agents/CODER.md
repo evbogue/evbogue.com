@@ -27,6 +27,7 @@ Do not introduce a framework, database, bundler, CMS, or client-side app unless 
 - Keep user-facing behavior stable.
 - Avoid broad refactors while adding one feature.
 - Preserve markdown-at-request-time behavior.
+- Prefer the clean current model over backward-compatibility shims. If removing an old path does not break the codebase, remove it and update docs/agents so there is one obvious way to do the thing.
 
 ## Verification
 

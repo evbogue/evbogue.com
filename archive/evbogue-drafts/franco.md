@@ -3,7 +3,6 @@ title: "How to be Successful (like James Franco)"
 slug: "franco"
 date: "2011-04-07"
 tags: [archive, evbogue]
-draft: true
 excerpt: "I’ve recently become obsessed with James Franco."
 original_url: "http://evbogue.com/franco"
 wayback_snapshot_url: "https://web.archive.org/web/20110409071705/http://evbogue.com/franco"

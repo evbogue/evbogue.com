@@ -3,7 +3,6 @@ title: "How to Avoid Scaling Your Life-Overhead With Your Income"
 slug: "how-to-avoid-scaling-your-life-overhead-with-your-income"
 date: "2010-06-23"
 tags: [archive, import]
-draft: false
 excerpt: "One of the biggest challenges of minimalism, especially when you apply it to the idea of creating a minimalist business, is avoiding the inevitable pull and pressures to scale up your life expenses with the rise of your "
 original_source_pdf: "fbts_evbogue_mnml/20100623_How to Avoid Scaling Your Life-Overhead With Your Income.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-avoid-scaling-your-life-overhead-with-your-income/"

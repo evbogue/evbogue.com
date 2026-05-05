@@ -3,7 +3,6 @@ title: "14 Simple Ways to Stimulate Creativity"
 slug: "14-simple-ways-to-stimulate-creativity"
 date: "2010-02-16"
 tags: [archive, import]
-draft: false
 excerpt: "One of the hardest battle any of us will fight is the battle for creativity. Countless books have no doubt been written about the war of making art, and many more will be written in the future."
 original_source_pdf: "fbts_evbogue_mnml/20100216_14 Simple Ways to Stimulate Creativity.pdf"
 original_url: "http://www.farbeyondthestars.com/14-simple-ways-to-stimulate-creativity/"

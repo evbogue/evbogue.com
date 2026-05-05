@@ -3,7 +3,6 @@ title: "What Do You Want to Know?"
 slug: "what-do-you-want-to-know"
 date: "2011-09-28"
 tags: [archive, evbogue]
-draft: true
 excerpt: "This is one of the most powerful questions that I can ask you. Why? Because it shows the gaps in the knowledge you have of the experiments I’m doing, the spaces in which you’re craving information."
 original_url: "http://evbogue.com/what-do-you-want-to-know"
 wayback_snapshot_url: "https://web.archive.org/web/20110928090414/http://evbogue.com/what-do-you-want-to-know"

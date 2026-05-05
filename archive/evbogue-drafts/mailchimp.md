@@ -3,7 +3,6 @@ title: "Why I Use Mailchimp to Send Free Updates"
 slug: "mailchimp"
 date: "2011-09-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Recently, I received an email from someone who went to dance school years ago with me at NYU. She invited me to go to her dance show, in New York. I’m in Seattle, so I can’t attend."
 original_url: "http://evbogue.com/mailchimp"
 wayback_snapshot_url: "https://web.archive.org/web/20110923180804/http://evbogue.com/mailchimp"

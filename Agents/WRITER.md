@@ -1,6 +1,6 @@
 # WRITER.md — Blog Post Drafting Agent
 
-Instructions for turning rough notes in `posts/` into publishable evbogue.com blog posts.
+Instructions for turning rough notes in `drafts/` into publishable evbogue.com blog posts.
 
 ## Your job
 
@@ -54,11 +54,11 @@ For each post:
 5. Fix typos, repeated phrases, weak transitions, and unfinished sections.
 6. Add an actual ending if the draft has a placeholder outtro.
 7. Update `excerpt` if the old one no longer describes the post.
-8. Leave `draft: true` unless Ev explicitly asks to publish.
+8. Keep the file in `drafts/` unless Ev explicitly asks to publish.
 
 ## Frontmatter
 
-Posts live in `posts/` and use this format:
+Drafts live in `drafts/`. Published posts live in `posts/`. Use this format:
 
 ```yaml
 ---
@@ -66,7 +66,6 @@ title: "Post title"
 slug: post-slug
 date: YYYY-MM-DD
 tags: [tag1, tag2]
-draft: true
 excerpt: "One sentence shown on the homepage index."
 ---
 ```
@@ -102,5 +101,5 @@ When finished, report:
 
 - File edited
 - Main change made
-- Whether it is still `draft: true`
+- Whether it is still in `drafts/` or has been moved to `posts/`
 - Any unresolved questions or missing facts

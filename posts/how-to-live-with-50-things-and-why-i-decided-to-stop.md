@@ -3,7 +3,6 @@ title: "How to Live With 50 Things (and Why I Decided to Stop)"
 slug: "how-to-live-with-50-things-and-why-i-decided-to-stop"
 date: "2010-06-06"
 tags: [archive, import]
-draft: false
 excerpt: "Around two months ago, I made an announcement on Twitter that blew some people’s minds: I decided to live with less than 50 possessions ."
 original_source_pdf: "fbts_evbogue_mnml/20100606_How to Live With 50 Things and Why I Decided to Stop.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-live-with-50-things/"

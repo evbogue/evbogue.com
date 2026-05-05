@@ -3,7 +3,6 @@ title: "Advertising Self-Defense: Know When You’re Being Marketed At and Fight
 slug: "advertising-self-defense-know-when-you-are-being-marketed-at-and-fight-back"
 date: "2009-11-06"
 tags: [archive, import]
-draft: false
 excerpt: "We live in a reality that’s filled with deception. Every day when you step out on the street, when you log onto your computer, you’re being attacked."
 original_source_pdf: "fbts_evbogue_mnml/20091106_Advertising Self-Defense - Know When You are Being Marketed At and Fight Back.pdf"
 original_url: "http://www.farbeyondthestars.com/advertising-self-defense-know-when-youre-being-marketed-at-and-fight-back/"

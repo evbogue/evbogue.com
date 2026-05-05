@@ -3,7 +3,6 @@ title: "How Was Your Experience?"
 slug: "how-was-your-experience"
 date: "2011-10-19"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 14, 2011"
 original_url: "http://evbogue.com/how-was-your-experience"
 wayback_snapshot_url: "https://web.archive.org/web/20111019143626/http://evbogue.com/how-was-your-experience"

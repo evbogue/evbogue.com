@@ -3,7 +3,6 @@ title: "Why You Deserve Options"
 slug: "why-you-deserve-options"
 date: "2011-08-28"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/why-you-deserve-options"
 wayback_snapshot_url: "https://web.archive.org/web/20110828055747/http://evbogue.com/why-you-deserve-options"

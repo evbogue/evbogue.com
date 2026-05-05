@@ -3,7 +3,6 @@ title: "How to fire up a blog with OpenClaw"
 slug: how-to-fire-up-a-blog-with-openclaw
 date: 2026-04-25
 tags: [ai, blogging, agents]
-draft: false
 excerpt: "The blog did not die. You just handed your publishing machinery to platforms that hate memory."
 ---
 

@@ -3,7 +3,6 @@ title: "What is a Digital Evolutionist?"
 slug: "digital-evolutionist"
 date: "2011-10-18"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 16, 2011"
 original_url: "http://evbogue.com/digital-evolutionist"
 wayback_snapshot_url: "https://web.archive.org/web/20111018111800/http://evbogue.com/digital-evolutionist"

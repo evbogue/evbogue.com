@@ -3,7 +3,6 @@ title: "Superhumans Vs. Drones: How to Achieve Complete Autonomy"
 slug: "superhumans-vs-drones-how-to-achieve-complete-autonomy"
 date: "2010-12-01"
 tags: [archive, import]
-draft: false
 excerpt: "When people meet me, they instantly observe that I have achieved an interesting social position within society — one that most people don’t have. I have no schedule, I am required to be nowhere, no one tells me to do any"
 original_source_pdf: "fbts_evbogue_mnml/20101201_Superhumans VS Drones - How to Achieve Complete Autonomy.pdf"
 original_url: "http://www.farbeyondthestars.com/superhumans-vs-drones-how-to-achieve-complete-autonomy/"

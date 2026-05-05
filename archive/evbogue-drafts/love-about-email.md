@@ -3,7 +3,6 @@ title: "What I Love About My Email"
 slug: "love-about-email"
 date: "2011-11-14"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 12, 2011"
 original_url: "http://evbogue.com/love-about-email"
 wayback_snapshot_url: "https://web.archive.org/web/20111114151609/http://evbogue.com/love-about-email"

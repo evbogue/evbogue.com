@@ -3,7 +3,6 @@ title: "How to Define a New American Dream"
 slug: "how-to-define-a-new-american-dream"
 date: "2010-08-30"
 tags: [archive, import]
-draft: false
 excerpt: "The American Dream was always a lie, it just took us awhile to figure that out."
 original_source_pdf: "fbts_evbogue_mnml/20100830_How to Define a New American Dream.pdf"
 original_url: "http://www.farbeyondthestars.com/american-drea/"

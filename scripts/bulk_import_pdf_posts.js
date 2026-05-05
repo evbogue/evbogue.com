@@ -16,13 +16,15 @@ async function walk(dir) {
 
 async function loadExistingSlugs() {
   const slugs = new Set();
-  try {
-    for await (const entry of Deno.readDir("posts")) {
-      if (!entry.isFile || !entry.name.endsWith(".md")) continue;
-      slugs.add(entry.name.replace(/\.md$/, ""));
+  for (const dir of ["posts", "drafts"]) {
+    try {
+      for await (const entry of Deno.readDir(dir)) {
+        if (!entry.isFile || !entry.name.endsWith(".md")) continue;
+        slugs.add(entry.name.replace(/\.md$/, ""));
+      }
+    } catch {
+      // ignore
     }
-  } catch {
-    // ignore
   }
   return slugs;
 }

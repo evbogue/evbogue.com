@@ -30,10 +30,12 @@ Important: the ambiguous bucket is mostly alias garbage and alternate path prefi
 
 - `posts/`
   Final published markdown posts used by the live site.
+- `drafts/`
+  Active unpublished drafts for current work.
 - `archive/drafts/`
-  Drafts created from the PDF import workflow.
+  Historical staging area created by the older PDF import workflow.
 - `archive/evbogue-drafts/`
-  Drafts created from the `evbogue.com` Wayback import workflow.
+  Archive staging area created from the `evbogue.com` Wayback import workflow.
 - `assets/posts/`
   Localized post images downloaded from archive/original hosts.
 - `archive/pdf-manifest.json`
@@ -98,7 +100,7 @@ For `evbogue.com`, import only the confident set first:
 deno run --allow-read --allow-write --allow-net scripts/import_evbogue_from_manifest.js high
 ```
 
-This writes markdown files to `archive/evbogue-drafts/`.
+This writes markdown files to `archive/evbogue-drafts/`, which is archive staging rather than the active current-drafts folder.
 
 Do not move drafts into `posts/` automatically. The importers are good, but the archive has multiple site themes and some URLs are section pages rather than articles.
 
@@ -135,7 +137,6 @@ Once a draft is confirmed:
 
 - move it from `archive/evbogue-drafts/` into `posts/`
 - keep frontmatter fields like `original_url` and `wayback_snapshot_url`
-- set `draft: false` only when it should be public
 
 The site reads `posts/` on request, so once a file is in `posts/`, it is live without a rebuild.
 
@@ -204,6 +205,6 @@ The importer now decodes these for new imports. The old drafts need a one-time f
 2. Spot-check a few 2013 drafts (check title, date, body quality) before declaring it done.
 3. Run `bulk_localize_post_images.js archive/evbogue-drafts` to download all external images.
 4. Do a one-time entity-decode pass on the 37 original Codex-era drafts in `archive/evbogue-drafts/`.
-5. Review imported drafts in batches and promote good ones into `posts/` (set `draft: false`).
+5. Review imported drafts in batches and promote good ones by moving them into `posts/`.
 6. Revisit the `7` medium-confidence URLs after the high-confidence set is mostly complete.
 7. Leave the `1412` ambiguous URLs alone unless a specific one is proven to be a real article.

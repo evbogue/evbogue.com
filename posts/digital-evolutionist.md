@@ -3,7 +3,6 @@ title: "What is a Digital Evolutionist?"
 slug: "digital-evolutionist"
 date: "2011-10-18"
 tags: [archive, evbogue]
-draft: false
 excerpt: "A digital evolutionist assists people in embracing new technological systems as they come into existence on the web."
 original_url: "http://evbogue.com/digital-evolutionist"
 wayback_snapshot_url: "https://web.archive.org/web/20111018111800/http://evbogue.com/digital-evolutionist"

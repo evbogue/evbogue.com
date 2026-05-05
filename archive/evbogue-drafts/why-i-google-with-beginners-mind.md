@@ -3,7 +3,6 @@ title: "Why I Google+ with Beginner’s Mind"
 slug: "why-i-google-with-beginners-mind"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "This is the first in a series of two posts on how I’m using Google+ ."
 original_url: "http://evbogue.com/why-i-google-with-beginners-mind"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034631/http://evbogue.com/why-i-google-with-beginners-mind"

@@ -3,7 +3,6 @@ title: "An Interview with Karol Gajda: Incredible Lightness of Traveling"
 slug: "an-interview-with-karol-gajda-incredible-lightness-of-traveling"
 date: "2010-01-20"
 tags: [archive, import]
-draft: false
 excerpt: "Every once in awhile I interview an important person on the subject of being minimalist. A couple of prominent minimalists I’ve interviewed in the post: Leo Babauta on the liberation of being minimalist, and Colin Wright"
 original_source_pdf: "fbts_evbogue_mnml/20100120_An Interview with Karol Gajda - Incredible Lightness of Traveling.pdf"
 original_url: "http://www.farbeyondthestars.com/an-interview-with-karol-gajda/"

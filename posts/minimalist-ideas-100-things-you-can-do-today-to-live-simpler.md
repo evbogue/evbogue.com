@@ -3,7 +3,6 @@ title: "Minimalist Ideas: 100 Things You Can Do Today to Live Simpler."
 slug: "minimalist-ideas-100-things-you-can-do-today-to-live-simpler"
 date: "2009-11-02"
 tags: [archive, import]
-draft: false
 excerpt: "When people think about minimalism, some of them think that it’s really hard and it involves throwing out all of their stuff and being a freegan or something. It doesn’t. Minimalism is about small steps toward a simple g"
 original_source_pdf: "fbts_evbogue_mnml/20091102_Minimalist Ideas - 100 Things You Can Do Today to Live Simpler.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-ideas-100-things-you-can-do-today-to-live-simpler/"

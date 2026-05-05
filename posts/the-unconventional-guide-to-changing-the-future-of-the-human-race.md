@@ -3,7 +3,6 @@ title: "The Unconventional Guide to Changing the Future of the Human Race"
 slug: "the-unconventional-guide-to-changing-the-future-of-the-human-race"
 date: "2010-09-07"
 tags: [archive, import]
-draft: false
 excerpt: "The hardest day in the world is the one when you realize that you’re a leader."
 original_source_pdf: "fbts_evbogue_mnml/20100907_The Unconventional Guide to Changing the Future of the Human Race.pdf"
 original_url: "http://www.farbeyondthestars.com/the-unconventional-guide-to-changing-the-future-of-the-human-race/"

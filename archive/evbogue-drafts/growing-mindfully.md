@@ -3,7 +3,6 @@ title: "Growing Mindfully"
 slug: "growing-mindfully"
 date: "2011-08-10"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/growing-mindfully"
 wayback_snapshot_url: "https://web.archive.org/web/20110810084221/http://evbogue.com/growing-mindfully"

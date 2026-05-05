@@ -3,7 +3,6 @@ title: "Spreading the Word"
 slug: "spreading-the-word"
 date: "2011-11-11"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 10, 2011"
 original_url: "http://evbogue.com/spreading-the-word"
 wayback_snapshot_url: "https://web.archive.org/web/20111111085323/http://evbogue.com/spreading-the-word"

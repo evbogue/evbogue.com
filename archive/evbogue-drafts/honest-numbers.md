@@ -3,7 +3,6 @@ title: "Honest Numbers for our Digital Selves"
 slug: "honest-numbers"
 date: "2011-08-29"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/honest-numbers"
 wayback_snapshot_url: "https://web.archive.org/web/20110829072840/http://evbogue.com/honest-numbers"

@@ -3,7 +3,6 @@ title: "8 Ways to Say Goodbye (to your stuff)"
 slug: "8-ways-to-say-goodbye-to-your-stuff"
 date: "2009-12-28"
 tags: [archive, import]
-draft: false
 excerpt: "I know how hard it can be to make the decision to give up material possessions."
 original_source_pdf: "fbts_evbogue_mnml/20091228_8 Ways to Say Goodbye to your stuff.pdf"
 original_url: "http://www.farbeyondthestars.com/why-you-need-to-say-goodbye-to-your-stuff/"

@@ -3,7 +3,6 @@ title: "How You Can Actually Help With the Gulf Oil Spill (but probably won’t.
 slug: "how-you-can-actually-help-with-the-gulf-oil-spill-but-probably-wont"
 date: "2010-06-25"
 tags: [archive, import]
-draft: false
 excerpt: "Editor’s note: I’ve been sitting on this article for a week or so because I was honestly afraid it would offend a good portion of the readers here. Tammy Strobel’s article on The Moral Imperative to Drive Less convinced "
 original_source_pdf: "fbts_evbogue_mnml/20100625_How You Can Actually Help With the Gulf Oil Spill but probably wont.pdf"
 original_url: "http://www.farbeyondthestars.com/fix-the-gulf-oil-spil/"

@@ -3,7 +3,6 @@ title: "Staying Alive"
 slug: "staying-alive"
 date: "2011-11-02"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 1, 2011"
 original_url: "http://evbogue.com/staying-alive"
 wayback_snapshot_url: "https://web.archive.org/web/20111102045359/http://evbogue.com/staying-alive"

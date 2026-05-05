@@ -3,7 +3,6 @@ title: "The Minimalist Path to Overnight Success"
 slug: "the-minimalist-path-to-overnight-success"
 date: "2010-01-08"
 tags: [archive, import]
-draft: false
 excerpt: "I’ve been writing exclusively about The Minimalist Workweek for the last couple of days. If you haven’t read these articles already, I definitely suggest that you do. On Monday I listed 21 ways to live a more minimalist "
 original_source_pdf: "fbts_evbogue_mnml/20100108_The Minimalist Path to Overnight Success.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-path-to-overnight-success/"

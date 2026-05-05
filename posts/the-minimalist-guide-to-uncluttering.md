@@ -3,7 +3,6 @@ title: "The Minimalist Guide to Uncluttering"
 slug: "the-minimalist-guide-to-uncluttering"
 date: "2009-10-22"
 tags: [archive, import]
-draft: false
 excerpt: "This is the first in a series of articles I’m doing on reducing clutter in your life. Tune in tomorrow for the next installment!"
 original_source_pdf: "fbts_evbogue_mnml/20091022_The Minimalist Guide to Uncluttering.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-guide-to-uncluttering/"

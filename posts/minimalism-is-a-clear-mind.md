@@ -3,7 +3,6 @@ title: "Minimalism is a Clear Mind"
 slug: "minimalism-is-a-clear-mind"
 date: "2009-10-30"
 tags: [archive, import]
-draft: false
 excerpt: "It’s Friday! Which means that it’s almost the weekend, for most of the working world. I want to leave you, at the end of this week, with one observation that I had this morning."
 original_source_pdf: "fbts_evbogue_mnml/20091030_Minimalism is a Clear Mind.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalism-is-a-clear-mind/"

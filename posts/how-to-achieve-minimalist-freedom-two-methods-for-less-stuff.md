@@ -3,7 +3,6 @@ title: "How to Achieve Minimalist Freedom: Two Methods for Less Stuff"
 slug: "how-to-achieve-minimalist-freedom-two-methods-for-less-stuff"
 date: "2009-12-16"
 tags: [archive, import]
-draft: false
 excerpt: "My backpack"
 original_source_pdf: "fbts_evbogue_mnml/20091216_How to Achieve Minimalist Freedom - Two Methods for Less Stuff.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-freedom-how-to-leave-it-behind/"

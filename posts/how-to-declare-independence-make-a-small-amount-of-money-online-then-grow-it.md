@@ -3,7 +3,6 @@ title: "How to Declare Independence: Make a Small Amount of Money Online (then g
 slug: "how-to-declare-independence-make-a-small-amount-of-money-online-then-grow-it"
 date: "2010-09-27"
 tags: [archive, import]
-draft: false
 excerpt: "Without a doubt, every single person I’ve met who has a command of the ability to make their own money is more charismatic."
 original_source_pdf: "fbts_evbogue_mnml/20100927_How to Declare Independence - Make a Small Amount of Money Online then grow it.pdf"
 original_url: "http://www.farbeyondthestars.com/declare-independence-how-tomake-money-online/"

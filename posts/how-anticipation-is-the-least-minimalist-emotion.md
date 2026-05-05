@@ -3,7 +3,6 @@ title: "How Anticipation is the Least Minimalist Emotion"
 slug: "how-anticipation-is-the-least-minimalist-emotion"
 date: "2010-02-03"
 tags: [archive, import]
-draft: false
 excerpt: "Around two million years ago, we humans evolved the absolutely stunning ability to see things that were going to happen in our heads."
 original_source_pdf: "fbts_evbogue_mnml/20100203_How Anticipation is the Least Minimalist Emotion.pdf"
 original_url: "http://www.farbeyondthestars.com/how-anticipation-is-the-least-minimalist-emotion/"

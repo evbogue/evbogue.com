@@ -3,7 +3,6 @@ title: "Minimalist Business Success at the Basis of Existence"
 slug: "minimalist-business-success-at-the-basis-of-existence"
 date: "2010-05-12"
 tags: [archive, import]
-draft: false
 excerpt: "First of all, I just wanted to say thank you for everyone who came out to support the launch of Minimalist Business ."
 original_source_pdf: "fbts_evbogue_mnml/20100512_Minimalist Business Success at the Basis of Existence.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-business-success-at-the-basis-of-existence/"

@@ -3,7 +3,6 @@ title: "Untethering from Hair"
 slug: "hair"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "I recently untethered from most of my hair. This is a brief Q/A about that."
 original_url: "http://evbogue.com/hair"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034359/http://evbogue.com/hair"

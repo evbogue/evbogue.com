@@ -3,7 +3,6 @@ title: "How to Launch Things to the Web"
 slug: "launch-things-to-the-web"
 date: "2011-11-07"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 5th, 2011. Nayarit, Mexico."
 original_url: "http://evbogue.com/launch-things-to-the-web"
 wayback_snapshot_url: "https://web.archive.org/web/20111107130543/http://evbogue.com/launch-things-to-the-web"

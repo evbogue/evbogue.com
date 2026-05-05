@@ -3,7 +3,6 @@ title: "13 Hidden Timesucks You Can Eliminate to Focus on the Essential"
 slug: "13-hidden-timesucks-you-can-eliminate-to-focus-on-the-essential"
 date: "2010-06-28"
 tags: [archive, import]
-draft: false
 excerpt: "A few days ago I read Glen’s post on Viperchill about how he passed 10,000 subscribers by choosing what not to do with his business."
 original_source_pdf: "fbts_evbogue_mnml/20100628_13 Hidden Timesucks You Can Eliminate to Focus on the Essential.pdf"
 original_url: "http://www.farbeyondthestars.com/13-hidden-timesucks/"

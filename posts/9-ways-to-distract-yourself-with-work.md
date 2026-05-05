@@ -3,7 +3,6 @@ title: "9 Ways to Distract Yourself with Work"
 slug: "9-ways-to-distract-yourself-with-work"
 date: "2010-01-25"
 tags: [archive, import]
-draft: false
 excerpt: "We are faced with unlimited choices in modern society."
 original_source_pdf: "fbts_evbogue_mnml/20100125_9 Ways to Distract Yourself with Work.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-distract-yourself-with-the-work/"

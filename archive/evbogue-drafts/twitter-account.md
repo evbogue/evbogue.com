@@ -3,7 +3,6 @@ title: "Cleaning Up (After our Digital Selves)"
 slug: "twitter-account"
 date: "2011-08-31"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/twitter-account"
 wayback_snapshot_url: "https://web.archive.org/web/20110831000624/http://evbogue.com/twitter-account"

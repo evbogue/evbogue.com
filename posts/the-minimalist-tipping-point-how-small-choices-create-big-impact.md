@@ -3,7 +3,6 @@ title: "The (Minimalist) Tipping Point: How Small Choices Create Big Impact."
 slug: "the-minimalist-tipping-point-how-small-choices-create-big-impact"
 date: "2009-11-17"
 tags: [archive, import]
-draft: false
 excerpt: "Writing and photography by Everett Bogue | Follow me on Twitter"
 original_source_pdf: "fbts_evbogue_mnml/20091117_The Minimalist Tipping Point - How Small Choices Create Big Impact.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-tipping-point-how-small-choices-create-big-impact/"

@@ -3,7 +3,6 @@ title: "7 Ways to Invest Your Time (besides commenting on blogs)"
 slug: "7-ways-to-invest-your-time-besides-commenting-on-blogs"
 date: "2010-08-23"
 tags: [archive, import]
-draft: false
 excerpt: "We all know that time is your most important asset."
 original_source_pdf: "fbts_evbogue_mnml/20100823_7 Ways to Invest Your Time besides commenting on blogs.pdf"
 original_url: "http://www.farbeyondthestars.com/7-ways-to-invest-your-time-besides-commenting-on-blogs/"

@@ -3,7 +3,6 @@ title: "What Would You Do with $100,000?"
 slug: "hundred-thousand-dollars"
 date: "2011-09-25"
 tags: [archive, evbogue]
-draft: true
 excerpt: "I asked this question on Google+ : What would you do with $100,000 in the bank? (It was a private question, so some of you might not be able to see it.)"
 original_url: "http://evbogue.com/hundred-thousand-dollars"
 wayback_snapshot_url: "https://web.archive.org/web/20110925040849/http://evbogue.com/hundred-thousand-dollars"

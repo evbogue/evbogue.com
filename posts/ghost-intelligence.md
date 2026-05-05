@@ -3,7 +3,6 @@ title: "How to Summon the Ghost Intelligence of Your Past Self"
 slug: "ghost-intelligence"
 date: "2026-04-30"
 tags: [ai, minimalism, writing]
-draft: false
 excerpt: "I am trying to summon the ghost intelligence of myself. This is some kind of bizarre AI séance."
 ---
 

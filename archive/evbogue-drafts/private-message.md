@@ -3,7 +3,6 @@ title: "How to Private Message on Google+"
 slug: "private-message"
 date: "2011-10-05"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 4, 2011"
 original_url: "http://evbogue.com/private-message"
 wayback_snapshot_url: "https://web.archive.org/web/20111005195141/http://evbogue.com/private-message"

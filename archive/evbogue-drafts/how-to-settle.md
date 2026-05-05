@@ -3,7 +3,6 @@ title: "How to Settle"
 slug: "how-to-settle"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "I ask myself this question constantly: “ have you settled? ”"
 original_url: "http://evbogue.com/how-to-settle"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034613/http://evbogue.com/how-to-settle"

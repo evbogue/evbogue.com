@@ -3,7 +3,6 @@ title: "Untethering: An Interview with Ev Bogue"
 slug: "untethering"
 date: "2011-05-19"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Gwen and I were sitting in the lobby of the Ace Hotel in New York on a Thursday in early May, and she decided to ask me a few tough questions over coffee and steel cut oats. Below are the answers to her questions."
 original_url: "http://evbogue.com/untethering"
 wayback_snapshot_url: "https://web.archive.org/web/20110523062653/http://evbogue.com/untethering"

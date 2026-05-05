@@ -3,7 +3,6 @@ title: "1,000 True Equals"
 slug: "1000-true-equals"
 date: "2011-03-14"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Why we’re all leaders now."
 original_url: "http://evbogue.com/1000-true-equals"
 wayback_snapshot_url: "https://web.archive.org/web/20110315202801/http://evbogue.com/1000-true-equals"

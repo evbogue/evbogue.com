@@ -3,7 +3,6 @@ title: "Why I Untethered from Alcohol"
 slug: "why-i-untethered-from-alcohol"
 date: "2011-09-30"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Kim asked : What’s the most helpful thing you did this year that made you grow leaps and bounds?"
 original_url: "http://evbogue.com/why-i-untethered-from-alcohol"
 wayback_snapshot_url: "https://web.archive.org/web/20110930124756/http://evbogue.com/why-i-untethered-from-alcohol"

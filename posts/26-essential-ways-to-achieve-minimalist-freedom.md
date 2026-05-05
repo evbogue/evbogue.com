@@ -3,7 +3,6 @@ title: "26 Essential Ways to Achieve Minimalist Freedom"
 slug: "26-essential-ways-to-achieve-minimalist-freedom"
 date: "2010-04-14"
 tags: [archive, import]
-draft: false
 excerpt: "There’s a reason zombie movies are so popular. They have an uncanny resemblance to modern reality."
 original_source_pdf: "fbts_evbogue_mnml/20100414_26 Essential Ways to Achieve Minimalist Freedom.pdf"
 original_url: "http://www.farbeyondthestars.com/26-essential-ways-to-achieve-minimalist-freedom/"

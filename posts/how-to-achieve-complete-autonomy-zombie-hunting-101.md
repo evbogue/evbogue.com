@@ -3,7 +3,6 @@ title: "How to Achieve Complete Autonomy: Zombie Hunting 101"
 slug: "how-to-achieve-complete-autonomy-zombie-hunting-101"
 date: "2010-12-07"
 tags: [archive, import]
-draft: false
 excerpt: "This is the second part in a series on some metaphors that I’ve been playing with in my head for awhile. If you missed the first part, it was about the superhuman/drone divide , this article is about hunting zombies (and"
 original_source_pdf: "fbts_evbogue_mnml/20101207_How to Achieve Complete Autonomy - Zombie Hunting 101.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-achieve-complete-autonomy-zombie-hunting-101/"

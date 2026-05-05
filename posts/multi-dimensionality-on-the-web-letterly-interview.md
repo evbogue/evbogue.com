@@ -3,7 +3,6 @@ title: "Multi-dimensionality on the Web: Letter.ly Interview"
 slug: "multi-dimensionality-on-the-web-letterly-interview"
 date: "2011-02-07"
 tags: [archive, import]
-draft: false
 excerpt: "Thom has a digital magazine on the future of business on the web at In Treehouses . His two latest stories passed through my filter and into my radar, on how the web is becoming more beautiful with the addition of filter"
 original_source_pdf: "fbts_evbogue_mnml/20110207_Multi-dimensionality on the Web - Letterly Interview.pdf"
 original_url: "http://www.farbeyondthestars.com/multi-dimensionality-on-the-web-letter-ly-interview/"

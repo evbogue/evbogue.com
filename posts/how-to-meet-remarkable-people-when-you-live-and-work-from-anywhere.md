@@ -3,7 +3,6 @@ title: "How to Meet Remarkable People When You Live and Work from Anywhere"
 slug: "how-to-meet-remarkable-people-when-you-live-and-work-from-anywhere"
 date: "2010-09-21"
 tags: [archive, import]
-draft: false
 excerpt: "“There are no strangers here: Only friends you haven’t yet met.” -William Butler Yeats"
 original_source_pdf: "fbts_evbogue_mnml/20100921_How to Meet Remarkable People When You Live and Work from Anywhere.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-meet-remarkable-people-when-you-live-and-work-from-anywhere/"

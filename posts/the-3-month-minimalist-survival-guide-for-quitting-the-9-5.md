@@ -3,7 +3,6 @@ title: "The 3-Month Minimalist Survival Guide for Quitting the 9-5"
 slug: "the-3-month-minimalist-survival-guide-for-quitting-the-9-5"
 date: "2010-04-07"
 tags: [archive, import]
-draft: false
 excerpt: "There’s a decision that everyone has to make at a certain point in their lives. After toiling for years searching for the modern myth of job security, you wake up to the reality that is."
 original_source_pdf: "fbts_evbogue_mnml/20100407_The 3-Month Minimalist Survival Guide for Quitting the 9-5.pdf"
 original_url: "http://www.farbeyondthestars.com/the-3-month-minimalist-survival-guide-for-quitting-the-9-5/"

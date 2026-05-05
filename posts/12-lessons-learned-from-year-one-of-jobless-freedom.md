@@ -3,7 +3,6 @@ title: "12 Lessons Learned from Year One of Jobless Freedom"
 slug: "12-lessons-learned-from-year-one-of-jobless-freedom"
 date: "2010-07-12"
 tags: [archive, import]
-draft: false
 excerpt: "This week (July 15th 2010) it will have been exactly one year since I quit my day job photo editing New York Magazine’s blogs, and started on an unexpected adventure in self-employment via minimalism."
 original_source_pdf: "fbts_evbogue_mnml/20100712_12 Lessons Learned from Year One of Jobless Freedom.pdf"
 original_url: "http://www.farbeyondthestars.com/twelve-things-one-year/"

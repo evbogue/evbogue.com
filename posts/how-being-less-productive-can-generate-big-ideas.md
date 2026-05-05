@@ -3,7 +3,6 @@ title: "How Being Less Productive Can Generate Big Ideas"
 slug: "how-being-less-productive-can-generate-big-ideas"
 date: "2009-11-27"
 tags: [archive, import]
-draft: false
 excerpt: "Productivity is such a popular concept. Everyone is trying to streamline their lives so they can get more and more done during their 40-60 hour workweek."
 original_source_pdf: "fbts_evbogue_mnml/20091127_How Being Less Productive Can Generate Big Ideas.pdf"
 original_url: "http://www.farbeyondthestars.com/be-less-productive-7-ways-to-generate-big-ideas/"

@@ -3,7 +3,6 @@ title: "Two Priorities in Virtual World Design"
 slug: "two-priorities"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "A few months ago, I read this series of articles by Jonathan Harris called World Building in a Crazy World . Reading Jonathan’s work opened my mind to a new way of thinking about how I was interacting online."
 original_url: "http://evbogue.com/two-priorities"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034453/http://evbogue.com/two-priorities"

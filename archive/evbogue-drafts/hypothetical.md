@@ -3,7 +3,6 @@ title: "Why Don’t I Use Hype?"
 slug: "hypothetical"
 date: "2011-10-12"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 11, 2011"
 original_url: "http://evbogue.com/hypothetical"
 wayback_snapshot_url: "https://web.archive.org/web/20111012174447/http://evbogue.com/hypothetical"

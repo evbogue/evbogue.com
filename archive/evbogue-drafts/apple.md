@@ -3,7 +3,6 @@ title: "How Steve Jobs + Apple Influenced My Life (so far)"
 slug: "apple"
 date: "2011-10-08"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 5, 2011"
 original_url: "http://evbogue.com/apple"
 wayback_snapshot_url: "https://web.archive.org/web/20111008013625/http://evbogue.com/apple"

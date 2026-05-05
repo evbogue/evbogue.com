@@ -3,7 +3,6 @@ title: "WTF is a cyborg?"
 slug: "cyborgs"
 date: "2011-03-07"
 tags: [archive, evbogue]
-draft: true
 excerpt: "One of the most common questions I get is simple:"
 original_url: "http://evbogue.com/cyborgs"
 wayback_snapshot_url: "https://web.archive.org/web/20110307234400/http://evbogue.com/cyborgs"

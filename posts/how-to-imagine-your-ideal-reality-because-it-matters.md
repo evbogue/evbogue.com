@@ -3,7 +3,6 @@ title: "How to Imagine Your Ideal Reality (because it matters)"
 slug: "how-to-imagine-your-ideal-reality-because-it-matters"
 date: "2010-07-19"
 tags: [archive, import]
-draft: false
 excerpt: "Here’s an exercise that’s super important to do every couple of months, at least once a year. Take a moment and imagine your ideal life."
 original_source_pdf: "fbts_evbogue_mnml/20100719_How to Imagine Your Ideal Reality because it matters.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-imagine-your-ideal-reality/"

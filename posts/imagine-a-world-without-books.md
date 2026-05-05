@@ -3,7 +3,6 @@ title: "Imagine a World Without Books"
 slug: "imagine-a-world-without-books"
 date: "2010-08-27"
 tags: [archive, import]
-draft: false
 excerpt: "[Note, before you read this: Far Beyond The Stars is written for digital nomads and vagabonding minimalists (see sidebar), not necessarily academics with huge libraries -- though they are welcome to read."
 original_source_pdf: "fbts_evbogue_mnml/20100827_Imagine a World Without Books.pdf"
 original_url: "http://www.farbeyondthestars.com/imagine-a-world-without-books/"

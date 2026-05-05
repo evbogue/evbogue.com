@@ -3,7 +3,6 @@ title: "Beginner’s Minding (as we Untether)"
 slug: "beginnersmind"
 date: "2011-08-10"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/beginnersmind"
 wayback_snapshot_url: "https://web.archive.org/web/20110810162741/http://evbogue.com/beginnersmind"

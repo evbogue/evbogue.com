@@ -3,7 +3,6 @@ title: "Scared Shitless (a manifesto…?)"
 slug: "shitless"
 date: "2011-04-06"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Looking back at everything I’ve done that I thought would destroy me, nothing ever has."
 original_url: "http://evbogue.com/shitless"
 wayback_snapshot_url: "https://web.archive.org/web/20110408064739/http://evbogue.com/shitless"

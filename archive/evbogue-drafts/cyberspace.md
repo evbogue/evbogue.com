@@ -3,7 +3,6 @@ title: "Where Cyberspace Came From"
 slug: "cyberspace"
 date: "2011-11-04"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 3, 2011"
 original_url: "http://evbogue.com/cyberspace"
 wayback_snapshot_url: "https://web.archive.org/web/20111104054230/http://evbogue.com/cyberspace"

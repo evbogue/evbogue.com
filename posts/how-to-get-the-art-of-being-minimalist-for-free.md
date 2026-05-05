@@ -3,7 +3,6 @@ title: "The Art of Being Minimalist for Free\\\\">How to Get The Art of Being Mi
 slug: "how-to-get-the-art-of-being-minimalist-for-free"
 date: "2010-02-01"
 tags: [archive, import]
-draft: false
 excerpt: "[Update February 2: Thank you so much everyone. The free link is now closed."
 original_source_pdf: "fbts_evbogue_mnml/20100201_How to Get The Art of Being Minimalist for Free.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-get-the-art-of-being-minimalist-for-free/"

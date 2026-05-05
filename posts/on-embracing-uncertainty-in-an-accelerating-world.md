@@ -3,7 +3,6 @@ title: "On Embracing Uncertainty (in an accelerating world)"
 slug: "on-embracing-uncertainty-in-an-accelerating-world"
 date: "2011-01-31"
 tags: [archive, import]
-draft: false
 excerpt: "There’s been a lot of uncertainty in my life lately, which has made me think about the ways in which I’ve practiced in order to exist in a state of uncertainty without allowing situations to develop into negative situati"
 original_source_pdf: "fbts_evbogue_mnml/20110131_On Embracing Uncertainty - in an accelerating world.pdf"
 original_url: "http://www.farbeyondthestars.com/on-embracing-uncertainty-in-an-accelerating-world/"

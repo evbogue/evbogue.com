@@ -3,7 +3,6 @@ title: "Personal Things"
 slug: "personal-things"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Two years ago, I moved across the country with all of my Things in a bag."
 original_url: "http://evbogue.com/personal-things"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034439/http://evbogue.com/personal-things"

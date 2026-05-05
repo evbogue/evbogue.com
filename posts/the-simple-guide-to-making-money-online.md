@@ -3,7 +3,6 @@ title: "The Simple Guide to Making Money Online"
 slug: "the-simple-guide-to-making-money-online"
 date: "2010-03-23"
 tags: [archive, import]
-draft: false
 excerpt: "This is the second post in a series on quitting your day job in order to live and work from anywhere. The first post was on the challenge of preparing to quit your job ."
 original_source_pdf: "fbts_evbogue_mnml/20100323_The Simple Guide to Making Money Online.pdf"
 original_url: "http://www.farbeyondthestars.com/the-simple-way-to-generate-income-to-quit-your-day-job/"

@@ -3,7 +3,6 @@ title: "Asking and Listening"
 slug: "asking-and-listening"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Over the month of August, I decided to experiment. What if I write every single day for an entire month?"
 original_url: "http://evbogue.com/asking-and-listening"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034516/http://evbogue.com/asking-and-listening"

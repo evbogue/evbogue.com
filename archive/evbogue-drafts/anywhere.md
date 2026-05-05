@@ -3,7 +3,6 @@ title: "How I Work from Anywhere"
 slug: "anywhere"
 date: "2011-03-20"
 tags: [archive, evbogue]
-draft: true
 excerpt: "One of the most important elements of working online is transparency, so I put together this page to show you how I make money online."
 original_url: "http://evbogue.com/anywhere"
 wayback_snapshot_url: "https://web.archive.org/web/20110320012027/http://evbogue.com/anywhere"

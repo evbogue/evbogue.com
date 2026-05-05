@@ -3,7 +3,6 @@ title: "How to Make Money No Object (with very little)"
 slug: "how-to-make-money-no-object-with-very-little"
 date: "2010-07-07"
 tags: [archive, import]
-draft: false
 excerpt: "“If money were no object for me I’d…”"
 original_source_pdf: "fbts_evbogue_mnml/20100707_How to Make Money No Object with very little.pdf"
 original_url: "http://www.farbeyondthestars.com/make-money-no-object-with-very-little/"

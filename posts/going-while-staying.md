@@ -3,7 +3,6 @@ title: "Why I Sold My MacBook Air in Berlin and Spent Fourteen Years Paying for 
 slug: "going-while-staying"
 date: "2026-05-01"
 tags: [minimalism, travel, gear]
-draft: false
 excerpt: "The MacBook Air I sold in Berlin in 2012 was the moment minimalism broke. A new one just arrived. Starting over."
 ---
 

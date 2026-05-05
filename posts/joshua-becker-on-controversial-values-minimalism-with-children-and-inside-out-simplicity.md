@@ -3,7 +3,6 @@ title: "Joshua Becker on Controversial Values, Minimalism with Children, and Ins
 slug: "joshua-becker-on-controversial-values-minimalism-with-children-and-inside-out-simplicity"
 date: "2010-07-28"
 tags: [archive, import]
-draft: false
 excerpt: "If you’ve been reading about minimalism for long, you know Joshua Becker and his family. Joshua started blogging about minimalism two years ago, and quietly gathered a large following on his blog Becoming Minimalist ."
 original_source_pdf: "fbts_evbogue_mnml/20100728_Joshua Becker on Controversial Values_Minimalism with Children and Inside-Out Simplicity.pdf"
 original_url: "http://www.farbeyondthestars.com/joshua-becker-on-inside-out-simplicity/"

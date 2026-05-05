@@ -3,7 +3,6 @@ title: "How to Use Twitter in a Way That Creates You A Psychic Cyborg"
 slug: "how-to-use-twitter-in-a-way-that-creates-you-a-psychic-cyborg"
 date: "2011-01-13"
 tags: [archive, import]
-draft: false
 excerpt: "Everyone who uses Twitter this way is more beautiful/successful and upgrading at an incredible rate:"
 original_source_pdf: "fbts_evbogue_mnml/20110113_How to Use Twitter in a Way That Creates You A Psychic Cyborg.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-use-twitter-in-a-way-that-creates-you-a-psychic-cyborg/"

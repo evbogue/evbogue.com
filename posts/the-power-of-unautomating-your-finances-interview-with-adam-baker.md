@@ -3,7 +3,6 @@ title: "The Power of Unautomating Your Finances: Interview with Adam Baker"
 slug: "the-power-of-unautomating-your-finances-interview-with-adam-baker"
 date: "2010-03-09"
 tags: [archive, import]
-draft: false
 excerpt: "Adam Baker and his daughter Milligan"
 original_source_pdf: "fbts_evbogue_mnml/20100309_The Power of Unautomating Your Finances - Interview with Adam Baker.pdf"
 original_url: "http://www.farbeyondthestars.com/power_of_unautomation/"

@@ -3,7 +3,6 @@ title: "The Stunning Truth About Focusing on the Important"
 slug: "the-stunning-truth-about-focusing-on-the-important"
 date: "2010-02-28"
 tags: [archive, import]
-draft: false
 excerpt: "It occurred to me yesterday, as I was doing the laundry (slowly, without rush, because I didn’t have to be anywhere), why minimalism is becoming so popular:"
 original_source_pdf: "fbts_evbogue_mnml/20100228_The Stunning Truth About Focusing on the Important.pdf"
 original_url: "http://www.farbeyondthestars.com/the-stunning-truth-about-focusing-on-the-important/"

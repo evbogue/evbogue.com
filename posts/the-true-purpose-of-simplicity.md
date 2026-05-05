@@ -3,7 +3,6 @@ title: "The True Purpose of Simplicity"
 slug: "the-true-purpose-of-simplicity"
 date: "2010-08-16"
 tags: [archive, import]
-draft: false
 excerpt: "We sometimes forget why we’re here, we aren’t looking where we’re going, or even where we’ve been."
 original_source_pdf: "fbts_evbogue_mnml/20100816_The True Purpose of Simplicity.pdf"
 original_url: "http://www.farbeyondthestars.com/the-true-purpose-of-simplicity/"

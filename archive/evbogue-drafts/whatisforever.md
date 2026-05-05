@@ -3,7 +3,6 @@ title: "What is a Forever Sabbatical?"
 slug: "whatisforever"
 date: "2011-04-18"
 tags: [archive, evbogue]
-draft: true
 excerpt: "For as long as the Internet has existed, people have wanted to get off it."
 original_url: "http://evbogue.com/whatisforever"
 wayback_snapshot_url: "https://web.archive.org/web/20110422181752/http://evbogue.com/whatisforever"

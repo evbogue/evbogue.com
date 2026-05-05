@@ -3,7 +3,6 @@ title: "Don’t Listen to Anyone"
 slug: "do-not-listen-to-anyone"
 date: "2009-12-26"
 tags: [archive, import]
-draft: false
 excerpt: "Many people I meet have a story about someone they know who failed."
 original_source_pdf: "fbts_evbogue_mnml/20091226_Do not Listen to Anyone.pdf"
 original_url: "http://www.farbeyondthestars.com/dont-listen-to-anyone/"

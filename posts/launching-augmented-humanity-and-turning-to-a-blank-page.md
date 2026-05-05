@@ -3,7 +3,6 @@ title: "Launching Augmented Humanity (and turning to a blank page)"
 slug: "launching-augmented-humanity-and-turning-to-a-blank-page"
 date: "2011-02-10"
 tags: [archive, import]
-draft: false
 excerpt: "Sometimes a year of work can be reduced to a few bits of data."
 original_source_pdf: "fbts_evbogue_mnml/20110210_Launching Augmented Humanity - and turning to a blank page.pdf"
 original_url: "http://www.farbeyondthestars.com/blank-page/"

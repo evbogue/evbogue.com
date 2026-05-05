@@ -144,7 +144,7 @@ Source drafts:
 
 ### Restoration Performed
 
-- Set promoted public copies to `draft: false`.
+- Moved promoted public copies into `posts/`.
 - Preserved original provenance frontmatter.
 - Removed Google+ share widgets.
 - Removed dead Twitter/Feedburner/share prompts where they were only platform furniture.

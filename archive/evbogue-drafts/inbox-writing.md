@@ -3,7 +3,6 @@ title: "Inbox Writing"
 slug: "inbox-writing"
 date: "2011-11-15"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 14, 2011"
 original_url: "http://evbogue.com/inbox-writing"
 wayback_snapshot_url: "https://web.archive.org/web/20111115134341/http://evbogue.com/inbox-writing"

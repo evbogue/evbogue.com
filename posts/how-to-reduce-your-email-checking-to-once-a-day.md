@@ -3,7 +3,6 @@ title: "How to Reduce Your Email Checking to Once A Day"
 slug: "how-to-reduce-your-email-checking-to-once-a-day"
 date: "2010-06-30"
 tags: [archive, import]
-draft: false
 excerpt: "A number of people emailed me after the last post to say that there was no way for them to stop checking their email 35 times a day. I hope this follow up blog post can help."
 original_source_pdf: "fbts_evbogue_mnml/20100630_How to Reduce Your Email Checking to Once A Day.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-reduce-your-email-checking-to-once-a-day/"

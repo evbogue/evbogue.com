@@ -3,7 +3,6 @@ title: "Speed-crafting: How to Write Faster"
 slug: "writing-faster"
 date: "2011-08-16"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/writing-faster"
 wayback_snapshot_url: "https://web.archive.org/web/20110816084643/http://evbogue.com/writing-faster"

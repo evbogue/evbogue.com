@@ -3,7 +3,6 @@ title: "How You’re Hindering Your Potential (with your stuff)"
 slug: "how-you-are-hindering-your-potential-with-your-stuff"
 date: "2010-01-22"
 tags: [archive, import]
-draft: false
 excerpt: "From an early age you’ve been indoctrinated into a society that values things above people."
 original_source_pdf: "fbts_evbogue_mnml/20100122_How You are Hindering Your Potential with your stuff.pdf"
 original_url: "http://www.farbeyondthestars.com/how-youre-hindering-your-potential-with-your-stuff/"

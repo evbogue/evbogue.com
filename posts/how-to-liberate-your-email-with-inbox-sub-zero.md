@@ -3,7 +3,6 @@ title: "How to Liberate Your Email with Inbox Sub-Zero"
 slug: "how-to-liberate-your-email-with-inbox-sub-zero"
 date: "2009-12-21"
 tags: [archive, import]
-draft: false
 excerpt: "One of the most important changes you can make in your life, to reclaim your time and get important things done, is to adopt Inbox Zero is a regular habit when dealing with your email."
 original_source_pdf: "fbts_evbogue_mnml/20091221_How to Liberate Your Email with Inbox Sub-Zero.pdf"
 original_url: "http://www.farbeyondthestars.com/inbox-sub-zero/"

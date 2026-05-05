@@ -3,7 +3,6 @@ title: "The Indispensable Guide to Timejacking Your Way to Success"
 slug: "the-indispensable-guide-to-timejacking-your-way-to-success"
 date: "2010-03-03"
 tags: [archive, import]
-draft: false
 excerpt: "The idea that time is your most valuable commodity is not new, but it is often overlooked. I’ve done a lot of research on the importance of focusing your attention in the last year."
 original_source_pdf: "fbts_evbogue_mnml/20100303_The Indispensable Guide to Timejacking Your Way to Success.pdf"
 original_url: "http://www.farbeyondthestars.com/the-indepensable-guide-to-timejacking-your-way-to-success/"

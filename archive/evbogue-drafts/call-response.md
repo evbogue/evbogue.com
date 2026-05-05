@@ -3,7 +3,6 @@ title: "Call and Response"
 slug: "call-response"
 date: "2011-10-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 23, 2011"
 original_url: "http://evbogue.com/call-response"
 wayback_snapshot_url: "https://web.archive.org/web/20111024180503/http://evbogue.com/call-response"

@@ -3,7 +3,6 @@ title: "How Should You Price Your Writing?"
 slug: "price-your-writing"
 date: "2011-10-01"
 tags: [archive, evbogue]
-draft: true
 excerpt: "This is the first in a series introducing the basics of how to get paid to write."
 original_url: "http://evbogue.com/price-your-writing"
 wayback_snapshot_url: "https://web.archive.org/web/20111001023006/http://evbogue.com/price-your-writing"

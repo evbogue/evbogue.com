@@ -3,7 +3,6 @@ title: "What Works on Google+?"
 slug: "what-works-on-google"
 date: "2011-09-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "This is the second part in my two-part series on how I’m using Google+ in an effective way."
 original_url: "http://evbogue.com/what-works-on-google"
 wayback_snapshot_url: "https://web.archive.org/web/20110923185113/http://evbogue.com/what-works-on-google"

@@ -3,7 +3,6 @@ title: "The Minimalist Workweek: 6 Ways to Liberate Your Drawers"
 slug: "the-minimalist-workweek-6-ways-to-liberate-your-drawers"
 date: "2010-01-05"
 tags: [archive, import]
-draft: false
 excerpt: "On the path to becoming a minimalist, it’s important not to overlook your desk drawers."
 original_source_pdf: "fbts_evbogue_mnml/20100105_The Minimalist Workweek - 6 Ways to Liberate Your Drawers.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-workweek-6-ways-to-take-control-of-your-desk-drawers/"

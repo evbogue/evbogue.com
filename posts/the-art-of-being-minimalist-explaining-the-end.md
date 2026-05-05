@@ -3,7 +3,6 @@ title: "The Art of Being Minimalist (explaining the end)"
 slug: "the-art-of-being-minimalist-explaining-the-end"
 date: "2011-02-09"
 tags: [archive, import]
-draft: false
 excerpt: "Information is flowing faster."
 original_source_pdf: "fbts_evbogue_mnml/20110209_The Art of Being Minimalist - explaining the end.pdf"
 original_url: "http://www.farbeyondthestars.com/art-of-being-minimalist-end/"

@@ -3,7 +3,6 @@ title: "Insights from my Digital Sabbatical"
 slug: "digital-sabbatical"
 date: "2011-05-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Gwen Bell likes to ask questions that cut to the heart of our experience of the Internet. Recently, she asked the below questions about digital sabbaticals to her readers."
 original_url: "http://evbogue.com/digital-sabbatical"
 wayback_snapshot_url: "https://web.archive.org/web/20110524173257/http://evbogue.com/digital-sabbatical"

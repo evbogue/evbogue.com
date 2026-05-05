@@ -3,7 +3,6 @@ title: "24 Hours in the Life of Everett Bogue"
 slug: "24-hours-in-the-life-of-everett-bogue"
 date: "2010-07-05"
 tags: [archive, import]
-draft: false
 excerpt: "Me, on a not-so-average day, sailing"
 original_source_pdf: "fbts_evbogue_mnml/20100705_24 Hours in the Life of Everett Bogue.pdf"
 original_url: "http://www.farbeyondthestars.com/24-hours-in-the-life-of-everett-bogue/"

@@ -3,7 +3,6 @@ title: "How to SAVE $10 on Minimalist Business (limited time offer)"
 slug: "mbsale"
 date: "2011-05-13"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Life is too short to spend in an office, waiting for your life to start."
 original_url: "http://evbogue.com/mbsale"
 wayback_snapshot_url: "https://web.archive.org/web/20110518010914/http://evbogue.com/mbsale"

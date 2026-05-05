@@ -3,7 +3,6 @@ title: "What Technologies are Obsolete?"
 slug: "what-technologies-are-obsolete"
 date: "2011-11-12"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 11, 2011"
 original_url: "http://evbogue.com/what-technologies-are-obsolete"
 wayback_snapshot_url: "https://web.archive.org/web/20111112172822/http://evbogue.com/what-technologies-are-obsolete"

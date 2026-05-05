@@ -3,7 +3,6 @@ title: "Experiments in Google+ (and 150 Free Invites)"
 slug: "google-plus-experiments"
 date: "2011-08-12"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/google-plus-experiments"
 wayback_snapshot_url: "https://web.archive.org/web/20110812050124/http://evbogue.com/google-plus-experiments"

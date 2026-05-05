@@ -3,7 +3,6 @@ title: "How I Stay Motivated to Write Every Day"
 slug: "write-daily"
 date: "2011-10-27"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 25, 2011"
 original_url: "http://evbogue.com/write-daily"
 wayback_snapshot_url: "https://web.archive.org/web/20111027061251/http://evbogue.com/write-daily"

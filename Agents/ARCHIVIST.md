@@ -153,7 +153,7 @@ Classify every reviewed post as one of:
 - `rewrite` - good idea, weak or dated execution; needs a current version.
 - `contextualize` - historically important but needs a note or companion framing.
 - `continuity` - new or reconstructed post written into a historical gap.
-- `bury` - keep in archive/drafts; do not publish unless Ev asks.
+- `bury` - keep in `drafts/` or archive storage; do not publish unless Ev asks.
 
 Do not delete content. Bury means leave it out of the public publishing flow.
 

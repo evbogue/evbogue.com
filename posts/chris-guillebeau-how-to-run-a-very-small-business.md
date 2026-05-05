@@ -3,7 +3,6 @@ title: "Chris Guillebeau: How to Run A Very Small Business"
 slug: "chris-guillebeau-how-to-run-a-very-small-business"
 date: "2010-02-22"
 tags: [archive, import]
-draft: false
 excerpt: "Chris Guillebeau is one of the more remarkable people on earth. He’s risen to &#8216;overnight’ blogging fame , inked a book deal, visited over 125 countries, and he wants to teach you how to achieve world domination."
 original_source_pdf: "fbts_evbogue_mnml/20100222_Chris Guillebeau - How to Run A Very Small Business.pdf"
 original_url: "http://www.farbeyondthestars.com/chris-guillebeau-how-to-run-a-very-small-business/"

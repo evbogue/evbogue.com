@@ -3,7 +3,6 @@ title: "On Wandering Angels and The Future of Human Evolutionary Freedom"
 slug: "on-wandering-angels-and-the-future-of-human-evolutionary-freedom"
 date: "2010-12-17"
 tags: [archive, import]
-draft: false
 excerpt: "A few days ago (Dec 2010) I met up with one of the world’s wandering angels of destruction/creation in Berkeley for coffee on the street corner, and nighttime yoga in the park."
 original_source_pdf: "fbts_evbogue_mnml/20101217_On Wandering Angels and The Future of Human Evolutionary Freedom.pdf"
 original_url: "http://www.farbeyondthestars.com/on-wandering-angels-and-the-future-of-human-evolution/"

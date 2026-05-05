@@ -3,7 +3,6 @@ title: "When You Take it All Away, What Are You?"
 slug: "when-you-take-it-all-away-what-are-you"
 date: "2010-03-21"
 tags: [archive, import]
-draft: false
 excerpt: "Here’s a simple meditation:"
 original_source_pdf: "fbts_evbogue_mnml/20100321_When You Take it All Away - What Are You.pdf"
 original_url: "http://www.farbeyondthestars.com/when-you-take-it-all-away-what-are-you/"

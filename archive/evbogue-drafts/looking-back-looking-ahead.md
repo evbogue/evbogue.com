@@ -3,7 +3,6 @@ title: "Looking Back, Looking Ahead"
 slug: "looking-back-looking-ahead"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "For the month of August, I published every single day to Evbogue.com ."
 original_url: "http://evbogue.com/looking-back-looking-ahead"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034404/http://evbogue.com/looking-back-looking-ahead"

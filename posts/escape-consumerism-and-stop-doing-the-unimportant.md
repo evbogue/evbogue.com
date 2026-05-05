@@ -3,7 +3,6 @@ title: "Escape Consumerism and Stop Doing The Unimportant"
 slug: "escape-consumerism-and-stop-doing-the-unimportant"
 date: "2009-10-10"
 tags: [archive, import]
-draft: false
 excerpt: "One of the things that I’ve been focusing on exclusively, since quitting my job in July and moving across the United States to Portland, has been focusing on what’s important."
 original_source_pdf: "fbts_evbogue_mnml/20091010_Escape Consumerism and Stop Doing The Unimportant.pdf"
 original_url: "http://www.farbeyondthestars.com/escape-consumerism-and-stop-doing-the-unimportant/"

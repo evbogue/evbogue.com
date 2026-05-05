@@ -3,7 +3,6 @@ title: "The Minimalist Week: 5 Days 5 Ways to Apply Simplicity"
 slug: "the-minimalist-week-5-days-5-ways-to-apply-simplicity"
 date: "2009-11-16"
 tags: [archive, import]
-draft: false
 excerpt: "It’s almost Thanksgiving! Wow, crazy, this year flew by. To clear time for all of the festivities, –so I can spend time with my family during the holidays without constantly thumbing my iPhone,– I’m trying to wrap up as "
 original_source_pdf: "fbts_evbogue_mnml/20091116_The Minimalist Week - 5 Days 5 Ways to Apply Simplicity.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-week-5-days-5-ways-to-apply-simplicity/"

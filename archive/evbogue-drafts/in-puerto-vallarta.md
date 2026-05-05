@@ -3,7 +3,6 @@ title: "This is me, in Puerto Vallarta"
 slug: "in-puerto-vallarta"
 date: "2011-10-30"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 29, 2011"
 original_url: "http://evbogue.com/in-puerto-vallarta"
 wayback_snapshot_url: "https://web.archive.org/web/20111030024030/http://evbogue.com/in-puerto-vallarta"

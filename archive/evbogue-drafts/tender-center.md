@@ -3,7 +3,6 @@ title: "Telling from Your Tender Center (feat. Gwen Bell)"
 slug: "tender-center"
 date: "2011-08-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/tender-center"
 wayback_snapshot_url: "https://web.archive.org/web/20110823083025/http://evbogue.com/tender-center"

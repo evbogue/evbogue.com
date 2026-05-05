@@ -3,7 +3,6 @@ title: "Simple Fitness: Buy Less, Do More"
 slug: "simple-fitness-buy-less-do-more"
 date: "2009-11-05"
 tags: [archive, import]
-draft: false
 excerpt: "Prior to my downsizing journey, I read a lot of fitness and health magazines. Most of the magazines and books advocated buying more stuff, joining an expensive gym or promoted diets that were not healthy. I walked away f"
 original_source_pdf: "fbts_evbogue_mnml/20091105_Simple Fitness - Buy Less Do More.pdf"
 original_url: "http://www.farbeyondthestars.com/simple-fitness-buy-less-do-more/"

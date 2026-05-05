@@ -3,7 +3,6 @@ title: "An Interview with Chris Baskind on The Minimalist Century"
 slug: "an-interview-with-chris-baskind-on-the-minimalist-century"
 date: "2009-12-09"
 tags: [archive, import]
-draft: false
 excerpt: "Every week on Far Beyond The Stars I interview an important person on Being Minimalist. Last week I interviewed the author and minimalist legend Leo Babauta . Do you want to be interviewed? Drop me a tweet ."
 original_source_pdf: "fbts_evbogue_mnml/20091209_An Interview with Chris Baskind on The Minimalist Century.pdf"
 original_url: "http://www.farbeyondthestars.com/an-interview-with-chris-baskind-on-the-minimalist-century/"

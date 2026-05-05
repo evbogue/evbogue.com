@@ -3,7 +3,6 @@ title: "Post-Artifact Booking"
 slug: "post-artifact-booking"
 date: "2011-08-10"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/post-artifact-booking"
 wayback_snapshot_url: "https://web.archive.org/web/20110810100202/http://evbogue.com/post-artifact-booking"

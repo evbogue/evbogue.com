@@ -3,7 +3,6 @@ title: "How to Succeed by Being Completely Unrealistic"
 slug: "how-to-succeed-by-being-completely-unrealistic"
 date: "2010-03-04"
 tags: [archive, import]
-draft: false
 excerpt: "If you caught me a year ago and asked me whether I could have left my job, started a very small business, and would be earning enough passive income to live in New York City in only one year’s time, I would have told you"
 original_source_pdf: "fbts_evbogue_mnml/20100304_How to Succeed by Being Completely Unrealistic.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-succeed-by-being-completely-unrealistic/"

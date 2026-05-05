@@ -3,7 +3,6 @@ title: "Thom Chambers on the Future of Publishing in 2011"
 slug: "chambers"
 date: "2011-03-16"
 tags: [archive, evbogue]
-draft: true
 excerpt: "“…the gatekeepers were there for a reason – to keep out the dross.” - Thom Chambers"
 original_url: "http://evbogue.com/chambers"
 wayback_snapshot_url: "https://web.archive.org/web/20110318120046/http://evbogue.com/chambers"

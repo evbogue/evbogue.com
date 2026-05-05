@@ -3,7 +3,6 @@ title: "10 Simple Ways to Eliminate Anxiety in an Uncertain World"
 slug: "10-simple-ways-to-eliminate-anxiety-in-an-uncertain-world"
 date: "2009-11-12"
 tags: [archive, import]
-draft: false
 excerpt: "Let’s face it, the world can be terrifying. Do you know what you’re going to be doing next month, six months from now, or even a year? At the moment I certainly don’t."
 original_source_pdf: "fbts_evbogue_mnml/20091112_10 Simple Ways to Eliminate Anxiety in an Uncertain World.pdf"
 original_url: "http://www.farbeyondthestars.com/10-simple-ways-to-eliminate-anxiety-in-an-uncertain-world/"

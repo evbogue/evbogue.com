@@ -3,7 +3,6 @@ title: "The Unconventional Truth of Being Minimalist"
 slug: "the-unconventional-truth-of-being-minimalist"
 date: "2010-01-27"
 tags: [archive, import]
-draft: false
 excerpt: "There is a moment when we decide we can’t handle one more trip to Target, when we can’t buy another McChicken nugget. This is the moment when we begin to accept the unconventional truth of being a minimalist."
 original_source_pdf: "fbts_evbogue_mnml/20100127_The Unconventional Truth of Being Minimalist.pdf"
 original_url: "http://www.farbeyondthestars.com/the-unconventional-truth-of-being-minimalist/"

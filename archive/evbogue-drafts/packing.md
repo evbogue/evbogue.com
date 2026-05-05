@@ -3,7 +3,6 @@ title: "Packing List"
 slug: "packing"
 date: "2011-02-11"
 tags: [archive, evbogue]
-draft: true
 excerpt: "February 11th 2011, DEN –> LAX"
 original_url: "http://evbogue.com/packing"
 wayback_snapshot_url: "https://web.archive.org/web/20110217233945/http://evbogue.com/packing"

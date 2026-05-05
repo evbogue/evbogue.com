@@ -3,7 +3,6 @@ title: "Augmented Humanity and the Story of Stuff"
 slug: "augmented-humanity-and-the-story-of-stuff"
 date: "2011-01-30"
 tags: [archive, import]
-draft: false
 excerpt: "[Status Update:] Last week I made a brief mention that the minimalism movement was coming to a close (ahem, “ Fuck Minimalism “.) This caused a whole bunch of interesting reactions from all over the web –dozens of blog p"
 original_source_pdf: "fbts_evbogue_mnml/20110130_Augmented Humanity and the Story of Stuff.pdf"
 original_url: "http://www.farbeyondthestars.com/augmented-humanity-and-the-story-of-stuff/"

@@ -198,7 +198,6 @@ async function importRecord(record) {
     slug: finalSlug,
     date: extracted.date ?? record.firstSeen.slice(0, 4) + "-" + record.firstSeen.slice(4, 6) + "-" + record.firstSeen.slice(6, 8),
     tags: ["archive", "evbogue"],
-    draft: true,
     excerpt: excerptFromHtml(bodyHtml),
     original_url: record.url,
     wayback_snapshot_url: record.sampleSnapshotUrl,

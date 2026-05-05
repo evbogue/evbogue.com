@@ -3,7 +3,6 @@ title: "How I Write in Notebooks"
 slug: "how-i-write-in-notebooks"
 date: "2011-08-14"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/how-i-write-in-notebooks"
 wayback_snapshot_url: "https://web.archive.org/web/20110814052824/http://evbogue.com/how-i-write-in-notebooks"

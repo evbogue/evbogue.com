@@ -3,7 +3,6 @@ title: "5 Simple Reasons to be Thankful for Being Minimalist"
 slug: "5-simple-reasons-to-be-thankful-for-being-minimalist"
 date: "2009-11-26"
 tags: [archive, import]
-draft: false
 excerpt: "There are a lot of reasons to be thankful for living a simple minimalist life. Here are the five that came to my mind just now."
 original_source_pdf: "fbts_evbogue_mnml/20091126_5 Simple Reasons to be Thankful for Being Minimalist.pdf"
 original_url: "http://www.farbeyondthestars.com/5-simple-reasons-to-be-thankful-for-being-minimalist/"

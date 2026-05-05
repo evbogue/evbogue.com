@@ -3,7 +3,6 @@ title: "Cybernetic Technomadic Time/Space Travel"
 slug: "cybernetic-technomadic-timespace-travel"
 date: "2011-02-12"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Venice Beach, LA. February 12th 2011."
 original_url: "http://evbogue.com/cybernetic-technomadic-timespace-travel"
 wayback_snapshot_url: "https://web.archive.org/web/20110217024149/http://evbogue.com/cybernetic-technomadic-timespace-travel"

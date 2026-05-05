@@ -3,7 +3,6 @@ title: "Get Paid to Write"
 slug: "get-paid-to-write"
 date: "2011-10-05"
 tags: [archive, evbogue]
-draft: true
 excerpt: "In December of 2010, I decided to conducted an experiment. What if I started charging a monthly fee for access to my deepest, rawest, and most intricate writing?"
 original_url: "http://evbogue.com/get-paid-to-write"
 wayback_snapshot_url: "https://web.archive.org/web/20111005034756/http://evbogue.com/get-paid-to-write"

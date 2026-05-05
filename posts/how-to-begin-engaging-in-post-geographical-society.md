@@ -3,7 +3,6 @@ title: "How to Begin Engaging in Post-Geographical Society"
 slug: "how-to-begin-engaging-in-post-geographical-society"
 date: "2009-11-11"
 tags: [archive, import]
-draft: false
 excerpt: "Writing and photography by Everett Bogue | Follow me on Twitter Phil, a dedicated FBTS reader, had an interesting question in the comments last week. I’m re-posting it here:"
 original_source_pdf: "fbts_evbogue_mnml/20091111_How to Begin Engaging in Post-Geographical Society.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-join-post-geographical-society-and-work-from-anywhere/"

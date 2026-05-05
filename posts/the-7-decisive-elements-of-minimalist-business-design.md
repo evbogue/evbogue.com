@@ -3,7 +3,6 @@ title: "The 7 Decisive Elements of Minimalist Business Design"
 slug: "the-7-decisive-elements-of-minimalist-business-design"
 date: "2010-04-27"
 tags: [archive, import]
-draft: false
 excerpt: "I’ve spoken before about the idea of creating a minimalist business — a zero-overhead location-independent business that practically runs itself."
 original_source_pdf: "fbts_evbogue_mnml/20100427_The 7 Decisive Elements of Minimalist Business Design.pdf"
 original_url: "http://www.farbeyondthestars.com/the-7-decisive-elements-of-minimalist-business-design/"

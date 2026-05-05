@@ -3,7 +3,6 @@ title: "How Being Minimalist Can Make it Possible to Live Anywhere"
 slug: "how-being-minimalist-can-make-it-possible-to-live-anywhere"
 date: "2010-03-11"
 tags: [archive, import]
-draft: false
 excerpt: "Some people are content to live their lives in three places 95% of the time."
 original_source_pdf: "fbts_evbogue_mnml/20100311_How Being Minimalist Can Make it Possible to Live Anywhere.pdf"
 original_url: "http://www.farbeyondthestars.com/how-being-minimalist-can-make-it-possible-to-live-anywhere/"

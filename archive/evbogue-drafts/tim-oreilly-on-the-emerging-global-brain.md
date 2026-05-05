@@ -3,7 +3,6 @@ title: "Tim O’Reilly on the Emerging Global Brain"
 slug: "tim-oreilly-on-the-emerging-global-brain"
 date: "2011-10-04"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 3, 2011"
 original_url: "http://evbogue.com/tim-oreilly-on-the-emerging-global-brain"
 wayback_snapshot_url: "https://web.archive.org/web/20111004003511/http://evbogue.com/tim-oreilly-on-the-emerging-global-brain"

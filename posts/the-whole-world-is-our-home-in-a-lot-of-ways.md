@@ -3,7 +3,6 @@ title: "The Whole World is Our Home, In A Lot of Ways"
 slug: "the-whole-world-is-our-home-in-a-lot-of-ways"
 date: "2010-11-11"
 tags: [archive, import]
-draft: false
 excerpt: "“Every time I try to create a home, it ends up being a prison. So I stopped trying. I got rid of all of my stuff. Now I live in coffee shops, in the streets, in bars… I come and go as I please. I stay when I want, I leav"
 original_source_pdf: "fbts_evbogue_mnml/20101111_The Whole World is Our Home - In A Lot of Ways.pdf"
 original_url: "http://www.farbeyondthestars.com/the-whole-world-is-our-home-in-a-lot-of-ways/"

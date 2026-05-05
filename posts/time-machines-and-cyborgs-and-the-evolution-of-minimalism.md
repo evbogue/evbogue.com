@@ -3,7 +3,6 @@ title: "Time Machines, Cyborgs, and the Evolution of Minimalism"
 slug: "time-machines-and-cyborgs-and-the-evolution-of-minimalism"
 date: "2011-01-21"
 tags: [archive, import]
-draft: false
 excerpt: "January 21st 2011. Boulder, CO."
 original_source_pdf: "fbts_evbogue_mnml/20110121_Time Machines and Cyborgs and the Evolution of Minimalism.pdf"
 original_url: "http://www.farbeyondthestars.com/time-machines-cyborgs-and-the-evolution-of-minimalism/"

@@ -3,7 +3,6 @@ title: "How to Unplug"
 slug: "how-to-unplug"
 date: "2010-08-08"
 tags: [archive, import]
-draft: false
 excerpt: "Kevin Kelly believes that the human race is building the planet into one giant brain with our technology."
 original_source_pdf: "fbts_evbogue_mnml/20100808_How to Unplug.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-unplug/"

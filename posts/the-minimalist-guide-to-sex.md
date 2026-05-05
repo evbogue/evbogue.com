@@ -3,7 +3,6 @@ title: "The Minimalist Guide to Sex"
 slug: "the-minimalist-guide-to-sex"
 date: "2009-10-14"
 tags: [archive, import]
-draft: false
 excerpt: "It’s Wednesday, it’s raining lightly, it’s a bit chilly here in the Pacific Northwest. Inevitably my mind is going to wander to…. the subject of sex. Yes folks, we here at Far Beyond The Stars are taking it there, and we"
 original_source_pdf: "fbts_evbogue_mnml/20091014_The Minimalist Guide to Sex.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-guide-to-sex/"

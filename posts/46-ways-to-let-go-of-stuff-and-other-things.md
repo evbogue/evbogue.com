@@ -3,7 +3,6 @@ title: "46 Ways to Let Go (of stuff, and other things)"
 slug: "46-ways-to-let-go-of-stuff-and-other-things"
 date: "2010-01-13"
 tags: [archive, import]
-draft: false
 excerpt: "It’s incredibly hard to let go. I know so many people who have so much trouble with letting go that they have houses full of stuff they haven’t used in ten years. They’ve stayed in a job they don’t enjoy, just because. O"
 original_source_pdf: "fbts_evbogue_mnml/20100113_46 Ways to Let Go of stuff and other things.pdf"
 original_url: "http://www.farbeyondthestars.com/46-ways-to-let-go-of-stuff-and-other-things/"

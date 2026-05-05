@@ -21,11 +21,6 @@ try {
   Deno.exit(1);
 }
 
-if (post.draft) {
-  console.error(`Refusing to send: ${slug} is a draft.`);
-  Deno.exit(1);
-}
-
 const title = post.title || slug;
 const excerpt = post.excerpt || excerptFromBody(post.body);
 const url = `https://evbogue.com/posts/${slug}`;

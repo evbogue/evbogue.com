@@ -3,7 +3,6 @@ title: "What’s Left When I Untether from Branding?"
 slug: "branding"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "What if the publishing business has nothing to do with brands anymore?"
 original_url: "http://evbogue.com/branding"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034527/http://evbogue.com/branding"

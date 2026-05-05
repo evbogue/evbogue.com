@@ -3,7 +3,6 @@ title: "Minimalist Focus: How to Stop Multitasking and Get Work Done"
 slug: "minimalist-focus-how-to-stop-multitasking-and-get-work-done"
 date: "2009-11-13"
 tags: [archive, import]
-draft: false
 excerpt: "Hey blogaudience! I’ve got a lot of work to do this week."
 original_source_pdf: "fbts_evbogue_mnml/20091113_Minimalist Focus - How to Stop Multitasking and Get Work Done.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-focus-how-to-stop-multitasking-and-get-work-done/"

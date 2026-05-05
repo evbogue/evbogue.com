@@ -3,7 +3,6 @@ title: "14 Simple Methods to Help Firewall Your Time"
 slug: "14-simple-methods-to-help-firewall-your-time"
 date: "2010-01-18"
 tags: [archive, import]
-draft: false
 excerpt: "In the modern age we’ve managed to find hundreds of thousands of ways to use as much time as possible."
 original_source_pdf: "fbts_evbogue_mnml/20100118_14 Simple Methods to Help Firewall Your Time.pdf"
 original_url: "http://www.farbeyondthestars.com/tk-ways-to-firewall-your-time/"

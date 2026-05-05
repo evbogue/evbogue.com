@@ -3,7 +3,6 @@ title: "Are You Measuring?"
 slug: "are-you-measuring"
 date: "2011-10-12"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 12, 2011"
 original_url: "http://evbogue.com/are-you-measuring"
 wayback_snapshot_url: "https://web.archive.org/web/20111012235720/http://evbogue.com/are-you-measuring"

@@ -3,7 +3,6 @@ title: "The Meditation Effect: How Yoga Daily Can Change Everything"
 slug: "the-meditation-effect-how-yoga-daily-can-change-everything"
 date: "2009-10-09"
 tags: [archive, import]
-draft: false
 excerpt: "One of the habits that I’ve adopted since moving to Portland, nearly three long weeks ago, has been the daily practice of Yoga. I was doing a lot of Yoga in New York, at the amazing donation based center Yoga To The Peop"
 original_source_pdf: "fbts_evbogue_mnml/20091009_The Meditation Effect - How Yoga Daily Can Change Everything.pdf"
 original_url: "http://www.farbeyondthestars.com/the-meditation-effect-how-yoga-daily-can-change-everything/"

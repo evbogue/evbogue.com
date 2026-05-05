@@ -3,7 +3,6 @@ title: "Mindfulness in Virtual Reality"
 slug: "mindfulness-in-virtual-reality"
 date: "2011-01-19"
 tags: [archive, import]
-draft: false
 excerpt: "This is an excerpt from the work I’m doing on developing a second self on the Internet that will take care of you (what is a second self? See Amber Case’s Ted talk on cyborgs .)"
 original_source_pdf: "fbts_evbogue_mnml/20110119_Mindfulness in Virtual Reality.pdf"
 original_url: "http://www.farbeyondthestars.com/mindful-virtual-reality/"

@@ -3,7 +3,6 @@ title: "How to Live Before You Die"
 slug: "how-to-live-before-you-die"
 date: "2010-03-14"
 tags: [archive, import]
-draft: false
 excerpt: "A few days ago I had a brief muscle spasm in my left arm. It stopped after a short while, but not before I remembered Jill Bolte Taylor’s Stroke of Insight . I’m having a stroke (I thought!)"
 original_source_pdf: "fbts_evbogue_mnml/20100314_How to Live Before You Die.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-live-before-you-die/"

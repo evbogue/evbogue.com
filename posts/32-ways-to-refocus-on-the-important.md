@@ -3,7 +3,6 @@ title: "32 Ways to Refocus on the Important"
 slug: "32-ways-to-refocus-on-the-important"
 date: "2010-03-28"
 tags: [archive, import]
-draft: false
 excerpt: "The inconvenient truth of entrepreneurship."
 original_source_pdf: "fbts_evbogue_mnml/20100328_32 Ways to Refocus on the Important.pdf"
 original_url: "http://www.farbeyondthestars.com/32-ways-to-refocus-on-your-priorities/"

@@ -3,7 +3,6 @@ title: "How I’m Making 6 Changes in 2010"
 slug: "how-i-am-making-6-changes-in-2010"
 date: "2009-12-30"
 tags: [archive, import]
-draft: false
 excerpt: "Have you seen Leo Babauta’s new project, 6 Changes ?"
 original_source_pdf: "fbts_evbogue_mnml/20091230_How I am Making 6 Changes in 2010.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-put-6-changes-into-practice-in-2010/"

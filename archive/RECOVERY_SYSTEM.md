@@ -48,7 +48,7 @@ Every recovered post moves through five states:
    A human or agent has checked title, date, body completeness, provenance, and garbage removal.
 
 4. `promoted`
-   The file has moved into `posts/` with `draft: false`.
+   The file has moved into `posts/`.
 
 5. `verified`
    The post renders locally, appears in `/posts`, and does not break `/feed.xml`.
@@ -121,7 +121,6 @@ title: "Post title"
 slug: post-slug
 date: YYYY-MM-DD
 tags: [archive]
-draft: false
 excerpt: "One sentence summary."
 ---
 ```
@@ -162,7 +161,6 @@ Before promotion, every draft must pass:
 - Restored public bodies are converted to Markdown unless a specific exception is documented.
 - Images are either localized or marked for a later localization pass.
 - Provenance fields are retained.
-- `draft: false` is set only after review.
 
 If a draft fails and can be fixed quickly, fix it. If it cannot, leave it in drafts with a short note.
 

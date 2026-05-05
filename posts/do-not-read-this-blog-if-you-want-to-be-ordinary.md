@@ -3,7 +3,6 @@ title: "Don’t Read This Blog If You Want To Be Ordinary"
 slug: "do-not-read-this-blog-if-you-want-to-be-ordinary"
 date: "2010-04-11"
 tags: [archive, import]
-draft: false
 excerpt: "There comes a point in every movement when you have to tell certain people they can’t come along for the ride."
 original_source_pdf: "fbts_evbogue_mnml/20100411_Do not Read This Blog If You Want To Be Ordinary.pdf"
 original_url: "http://www.farbeyondthestars.com/dont-read-this-blog-if-you-want-to-be-ordinary/"

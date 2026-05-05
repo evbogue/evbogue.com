@@ -3,7 +3,6 @@ title: "Unlearning What The Internet Wants"
 slug: "unlearning-internet"
 date: "2011-08-10"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/unlearning_internet"
 wayback_snapshot_url: "https://web.archive.org/web/20110810075114/http://evbogue.com/unlearning_internet"

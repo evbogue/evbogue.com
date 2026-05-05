@@ -3,7 +3,6 @@ title: "How I Write Books and Blog Posts"
 slug: "how-i-write"
 date: "2011-08-14"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/how-i-write"
 wayback_snapshot_url: "https://web.archive.org/web/20110814211938/http://evbogue.com/how-i-write"

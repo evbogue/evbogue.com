@@ -3,7 +3,6 @@ title: "Minimalist Business: How to Live and Work Anywhere"
 slug: "minimalist-business-how-to-live-and-work-anywhere"
 date: "2010-06-15"
 tags: [archive, import]
-draft: false
 excerpt: "A brief history of being minimalist."
 original_source_pdf: "fbts_evbogue_mnml/20100615_Minimalist Business - How to Live and Work Anywhere.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-business/"

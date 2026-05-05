@@ -142,7 +142,7 @@ Before returning a draft, check:
 - Did you remove generic AI phrasing?
 - Did you remove all em dashes? (they are a telltale AI signal — use a period, a comma, or rewrite the sentence)
 - Does the ending hit harder than the beginning?
-- Is `draft: true` preserved unless Everett explicitly asked to publish?
+- Is the file still in `drafts/` unless Everett explicitly asked to publish?
 
 ## Report format
 
@@ -151,5 +151,5 @@ When finished, report:
 - File edited
 - Voice sources used
 - Main changes made
-- Whether it is still `draft: true`
+- Whether it is still in `drafts/` or has been moved to `posts/`
 - Any unresolved questions

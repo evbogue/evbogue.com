@@ -3,7 +3,6 @@ title: "Why I Untethered from Minimalist Labels"
 slug: "why-i-untethered-from-minimalist-labels"
 date: "2011-08-14"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/why-i-untethered-from-minimalist-labels"
 wayback_snapshot_url: "https://web.archive.org/web/20110814074458/http://evbogue.com/why-i-untethered-from-minimalist-labels"

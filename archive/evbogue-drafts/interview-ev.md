@@ -3,7 +3,6 @@ title: "How to Interview Ev"
 slug: "interview-ev"
 date: "2011-06-17"
 tags: [archive, evbogue]
-draft: true
 excerpt: "For the remainder of the month of June, before I go on digital sabbatical , I’ll be accepting interview requests about my experiments ."
 original_url: "http://evbogue.com/interview-ev"
 wayback_snapshot_url: "https://web.archive.org/web/20110619220445/http://evbogue.com/interview-ev"

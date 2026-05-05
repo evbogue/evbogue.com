@@ -3,7 +3,6 @@ title: "evbogue.com Nav : Home | About | Archive I'm Ev Bogue. I'm a Minimalist 
 slug: "backtoarch"
 date: "2014-04-09"
 tags: [archive, evbogue]
-draft: true
 excerpt: "A few readers got in touch in various ways after my Debian post to ask the obvious question…"
 original_url: "http://evbogue.com/backtoarch"
 wayback_snapshot_url: "https://web.archive.org/web/20140414015943/http://evbogue.com/backtoarch"

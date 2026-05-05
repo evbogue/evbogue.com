@@ -3,7 +3,6 @@ title: "Where are you Traveling Online?"
 slug: "traveling-online"
 date: "2011-10-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 22, 2011"
 original_url: "http://evbogue.com/traveling-online"
 wayback_snapshot_url: "https://web.archive.org/web/20111024114846/http://evbogue.com/traveling-online"

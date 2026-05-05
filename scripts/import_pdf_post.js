@@ -1,7 +1,7 @@
 const args = [...Deno.args];
 const publish = args.includes("--publish");
 const filteredArgs = args.filter((arg) => arg !== "--publish");
-const [pdfPath, outputDir = publish ? "posts" : "archive/drafts"] = filteredArgs;
+const [pdfPath, outputDir = publish ? "posts" : "drafts"] = filteredArgs;
 
 if (!pdfPath) {
   console.error("usage: deno run --allow-read --allow-write --allow-run scripts/import_pdf_post.js [--publish] <pdf-path> [output-dir]");
@@ -148,7 +148,6 @@ const frontmatter = [
   `slug: ${meta.slug}`,
   `date: ${meta.date}`,
   "tags: [archive, import]",
-  `draft: ${publish ? "false" : "true"}`,
   `excerpt: "${excerpt.replaceAll('"', '\\"')}"`,
   `original_source_pdf: "${pdfPath}"`,
   "---",

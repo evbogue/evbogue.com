@@ -3,7 +3,6 @@ title: "Corbett Barr on How to Pay Your Fans to Support You"
 slug: "corbett-barr-on-how-to-pay-your-fans-to-support-you"
 date: "2010-08-08"
 tags: [archive, import]
-draft: false
 excerpt: "The Internet has fundamentally changed the way that we distribute media."
 original_source_pdf: "fbts_evbogue_mnml/20100808_Corbett Barr on How to Pay Your Fans to Support You.pdf"
 original_url: "http://www.farbeyondthestars.com/corbett-barr-affiliate-marketing-for-beginners/"

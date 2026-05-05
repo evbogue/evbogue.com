@@ -3,7 +3,6 @@ title: "Why I’m Working with Ebookling"
 slug: "ebookling"
 date: "2011-02-16"
 tags: [archive, evbogue]
-draft: true
 excerpt: "February 16th 2011, San Francisco CA."
 original_url: "http://evbogue.com/ebookling"
 wayback_snapshot_url: "https://web.archive.org/web/20110218042257/http://evbogue.com/ebookling"

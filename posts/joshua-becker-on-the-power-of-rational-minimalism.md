@@ -3,7 +3,6 @@ title: "Joshua Becker on the Power of Rational Minimalism"
 slug: "joshua-becker-on-the-power-of-rational-minimalism"
 date: "2010-02-26"
 tags: [archive, import]
-draft: false
 excerpt: "One of the most common comments I receive on my work is very simple:"
 original_source_pdf: "fbts_evbogue_mnml/20100226_Joshua Becker on the Power of Rational Minimalism.pdf"
 original_url: "http://www.farbeyondthestars.com/joshua-becker-on-the-power-of-rational-minimalism/"

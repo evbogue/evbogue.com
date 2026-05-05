@@ -3,7 +3,6 @@ title: "Minimalism is Freedom from Location"
 slug: "minimalism-is-freedom-from-location"
 date: "2009-10-27"
 tags: [archive, import]
-draft: false
 excerpt: "We’re living in a society that is rapidly evolving to point where we won’t have to live in any one specific place. I’m currently working on a website for a woman in New York, I’ve been illustrating for a company in San F"
 original_source_pdf: "fbts_evbogue_mnml/20091027_Minimalism is Freedom from Location.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalism-is-freedom-from-location/"

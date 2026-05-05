@@ -3,7 +3,6 @@ title: "Pushing Publish: Why Write Every Day?"
 slug: "write-every-day"
 date: "2011-08-14"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/write-every-day"
 wayback_snapshot_url: "https://web.archive.org/web/20110814035356/http://evbogue.com/write-every-day"

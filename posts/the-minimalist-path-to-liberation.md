@@ -3,7 +3,6 @@ title: "The Minimalist Path to Liberation"
 slug: "the-minimalist-path-to-liberation"
 date: "2010-01-01"
 tags: [archive, import]
-draft: false
 excerpt: "Far Beyond The Stars is a series of stories about how to achieve freedom. That much needs to be clear. When I write these stories, the immediate product may be a clean kitchen counter or an uncluttered schedule; the ulti"
 original_source_pdf: "fbts_evbogue_mnml/20100101_The Minimalist Path to Liberation.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalist-path-to-liberation/"

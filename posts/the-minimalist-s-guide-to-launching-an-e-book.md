@@ -3,7 +3,6 @@ title: "The Minimalist’s Guide to Launching an E-Book"
 slug: "the-minimalist-s-guide-to-launching-an-e-book"
 date: "2010-01-29"
 tags: [archive, import]
-draft: false
 excerpt: "As many of you know, I’m putting the final touches on my e-book The Art of Being Minimalist ."
 original_source_pdf: "fbts_evbogue_mnml/20100129_The Minimalist’s Guide to Launching an E-Book.pdf"
 original_url: "http://www.farbeyondthestars.com/the-minimalists-guide-to-launching-an-e-book/"

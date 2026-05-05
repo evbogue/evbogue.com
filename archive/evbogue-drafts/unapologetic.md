@@ -3,7 +3,6 @@ title: "How to Untether from Explaining Yourself"
 slug: "unapologetic"
 date: "2011-06-30"
 tags: [archive, evbogue]
-draft: true
 excerpt: "“Never explain yourself. Your friends don’t need it and your enemies won’t believe it.” – Belgicia Howell"
 original_url: "http://evbogue.com/unapologetic"
 wayback_snapshot_url: "https://web.archive.org/web/20110703062613/http://evbogue.com/unapologetic"

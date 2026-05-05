@@ -3,7 +3,6 @@ title: "Theories or Experiences?"
 slug: "theories-experience"
 date: "2011-10-02"
 tags: [archive, evbogue]
-draft: true
 excerpt: "I’ve been noticing two types of writers lately."
 original_url: "http://evbogue.com/theories-experience"
 wayback_snapshot_url: "https://web.archive.org/web/20111002014953/http://evbogue.com/theories-experience"

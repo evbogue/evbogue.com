@@ -1,6 +1,6 @@
 import { parseFrontmatter, stringifyFrontmatter } from "./restore_post_from_wayback.js";
 
-const dirs = Deno.args.length ? Deno.args : ["posts", "archive/evbogue-drafts"];
+const dirs = Deno.args.length ? Deno.args : ["posts", "drafts", "archive/evbogue-drafts"];
 
 function stripGarbage(body) {
   return body

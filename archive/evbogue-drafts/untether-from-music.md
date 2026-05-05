@@ -3,7 +3,6 @@ title: "How to Untether from Your Music Collection"
 slug: "untether-from-music"
 date: "2011-08-10"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/untether-from-music"
 wayback_snapshot_url: "https://web.archive.org/web/20110810162600/http://evbogue.com/untether-from-music"

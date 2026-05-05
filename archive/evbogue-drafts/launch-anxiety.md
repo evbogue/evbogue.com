@@ -3,7 +3,6 @@ title: "Launch Anxiety"
 slug: "launch-anxiety"
 date: "2011-11-09"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 8, 2011"
 original_url: "http://evbogue.com/launch-anxiety"
 wayback_snapshot_url: "https://web.archive.org/web/20111109214222/http://evbogue.com/launch-anxiety"

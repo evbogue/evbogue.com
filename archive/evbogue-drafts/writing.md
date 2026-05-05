@@ -3,7 +3,6 @@ title: "How to Be a Professional Writer"
 slug: "writing"
 date: "2011-02-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "The rebirth of publishing (more e-books are being sold in the world now than physical books) has led to amazing opportunities for writers everywhere. There has never been as many opportunities as there are now to make a "
 original_url: "http://evbogue.com/writing"
 wayback_snapshot_url: "https://web.archive.org/web/20110226100616/http://evbogue.com/writing"

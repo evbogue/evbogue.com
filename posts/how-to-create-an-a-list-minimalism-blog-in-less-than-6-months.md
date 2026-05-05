@@ -3,7 +3,6 @@ title: "How to Create an A-List Minimalism Blog in Less than 6-Months"
 slug: "how-to-create-an-a-list-minimalism-blog-in-less-than-6-months"
 date: "2010-11-02"
 tags: [archive, import]
-draft: false
 excerpt: "It’s been a little over a year since I started writing on Far Beyond The Stars in October of 2009, and my blog has seen incredible growth. Since the CBS Evening News interview aired, I passed 7,000 subscribers, which is "
 original_source_pdf: "fbts_evbogue_mnml/20101102_How to Create an A-List Minimalism Blog in Less than 6-Months.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-create-an-a-list-minimalist-blog/"

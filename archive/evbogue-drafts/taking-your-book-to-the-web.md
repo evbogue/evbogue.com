@@ -3,7 +3,6 @@ title: "Taking Your Book to the Web"
 slug: "taking-your-book-to-the-web"
 date: "2011-08-20"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Two years ago in August, I quit my job with only $3,000 in the bank."
 original_url: "http://evbogue.com/taking-your-book-to-the-web"
 wayback_snapshot_url: "https://web.archive.org/web/20110820093649/http://evbogue.com/taking-your-book-to-the-web"

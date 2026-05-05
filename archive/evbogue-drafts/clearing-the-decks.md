@@ -3,7 +3,6 @@ title: "Clearing the Decks"
 slug: "clearing-the-decks"
 date: "2011-11-14"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 13, 2011"
 original_url: "http://evbogue.com/clearing-the-decks"
 wayback_snapshot_url: "https://web.archive.org/web/20111114172409/http://evbogue.com/clearing-the-decks"

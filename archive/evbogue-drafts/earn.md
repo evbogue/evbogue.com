@@ -3,7 +3,6 @@ title: "How I Earn Income"
 slug: "earn"
 date: "2011-09-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "This post is about how I make a living from my work."
 original_url: "http://evbogue.com/earn"
 wayback_snapshot_url: "https://web.archive.org/web/20110923170515/http://evbogue.com/earn"

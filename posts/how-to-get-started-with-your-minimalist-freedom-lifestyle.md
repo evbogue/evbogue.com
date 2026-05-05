@@ -3,7 +3,6 @@ title: "How to Get Started with Your Minimalist Freedom Lifestyle"
 slug: "how-to-get-started-with-your-minimalist-freedom-lifestyle"
 date: "2010-10-27"
 tags: [archive, import]
-draft: false
 excerpt: "This message is for all of the new readers out there. Over the last few weeks the number of people reading the work that I’m doing has expanded at an incredible rate, peaking recently with an interview that I did with Je"
 original_source_pdf: "fbts_evbogue_mnml/20101027_How to Get Started with Your Minimalist Freedom Lifestyle.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-get-started-with-your-minimalist-freedom-lifestyle/"

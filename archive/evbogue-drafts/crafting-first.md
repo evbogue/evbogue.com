@@ -3,7 +3,6 @@ title: "Crafting First"
 slug: "crafting-first"
 date: "2011-08-11"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/crafting-first"
 wayback_snapshot_url: "https://web.archive.org/web/20110811154637/http://evbogue.com/crafting-first"

@@ -3,7 +3,6 @@ title: "evbogue.com Nav : Home | About | Archive I'm Ev Bogue. I'm a Minimalist 
 slug: "168hourworkweek"
 date: "2014-04-15"
 tags: [archive, evbogue]
-draft: true
 excerpt: "My brother emails me today. He’s got his paramedics license and is reading the Four Hour Workweek. Eight years after it was published."
 original_url: "http://evbogue.com/168hourworkweek"
 wayback_snapshot_url: "https://web.archive.org/web/20140419023111/http://evbogue.com/168hourworkweek"

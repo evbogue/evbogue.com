@@ -3,7 +3,6 @@ title: "How to Run For Never and Ever"
 slug: "how-to-run-for-never-and-ever"
 date: "2010-11-21"
 tags: [archive, import]
-draft: false
 excerpt: "There’s a an old saying that goes something like this “the only way to be truly free is to have nothing at all.”"
 original_source_pdf: "fbts_evbogue_mnml/20101121_How to Run For Never and Ever.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-run-for-never-and-ever/"

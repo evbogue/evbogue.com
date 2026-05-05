@@ -3,7 +3,6 @@ title: "Does Untethering Lead to Anxiety?"
 slug: "anxiety"
 date: "2011-11-06"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 4, 2011"
 original_url: "http://evbogue.com/anxiety"
 wayback_snapshot_url: "https://web.archive.org/web/20111106202320/http://evbogue.com/anxiety"

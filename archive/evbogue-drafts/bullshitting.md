@@ -3,7 +3,6 @@ title: "\"If I'm not experience telling, I'm bullshitting.\""
 slug: "bullshitting"
 date: "2011-09-23"
 tags: [archive, evbogue]
-draft: true
 original_url: "http://evbogue.com/bullshitting"
 wayback_snapshot_url: "https://web.archive.org/web/20110923151755/http://evbogue.com/bullshitting"
 archive_layout: "wordpress-2011b"

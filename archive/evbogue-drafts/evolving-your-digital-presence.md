@@ -3,7 +3,6 @@ title: "Evolving Your Digital Presence"
 slug: "evolving-your-digital-presence"
 date: "2011-09-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/evolving-your-digital-presence"
 wayback_snapshot_url: "https://web.archive.org/web/20110923170725/http://evbogue.com/evolving-your-digital-presence"

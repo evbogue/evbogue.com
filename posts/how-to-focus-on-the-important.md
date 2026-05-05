@@ -3,7 +3,6 @@ title: "How to Focus on the Important"
 slug: "how-to-focus-on-the-important"
 date: "2010-01-11"
 tags: [archive, import]
-draft: false
 excerpt: "I asked many people over new years what they would like to do in ten years. I got a lot of &#8216;I don’t know…’ answers."
 original_source_pdf: "fbts_evbogue_mnml/20100111_How to Focus on the Important.pdf"
 original_url: "http://www.farbeyondthestars.com/why-priorities-are-essential-to-everything/"

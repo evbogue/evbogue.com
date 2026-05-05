@@ -3,7 +3,6 @@ title: "Reading Bloggers from Start to Finish"
 slug: "reading-bloggers"
 date: "2011-10-12"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 9, 2011"
 original_url: "http://evbogue.com/reading-bloggers"
 wayback_snapshot_url: "https://web.archive.org/web/20111012103035/http://evbogue.com/reading-bloggers"

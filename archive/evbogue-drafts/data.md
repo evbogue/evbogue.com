@@ -3,7 +3,6 @@ title: "Data Transfers from the Heart"
 slug: "data"
 date: "2011-02-15"
 tags: [archive, evbogue]
-draft: true
 excerpt: "In San Francisco there is a coffee roasting company, Blue Bottle. Their coffee is expensive, the time between ordering and drinking is expansive."
 original_url: "http://evbogue.com/data"
 wayback_snapshot_url: "https://web.archive.org/web/20110218033902/http://evbogue.com/data"

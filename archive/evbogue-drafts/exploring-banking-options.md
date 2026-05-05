@@ -3,7 +3,6 @@ title: "Exploring Banking Options"
 slug: "exploring-banking-options"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "A few years ago, I started using ING Direct as my main bank."
 original_url: "http://evbogue.com/exploring-banking-options"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034353/http://evbogue.com/exploring-banking-options"

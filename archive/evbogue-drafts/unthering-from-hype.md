@@ -3,7 +3,6 @@ title: "Evolving Your Digital Work: Untethering from Hype"
 slug: "unthering-from-hype"
 date: "2011-10-13"
 tags: [archive, evbogue]
-draft: true
 excerpt: "[NOTE:] This is a sample Letter from Evolving Your Digital Work . Evolving Your Digital Work is my premium subscription Letter. There is no archive, but I’ve decided to reveal a few sample Letters for people who are thin"
 original_url: "http://evbogue.com/unthering-from-hype"
 wayback_snapshot_url: "https://web.archive.org/web/20111013104654/http://evbogue.com/unthering-from-hype"

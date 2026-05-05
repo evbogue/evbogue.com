@@ -3,7 +3,6 @@ title: "3 Timeless and Simple Strategies to Connect with Anyone"
 slug: "3-timeless-and-simple-strategies-to-connect-with-anyone"
 date: "2010-09-02"
 tags: [archive, import]
-draft: false
 excerpt: "You can’t reach everyone in the world."
 original_source_pdf: "fbts_evbogue_mnml/20100902_3 Timeless and Simple Strategies to Connect with Anyone.pdf"
 original_url: "http://www.farbeyondthestars.com/3-timeless-and-simple-strategies-to-connect-with-anyone/"

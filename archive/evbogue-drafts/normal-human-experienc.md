@@ -3,7 +3,6 @@ title: "Telling From Human Experience (feat. Gwen Bell)"
 slug: "normal-human-experienc"
 date: "2011-09-01"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/normal-human-experienc"
 wayback_snapshot_url: "https://web.archive.org/web/20110901163641/http://evbogue.com/normal-human-experienc"

@@ -3,7 +3,6 @@ title: "Why You Shouldn’t Believe (how to experience for yourself)"
 slug: "why-you-should-not-believe-how-to-experience-for-yourself"
 date: "2010-11-16"
 tags: [archive, import]
-draft: false
 excerpt: "As many of you know, for the last few weeks (and the next few) I’ve been studying yoga intensively at Yoga to the People in San Francisco ."
 original_source_pdf: "fbts_evbogue_mnml/20101116_Why You Should Not Believe - how to experience for yourself.pdf"
 original_url: "http://www.farbeyondthestars.com/energy-of-success-and-why-you-shouldnt-believe/"

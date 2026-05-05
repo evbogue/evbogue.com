@@ -3,7 +3,6 @@ title: "Colin Wright on Minimalist Business Networking"
 slug: "colin-wright-on-minimalist-business-networking"
 date: "2010-04-21"
 tags: [archive, import]
-draft: false
 excerpt: "Colin Wright is one of my favorite minimalists. He’s built a sustainable design studio with a 6-figure income, while moving to a new continent every 4 months. He blogs at Exile Lifestyle about lifestyle design, minimalis"
 original_source_pdf: "fbts_evbogue_mnml/20100421_Colin Wright on Minimalist Business Networking.pdf"
 original_url: "http://www.farbeyondthestars.com/colin-wright-on-minimalist-business-networking/"

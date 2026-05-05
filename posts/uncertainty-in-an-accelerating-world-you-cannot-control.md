@@ -3,7 +3,6 @@ title: "Uncertainty in an Accelerating World (you cannot control)"
 slug: "uncertainty-in-an-accelerating-world-you-cannot-control"
 date: "2011-01-05"
 tags: [archive, import]
-draft: false
 excerpt: "January 4th, 7:04am. O’Hare International Airport"
 original_source_pdf: "fbts_evbogue_mnml/20110105_Uncertainty in an Accelerating World - you cannot control.pdf"
 original_url: "http://www.farbeyondthestars.com/uncertainty-in-an-accelerating-world-you-cannot-control/"

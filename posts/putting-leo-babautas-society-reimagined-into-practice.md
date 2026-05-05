@@ -3,7 +3,6 @@ title: "Putting Leo Babauta’s &#8216;Society, Reimagined’ into Practice"
 slug: "putting-leo-babautas-society-reimagined-into-practice"
 date: "2010-04-21"
 tags: [archive, import]
-draft: false
 excerpt: "This entire post is based off of Leo Babauta’s “Society, Reimagined” on Mnmlist . You should read Leo’s post before this, or you’ll be a little lost."
 original_source_pdf: "fbts_evbogue_mnml/20100421_Putting Leo Babautas Society Reimagined into Practice.pdf"
 original_url: "http://www.farbeyondthestars.com/putting-leo-babautas-society-reimagined-into-practice/"

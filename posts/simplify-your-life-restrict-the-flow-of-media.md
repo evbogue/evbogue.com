@@ -3,7 +3,6 @@ title: "Simplify Your life: Restrict the Flow of Media"
 slug: "simplify-your-life-restrict-the-flow-of-media"
 date: "2009-10-15"
 tags: [archive, import]
-draft: false
 excerpt: "My blog buddy Tammy Strobel , over at RowdyKittens, recently went on a media diet , which got me thinking about the subject."
 original_source_pdf: "fbts_evbogue_mnml/20091015_Simplify Your life - Restrict the Flow of Media.pdf"
 original_url: "http://www.farbeyondthestars.com/simplify-your-life-restrict-the-flow-of-media/"

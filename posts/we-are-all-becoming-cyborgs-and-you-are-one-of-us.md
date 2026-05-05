@@ -3,7 +3,6 @@ title: "We’re All Becoming Cyborgs (and you’re one of us)"
 slug: "we-are-all-becoming-cyborgs-and-you-are-one-of-us"
 date: "2011-01-12"
 tags: [archive, import]
-draft: false
 excerpt: "Try explaining to someone who hasn’t used Twitter that we’re becoming a race of cyborgs, they’ll look at you like you just teleported in from Gallifrey."
 original_source_pdf: "fbts_evbogue_mnml/20110112_We are All Becoming Cyborgs and you are one of us.pdf"
 original_url: "http://www.farbeyondthestars.com/were-all-becoming-cyborgs-and-youre-one-of-us/"

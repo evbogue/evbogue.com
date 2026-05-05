@@ -3,7 +3,6 @@ title: "Live Realigns on the Web"
 slug: "live-realigns-on-the-web"
 date: "2011-08-28"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/live-realigns-on-the-web"
 wayback_snapshot_url: "https://web.archive.org/web/20110828192738/http://evbogue.com/live-realigns-on-the-web"

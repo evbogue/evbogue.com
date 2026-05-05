@@ -3,7 +3,6 @@ title: "Evolving Your Digital Work"
 slug: "evolve"
 date: "2011-09-23"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/evolve"
 wayback_snapshot_url: "https://web.archive.org/web/20110923180122/http://evbogue.com/evolve"

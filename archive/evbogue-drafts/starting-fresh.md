@@ -3,7 +3,6 @@ title: "Starting Fresh"
 slug: "starting-fresh"
 date: "2011-11-03"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 2, 2011"
 original_url: "http://evbogue.com/starting-fresh"
 wayback_snapshot_url: "https://web.archive.org/web/20111103070108/http://evbogue.com/starting-fresh"

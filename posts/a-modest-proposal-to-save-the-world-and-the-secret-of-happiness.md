@@ -3,7 +3,6 @@ title: "A Modest Proposal to Save The World (and the secret of happiness)"
 slug: "a-modest-proposal-to-save-the-world-and-the-secret-of-happiness"
 date: "2010-10-04"
 tags: [archive, import]
-draft: false
 excerpt: "I keep talking about saving the human race on this blog, and I realize that a certain number of you don’t really realize what that means."
 original_source_pdf: "fbts_evbogue_mnml/20101004_A Modest Proposal to Save The World and the secret of happiness.pdf"
 original_url: "http://www.farbeyondthestars.com/a-modest-proposal-to-save-the-world-and-the-secret-of-happiness/"

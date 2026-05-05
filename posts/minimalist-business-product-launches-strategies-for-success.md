@@ -3,7 +3,6 @@ title: "Minimalist Business Product Launches: Strategies for Success"
 slug: "minimalist-business-product-launches-strategies-for-success"
 date: "2010-05-07"
 tags: [archive, import]
-draft: false
 excerpt: "I have a long standing tradition here at Far Beyond The Stars of doing my best to be as helpful as possible to the readers."
 original_source_pdf: "fbts_evbogue_mnml/20100507_Minimalist Business Product Launches - Strategies for Success.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-business-product-launches-strategies-for-success/"

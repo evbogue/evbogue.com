@@ -3,7 +3,6 @@ title: "Triangular Focus"
 slug: "singular-focus"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: false
 excerpt: "These three things are important to me:"
 original_url: "http://evbogue.com/singular-focus"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034444/http://evbogue.com/singular-focus"

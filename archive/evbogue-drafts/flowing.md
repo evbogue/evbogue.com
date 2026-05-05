@@ -3,7 +3,6 @@ title: "How to Earn from Flowing Information"
 slug: "flowing"
 date: "2011-03-21"
 tags: [archive, evbogue]
-draft: true
 excerpt: "This blog post is important and contains timely information which may not be available at a later date — see below. You might want to read it from start to finish in one sitting. If you need to, save it for reading later"
 original_url: "http://evbogue.com/flowing"
 wayback_snapshot_url: "https://web.archive.org/web/20110324054509/http://evbogue.com/flowing"

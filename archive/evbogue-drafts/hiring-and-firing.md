@@ -3,7 +3,6 @@ title: "Discovering Readers: Hiring and Firing"
 slug: "hiring-and-firing"
 date: "2011-10-04"
 tags: [archive, evbogue]
-draft: true
 excerpt: "October 2, 2011"
 original_url: "http://evbogue.com/hiring-and-firing"
 wayback_snapshot_url: "https://web.archive.org/web/20111004000915/http://evbogue.com/hiring-and-firing"

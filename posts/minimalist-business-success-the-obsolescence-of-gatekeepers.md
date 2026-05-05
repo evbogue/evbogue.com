@@ -3,7 +3,6 @@ title: "Minimalist Business Success: The Obsolescence of Gatekeepers"
 slug: "minimalist-business-success-the-obsolescence-of-gatekeepers"
 date: "2010-05-18"
 tags: [archive, import]
-draft: false
 excerpt: "Ten years ago, if you were an artist or creator or any sort, you needed to one thing to get your work to a large enough audience to support yourself: suck up to a gatekeeper."
 original_source_pdf: "fbts_evbogue_mnml/20100518_Minimalist Business Success - The Obsolescence of Gatekeepers.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-business-success-the-obsolescence-of-gatekeepers/"

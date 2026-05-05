@@ -3,7 +3,6 @@ title: "The Deepest Darkest Secret of Everett Bogue"
 slug: "the-deepest-darkest-secret-of-everett-bogue"
 date: "2011-01-23"
 tags: [archive, import]
-draft: false
 excerpt: "January 23rd 2011, Boulder CO. 7:44am, Trident Coffee."
 original_source_pdf: "fbts_evbogue_mnml/20110123_The Deepest Darkest Secret of Everett Bogue.pdf"
 original_url: "http://www.farbeyondthestars.com/the-deepest-darkest-secret-of-everett-bogue/"

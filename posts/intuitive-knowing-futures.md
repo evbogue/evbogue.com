@@ -3,7 +3,6 @@ title: "Intuitive Knowing Futures"
 slug: "intuitive-knowing-futures"
 date: "2010-12-28"
 tags: [archive, import]
-draft: false
 excerpt: "One of the most powerful things you can learn from yoga is the ability to trust feelings that come from your gut. This is the home of your sacral chakra, and the seat of intuition."
 original_source_pdf: "fbts_evbogue_mnml/20101228_Intuitive Knowing Futures.pdf"
 original_url: "http://www.farbeyondthestars.com/intuitive-knowing-futures/"

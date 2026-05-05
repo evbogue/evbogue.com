@@ -3,7 +3,6 @@ title: "Why I Outsource Food and Drink"
 slug: "outsource-food"
 date: "2011-11-07"
 tags: [archive, evbogue]
-draft: true
 excerpt: "November 6, 2011"
 original_url: "http://evbogue.com/outsource-food"
 wayback_snapshot_url: "https://web.archive.org/web/20111107130523/http://evbogue.com/outsource-food"

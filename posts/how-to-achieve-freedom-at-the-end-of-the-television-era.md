@@ -3,7 +3,6 @@ title: "How to Achieve Freedom At The End of the Television Era"
 slug: "how-to-achieve-freedom-at-the-end-of-the-television-era"
 date: "2010-03-16"
 tags: [archive, import]
-draft: false
 excerpt: "20 years ago it was incredibly difficult to create a reality that you could effect."
 original_source_pdf: "fbts_evbogue_mnml/20100316_How to Achieve Freedom At The End of the Television Era.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-achieve-freedom-at-the-end-of-the-television-era/"

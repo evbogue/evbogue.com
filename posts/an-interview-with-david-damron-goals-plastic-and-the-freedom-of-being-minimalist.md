@@ -3,7 +3,6 @@ title: "An interview with David Damron: Goals, Plastic, and the Freedom of Being
 slug: "an-interview-with-david-damron-goals-plastic-and-the-freedom-of-being-minimalist"
 date: "2009-11-18"
 tags: [archive, import]
-draft: false
 excerpt: "I’m excited to present the first in a series of interviews on being minimalist. Every Wednesday on Far Beyond The Stars, for the foreseeable future, I’ll be publishing an interview with an authority on living the minimal"
 original_source_pdf: "fbts_evbogue_mnml/20091118_An interview with David Damron - Goals Plastic and the Freedom of Being Minimalist.pdf"
 original_url: "http://www.farbeyondthestars.com/an-interview-david-damron-goals-plastic-and-the-freedom-of-being-minimalist/"

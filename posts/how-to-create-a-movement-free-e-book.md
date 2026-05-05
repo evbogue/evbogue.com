@@ -3,7 +3,6 @@ title: "How to Create a Movement: Free e-book"
 slug: "how-to-create-a-movement-free-e-book"
 date: "2010-03-07"
 tags: [archive, import]
-draft: false
 excerpt: "Over the last week the popularity of Far Beyond The Stars has skyrocketed (again). I don’t pay attention to stats often, but needless to say, they’ve gone way up. My traffic and subscriber count continues to double every"
 original_source_pdf: "fbts_evbogue_mnml/20100307_How to Create a Movement - Free e-book.pdf"
 original_url: "http://www.farbeyondthestars.com/how-to-create-a-movement-free-e-book/"

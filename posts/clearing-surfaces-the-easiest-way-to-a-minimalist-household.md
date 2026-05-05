@@ -3,7 +3,6 @@ title: "Clearing Surfaces: The Easiest Way to A Minimalist Household"
 slug: "clearing-surfaces-the-easiest-way-to-a-minimalist-household"
 date: "2009-10-23"
 tags: [archive, import]
-draft: false
 excerpt: "Yesterday, I discussed some of the fundamental problems that are associated with clutter. How we get it, where it comes from, why we have it, and how to get rid of it."
 original_source_pdf: "fbts_evbogue_mnml/20091023_Clearing Surfaces - The Easiest Way to A Minimalist Household.pdf"
 original_url: "http://www.farbeyondthestars.com/clearing-surfaces-the-easiest-way-to-a-minimalist-household/"

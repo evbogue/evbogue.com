@@ -3,7 +3,6 @@ title: "Minimalist Business 101: How to Pay Your Fans to Support You"
 slug: "minimalist-business-101-how-to-pay-your-fans-to-support-you"
 date: "2010-06-10"
 tags: [archive, import]
-draft: false
 excerpt: "This is the first article in the series leading up to the re-release of Minimalist Business on June 15th. The second part will be on how I was able to make $2,300 in one day last month by supporting work that matters."
 original_source_pdf: "fbts_evbogue_mnml/20100610_Minimalist Business 101 - How to Pay Your Fans to Support You.pdf"
 original_url: "http://www.farbeyondthestars.com/minimalist-business-101-how-to-pay-your-fans-to-support-you/"

@@ -3,7 +3,6 @@ title: "The 15-Minute Blog Post"
 slug: "the-15-minute-blog-post"
 date: "2011-08-19"
 tags: [archive, evbogue]
-draft: true
 excerpt: "Written by Ev Bogue | Follow me on Google+"
 original_url: "http://evbogue.com/the-15-minute-blog-post"
 wayback_snapshot_url: "https://web.archive.org/web/20110819073501/http://evbogue.com/the-15-minute-blog-post"

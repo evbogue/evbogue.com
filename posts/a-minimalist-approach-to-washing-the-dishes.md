@@ -3,7 +3,6 @@ title: "A Minimalist Approach to Washing the Dishes"
 slug: "a-minimalist-approach-to-washing-the-dishes"
 date: "2009-12-14"
 tags: [archive, import]
-draft: false
 excerpt: "Why do I do this? Because a person’s kitchen sink is a fundamental judge of their character."
 original_source_pdf: "fbts_evbogue_mnml/20091214_A Minimalist Approach to Washing the Dishes.pdf"
 original_url: "http://www.farbeyondthestars.com/why-being-minimalist-starts-with-the-kitchen-sink/"

@@ -3,7 +3,6 @@ title: "The Real Secret of Minimalist Freedom Success"
 slug: "the-real-secret-of-minimalist-freedom-success"
 date: "2010-09-13"
 tags: [archive, import]
-draft: false
 excerpt: "This is an important post, probably one of the most important that’s ever been written on this blog."
 original_source_pdf: "fbts_evbogue_mnml/20100913_The Real Secret of Minimalist Freedom Success.pdf"
 original_url: "http://www.farbeyondthestars.com/real-secret-of-success/"

@@ -3,7 +3,6 @@ title: "Richard Branson on Doing the Work"
 slug: "branson-on-work"
 date: "2011-09-24"
 tags: [archive, evbogue]
-draft: true
 excerpt: "I’m reading Richard Branson’s Business Stripped Bare , a book full of stories of heroic exploits and all sorts of amazing things that only Richard Branson could do. Naked women, hanging from helicopters, and recording fa"
 original_url: "http://evbogue.com/branson-on-work"
 wayback_snapshot_url: "https://web.archive.org/web/20110924034532/http://evbogue.com/branson-on-work"
