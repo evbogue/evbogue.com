@@ -11,8 +11,8 @@ A minimal blog for Ev Bogue (ev@evbogue.com). The goal is a professional publish
 - **Runtime:** Deno 2.x (`brew install deno`)
 - **Server:** Hono via `jsr:@hono/hono`
 - **Markdown:** `marked` via `https://esm.sh/gh/evbogue/bog5@...`
-- **CSS:** Pico CSS classless v2 (CDN, no custom CSS except font and font-weight overrides)
-- **Font:** Inter (Google Fonts)
+- **CSS:** `assets/signal.css` served directly by the Deno app
+- **Fonts:** Playfair Display, DM Sans, and DM Mono via Google Fonts
 - **Deployment:** VPS running this repo, pulled from GitHub
 
 ## Run locally
@@ -134,6 +134,6 @@ Write a real post in Obsidian, drop the `.md` file into `posts/`, push to GitHub
 
 - `subscribers.json` is gitignored — it lives only on the VPS. Back it up separately.
 - `test-email.js` is gitignored — it's a scratch SMTP test file.
-- The dark/light mode toggle is a Pico `role="switch"` checkbox in the nav. Preference is saved to localStorage.
+- The live design is the Signal layout in `assets/signal.css` and `signalPage()`; there is no active Pico/head.html shell.
 - The ntfy send widget on `/about` posts to `https://ntfy.sh/evbogue` — Ev receives these as push notifications.
 - git-ssb integration was discussed and deferred — the remote plumbing can be added later without changing the rest of the pipeline.

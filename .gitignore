@@ -3,3 +3,6 @@ test-email.js
 .DS_Store
 .claude/
 .playwright-mcp/
+*.swp
+evbogue-*.png
+signal-*.png

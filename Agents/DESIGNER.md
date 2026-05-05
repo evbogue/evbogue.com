@@ -23,7 +23,7 @@ Do not imitate those sites visually. Borrow the attitude:
 
 ## Source notes
 
-The root `DESIGNER.md` contains older design philosophy notes from the pre-Signal era; treat it as historical context, not active rules. The live design lives in `assets/signal.css` and `signalPage()` inside `serve.js`. Read those before changing the layout, marketing copy, or visual assets.
+The live design lives in `assets/signal.css` and `signalPage()` inside `serve.js`. Read those before changing the layout, marketing copy, or visual assets.
 
 ## What to touch
 
@@ -41,8 +41,8 @@ Do not redesign the whole site unless explicitly asked.
 
 - Keep the text column readable.
 - Keep custom CSS small.
-- Use Pico CSS and Inter.
-- Preserve the dark/light toggle.
+- Use the existing Signal stylesheet and font stack: Playfair Display, DM Sans, and DM Mono.
+- Do not reintroduce the old Pico shell or dark/light toggle unless Ev explicitly asks for that design direction.
 - Avoid cards, thumbnails, heavy sidebars, gradients, logos, and ornamental archive styling.
 - Do not let recovered Far Beyond The Stars assets take over the current site identity.
 - Make the homepage feel like the current publication, not a museum.

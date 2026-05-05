@@ -1,4 +1,5 @@
 import nodemailer from "npm:nodemailer";
+import { excerptFromBody, loadPost } from "./lib/posts.js";
 
 const ROOT = import.meta.dirname;
 
@@ -12,40 +13,21 @@ if (!slug) {
   Deno.exit(1);
 }
 
-function parseFrontmatter(text) {
-  const m = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-  if (!m) return { data: {}, body: text };
-  const data = {};
-  for (const line of m[1].split("\n")) {
-    const kv = line.match(/^(\w+):\s*(.*)$/);
-    if (!kv) continue;
-    let [, k, v] = kv;
-    v = v.trim();
-    if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) {
-      v = v.slice(1, -1);
-    } else if (v === "true") v = true;
-    else if (v === "false") v = false;
-    data[k] = v;
-  }
-  return { data, body: m[2] };
-}
-
-let raw;
+let post;
 try {
-  raw = await Deno.readTextFile(`${ROOT}/posts/${slug}.md`);
+  post = await loadPost(ROOT, slug);
 } catch {
   console.error(`Post not found: posts/${slug}.md`);
   Deno.exit(1);
 }
 
-const { data, body } = parseFrontmatter(raw);
-if (data.draft) {
+if (post.draft) {
   console.error(`Refusing to send: ${slug} is a draft.`);
   Deno.exit(1);
 }
 
-const title = data.title || slug;
-const excerpt = data.excerpt || body.replace(/\n+/g, " ").replace(/\s+/g, " ").trim().slice(0, 260);
+const title = post.title || slug;
+const excerpt = post.excerpt || excerptFromBody(post.body);
 const url = `https://evbogue.com/posts/${slug}`;
 
 let subscribers = [];

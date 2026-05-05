@@ -263,22 +263,6 @@ nav a:hover { color: var(--accent); }
   width: 100%;
 }
 
-.card-img-inner {
-  align-items: center;
-  color: var(--ink-3);
-  display: flex;
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  height: 100%;
-  justify-content: center;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: transform 0.3s;
-  width: 100%;
-}
-
-.card:hover .card-img-inner { transform: scale(1.03); }
-
 .card-title {
   color: var(--ink);
   font-family: var(--serif);

@@ -1,42 +1,13 @@
 import { Hono } from "jsr:@hono/hono";
 import { marked } from "https://esm.sh/gh/evbogue/bog5@de70376265/lib/marked.esm.js";
+import { excerptFromBody, loadPosts as readPosts } from "./lib/posts.js";
 
 const app = new Hono()
 
 const ROOT = import.meta.dirname
 
-function parseFrontmatter(text) {
-  const m = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
-  if (!m) return { data: {}, body: text }
-  const data = {}
-  for (const line of m[1].split('\n')) {
-    const kv = line.match(/^(\w+):\s*(.*)$/)
-    if (!kv) continue
-    let [, k, v] = kv
-    v = v.trim()
-    if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) {
-      v = v.slice(1, -1)
-    } else if (v.startsWith('[') && v.endsWith(']')) {
-      v = v.slice(1, -1).split(',').map(x => x.trim()).filter(Boolean)
-    } else if (v === 'true') v = true
-    else if (v === 'false') v = false
-    data[k] = v
-  }
-  return { data, body: m[2] }
-}
-
 async function loadPosts() {
-  const posts = []
-  for await (const entry of Deno.readDir(`${ROOT}/posts`)) {
-    if (!entry.isFile || !entry.name.endsWith('.md')) continue
-    const fileSlug = entry.name.replace(/\.md$/, '')
-    const text = await Deno.readTextFile(`${ROOT}/posts/${entry.name}`)
-    const { data, body } = parseFrontmatter(text)
-    if (data.draft) continue
-    posts.push({ ...data, slug: data.slug || fileSlug, body })
-  }
-  posts.sort((a, b) => (a.date < b.date ? 1 : -1))
-  return posts
+  return readPosts(ROOT)
 }
 
 const CONTENT_TYPES = {
@@ -54,14 +25,6 @@ function getContentType(path) {
     if (path.endsWith(ext)) return contentType
   }
   return "application/octet-stream"
-}
-
-function excerptFromBody(body) {
-  return body
-    .replace(/\n+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 260)
 }
 
 function escapeXml(value = "") {
@@ -183,7 +146,7 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="icon" href="/assets/ev.png">
     <link rel="alternate" type="application/rss+xml" title="evbogue.com" href="/feed.xml">
-    <link rel="stylesheet" href="/assets/signal.css?v=20260505a">
+    <link rel="stylesheet" href="/assets/signal.css?v=20260505b">
   </head>
   <body>
     <header>
@@ -247,17 +210,6 @@ function subscribeBanner(status) {
         <a class="subscribe-banner-dismiss" href="/" aria-label="Dismiss">&times;</a>
       </div>
     </div>
-  `
-}
-
-function postEntry(post, className = "entry") {
-  return `
-    <article class="${className}">
-      <h2><a href="/posts/${post.slug}">${post.title}</a></h2>
-      <div class="meta">${post.date}</div>
-      <p>${post.excerpt || excerptFromBody(post.body)}</p>
-      <p><a class="more-link" href="/posts/${post.slug}">Continue reading</a></p>
-    </article>
   `
 }
 
@@ -506,14 +458,15 @@ app.get('/', async (c) => {
   const query = c.req.query('q')?.trim() ?? ''
   const subscribeStatus = c.req.query('subscribe') ?? ''
   const allPosts = await loadPosts()
+  const searchResults = query ? filterPosts(allPosts, query) : []
   const main = query ? `
     <div class="section-header" style="padding-top:3rem">
       <span class="section-label">Search</span>
       <div class="section-rule"></div>
     </div>
-    <p class="empty-state">Showing ${filterPosts(allPosts, query).length} result${filterPosts(allPosts, query).length === 1 ? '' : 's'} for "${escapeHtml(query)}". <a href="/">Clear search</a></p>
+    <p class="empty-state">Showing ${searchResults.length} result${searchResults.length === 1 ? '' : 's'} for "${escapeHtml(query)}". <a href="/">Clear search</a></p>
     <div class="article-grid">
-      ${filterPosts(allPosts, query).map((post) => signalCard(post)).join('')}
+      ${searchResults.map((post) => signalCard(post)).join('')}
     </div>
   ` : signalHomeHtml(allPosts)
   return c.html(signalPage({
