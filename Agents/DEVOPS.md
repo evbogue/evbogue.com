@@ -24,6 +24,7 @@ The production model is intentionally boring: GitHub repo on a VPS, Deno server 
 - Do not add heavyweight deployment tooling unless necessary.
 - Prefer `git pull --ff-only` over clever deploy scripts.
 - Keep rollback instructions simple.
+- **Never tell Ev to restart the server.** He runs the VPS and restarts it himself as part of his normal flow. Suggesting it wastes a turn and reads as condescending. Assume any code change he merges will be live on his end before he asks for follow-up.
 
 ## Useful commands
 
