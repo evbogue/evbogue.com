@@ -41,9 +41,8 @@ Usually touch:
 
 Do not touch:
 
-- `head.html`
-- `foot.html`
 - `serve.js`
+- `assets/signal.css`
 - design files
 - CSS or layout
 - subscribers

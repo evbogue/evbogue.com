@@ -24,12 +24,12 @@ deno task start
 ## File structure
 
 ```
-serve.js          — all routes
-head.html         — shared HTML head + site header + nav
-foot.html         — shared footer with email signup form
+serve.js          — all routes; `signalPage()` is the page wrapper
+assets/signal.css — site stylesheet (cache-busted via ?v= query)
 about.md          — bio + contact info (rendered at /about)
 posts/            — one .md file per post
 Agents/           — specialized role instructions for writing, editing, ops, archive work, etc.
+send-post.js      — emails a post to subscribers via SMTP (run manually after publishing)
 subscribers.json  — email list (gitignored, lives only on server)
 test-email.js     — SMTP test script (gitignored)
 ```
@@ -102,7 +102,13 @@ Ev uses PrivateEmail (Namecheap) SMTP:
 - User: ev@evbogue.com
 - Pass: stored in env var `SMTP_PASS` on the server — do not hardcode
 
-Subscribers are stored in `subscribers.json` (gitignored). The send-on-publish flow is not yet implemented — see work order.
+Subscribers are stored in `subscribers.json` (gitignored). Send a post to the list with:
+
+```sh
+SMTP_PASS=... deno run --allow-net --allow-read --allow-env send-post.js <slug>
+```
+
+Add `--dry-run` to print the recipient list without sending. The script refuses drafts, sends one-to-one (no BCC blast), and sets `List-Unsubscribe` headers for deliverability. Manual unsubscribes go through `ev@evbogue.com` — edit `subscribers.json` on the VPS to remove.
 
 ## Work order — remaining tasks
 
@@ -113,21 +119,14 @@ git -C /path/to/evbogue.com pull --ff-only
 ```
 The server reads markdown at request time so no restart is needed after a pull. Needs a deploy key or HTTPS token with read access to the GitHub repo.
 
-### 2. Send email to subscribers on new post
-Write a script `send-post.js` that:
-- Reads `subscribers.json`
-- Takes a post slug as an argument, loads that post
-- Sends the post title + excerpt + link via SMTP (nodemailer, PrivateEmail settings above)
-- Run manually after pushing: `SMTP_PASS=... deno run --allow-net --allow-read --allow-env send-post.js hello-world`
-Optionally hook into the VPS git pull so it fires automatically when a new post appears.
-
-### 3. End-to-end dry run
-Write a real post in Obsidian, drop the `.md` file into `posts/`, push to GitHub, confirm it appears on the live site and in `/feed.xml`, and that subscriber email sends correctly.
+### 2. End-to-end dry run
+Write a real post in Obsidian, drop the `.md` file into `posts/`, push to GitHub, confirm it appears on the live site and in `/feed.xml`, then run `send-post.js <slug>` and verify the subscriber email lands cleanly.
 
 ## Recently completed
 
-- RSS feed exists at `/feed.xml`, and `head.html` includes the alternate RSS link.
-- Homepage/sidebar subscribe form posts to `/subscribe`.
+- RSS feed exists at `/feed.xml`, and `signalPage()` includes the alternate RSS link.
+- Subscribe form on every page posts to `/subscribe`; result banner (`?subscribe=ok|invalid|error`) renders on the home page.
+- `send-post.js` sends a post to the subscriber list via SMTP, one-to-one with `List-Unsubscribe` headers; supports `--dry-run`.
 - Published `posts/how-to-fire-up-a-blog-with-openclaw.md` on 2026-04-25.
 - Created the `Agents/` role system, including the Archivist continuity role for backdated timeline work.
 

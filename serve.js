@@ -5,9 +5,6 @@ const app = new Hono()
 
 const ROOT = import.meta.dirname
 
-const head = await Deno.readTextFile(`${ROOT}/head.html`)
-const foot = await Deno.readTextFile(`${ROOT}/foot.html`)
-
 function parseFrontmatter(text) {
   const m = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
   if (!m) return { data: {}, body: text }
@@ -160,8 +157,6 @@ const ntfyWidget = `
   </script>
 `
 
-const page = (bodyHtml) => head + bodyHtml + foot
-
 function signalPath(path, basePath = "") {
   if (!basePath) return path || "/"
   if (!path || path === "/") return basePath
@@ -263,36 +258,6 @@ function postEntry(post, className = "entry") {
       <p>${post.excerpt || excerptFromBody(post.body)}</p>
       <p><a class="more-link" href="/posts/${post.slug}">Continue reading</a></p>
     </article>
-  `
-}
-
-function introHtml(postCount) {
-  return `
-    <aside class="intro">
-      <img src="/assets/ev.png" alt="Everett Bogue">
-      <div>
-        <p class="kicker">Publisher's desk</p>
-        <p>I'm Ev in Chicago. I write about the old web, small tools, autonomy, and what survived.</p>
-        <dl class="site-stats">
-          <div>
-            <dt>${postCount}</dt>
-            <dd>posts online</dd>
-          </div>
-          <div>
-            <dt>RSS</dt>
-            <dd><a href="/feed.xml">still works</a></dd>
-          </div>
-        </dl>
-        <form class="sidebar-subscribe" action="/subscribe" method="POST">
-          <label>
-            Get the next post
-            <input type="email" name="email" placeholder="you@example.com" required>
-          </label>
-          <button type="submit">Subscribe</button>
-          <small>No funnel. Just the next dispatch.</small>
-        </form>
-      </div>
-    </aside>
   `
 }
 
@@ -644,6 +609,8 @@ app.get('/feed.xml', async (c) => {
   })
 })
 
+
+app.get('/subscribe', (c) => c.redirect('/#subscribe'))
 
 app.post('/subscribe', async (c) => {
   try {

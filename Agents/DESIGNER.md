@@ -23,16 +23,15 @@ Do not imitate those sites visually. Borrow the attitude:
 
 ## Source notes
 
-The root `DESIGNER.md` contains the full design philosophy and current site design rules. Read it before changing `head.html`, `foot.html`, layout CSS, marketing copy, or visual assets.
+The root `DESIGNER.md` contains older design philosophy notes from the pre-Signal era; treat it as historical context, not active rules. The live design lives in `assets/signal.css` and `signalPage()` inside `serve.js`. Read those before changing the layout, marketing copy, or visual assets.
 
 ## What to touch
 
 Usually touch:
 
-- `head.html`
-- `foot.html`
-- `assets/`
-- small layout code in `serve.js` when needed
+- `assets/signal.css` (bump the `?v=` cache-bust in `signalPage()` when you change it)
+- `signalPage()` and adjacent layout helpers in `serve.js`
+- `assets/` (images, etc.)
 - `about.md` when the design task includes positioning
 - `README.md` or role docs when updating design guidance
 

@@ -1,11 +1,17 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@hono/hono@*": "4.12.15"
+    "jsr:@hono/hono@*": "4.12.15",
+    "npm:nodemailer@*": "8.0.6"
   },
   "jsr": {
     "@hono/hono@4.12.15": {
       "integrity": "06a0aef73d9072e73b8db570b81a5b56a94095d697578202a87fccdf04ce352d"
+    }
+  },
+  "npm": {
+    "nodemailer@8.0.6": {
+      "integrity": "sha512-Nm2XeuDwwy2wi5A+8jPWwQwNzcjNjhWdE3pVLoXEusxJqCnAPAgnBGkSmiLknbnWuOF9qraRpYZjfxqtKZ4tPw=="
     }
   },
   "remote": {

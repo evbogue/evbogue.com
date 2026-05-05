@@ -12,9 +12,9 @@ This site should stay simple: markdown files, a tiny Deno server, minimal HTML, 
 
 Usually touch:
 
-- `serve.js`
+- `serve.js` (all routes; `signalPage()` is the page wrapper)
+- `assets/signal.css` (site stylesheet — bump the `?v=` cache-bust in `signalPage()` when you change it)
 - `scripts/`
-- small HTML changes in `head.html` or `foot.html`
 - tests or verification scripts if they exist
 
 Do not introduce a framework, database, bundler, CMS, or client-side app unless Ev explicitly asks.
