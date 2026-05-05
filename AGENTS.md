@@ -66,6 +66,15 @@ Publish by moving the file from `drafts/` to `posts/`. Anything in `posts/` is p
 
 Prefer the clean current model over backward-compatibility shims. If preserving old behavior is not required to keep the codebase working, remove the old path and update the docs/agents so the repo has one obvious way to do the thing.
 
+## Commits
+
+Future commits in this repo should be authored as Ev Bogue `<ev@evbogue.com>`. The repo-local Git config should be:
+
+```sh
+git config --local user.name "Ev Bogue"
+git config --local user.email "ev@evbogue.com"
+```
+
 ## Agent roles
 
 Specialized role files now live in `Agents/`. Use them when the task is narrower than "work on the whole repo."
