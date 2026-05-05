@@ -625,27 +625,33 @@ app.get('/feed.xml', async (c) => {
 
 
 app.post('/subscribe', async (c) => {
-  const form = await c.req.formData()
-  const email = form.get('email')?.toString().trim().toLowerCase()
-  if (!email || !email.includes('@')) return c.redirect('/?error=invalid')
-
-  const subscribersPath = `${ROOT}/subscribers.json`
-  let subscribers = []
   try {
-    subscribers = JSON.parse(await Deno.readTextFile(subscribersPath))
-  } catch { /* file doesn't exist yet */ }
+    const form = await c.req.formData()
+    const email = form.get('email')?.toString().trim().toLowerCase()
+    console.log('subscribe attempt:', email)
+    if (!email || !email.includes('@')) return c.redirect('/?error=invalid')
 
-  if (!subscribers.includes(email)) {
-    subscribers.push(email)
+    const subscribersPath = `${ROOT}/subscribers.json`
+    let subscribers = []
     try {
-      await Deno.writeTextFile(subscribersPath, JSON.stringify(subscribers, null, 2))
+      subscribers = JSON.parse(await Deno.readTextFile(subscribersPath))
     } catch (err) {
-      console.error('subscribe write failed:', err)
-      return c.redirect('/?error=server')
+      console.log('subscribers.json read failed (may not exist yet):', err.message)
     }
-  }
 
-  return c.redirect('/?subscribed=1')
+    if (!subscribers.includes(email)) {
+      subscribers.push(email)
+      await Deno.writeTextFile(subscribersPath, JSON.stringify(subscribers, null, 2))
+      console.log('subscriber saved:', email)
+    } else {
+      console.log('subscriber already exists:', email)
+    }
+
+    return c.redirect('/?subscribed=1')
+  } catch (err) {
+    console.error('subscribe error:', err)
+    return c.redirect('/?error=server')
+  }
 })
 
 export default app
