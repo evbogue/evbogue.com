@@ -120,16 +120,8 @@ const ntfyWidget = `
   </script>
 `
 
-function signalPath(path, basePath = "") {
-  if (!basePath) return path || "/"
-  if (!path || path === "/") return basePath
-  return `${basePath}${path}`
-}
-
-function signalPage({ title = "evbogue.com", description = "Writing by Everett Bogue.", body, basePath = "" }) {
+function signalPage({ title = "evbogue.com", description = "Writing by Everett Bogue.", body }) {
   const fullTitle = title === "evbogue.com" ? "evbogue.com" : `${title} - evbogue.com`
-  const homeHref = signalPath("/", basePath)
-  const archiveHref = basePath ? `${basePath}/archive` : "/posts"
   const now = new Date().toLocaleDateString("en-US", {
     weekday: "long",
     year: "numeric",
@@ -151,10 +143,10 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
   <body>
     <header>
       <div class="header-inner">
-        <a href="${homeHref}" class="wordmark">evbogue<span>.</span>com</a>
+        <a href="/" class="wordmark">evbogue<span>.</span>com</a>
         <nav>
           <a href="/about">About</a>
-          <a href="${archiveHref}" class="nav-priority">Archive</a>
+          <a href="/posts" class="nav-priority">Archive</a>
           <a href="/feed.xml">RSS</a>
           <a href="#subscribe" class="subscribe-btn">Subscribe</a>
         </nav>
@@ -180,10 +172,10 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
 
     <footer>
       <div class="footer-inner">
-        <a href="${homeHref}" class="wordmark">evbogue<span>.</span>com</a>
+        <a href="/" class="wordmark">evbogue<span>.</span>com</a>
         <div class="footer-links">
           <a href="/about">About</a>
-          <a href="${archiveHref}">Archive</a>
+          <a href="/posts">Archive</a>
           <a href="/feed.xml">RSS</a>
         </div>
         <span class="footer-copy">&copy; ${new Date().getFullYear()} Everett Bogue</span>
@@ -213,12 +205,12 @@ function subscribeBanner(status) {
   `
 }
 
-function signalPostHref(post, basePath = "") {
-  return signalPath(`/posts/${encodeURIComponent(post.slug)}`, basePath)
+function signalPostHref(post) {
+  return `/posts/${encodeURIComponent(post.slug)}`
 }
 
-function signalTagHref(tag, basePath = "") {
-  return signalPath(`/tag/${encodeURIComponent(tagSlugFor(tag))}`, basePath)
+function signalTagHref(tag) {
+  return `/tag/${encodeURIComponent(tagSlugFor(tag))}`
 }
 
 function signalMeta(post, dateStyle = "short") {
@@ -233,11 +225,11 @@ function signalMeta(post, dateStyle = "short") {
   `
 }
 
-function signalCard(post, basePath = "") {
+function signalCard(post) {
   const tag = signalTagFor(post)
   const image = imageFor(post)
   return `
-    <a href="${signalPostHref(post, basePath)}" class="card">
+    <a href="${signalPostHref(post)}" class="card">
       ${image ? `<div class="card-img"><img src="${escapeHtml(image)}" alt=""></div>` : ''}
       <span class="tag">${escapeHtml(tag)}</span>
       <div class="card-title">${escapeHtml(post.title)}</div>
@@ -251,7 +243,7 @@ function signalCard(post, basePath = "") {
   `
 }
 
-function signalHomeHtml(posts, basePath = "") {
+function signalHomeHtml(posts) {
   const [hero, ...rest] = posts
   const sideStories = rest.slice(0, 3)
   const gridPosts = rest.slice(3, 6)
@@ -261,7 +253,7 @@ function signalHomeHtml(posts, basePath = "") {
 
   return hero ? `
     <section class="hero">
-      <a href="${signalPostHref(hero, basePath)}" class="hero-main">
+      <a href="${signalPostHref(hero)}" class="hero-main">
         <span class="tag">${escapeHtml(heroTag)}</span>
         <div class="hero-title">${escapeHtml(hero.title)}</div>
         <p class="hero-dek">${escapeHtml(descriptionFor(hero))}</p>
@@ -271,7 +263,7 @@ function signalHomeHtml(posts, basePath = "") {
         ${sideStories.map((post) => {
           const tag = signalTagFor(post)
           return `
-            <a href="${signalPostHref(post, basePath)}" class="side-story">
+            <a href="${signalPostHref(post)}" class="side-story">
               <span class="tag">${escapeHtml(tag)}</span>
               <div class="side-title">${escapeHtml(post.title)}</div>
               <p class="side-dek">${escapeHtml(descriptionFor(post))}</p>
@@ -287,7 +279,7 @@ function signalHomeHtml(posts, basePath = "") {
         <div class="section-rule"></div>
       </div>
       <div class="article-grid">
-        ${gridPosts.map((post) => signalCard(post, basePath)).join('')}
+        ${gridPosts.map((post) => signalCard(post)).join('')}
       </div>
     ` : ''}
 
@@ -297,7 +289,7 @@ function signalHomeHtml(posts, basePath = "") {
           <div class="essay-eyebrow">Featured Essay</div>
           <h2 class="essay-title">${escapeHtml(featured.title)}</h2>
           <div class="essay-body"><p>${escapeHtml(descriptionFor(featured))}</p></div>
-          <a href="${signalPostHref(featured, basePath)}" class="read-more">Continue Reading</a>
+          <a href="${signalPostHref(featured)}" class="read-more">Continue Reading</a>
         </div>
       </div>
     ` : ''}
@@ -308,18 +300,18 @@ function signalHomeHtml(posts, basePath = "") {
         <div class="section-rule"></div>
       </div>
       <div class="article-grid">
-        ${morePosts.map((post) => signalCard(post, basePath)).join('')}
+        ${morePosts.map((post) => signalCard(post)).join('')}
       </div>
     ` : ''}
   ` : '<p class="empty-state">No posts are published yet.</p>'
 }
 
-function signalPostHtml(post, basePath = "") {
+function signalPostHtml(post) {
   const tag = signalTagFor(post)
   return `
     <article>
       <div class="post-header">
-        <a href="${signalTagHref(tag, basePath)}" class="tag">${escapeHtml(tag)}</a>
+        <a href="${signalTagHref(tag)}" class="tag">${escapeHtml(tag)}</a>
         <h1 class="hero-title">${escapeHtml(post.title)}</h1>
         <p class="hero-dek">${escapeHtml(descriptionFor(post))}</p>
         ${signalMeta(post, "long")}
@@ -334,11 +326,11 @@ function signalPostHtml(post, basePath = "") {
   `
 }
 
-function signalArchiveHtml(posts, basePath = "") {
+function signalArchiveHtml(posts) {
   const list = posts.map((post) => {
     const tag = signalTagFor(post)
     return `
-      <a href="${signalPostHref(post, basePath)}" class="archive-row">
+      <a href="${signalPostHref(post)}" class="archive-row">
         <div class="archive-row-main">
           <span class="tag">${escapeHtml(tag)}</span>
           <span class="archive-row-title">${escapeHtml(post.title)}</span>
@@ -359,7 +351,7 @@ function signalArchiveHtml(posts, basePath = "") {
   `
 }
 
-function signalTagHtml(posts, label, basePath = "") {
+function signalTagHtml(posts, label) {
   return `
     <div class="section-header" style="padding-top:3rem">
       <span class="section-label">${escapeHtml(label)}</span>
@@ -367,7 +359,7 @@ function signalTagHtml(posts, label, basePath = "") {
     </div>
     ${posts.length ? `
       <div class="article-grid">
-        ${posts.map((post) => signalCard(post, basePath)).join('')}
+        ${posts.map((post) => signalCard(post)).join('')}
       </div>
     ` : `<p class="empty-state">No posts found for ${escapeHtml(label)}.</p>`}
   `
@@ -386,52 +378,6 @@ function labelForTag(posts, tagSlug) {
     ? signalTagFor(posts.find((post) => tagSlugFor(signalTagFor(post)) === tagSlug) || posts[0])
     : tagSlug.replace(/-/g, " ")
 }
-
-app.get('/beta', async (c) => {
-  const posts = await loadPosts()
-  return c.html(signalPage({
-    title: "evbogue.com",
-    description: "Independent publishing from Everett Bogue.",
-    body: signalHomeHtml(posts, "/beta"),
-    basePath: "/beta",
-  }))
-})
-
-app.get('/beta/posts/:slug', async (c) => {
-  const slug = c.req.param('slug')
-  const posts = await loadPosts()
-  const post = posts.find((p) => p.slug === slug)
-  if (!post) return c.notFound()
-  return c.html(signalPage({
-    title: post.title,
-    description: descriptionFor(post),
-    body: signalPostHtml(post, "/beta"),
-    basePath: "/beta",
-  }))
-})
-
-app.get('/beta/archive', async (c) => {
-  const posts = await loadPosts()
-  return c.html(signalPage({
-    title: "Archive",
-    description: "The full evbogue.com archive.",
-    body: signalArchiveHtml(posts, "/beta"),
-    basePath: "/beta",
-  }))
-})
-
-app.get('/beta/tag/:tag', async (c) => {
-  const tagSlug = c.req.param('tag')
-  const posts = postsForTag(await loadPosts(), tagSlug)
-  const label = labelForTag(posts, tagSlug)
-
-  return c.html(signalPage({
-    title: label,
-    description: `Posts tagged ${label} on evbogue.com.`,
-    body: signalTagHtml(posts, label, "/beta"),
-    basePath: "/beta",
-  }))
-})
 
 app.get('/assets/*', async (c) => {
   const assetPath = c.req.path.replace(/^\/assets\//, '')
