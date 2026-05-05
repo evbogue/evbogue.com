@@ -628,24 +628,17 @@ app.post('/subscribe', async (c) => {
   try {
     const form = await c.req.formData()
     const email = form.get('email')?.toString().trim().toLowerCase()
-    console.log('subscribe attempt:', email)
     if (!email || !email.includes('@')) return c.redirect('/?error=invalid')
 
     const subscribersPath = `${ROOT}/subscribers.json`
     let subscribers = []
     try {
       subscribers = JSON.parse(await Deno.readTextFile(subscribersPath))
-    } catch (err) {
-      console.log('subscribers.json read failed (may not exist yet):', err.message)
-    }
+    } catch { /* file doesn't exist yet */ }
 
-    if (!subscribers.includes(email)) {
-      subscribers.push(email)
-      await Deno.writeTextFile(subscribersPath, JSON.stringify(subscribers, null, 2))
-      console.log('subscriber saved:', email)
-    } else {
-      console.log('subscriber already exists:', email)
-    }
+    const set = new Set(subscribers)
+    set.add(email)
+    await Deno.writeTextFile(subscribersPath, JSON.stringify([...set], null, 2))
 
     return c.redirect('/?subscribed=1')
   } catch (err) {
