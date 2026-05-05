@@ -188,7 +188,7 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="icon" href="/assets/ev.png">
     <link rel="alternate" type="application/rss+xml" title="evbogue.com" href="/feed.xml">
-    <link rel="stylesheet" href="/assets/signal.css?v=20260502e">
+    <link rel="stylesheet" href="/assets/signal.css?v=20260505a">
   </head>
   <body>
     <header>
@@ -233,6 +233,26 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
     </footer>
   </body>
 </html>`
+}
+
+const SUBSCRIBE_BANNERS = {
+  ok: { tone: "ok", label: "Subscribed", text: "You're on the list. Next dispatch heads out from Chicago." },
+  invalid: { tone: "warn", label: "Check the address", text: "That email didn't parse. Try it again." },
+  error: { tone: "error", label: "Something broke", text: "Couldn't save that on our end. Try again in a minute." },
+}
+
+function subscribeBanner(status) {
+  const b = SUBSCRIBE_BANNERS[status]
+  if (!b) return ""
+  return `
+    <div class="subscribe-banner subscribe-banner--${b.tone}" role="status">
+      <div class="subscribe-banner-inner">
+        <span class="subscribe-banner-label">${escapeHtml(b.label)}</span>
+        <span class="subscribe-banner-text">${escapeHtml(b.text)}</span>
+        <a class="subscribe-banner-dismiss" href="/" aria-label="Dismiss">&times;</a>
+      </div>
+    </div>
+  `
 }
 
 function postEntry(post, className = "entry") {
@@ -519,8 +539,9 @@ app.get('/assets/*', async (c) => {
 
 app.get('/', async (c) => {
   const query = c.req.query('q')?.trim() ?? ''
+  const subscribeStatus = c.req.query('subscribe') ?? ''
   const allPosts = await loadPosts()
-  const body = query ? `
+  const main = query ? `
     <div class="section-header" style="padding-top:3rem">
       <span class="section-label">Search</span>
       <div class="section-rule"></div>
@@ -533,7 +554,7 @@ app.get('/', async (c) => {
   return c.html(signalPage({
     title: "evbogue.com",
     description: "Independent publishing from Everett Bogue.",
-    body,
+    body: subscribeBanner(subscribeStatus) + main,
   }))
 })
 
@@ -628,22 +649,23 @@ app.post('/subscribe', async (c) => {
   try {
     const form = await c.req.formData()
     const email = form.get('email')?.toString().trim().toLowerCase()
-    if (!email || !email.includes('@')) return c.redirect('/?error=invalid')
+    if (!email || !email.includes('@')) return c.redirect('/?subscribe=invalid')
 
     const subscribersPath = `${ROOT}/subscribers.json`
     let subscribers = []
     try {
-      subscribers = JSON.parse(await Deno.readTextFile(subscribersPath))
-    } catch { /* file doesn't exist yet */ }
+      const parsed = JSON.parse(await Deno.readTextFile(subscribersPath))
+      if (Array.isArray(parsed)) subscribers = parsed
+    } catch { /* file missing or unparseable — start fresh */ }
 
     const set = new Set(subscribers)
     set.add(email)
     await Deno.writeTextFile(subscribersPath, JSON.stringify([...set], null, 2))
 
-    return c.redirect('/?subscribed=1')
+    return c.redirect('/?subscribe=ok')
   } catch (err) {
     console.error('subscribe error:', err)
-    return c.redirect('/?error=server')
+    return c.redirect('/?subscribe=error')
   }
 })
 

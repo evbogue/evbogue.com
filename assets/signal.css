@@ -536,6 +536,49 @@ nav a:hover { color: var(--accent); }
   padding: 0 2rem 4rem;
 }
 
+.subscribe-banner {
+  margin: 0 auto;
+  max-width: var(--max);
+  padding: 1rem 2rem 0;
+}
+
+.subscribe-banner-inner {
+  align-items: baseline;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+}
+
+.subscribe-banner--ok .subscribe-banner-inner { border-left-color: var(--ink); }
+.subscribe-banner--warn .subscribe-banner-inner { border-left-color: var(--accent); }
+.subscribe-banner--error .subscribe-banner-inner { border-left-color: var(--accent); }
+
+.subscribe-banner-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.subscribe-banner-text {
+  color: var(--ink-2);
+  flex: 1 1 auto;
+  font-size: 0.92rem;
+}
+
+.subscribe-banner-dismiss {
+  color: var(--ink-3);
+  font-size: 1.1rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.subscribe-banner-dismiss:hover { color: var(--ink); }
+
 .newsletter {
   margin: 0 auto;
   max-width: var(--max);
