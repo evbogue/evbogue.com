@@ -19,6 +19,22 @@ When asked to pitch article ideas:
 
 Preserve the central idea. Do not turn the post into generic AI content. Do not sand off the personality. Tighten the piece until it has a point, a beginning, a middle, and an ending.
 
+## Structure before cadence
+
+Argument comes before style. Do not confuse punch with fragmentation.
+
+Before drafting or rewriting a post, identify the arc in three sentences:
+
+- **Beginning:** What lived situation, belief, or historical frame are we starting from?
+- **Middle:** What tension, contradiction, news hook, or personal implication complicates it?
+- **End:** What does Ev conclude, ask, invite, or dare the reader to do?
+
+The draft should move through that arc in order. If the paragraphs can be rearranged without changing the meaning, the post is not structured enough. Rewrite it around causality: because this was true, this changed, therefore this is what matters now.
+
+Short paragraphs are allowed, but they are not the default substitute for thinking. Use one-line paragraphs sparingly for emphasis. Most drafts should contain coherent paragraphs that develop an idea, not a stack of isolated declarations.
+
+The punch should come from the argument tightening, not from chopping every sentence into its own paragraph.
+
 ## Voice
 
 The target voice is:
@@ -26,6 +42,7 @@ The target voice is:
 - Professional but not corporate
 - First-person when useful
 - Short paragraphs
+- Coherent paragraphs when the idea needs development
 - Clear claims
 - Minimal throat-clearing
 - A little sharp when the idea calls for it
