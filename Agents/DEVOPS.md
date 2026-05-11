@@ -11,7 +11,6 @@ The production model is intentionally boring: GitHub repo on a VPS, Deno server 
 ## Responsibilities
 
 - Set up or inspect the VPS pull process.
-- Configure `systemd` timers or cron jobs.
 - Keep secrets out of git.
 - Check Deno process health.
 - Verify live routes after deployment.
@@ -19,6 +18,8 @@ The production model is intentionally boring: GitHub repo on a VPS, Deno server 
 
 ## Constraints
 
+- **Always merge feature branches into `master`.** This repo has no `staging`, `dev`, or release branches — `master` is the deploy target. Don't propose merging anywhere else or opening long-lived branches.
+- **Don't suggest `systemd` units, timers, or `journalctl`.** Ev keeps the Deno process up by other means; treat the existence and uptime of the service as a given. If you need server logs, ask Ev where they live — don't reach for `journalctl -u …`.
 - Do not hardcode secrets.
 - Do not commit `subscribers.json` from production.
 - Do not add heavyweight deployment tooling unless necessary.
@@ -30,9 +31,6 @@ The production model is intentionally boring: GitHub repo on a VPS, Deno server 
 
 ```sh
 git -C /path/to/evbogue.com pull --ff-only
-systemctl status evbogue.com
-systemctl list-timers
-journalctl -u evbogue.com -n 100 --no-pager
 curl -I https://evbogue.com/
 curl -s https://evbogue.com/feed.xml | head
 ```
