@@ -1,7 +1,8 @@
 import { Hono } from "jsr:@hono/hono";
 import { marked } from "https://esm.sh/gh/evbogue/bog5@de70376265/lib/marked.esm.js";
 import { excerptFromBody, loadPosts as readPosts } from "./lib/posts.js";
-import { addSubscriber, findByToken, unsubscribeByToken } from "./lib/subscribers.js";
+import { addSubscriber, confirmByToken, findByToken, unsubscribeByToken } from "./lib/subscribers.js";
+import { sendConfirmation } from "./lib/mailer.js";
 
 const app = new Hono()
 
@@ -187,10 +188,14 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
 }
 
 const SUBSCRIBE_BANNERS = {
-  ok: { tone: "ok", label: "Subscribed", text: "You're on the list. Next dispatch heads out from Chicago." },
+  new: { tone: "ok", label: "Check your inbox", text: "Click the confirmation link to start receiving dispatches." },
+  pending: { tone: "ok", label: "We resent it", text: "Still waiting on confirmation — a fresh link is on its way." },
+  resubscribed: { tone: "ok", label: "Welcome back", text: "Confirm the link in your inbox to reactivate." },
+  existing: { tone: "ok", label: "Already on the list", text: "You're already subscribed. Nothing to do." },
   invalid: { tone: "warn", label: "Check the address", text: "That email didn't parse. Try it again." },
   error: { tone: "error", label: "Something broke", text: "Couldn't save that on our end. Try again in a minute." },
   unsubscribed: { tone: "ok", label: "Unsubscribed", text: "You're off the list. No hard feelings." },
+  confirmed: { tone: "ok", label: "Confirmed", text: "You're on the list for real now. Next dispatch heads out from Chicago." },
 }
 
 function subscribeBanner(status) {
@@ -520,7 +525,12 @@ app.post('/subscribe', async (c) => {
     const email = form.get('email')?.toString() ?? ''
     const result = await addSubscriber(ROOT, email)
     if (!result) return c.redirect('/?subscribe=invalid', 303)
-    return c.redirect('/?subscribe=ok', 303)
+    if (result.status === 'new' || result.status === 'pending' || result.status === 'resubscribed') {
+      sendConfirmation(result.entry).catch((err) => {
+        console.error('confirmation send failed:', err)
+      })
+    }
+    return c.redirect(`/?subscribe=${result.status}`, 303)
   } catch (err) {
     console.error('subscribe error:', err)
     return c.redirect('/?subscribe=error', 303)
@@ -589,6 +599,18 @@ app.post('/unsubscribe', async (c) => {
     heading: "Unsubscribed",
     message: `${entry.email} has been removed from the list.`,
   }))
+})
+
+app.get('/confirm', async (c) => {
+  const token = c.req.query('token')
+  const entry = await confirmByToken(ROOT, token)
+  if (!entry) {
+    return c.html(unsubscribePage({
+      heading: "Link not found",
+      message: "That confirmation link is missing, expired, or already unsubscribed. Try subscribing again.",
+    }), 404)
+  }
+  return c.redirect('/?subscribe=confirmed', 303)
 })
 
 export default app

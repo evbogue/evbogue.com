@@ -121,7 +121,9 @@ Subscribers are stored in `subscribers.json` (gitignored) as an array of objects
 [{ "email": "you@example.com", "token": "...", "subscribed_at": "...", "confirmed_at": "...", "unsubscribed_at": null, "source": "form" }]
 ```
 
-Old string-only entries are upgraded to this shape on first read. Send a post to the active list with:
+Old string-only entries are upgraded to this shape on first read (and grandfathered as confirmed). New signups use **double opt-in**: the form saves the row with `confirmed_at: null`, a confirmation email goes out via `lib/mailer.js`, and the recipient clicks `/confirm?token=…` to flip `confirmed_at` to a timestamp. Only confirmed, non-unsubscribed entries are emailed. `subscribers.json` is written atomically (write to `.tmp`, then rename). The server needs `SMTP_PASS` in env to actually send confirmations — without it the subscriber row still gets created but the email is skipped and a warning is logged.
+
+Send a post to the active list with:
 
 ```sh
 SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env send-post.js <slug>
