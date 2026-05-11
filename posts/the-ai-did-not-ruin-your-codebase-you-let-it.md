@@ -6,7 +6,7 @@ tags: [ai, agents, coding]
 excerpt: "Vibe coding did not invent technical debt. It made technical debt feel like progress."
 ---
 
-The beginning of this story is simple: a developer used Claude to build a Kubernetes terminal app for seven months, shipped 234 commits, and then realized the code had become a giant god object. The post is called ["I'm going back to writing code by hand"](https://blog.k10s.dev/im-going-back-to-writing-code-by-hand/), and it is all over Hacker News because it gives people exactly what they want from an AI argument: a corpse, a suspect, and a comment box.
+The beginning of this story is simple: a developer used Claude to build a Kubernetes terminal app for seven months, shipped 234 commits, and then realized the code had become a giant god object. The post is called ["I'm going back to writing code by hand"](https://blog.k10s.dev/im-going-back-to-writing-code-by-hand/), and [the Hacker News thread](https://news.ycombinator.com/item?id=48090029) is exactly what people want from an AI argument: a corpse, a suspect, and a comment box.
 
 A god object is not a mystical concept. It is one object that knows too much and owns too much. In this case, the central `Model` struct held UI widgets, Kubernetes client state, logs, describe views, fleet views, navigation history, mouse handling, cached resources, errors, and more. One huge update function decided what every keypress meant in every view. Instead of having separate parts of the program own separate parts of the work, everything accumulated in the same place until the app became difficult to reason about.
 
@@ -20,7 +20,7 @@ This is where the story becomes useful, because it is not really about whether A
 
 The question is not whether to use the machine. The question is what kind of intelligence you think you are using.
 
-Andrej Karpathy has a useful frame for this. In ["Animals vs Ghosts"](https://karpathy.bearblog.dev/animals-vs-ghosts/), he argues that today's LLMs are not animals learning through embodied experience. They are ghosts: statistical distillations of human documents, practices, examples, habits, and mistakes. A coding agent is not a junior engineer with a childhood, a body, a memory of production incidents, and a private dread of making the same mistake twice. It is a ghost of engineering practice summoned into your terminal.
+Andrej Karpathy has a useful frame for this. In ["Animals vs Ghosts"](https://karpathy.bearblog.dev/animals-vs-ghosts/), he argues that today's LLMs are not animals learning through embodied experience. They are ghosts: statistical distillations of human documents, practices, examples, habits, and mistakes. I have been thinking about this as [ghost intelligence](/posts/ghost-intelligence): not a living mind, not a clean replacement for the person, but a summoned pattern of human work. A coding agent is not a junior engineer with a childhood, a body, a memory of production incidents, and a private dread of making the same mistake twice. It is a ghost of engineering practice summoned into your terminal.
 
 That ghost can be very useful. It can remember patterns you forgot. It can draft the boring function. It can inspect a stack trace, propose a test, explain an API, or wire together parts of a system faster than you wanted to type them. But it does not care about your codebase. It does not have a life inside the consequences. It does not wake up three months later responsible for the abstraction it created.
 
