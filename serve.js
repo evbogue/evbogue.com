@@ -519,11 +519,11 @@ app.post('/subscribe', async (c) => {
     const form = await c.req.formData()
     const email = form.get('email')?.toString() ?? ''
     const result = await addSubscriber(ROOT, email)
-    if (!result) return c.redirect('/?subscribe=invalid')
-    return c.redirect('/?subscribe=ok')
+    if (!result) return c.redirect('/?subscribe=invalid', 303)
+    return c.redirect('/?subscribe=ok', 303)
   } catch (err) {
     console.error('subscribe error:', err)
-    return c.redirect('/?subscribe=error')
+    return c.redirect('/?subscribe=error', 303)
   }
 })
 
