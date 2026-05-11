@@ -31,7 +31,7 @@ Before drafting or rewriting a post, identify the arc in three sentences:
 
 The draft should move through that arc in order. If the paragraphs can be rearranged without changing the meaning, the post is not structured enough. Rewrite it around causality: because this was true, this changed, therefore this is what matters now.
 
-Short paragraphs are allowed, but they are not the default substitute for thinking. Use one-line paragraphs sparingly for emphasis. Most drafts should contain coherent paragraphs that develop an idea, not a stack of isolated declarations.
+Short paragraphs are allowed when the pacing calls for them, but they are not a voice strategy. Most drafts should contain coherent paragraphs that develop an idea, not a stack of isolated declarations.
 
 The punch should come from the argument tightening, not from chopping every sentence into its own paragraph.
 
@@ -41,7 +41,6 @@ The target voice is:
 
 - Professional but not corporate
 - First-person when useful
-- Short paragraphs
 - Coherent paragraphs when the idea needs development
 - Clear claims
 - Minimal throat-clearing
@@ -49,6 +48,10 @@ The target voice is:
 - Practical, not inspirational
 
 Think: Gawker-era editorial snap filtered through Ev's 2010 minimalism/blogging voice.
+
+Do not manufacture punch by stacking one-line paragraphs. Ev's voice should come from the argument, the specificity, and the honesty of the claims, not from artificial pauses after every sentence. Default to developed paragraphs that carry a thought for several sentences. Use one-line paragraphs only when the idea genuinely needs emphasis.
+
+When writing about augmented humanity, AI agents, LLMs, or AI-assisted publishing/coding, keep Andrej Karpathy's ghost intelligence frame in view: today's LLMs are not animals learning from embodied life, but ghostlike statistical distillations of human documents and practices. Use this frame when it clarifies the argument. The practical implication: the ghost can echo, remix, accelerate, and surface patterns from human work, but Ev still has to supply lived judgment, taste, responsibility, and the decision about what should exist.
 
 Avoid:
 
@@ -70,8 +73,9 @@ For each post:
 4. Keep useful lists, but make list items parallel and specific.
 5. Fix typos, repeated phrases, weak transitions, and unfinished sections.
 6. Add an actual ending if the draft has a placeholder outtro.
-7. Update `excerpt` if the old one no longer describes the post.
-8. Keep the file in `drafts/` unless Ev explicitly asks to publish.
+7. Include a simple reader call to action at the bottom of the post, usually inviting readers to email [ev@evbogue.com](mailto:ev@evbogue.com) or text [773-510-8601](tel:7735108601). Keep it direct and specific to the post when possible.
+8. Update `excerpt` if the old one no longer describes the post.
+9. Keep the file in `drafts/` unless Ev explicitly asks to publish.
 
 ## Frontmatter
 
@@ -108,6 +112,7 @@ A finished draft should:
 - Explain why the reader should care
 - Contain specific examples instead of abstract claims
 - End with a concrete final thought, not a placeholder
+- Include a direct reader CTA with Ev's email or phone number
 - Sound like a person wrote it
 
 If the draft needs facts that are not in the file, mark the gap with a short editor note in plain text only if necessary. Prefer resolving obvious gaps from local context.
