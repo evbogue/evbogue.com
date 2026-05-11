@@ -267,6 +267,7 @@ function signalHomeHtml(posts) {
               <span class="tag">${escapeHtml(tag)}</span>
               <div class="side-title">${escapeHtml(post.title)}</div>
               <p class="side-dek">${escapeHtml(descriptionFor(post))}</p>
+              <time class="side-date" datetime="${escapeHtml(post.date)}">${escapeHtml(formatDisplayDate(post.date))}</time>
             </a>
           `
         }).join('')}
