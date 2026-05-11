@@ -1,5 +1,6 @@
 import nodemailer from "npm:nodemailer";
 import { excerptFromBody, loadPost } from "./lib/posts.js";
+import { activeSubscribers, loadSubscribers, unsubscribeUrl } from "./lib/subscribers.js";
 
 const ROOT = import.meta.dirname;
 
@@ -9,7 +10,7 @@ const slug = args[0];
 const dryRun = flags.has("--dry-run");
 
 if (!slug) {
-  console.error("usage: deno run --allow-net --allow-read --allow-env send-post.js <slug> [--dry-run]");
+  console.error("usage: deno run --allow-net --allow-read --allow-write --allow-env send-post.js <slug> [--dry-run]");
   Deno.exit(1);
 }
 
@@ -25,17 +26,10 @@ const title = post.title || slug;
 const excerpt = post.excerpt || excerptFromBody(post.body);
 const url = `https://evbogue.com/posts/${slug}`;
 
-let subscribers = [];
-try {
-  const parsed = JSON.parse(await Deno.readTextFile(`${ROOT}/subscribers.json`));
-  if (Array.isArray(parsed)) subscribers = parsed;
-} catch {
-  console.error("subscribers.json missing or unreadable.");
-  Deno.exit(1);
-}
+const subscribers = activeSubscribers(await loadSubscribers(ROOT));
 
 if (!subscribers.length) {
-  console.log("No subscribers. Nothing to send.");
+  console.log("No active subscribers. Nothing to send.");
   Deno.exit(0);
 }
 
@@ -46,7 +40,8 @@ if (!SMTP_PASS && !dryRun) {
   Deno.exit(1);
 }
 
-const text = `${title}
+function buildText(unsubUrl) {
+  return `${title}
 
 ${excerpt}
 
@@ -55,20 +50,23 @@ Read it: ${url}
 —Ev
 evbogue.com
 
-Reply with "unsubscribe" to be removed from this list.`;
+Unsubscribe: ${unsubUrl}`;
+}
 
-const html = `<p style="font-size:1.1rem;"><strong>${title}</strong></p>
+function buildHtml(unsubUrl) {
+  return `<p style="font-size:1.1rem;"><strong>${title}</strong></p>
 <p>${excerpt}</p>
 <p><a href="${url}">Read it on evbogue.com</a></p>
 <p>—Ev<br>evbogue.com</p>
-<p style="color:#888;font-size:12px;">Reply with "unsubscribe" to be removed from this list.</p>`;
+<p style="color:#888;font-size:12px;">Don't want these? <a href="${unsubUrl}">Unsubscribe</a>.</p>`;
+}
 
 console.log(`Post:    ${title}`);
 console.log(`URL:     ${url}`);
 console.log(`Sending: ${subscribers.length} subscriber(s)`);
 if (dryRun) {
   console.log("\n[--dry-run] not sending. Subscribers:");
-  for (const email of subscribers) console.log(`  - ${email}`);
+  for (const s of subscribers) console.log(`  - ${s.email}`);
   Deno.exit(0);
 }
 
@@ -82,23 +80,24 @@ const transporter = nodemailer.createTransport({
 await transporter.verify();
 
 let sent = 0, failed = 0;
-for (const email of subscribers) {
+for (const sub of subscribers) {
+  const unsubUrl = unsubscribeUrl(sub.token);
   try {
     await transporter.sendMail({
       from: `Ev Bogue <${SMTP_USER}>`,
-      to: email,
+      to: sub.email,
       subject: title,
-      text,
-      html,
+      text: buildText(unsubUrl),
+      html: buildHtml(unsubUrl),
       headers: {
-        "List-Unsubscribe": `<mailto:${SMTP_USER}?subject=unsubscribe>`,
+        "List-Unsubscribe": `<${unsubUrl}>, <mailto:${SMTP_USER}?subject=unsubscribe>`,
         "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
       },
     });
-    console.log(`  ok   ${email}`);
+    console.log(`  ok   ${sub.email}`);
     sent++;
   } catch (err) {
-    console.error(`  fail ${email} — ${err.message}`);
+    console.error(`  fail ${sub.email} — ${err.message}`);
     failed++;
   }
 }

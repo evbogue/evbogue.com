@@ -1,6 +1,7 @@
 import { Hono } from "jsr:@hono/hono";
 import { marked } from "https://esm.sh/gh/evbogue/bog5@de70376265/lib/marked.esm.js";
 import { excerptFromBody, loadPosts as readPosts } from "./lib/posts.js";
+import { addSubscriber, findByToken, unsubscribeByToken } from "./lib/subscribers.js";
 
 const app = new Hono()
 
@@ -189,6 +190,7 @@ const SUBSCRIBE_BANNERS = {
   ok: { tone: "ok", label: "Subscribed", text: "You're on the list. Next dispatch heads out from Chicago." },
   invalid: { tone: "warn", label: "Check the address", text: "That email didn't parse. Try it again." },
   error: { tone: "error", label: "Something broke", text: "Couldn't save that on our end. Try again in a minute." },
+  unsubscribed: { tone: "ok", label: "Unsubscribed", text: "You're off the list. No hard feelings." },
 }
 
 function subscribeBanner(status) {
@@ -515,25 +517,78 @@ app.get('/subscribe', (c) => c.redirect('/#subscribe'))
 app.post('/subscribe', async (c) => {
   try {
     const form = await c.req.formData()
-    const email = form.get('email')?.toString().trim().toLowerCase()
-    if (!email || !email.includes('@')) return c.redirect('/?subscribe=invalid')
-
-    const subscribersPath = `${ROOT}/subscribers.json`
-    let subscribers = []
-    try {
-      const parsed = JSON.parse(await Deno.readTextFile(subscribersPath))
-      if (Array.isArray(parsed)) subscribers = parsed
-    } catch { /* file missing or unparseable — start fresh */ }
-
-    const set = new Set(subscribers)
-    set.add(email)
-    await Deno.writeTextFile(subscribersPath, JSON.stringify([...set], null, 2))
-
+    const email = form.get('email')?.toString() ?? ''
+    const result = await addSubscriber(ROOT, email)
+    if (!result) return c.redirect('/?subscribe=invalid')
     return c.redirect('/?subscribe=ok')
   } catch (err) {
     console.error('subscribe error:', err)
     return c.redirect('/?subscribe=error')
   }
+})
+
+function unsubscribePage({ heading, message, confirmToken }) {
+  const form = confirmToken
+    ? `
+      <form method="POST" action="/unsubscribe" class="newsletter-form" style="margin-top:1.5rem">
+        <input type="hidden" name="token" value="${escapeHtml(confirmToken)}">
+        <button type="submit">Confirm unsubscribe</button>
+      </form>
+    `
+    : `<p style="margin-top:1.5rem"><a href="/">Back to evbogue.com</a></p>`
+  return signalPage({
+    title: "Unsubscribe",
+    description: "Unsubscribe from evbogue.com.",
+    body: `
+      <article>
+        <div class="post-header">
+          <span class="tag">Unsubscribe</span>
+          <h1 class="hero-title">${escapeHtml(heading)}</h1>
+          <p class="hero-dek">${escapeHtml(message)}</p>
+        </div>
+        <hr class="post-divider">
+        <div class="post-body">${form}</div>
+      </article>
+    `,
+  })
+}
+
+app.get('/unsubscribe', async (c) => {
+  const token = c.req.query('token')
+  const entry = await findByToken(ROOT, token)
+  if (!entry) {
+    return c.html(unsubscribePage({
+      heading: "Link not found",
+      message: "That unsubscribe link is missing or expired. Email ev@evbogue.com and I'll take you off the list by hand.",
+    }), 404)
+  }
+  if (entry.unsubscribed_at) {
+    return c.html(unsubscribePage({
+      heading: "Already unsubscribed",
+      message: `${entry.email} is no longer on the list.`,
+    }))
+  }
+  return c.html(unsubscribePage({
+    heading: "Unsubscribe?",
+    message: `Click below to remove ${entry.email} from the list.`,
+    confirmToken: entry.token,
+  }))
+})
+
+app.post('/unsubscribe', async (c) => {
+  const form = await c.req.formData().catch(() => null)
+  const token = form?.get('token')?.toString() ?? c.req.query('token')
+  const entry = await unsubscribeByToken(ROOT, token)
+  if (!entry) {
+    return c.html(unsubscribePage({
+      heading: "Link not found",
+      message: "That unsubscribe link is missing or expired. Email ev@evbogue.com and I'll take you off the list by hand.",
+    }), 404)
+  }
+  return c.html(unsubscribePage({
+    heading: "Unsubscribed",
+    message: `${entry.email} has been removed from the list.`,
+  }))
 })
 
 export default app

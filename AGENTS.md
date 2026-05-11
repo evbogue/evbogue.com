@@ -115,13 +115,19 @@ Ev uses PrivateEmail (Namecheap) SMTP:
 - User: ev@evbogue.com
 - Pass: stored in env var `SMTP_PASS` on the server — do not hardcode
 
-Subscribers are stored in `subscribers.json` (gitignored). Send a post to the list with:
+Subscribers are stored in `subscribers.json` (gitignored) as an array of objects:
 
-```sh
-SMTP_PASS=... deno run --allow-net --allow-read --allow-env send-post.js <slug>
+```json
+[{ "email": "you@example.com", "token": "...", "subscribed_at": "...", "confirmed_at": "...", "unsubscribed_at": null, "source": "form" }]
 ```
 
-Add `--dry-run` to print the recipient list without sending. The script refuses drafts, sends one-to-one (no BCC blast), and sets `List-Unsubscribe` headers for deliverability. Manual unsubscribes go through `ev@evbogue.com` — edit `subscribers.json` on the VPS to remove.
+Old string-only entries are upgraded to this shape on first read. Send a post to the active list with:
+
+```sh
+SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env send-post.js <slug>
+```
+
+Add `--dry-run` to print the recipient list without sending. The script refuses drafts, sends one-to-one (no BCC blast), and sets `List-Unsubscribe` headers with both a per-recipient unsubscribe URL and the `ev@evbogue.com` mailto fallback. Each subscriber gets a unique unsubscribe token; the public `/unsubscribe?token=...` route flips `unsubscribed_at` and `activeSubscribers()` excludes them from future sends. For a manual removal, set `unsubscribed_at` to an ISO timestamp on the relevant entry in `subscribers.json` on the VPS.
 
 ## Work order — remaining tasks
 
