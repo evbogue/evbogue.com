@@ -42,6 +42,10 @@ The author's fix is to write stronger rules into `CLAUDE.md` or `AGENTS.md`: eac
 
 But an instruction file is not judgment. It is a fence. Fences are useful, but they do not know when the land has changed. They do not know when a feature should be rejected. They do not know when the clean abstraction from last week has become the obstacle this week. They do not know whether the tool still has a reason to exist.
 
+One Hacker News commenter put the harder version well: ["Picking among them isn't a matter of context. It's a matter of judgment"](https://news.ycombinator.com/item?id=48093197). The "them" there is the set of choices you face when a feature collides with an invariant. Do you refuse the feature because the invariant matters more? Do you bend the feature around the invariant and accept some inelegance? Or do you admit the invariant was wrong and redesign the system?
+
+That is exactly the place where the ghost stops being enough. It can follow the invariant. It can violate the invariant. It can produce a fluent explanation for either choice. What it cannot do, at least not in a way I would trust, is carry the lived responsibility of choosing which compromise belongs in the codebase.
+
 That remains the human job.
 
 The end of the story is not that everyone should go back to writing code by hand. That is too clean and too nostalgic. Writing by hand can help you understand what you are building, but the virtue is not the hand typing. The virtue is understanding. Sometimes an agent helps you understand faster. Sometimes it helps you avoid understanding entirely.
