@@ -1,18 +1,20 @@
 ---
-title: "The AI Did Not Ruin Your Codebase. You Let It."
+title: "A Ghost Intelligence (AGI) Didn't Merge 234 Commits Into Your God Object"
 slug: the-ai-did-not-ruin-your-codebase-you-let-it
 date: 2026-05-11
 tags: [ai, agents, coding]
-excerpt: "Vibe coding did not invent technical debt. It made technical debt feel like progress."
+excerpt: "The ghost can write code. It did not approve seven months of vibe-coded architecture debt."
 ---
 
 The beginning of this story is simple: a developer used Claude to build a Kubernetes terminal app for seven months, shipped 234 commits, and then realized the code had become a giant god object. The post is called ["I'm going back to writing code by hand"](https://blog.k10s.dev/im-going-back-to-writing-code-by-hand/), and [the Hacker News thread](https://news.ycombinator.com/item?id=48090029) is exactly what people want from an AI argument: a corpse, a suspect, and a comment box.
+
+The suspect is wrong.
 
 A god object is not a mystical concept. It is one object that knows too much and owns too much. In this case, the central `Model` struct held UI widgets, Kubernetes client state, logs, describe views, fleet views, navigation history, mouse handling, cached resources, errors, and more. One huge update function decided what every keypress meant in every view. Instead of having separate parts of the program own separate parts of the work, everything accumulated in the same place until the app became difficult to reason about.
 
 That is bad architecture. It is also ordinary bad architecture. Programmers have been building god objects since long before Claude showed up with a terminal prompt and a monthly subscription. Every old codebase has some version of the same failure: the file nobody wants to open, the controller that knows the whole business, the component with state dripping out of every drawer. AI did not invent this. AI made it easier to produce while the human felt productive.
 
-The middle of the story is where the blame gets less convenient. The easy version says Claude failed at software design. Fine. Claude probably did fail at software design. But Claude did not merge 234 commits. Claude did not decide that "it compiles" was a sufficient standard. Claude did not spend seven months accepting output without understanding the system being created. The author did that.
+The middle of the story is where the blame gets less convenient. The easy version says Claude failed at software design. Fine. Claude probably did fail at software design. But a ghost intelligence did not merge 234 commits into your god object. Claude did not decide that "it compiles" was a sufficient standard. Claude did not spend seven months accepting output without understanding the system being created. The author did that.
 
 To his credit, he basically admits it. He was prompting, compiling, testing the happy path, and moving on. He looked at diffs, but he did not really sit down with the architecture until the app started acting haunted. By then the problem was not one bad feature. The problem was the shape of the whole system.
 
@@ -20,7 +22,7 @@ This is where the story becomes useful, because it is not really about whether A
 
 The question is not whether to use the machine. The question is what kind of intelligence you think you are using.
 
-Andrej Karpathy has a useful frame for this. In ["Animals vs Ghosts"](https://karpathy.bearblog.dev/animals-vs-ghosts/), he argues that today's LLMs are not animals learning through embodied experience. They are ghosts: statistical distillations of human documents, practices, examples, habits, and mistakes. I have been thinking about this as [ghost intelligence](/posts/ghost-intelligence): not a living mind, not a clean replacement for the person, but a summoned pattern of human work. A coding agent is not a junior engineer with a childhood, a body, a memory of production incidents, and a private dread of making the same mistake twice. It is a ghost of engineering practice summoned into your terminal.
+Andrej Karpathy has a useful frame for this. In ["Animals vs Ghosts"](https://karpathy.bearblog.dev/animals-vs-ghosts/), he argues that today's LLMs are not animals learning through embodied experience. They are ghosts: statistical distillations of human documents, practices, examples, habits, and mistakes. I have been thinking about this as [ghost intelligence](/posts/ghost-intelligence), or AGI if you want the joke to tell the truth for once: not a living mind, not a clean replacement for the person, but a summoned pattern of human work. A coding agent is not a junior engineer with a childhood, a body, a memory of production incidents, and a private dread of making the same mistake twice. It is a ghost of engineering practice summoned into your terminal.
 
 That ghost can be very useful. It can remember patterns you forgot. It can draft the boring function. It can inspect a stack trace, propose a test, explain an API, or wire together parts of a system faster than you wanted to type them. But it does not care about your codebase. It does not have a life inside the consequences. It does not wake up three months later responsible for the abstraction it created.
 
@@ -48,7 +50,7 @@ The same thing happens with writing. An AI can produce a paragraph that sounds f
 
 Code is not different enough to escape this. A patch that compiles is not necessarily a good decision. A feature that works is not necessarily worth adding. A test that passes is not necessarily proof that the architecture can carry another six months of changes. The ghost can produce artifacts. The living person has to decide whether those artifacts belong in the world.
 
-So no, the AI did not ruin this person's codebase. The AI gave him a way to ruin it at speed while feeling productive.
+So no, the AGI did not ruin this person's codebase. The ghost gave him a way to ruin it at speed while feeling productive.
 
 That is the useful argument, and it is more interesting than another round of "AI good" versus "AI bad." The tool is powerful. The ghost is real enough to matter. But it is still a ghost. It can echo engineering practice, but it cannot replace the part of engineering where a person takes responsibility for the shape of the work.
 
@@ -60,8 +62,8 @@ At some point you have to understand the system. You can pay early by reading, d
 
 I do not say this from above the problem. I could absolutely get high on the velocity. Give me a tool that turns a vague request into a working feature and I will immediately start inventing features I do not need. That is why the human has to stay awake.
 
-The agent is the ghost. The human is judgment.
+The agent is the ghost intelligence. The human is judgment.
 
-If your codebase turns into a god object, do not blame the ghost for haunting the house you built.
+If your codebase turns into a god object, do not blame the ghost for haunting the house you built and kept approving.
 
 Are you using agents without letting them own the work, or did you already have to clean up after a ghost? Email me at [ev@evbogue.com](mailto:ev@evbogue.com) or text [773-510-8601](tel:7735108601).
