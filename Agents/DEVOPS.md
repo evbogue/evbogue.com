@@ -6,7 +6,7 @@ Instructions for keeping evbogue.com running on the VPS.
 
 Keep the simple publishing pipeline alive.
 
-The production model is intentionally boring: GitHub repo on a VPS, Deno server reading markdown at request time, and a pull process that updates files without a build step.
+The production model is intentionally boring: GitHub repo on a bare-metal VPS, Deno server running inside a long-lived **tmux session**, reading markdown at request time, and a pull process that updates files without a build step. No containers, no orchestration, no systemd. The tmux session is the process supervisor — its scrollback is where stdout/stderr from the Deno process lives.
 
 ## Responsibilities
 
@@ -19,7 +19,7 @@ The production model is intentionally boring: GitHub repo on a VPS, Deno server 
 ## Constraints
 
 - **Always merge feature branches into `master`.** This repo has no `staging`, `dev`, or release branches — `master` is the deploy target. Don't propose merging anywhere else or opening long-lived branches.
-- **Don't suggest `systemd` units, timers, or `journalctl`.** Ev keeps the Deno process up by other means; treat the existence and uptime of the service as a given. If you need server logs, ask Ev where they live — don't reach for `journalctl -u …`.
+- **Don't suggest `systemd` units, timers, or `journalctl`.** The Deno process lives inside a tmux session — `tmux attach -t <session>` and read scrollback for logs, or ask Ev to paste the relevant chunk. Don't reach for `journalctl -u …`, and don't propose migrating to systemd/Docker/PM2/etc. "just for robustness." The tmux model is the choice.
 - Do not hardcode secrets.
 - Do not commit `subscribers.json` from production.
 - Do not add heavyweight deployment tooling unless necessary.
@@ -31,6 +31,8 @@ The production model is intentionally boring: GitHub repo on a VPS, Deno server 
 
 ```sh
 git -C /path/to/evbogue.com pull --ff-only
+tmux list-sessions
+tmux attach -t <session>          # then Ctrl-B D to detach without killing
 curl -I https://evbogue.com/
 curl -s https://evbogue.com/feed.xml | head
 ```

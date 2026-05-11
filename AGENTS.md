@@ -134,7 +134,7 @@ Add `--dry-run` to print the recipient list without sending. The script refuses 
 ## Work order — remaining tasks
 
 ### 1. VPS auto-pull from GitHub
-On the VPS, set up a systemd timer (or cron) running every 60s:
+On the VPS, set up a cron job (no systemd — the Deno process lives in a tmux session) running every 60s:
 ```
 git -C /path/to/evbogue.com pull --ff-only
 ```
