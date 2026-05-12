@@ -2,7 +2,7 @@ import { Hono } from "jsr:@hono/hono";
 import { marked } from "https://esm.sh/gh/evbogue/bog5@de70376265/lib/marked.esm.js";
 import { excerptFromBody, loadPosts as readPosts } from "./lib/posts.js";
 import { addSubscriber, confirmByToken, findByToken, unsubscribeByToken } from "./lib/subscribers.js";
-import { sendConfirmation } from "./lib/mailer.js";
+import { sendAdminNotification, sendConfirmation } from "./lib/mailer.js";
 
 const app = new Hono()
 
@@ -530,6 +530,11 @@ app.post('/subscribe', async (c) => {
         console.error('confirmation send failed:', err)
       })
     }
+    if (result.status === 'new' || result.status === 'resubscribed') {
+      sendAdminNotification(result.status, result.entry).catch((err) => {
+        console.error('admin notification failed:', err)
+      })
+    }
     return c.redirect(`/?subscribe=${result.status}`, 303)
   } catch (err) {
     console.error('subscribe error:', err)
@@ -588,27 +593,37 @@ app.get('/unsubscribe', async (c) => {
 app.post('/unsubscribe', async (c) => {
   const form = await c.req.formData().catch(() => null)
   const token = form?.get('token')?.toString() ?? c.req.query('token')
-  const entry = await unsubscribeByToken(ROOT, token)
-  if (!entry) {
+  const result = await unsubscribeByToken(ROOT, token)
+  if (!result) {
     return c.html(unsubscribePage({
       heading: "Link not found",
       message: "That unsubscribe link is missing or expired. Email ev@evbogue.com and I'll take you off the list by hand.",
     }), 404)
   }
+  if (result.status === 'fresh') {
+    sendAdminNotification('unsubscribe', result.entry).catch((err) => {
+      console.error('admin notification failed:', err)
+    })
+  }
   return c.html(unsubscribePage({
     heading: "Unsubscribed",
-    message: `${entry.email} has been removed from the list.`,
+    message: `${result.entry.email} has been removed from the list.`,
   }))
 })
 
 app.get('/confirm', async (c) => {
   const token = c.req.query('token')
-  const entry = await confirmByToken(ROOT, token)
-  if (!entry) {
+  const result = await confirmByToken(ROOT, token)
+  if (!result) {
     return c.html(unsubscribePage({
       heading: "Link not found",
       message: "That confirmation link is missing, expired, or already unsubscribed. Try subscribing again.",
     }), 404)
+  }
+  if (result.status === 'fresh') {
+    sendAdminNotification('confirm', result.entry).catch((err) => {
+      console.error('admin notification failed:', err)
+    })
   }
   return c.redirect('/?subscribe=confirmed', 303)
 })

@@ -123,6 +123,8 @@ Subscribers are stored in `subscribers.json` (gitignored) as an array of objects
 
 Old string-only entries are upgraded to this shape on first read (and grandfathered as confirmed). New signups use **double opt-in**: the form saves the row with `confirmed_at: null`, a confirmation email goes out via `lib/mailer.js`, and the recipient clicks `/confirm?token=…` to flip `confirmed_at` to a timestamp. Only confirmed, non-unsubscribed entries are emailed. `subscribers.json` is written atomically (write to `.tmp`, then rename). The server needs `SMTP_PASS` in env to actually send confirmations — without it the subscriber row still gets created but the email is skipped and a warning is logged.
 
+**Admin notifications.** Ev gets an email at `SMTP_USER` (default `ev@evbogue.com`) whenever a real signup, confirm, or unsubscribe happens. Re-clicks of already-confirmed or already-unsubscribed links don't re-notify. The subject line is `[evbogue.com] <verb>: <email>` so it's easy to filter.
+
 Send a post to the active list with:
 
 ```sh
