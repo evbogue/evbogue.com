@@ -180,7 +180,7 @@ nav a:hover { color: var(--accent); }
   max-width: 520px;
 }
 
-.hero-meta {
+.story-meta {
   align-items: center;
   color: var(--ink-3);
   display: flex;
@@ -190,8 +190,8 @@ nav a:hover { color: var(--accent); }
   gap: 0.45rem 0.6rem;
 }
 
-.hero-meta .dot { color: var(--rule); }
-.hero-meta .author { color: var(--ink-2); font-weight: 500; }
+.story-meta .dot { color: var(--rule); }
+.story-meta .author { color: var(--ink-2); font-weight: 500; }
 
 .hero-side {
   display: flex;
@@ -232,10 +232,7 @@ nav a:hover { color: var(--accent); }
   line-height: 1.55;
 }
 
-.side-date {
-  color: var(--ink-3);
-  display: block;
-  font-family: var(--mono);
+.side-meta {
   font-size: 0.72rem;
   margin-top: 0.65rem;
 }
@@ -293,10 +290,6 @@ nav a:hover { color: var(--accent); }
 }
 
 .card-meta {
-  color: var(--ink-3);
-  display: flex;
-  flex-wrap: wrap;
-  font-family: var(--mono);
   font-size: 0.72rem;
   gap: 0.5rem;
 }

@@ -220,12 +220,14 @@ function signalTagHref(tag) {
   return `/tag/${encodeURIComponent(tagSlugFor(tag))}`
 }
 
-function signalMeta(post, dateStyle = "short") {
+function signalMeta(post, { className = "", dateStyle = "short" } = {}) {
+  const classes = ["story-meta", className].filter(Boolean).join(" ")
+
   return `
-    <div class="hero-meta">
+    <div class="${escapeHtml(classes)}">
       <span class="author">${escapeHtml(authorFor(post))}</span>
       <span class="dot">&middot;</span>
-      <span>${escapeHtml(formatDisplayDate(post.date, dateStyle))}</span>
+      <time datetime="${escapeHtml(post.date)}">${escapeHtml(formatDisplayDate(post.date, dateStyle))}</time>
       <span class="dot">&middot;</span>
       <span>${readTimeFor(post)} min read</span>
     </div>
@@ -241,11 +243,7 @@ function signalCard(post) {
       <span class="tag">${escapeHtml(tag)}</span>
       <div class="card-title">${escapeHtml(post.title)}</div>
       <p class="card-dek">${escapeHtml(descriptionFor(post))}</p>
-      <div class="card-meta">
-        <span>${escapeHtml(formatDisplayDate(post.date))}</span>
-        <span>&middot;</span>
-        <span>${readTimeFor(post)} min</span>
-      </div>
+      ${signalMeta(post, { className: "card-meta" })}
     </a>
   `
 }
@@ -264,7 +262,7 @@ function signalHomeHtml(posts) {
         <span class="tag">${escapeHtml(heroTag)}</span>
         <div class="hero-title">${escapeHtml(hero.title)}</div>
         <p class="hero-dek">${escapeHtml(descriptionFor(hero))}</p>
-        ${signalMeta(hero)}
+        ${signalMeta(hero, { className: "hero-meta" })}
       </a>
       <div class="hero-side">
         ${sideStories.map((post) => {
@@ -274,7 +272,7 @@ function signalHomeHtml(posts) {
               <span class="tag">${escapeHtml(tag)}</span>
               <div class="side-title">${escapeHtml(post.title)}</div>
               <p class="side-dek">${escapeHtml(descriptionFor(post))}</p>
-              <time class="side-date" datetime="${escapeHtml(post.date)}">${escapeHtml(formatDisplayDate(post.date))}</time>
+              ${signalMeta(post, { className: "side-meta" })}
             </a>
           `
         }).join('')}
@@ -322,7 +320,7 @@ function signalPostHtml(post) {
         <a href="${signalTagHref(tag)}" class="tag">${escapeHtml(tag)}</a>
         <h1 class="hero-title">${escapeHtml(post.title)}</h1>
         <p class="hero-dek">${escapeHtml(descriptionFor(post))}</p>
-        ${signalMeta(post, "long")}
+        ${signalMeta(post, { className: "hero-meta", dateStyle: "long" })}
       </div>
 
       <hr class="post-divider">
