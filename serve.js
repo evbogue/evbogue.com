@@ -141,7 +141,7 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="icon" href="/assets/ev.png">
     <link rel="alternate" type="application/rss+xml" title="evbogue.com" href="/feed.xml">
-    <link rel="stylesheet" href="/assets/signal.css?v=20260505b">
+    <link rel="stylesheet" href="/assets/signal.css?v=20260511a">
   </head>
   <body>
     <header>
@@ -151,10 +151,24 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
           <a href="/about">About</a>
           <a href="/posts" class="nav-priority">Archive</a>
           <a href="/feed.xml">RSS</a>
-          <a href="#subscribe" class="subscribe-btn">Subscribe</a>
+          <a href="#subscribe" class="subscribe-btn" data-open-subscribe>Subscribe</a>
         </nav>
       </div>
     </header>
+
+    <dialog id="subscribe-dialog" class="subscribe-dialog" aria-labelledby="subscribe-dialog-title">
+      <form method="dialog" class="subscribe-dialog-close-form">
+        <button class="subscribe-dialog-close" aria-label="Close">&times;</button>
+      </form>
+      <div class="subscribe-dialog-body">
+        <h3 id="subscribe-dialog-title">Get evbogue.com in your inbox.</h3>
+        <p>One essay, three stories, no noise.</p>
+        <form class="newsletter-form" action="/subscribe" method="POST">
+          <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </dialog>
 
     <div class="date-ribbon">${escapeHtml(now)} &nbsp;&middot;&nbsp; Independent publishing</div>
 
@@ -184,6 +198,23 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
         <span class="footer-copy">&copy; ${new Date().getFullYear()} Everett Bogue</span>
       </div>
     </footer>
+    <script>
+      (function () {
+        var dlg = document.getElementById('subscribe-dialog')
+        if (!dlg || typeof dlg.showModal !== 'function') return
+        document.querySelectorAll('[data-open-subscribe]').forEach(function (el) {
+          el.addEventListener('click', function (e) {
+            e.preventDefault()
+            dlg.showModal()
+            var input = dlg.querySelector('input[name="email"]')
+            if (input) input.focus()
+          })
+        })
+        dlg.addEventListener('click', function (e) {
+          if (e.target === dlg) dlg.close()
+        })
+      })()
+    </script>
   </body>
 </html>`
 }

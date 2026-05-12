@@ -628,6 +628,62 @@ nav a:hover { color: var(--accent); }
 
 .newsletter-form button:hover { background: var(--ink); }
 
+.subscribe-dialog {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: var(--sans);
+  max-width: 32rem;
+  padding: 0;
+  width: calc(100% - 2rem);
+}
+
+.subscribe-dialog::backdrop {
+  background: rgba(15, 15, 15, 0.45);
+}
+
+.subscribe-dialog-close-form {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 0.6rem 0;
+}
+
+.subscribe-dialog-close {
+  background: none;
+  border: none;
+  color: var(--ink-3);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.2rem 0.5rem;
+}
+
+.subscribe-dialog-close:hover { color: var(--ink); }
+
+.subscribe-dialog-body {
+  padding: 0.25rem 2rem 2rem;
+}
+
+.subscribe-dialog-body h3 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.subscribe-dialog-body p {
+  color: var(--ink-2);
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.subscribe-dialog-body .newsletter-form {
+  flex-direction: column;
+  max-width: none;
+}
+
+.subscribe-dialog-body .newsletter-form button { width: 100%; }
+
 footer {
   border-top: 1px solid var(--rule);
   padding: 2rem;
