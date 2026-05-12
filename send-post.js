@@ -47,7 +47,6 @@ ${excerpt}
 
 Read it: ${url}
 
-
 Best,
 Ev
 ev@evbogue.com | 773-510-8601
@@ -59,7 +58,7 @@ function buildHtml(unsubUrl) {
   return `<p style="font-size:1.1rem;"><strong>${title}</strong></p>
 <p>${excerpt}</p>
 <p><a href="${url}">Read it on evbogue.com</a></p>
-<p style="margin-top:2em;">Best,<br>Ev<br><a href="mailto:ev@evbogue.com">ev@evbogue.com</a> | <a href="tel:7735108601">773-510-8601</a></p>
+<p>Best,<br>Ev<br><a href="mailto:ev@evbogue.com">ev@evbogue.com</a> | <a href="tel:7735108601">773-510-8601</a></p>
 <p style="color:#888;font-size:12px;">Don't want these? <a href="${unsubUrl}">Unsubscribe</a>.</p>`;
 }
 
