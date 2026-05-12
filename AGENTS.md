@@ -131,6 +131,19 @@ SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env send-p
 
 Add `--dry-run` to print the recipient list without sending. The script refuses drafts, sends one-to-one (no BCC blast), and sets `List-Unsubscribe` headers with both a per-recipient unsubscribe URL and the `ev@evbogue.com` mailto fallback. Each subscriber gets a unique unsubscribe token; the public `/unsubscribe?token=...` route flips `unsubscribed_at` and `activeSubscribers()` excludes them from future sends. For a manual removal, set `unsubscribed_at` to an ISO timestamp on the relevant entry in `subscribers.json` on the VPS.
 
+To run a permission pass (ask currently-confirmed subscribers to re-confirm under the DOI flow):
+
+```sh
+# preview only
+SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env reconfirm.js [email] --dry-run
+
+# real run — one address (testing) or all active
+SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env reconfirm.js ev@evbogue.com
+SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env reconfirm.js
+```
+
+The script sends the reconfirmation email first; only on a successful send does it set `confirmed_at: null`. So a bad password or transient SMTP failure leaves state untouched and the run is safe to retry.
+
 ## Work order — remaining tasks
 
 ### 1. VPS auto-pull from GitHub
