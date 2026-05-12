@@ -633,13 +633,19 @@ nav a:hover { color: var(--accent); }
   border: 1px solid var(--rule);
   color: var(--ink);
   font-family: var(--sans);
+  inset: 0;
+  margin: auto;
+  max-height: calc(100vh - 4rem);
   max-width: 32rem;
   padding: 0;
+  position: fixed;
   width: calc(100% - 2rem);
 }
 
 .subscribe-dialog::backdrop {
-  background: rgba(15, 15, 15, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(15, 15, 15, 0.35);
 }
 
 .subscribe-dialog-close-form {

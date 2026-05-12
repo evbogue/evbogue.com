@@ -141,7 +141,7 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="icon" href="/assets/ev.png">
     <link rel="alternate" type="application/rss+xml" title="evbogue.com" href="/feed.xml">
-    <link rel="stylesheet" href="/assets/signal.css?v=20260511a">
+    <link rel="stylesheet" href="/assets/signal.css?v=20260511b">
   </head>
   <body>
     <header>
