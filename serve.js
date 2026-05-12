@@ -129,6 +129,7 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "America/Chicago",
   })
 
   return `<!doctype html>
