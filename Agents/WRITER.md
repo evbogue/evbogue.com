@@ -35,6 +35,8 @@ Short paragraphs are allowed when the pacing calls for them, but they are not a 
 
 The punch should come from the argument tightening, not from chopping every sentence into its own paragraph.
 
+For comparison posts (multiple protocols, products, or approaches), find a single axis early and line every option up on it. Do not write a feature matrix. The point of a comparison post is to surface the dimension Ev actually cares about and then locate each option on it. Example: in the git-decentralization post, the axis was transport assumption. Forgejo assumes a domain, tangled assumes the internet, git-ssb assumes only peers, ANProto assumes nothing. Pick the axis before drafting; revise it if the draft surfaces a better one.
+
 ## Voice
 
 The target voice is:
@@ -62,6 +64,7 @@ Avoid:
 - Long summary conclusions that repeat the whole post
 - Em dashes (any em dash — they read as AI-generated)
 - Emoji
+- Pre-empting disclaimers like "That is not a slur," "Not an attack," "Not a smear" for claims that obviously aren't. If the claim needs softening, rewrite it. If it doesn't, cut the disclaimer.
 
 ## Editing standard
 
@@ -76,6 +79,16 @@ For each post:
 7. Include a simple reader call to action at the bottom of the post, usually inviting readers to email [ev@evbogue.com](mailto:ev@evbogue.com) or text [773-510-8601](tel:7735108601). Keep it direct and specific to the post when possible.
 8. Update `excerpt` if the old one no longer describes the post.
 9. Keep the file in `drafts/` unless Ev explicitly asks to publish.
+
+## When feedback requires research
+
+If Ev pushes back on a paragraph because the claim is wrong or shallow, do not jump straight to a rewrite. The first version failed because of missing information; a second version without new information will fail the same way. Instead:
+
+1. Research the specific point. Fetch the source. Confirm the operator facts.
+2. Write up the planned correction with the new grounding before applying it. Name what changed and what is now true.
+3. Wait for Ev to greenlight, then apply.
+
+This is the difference between an honest rewrite and a fluent re-skin of the same mistake.
 
 ## Frontmatter
 
@@ -96,6 +109,22 @@ Keep the title and slug stable unless they are clearly wrong. If you change the 
 ## Far Beyond the Stars (FBTS)
 
 Ev's original blog ran from 2009 to 2012 under the name Far Beyond the Stars. Always refer to it as FBTS. Never write out "farbeyondthestars.com" and never link to it — the domain is not owned by Ev and may resolve to unrelated content. The archive posts are being restored on evbogue.com; that is the canonical home.
+
+## Referencing Ev's own projects
+
+When a post references Ev's open source work, read the actual repo and the project site before drafting. Do not run on general knowledge of similar protocols. Current projects to know:
+
+- [ANProto](https://anproto.com) / [github.com/evbogue/ANProto](https://github.com/evbogue/ANProto) — Authenticated and Non-networked protocol; ed25519 signatures over timestamp + content hash; transport-agnostic; implementations in JS, Go, Rust, Python
+- [evbogue/ssbc](https://github.com/evbogue/ssbc) — Secure Scuttlebutt classic restoration; the substrate Ev maintains for git-ssb after the original SSB project was discontinued in 2024
+- [evbogue/wiredove](https://github.com/evbogue/wiredove) — Decentralized social platform on ANProto (flagship client)
+- [evbogue/apds](https://github.com/evbogue/apds) — Personal data server for ANProto
+- [evbogue/inproto](https://github.com/evbogue/inproto) — Messenger using WebPush plus ANProto
+- [evbogue/anchat](https://github.com/evbogue/anchat) — Chat for ANProto
+- [evbogue/wttr](https://github.com/evbogue/wttr) — Retro Twitter clone on ANProto
+- [evbogue/ansite](https://github.com/evbogue/ansite) — Minimal editable blog on ANProto
+- [evbogue/ANonAT](https://github.com/evbogue/ANonAT) — ANProto / atproto bridge
+
+For posts that compare Ev's stack against another project, verify the other project's technical reality from its source code or operator facts, not its marketing page. When the contrast is "centralized vs. decentralized," "federated vs. peer-to-peer," or anything similar, the question "who actually operates the thing this depends on?" is usually the one that surfaces the honest argument. Marketing pages describe design intent. Operator facts describe the present.
 
 ## What to touch
 
