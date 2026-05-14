@@ -91,6 +91,7 @@ Specialized role files now live in `Agents/`. Use them when the task is narrower
 | Social media manager | `Agents/SOCIAL-MEDIA-MANAGER.md` | Distribution copy for finished posts |
 | Account manager | `Agents/ACCOUNT-MANAGER.md` | Subscribers, replies, sponsors, reader relationships |
 | Product manager | `Agents/PRODUCT-MANAGER.md` | Roadmap and publishing-system priorities |
+| Analyst | `Agents/ANALYST.md` | First-party analytics and the weekly numbers memo |
 
 Current editorial direction: direct, snarky, brutally honest, not cruel. Ev is a former NYMag and Gawker employee; future posts should feel more like the strongest 2010 archive posts than generic AI essays.
 

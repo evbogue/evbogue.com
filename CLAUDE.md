@@ -16,6 +16,7 @@ Specialized role files live in `Agents/`. When the user asks you to bring up or 
 | social media agent, distribute, tweet, post | `Agents/SOCIAL-MEDIA-MANAGER.md` |
 | account manager, subscribers, replies | `Agents/ACCOUNT-MANAGER.md` |
 | product manager, roadmap, priorities | `Agents/PRODUCT-MANAGER.md` |
+| analyst agent, analytics, weekly numbers, charts | `Agents/ANALYST.md` |
 
 When no specific agent is named, default to reading `AGENTS.md` for project context.
 
