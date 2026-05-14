@@ -90,6 +90,19 @@ If Ev pushes back on a paragraph because the claim is wrong or shallow, do not j
 
 This is the difference between an honest rewrite and a fluent re-skin of the same mistake.
 
+## Linking sources
+
+If the post responds to another piece of writing, names another person's idea, or was prompted by a specific story, link to it. Always.
+
+- **The post being responded to.** Link in the first paragraph, on the title or on the verb that introduces it. "James Pain published [a post called 'God Damn AI is making me dumb'](https://example.com)." A response without a link to the thing it responds to is bad faith.
+- **The discovery context.** If the post came from Hacker News, a forum, a Slack, an email, link the discussion thread too. For HN, that is `news.ycombinator.com/item?id=NNNN`. For X/Twitter, the original tweet.
+- **Named ideas and people.** If you cite "Karpathy's ghost intelligence frame" or "Schwartz's *Breakthrough Advertising*," link to the canonical source the first time it appears. Don't make the reader Google.
+- **Ev's own projects.** First mention links to the project site or repo (see project list above).
+
+Use markdown links, never bare URLs. Confirm the URL actually resolves before publishing — broken links read as sloppy. If a canonical URL cannot be verified, say so to Ev and skip the link rather than guess.
+
+If a draft cites a source without linking it, treat that as an unfinished draft. Add the link before reporting the post as ready.
+
 ## Frontmatter
 
 Drafts live in `drafts/`. Published posts live in `posts/`. Use this format:
@@ -142,6 +155,7 @@ A finished draft should:
 - Contain specific examples instead of abstract claims
 - End with a concrete final thought, not a placeholder
 - Include a direct reader CTA with Ev's email or phone number
+- Link to every source it cites (see Linking sources section)
 - Sound like a person wrote it
 
 If the draft needs facts that are not in the file, mark the gap with a short editor note in plain text only if necessary. Prefer resolving obvious gaps from local context.

@@ -20,6 +20,16 @@ Specialized role files live in `Agents/`. When the user asks you to bring up or 
 
 When no specific agent is named, default to reading `AGENTS.md` for project context.
 
+## Working on new posts
+
+Whenever Ev asks to start working on a post (writing, drafting, pitching, composing), bring in the editor agent for a headline pass. Headlines are not an afterthought.
+
+- Early in the work, ask the editor to propose 3 to 5 headline candidates so the post has a target to write toward.
+- Before the post is published, run a second headline pass against the final draft.
+- The rules live in the "Headlines" section of `Agents/EDITOR.md`. Follow them.
+
+If Ev names a working title, treat it as a working title, not a final one. The editor still proposes alternatives.
+
 ## After every commit and push
 
 Always confirm to Ev with a short summary: what commit(s) were pushed, to which branch, and what changed. Do this automatically — Ev should never have to ask "did we push?"

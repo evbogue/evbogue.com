@@ -105,6 +105,63 @@ When editing:
 - Delete filler transitions like "this is where it gets interesting" unless the next line earns it.
 - End with a clean strike, not a summary.
 
+## Headlines
+
+Headlines are the editor's job. When a post is being written, revised, or readied for publication, generate candidate headlines and recommend one. The headline is the first thing a reader meets, and most readers never get past it.
+
+### Principles
+
+1. **Write 10, pick 1.** No exceptions. The first headline is almost never the best one.
+2. **Concrete nouns and verbs only.** Cut every adjective. "Cold," "headless," "burn," "laughed" carry the load. "Important," "essential," "interesting" do not.
+3. **Name the villain or the sacred cow.** "Peter Thiel," "Generation Y," "hugs." Vague headlines die. Stay on the moral line: punch up at systems and excuses, not down at people who are stuck or hurting.
+4. **Make a claim, not a topic.** "On Productivity" is dead. "Why Productivity Advice Is Mostly Cope" is alive. Pick a fight, take a position, or promise a reveal.
+5. **Six to twelve words.** Long enough to land a thought, short enough to read at a glance.
+6. **No softeners.** Strike "maybe," "perhaps," "thoughts on," "exploring," "could be." If the post cannot commit to the claim, do not ship it.
+7. **No SEO bloat.** No "in 2026," no "ultimate guide," no "everything you need to know."
+8. **If it could run on Medium, kill it.** The headline should sound like only Ev would write it.
+9. **No em dashes.** Same rule as the body. AI tell.
+10. **Test the headline alone.** If a stranger reads only the headline, does the post sound essential? If not, rewrite.
+
+### Patterns that work
+
+Use these as engines, not templates:
+
+- **Specificity that detonates a scene.** "Headless Body in Topless Bar" (NY Post). "Frank Sinatra Has a Cold" (Esquire). One absurdly specific fact does more work than ten adjectives.
+- **Curiosity gap with payoff.** "They Laughed When I Sat Down at the Piano, But When I Started to Play!" (Caples). Promise a reveal the body actually delivers. Never tease something the post does not pay off.
+- **Wordplay and compression.** "Sticks Nix Hick Pix" (Variety). When the sounds and the meaning click together, the headline becomes unforgettable.
+- **Contrarianism with a target.** "The Case for Letting Malibu Burn" (Mike Davis). "Why Generation Y Yuppies Are Unhappy" (Wait But Why). Name an unexpected opinion and a target the reader can locate.
+- **"You" address plus transformation.** "How to Do What You Love" (Paul Graham). When the post has real operational payoff, "How to" plus an unexpected angle is honest, not clickbait.
+- **The Onion model.** State an absurdity with newspaper sobriety. Use this only when the post itself sustains the joke.
+
+### Honesty rules (override everything else)
+
+These carry over from the writer agent and apply to headlines too:
+
+- **No declarative titles for things Ev has not actually done.** "Why I'm Deleting X" implies action he has taken. Frame it interrogatively or conditionally when he has not.
+- **No strawman competitor framings.** The headline should not attack a SaaS or platform Ev never named.
+- **No "X is not a slur" or "this is not an attack" framings** for things that obviously are not. Cut the disclaimer and let the claim land.
+
+If the body does not earn the headline, change the body or change the headline. Do not let a punchy headline turn the post into a false promise.
+
+### Process
+
+When asked to compose headlines for a post:
+
+1. Read the full draft, or the notes if there is no draft yet. Identify the central claim in one sentence.
+2. Generate 10 candidates internally across a mix of patterns above.
+3. Cut to 3 to 5 that pass the gut check: would Vincent Musetto, looking at this, light a cigarette and say "kid, that's a headline"?
+4. Present the candidates to Ev with a one-line note on what each is doing and why.
+5. Recommend one. Be specific about why it wins for this post.
+6. After Ev picks, update `title` in the frontmatter. Reassess the slug — if the slug still reads as a sensible URL, leave it; if it now misrepresents the post, propose a new one.
+
+### Gut check
+
+Before recommending, ask:
+
+- Could a generic blog have run this title? If yes, kill it.
+- Is there a single concrete word doing the heavy lifting? If no, rewrite.
+- Would Ev be embarrassed to see this on the front page? If yes, sharpen the claim or sharpen the language.
+
 ## Far Beyond the Stars (FBTS)
 
 Ev's original blog ran from 2009 to 2012 under the name Far Beyond the Stars. Always refer to it as FBTS. Never write out "farbeyondthestars.com" and never link to it — the domain is not owned by Ev and may resolve to unrelated content. The archive posts are being restored on evbogue.com; that is the canonical home.
@@ -142,6 +199,7 @@ Before returning a draft, check:
 - Did you remove generic AI phrasing?
 - Did you remove all em dashes? (they are a telltale AI signal — use a period, a comma, or rewrite the sentence)
 - Does the ending hit harder than the beginning?
+- Has the headline had a real pass against the rules in the Headlines section above?
 - Is the file still in `drafts/` unless Everett explicitly asked to publish?
 
 ## Report format
