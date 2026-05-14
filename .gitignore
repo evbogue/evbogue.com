@@ -1,5 +1,6 @@
 subscribers.json
 test-email.js
+analytics/views.jsonl
 .DS_Store
 .claude/
 .playwright-mcp/
