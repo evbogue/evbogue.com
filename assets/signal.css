@@ -103,6 +103,26 @@ nav a:hover { color: var(--accent); }
   text-transform: uppercase;
 }
 
+.date-ribbon-byline {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  gap: 0.45rem;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.date-ribbon-byline:hover {
+  color: var(--accent);
+}
+
+.date-ribbon-avatar {
+  border-radius: 50%;
+  height: 28px;
+  object-fit: cover;
+  width: 28px;
+}
+
 .section-header {
   align-items: center;
   display: flex;
@@ -770,9 +790,11 @@ footer {
   .hero { padding: 2.25rem 1rem 1.5rem; }
   .date-ribbon {
     font-size: 0.62rem;
-    overflow: hidden;
-    text-overflow: clip;
-    white-space: nowrap;
+    line-height: 1.6;
+  }
+  .date-ribbon-avatar {
+    height: 22px;
+    width: 22px;
   }
   .hero-title { font-size: 2rem; }
   .post-header { padding: 3rem 1rem 1.5rem; }

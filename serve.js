@@ -153,7 +153,7 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="icon" href="/assets/ev.png">
     <link rel="alternate" type="application/rss+xml" title="evbogue.com" href="/feed.xml">
-    <link rel="stylesheet" href="/assets/signal.css?v=20260511b">
+    <link rel="stylesheet" href="/assets/signal.css?v=20260514a">
   </head>
   <body>
     <header>
@@ -182,7 +182,7 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
       </div>
     </dialog>
 
-    <div class="date-ribbon">${escapeHtml(now)} &nbsp;&middot;&nbsp; Independent publishing</div>
+    <div class="date-ribbon">${escapeHtml(now)} &nbsp;&middot;&nbsp; Augmented publishing by <a href="/about" class="date-ribbon-byline"><img src="/assets/ev-profile.jpg" alt="Ev Bogue" class="date-ribbon-avatar">Ev Bogue</a></div>
 
     ${body}
 
@@ -467,7 +467,7 @@ app.get('/', async (c) => {
   ` : signalHomeHtml(allPosts)
   return c.html(signalPage({
     title: "evbogue.com",
-    description: "Independent publishing from Everett Bogue.",
+    description: "Augmented publishing from Everett Bogue.",
     body: subscribeBanner(subscribeStatus) + main,
   }))
 })
