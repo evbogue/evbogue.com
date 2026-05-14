@@ -1,5 +1,3 @@
-# About evbogue.com
-
 I'm Ev in Chicago. Kayaking instructor by summer, developer by winter, blogger whenever the web starts getting stupid again.
 
 This site is my independent publishing desk: new dispatches about the web, small tools, autonomy, and the strange business of staying human online — plus recovered work from Far Beyond The Stars, the minimalism blog I wrote when blogs still felt like they could change your life.

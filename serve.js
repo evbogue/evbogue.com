@@ -153,7 +153,7 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="icon" href="/assets/ev.png">
     <link rel="alternate" type="application/rss+xml" title="evbogue.com" href="/feed.xml">
-    <link rel="stylesheet" href="/assets/signal.css?v=20260514a">
+    <link rel="stylesheet" href="/assets/signal.css?v=20260514c">
   </head>
   <body>
     <header>
@@ -503,11 +503,11 @@ app.get('/about', async (c) => {
       <article>
         <div class="post-header">
           <span class="tag">About</span>
-          <h1 class="hero-title">About</h1>
+          <h1 class="hero-title">About evbogue.com</h1>
         </div>
         <hr class="post-divider">
         <div class="post-body about-body">
-          <img class="about-portrait" src="/assets/ev.png" alt="Everett Bogue">
+          <img class="about-portrait" src="/assets/ev-profile.jpg" alt="Everett Bogue">
           ${marked(doc)}
           ${ntfyWidget}
         </div>
