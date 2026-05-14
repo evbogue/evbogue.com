@@ -5,6 +5,17 @@ import { addSubscriber, confirmByToken, findByToken, unsubscribeByToken } from "
 import { sendAdminNotification, sendConfirmation } from "./lib/mailer.js";
 import { aggregateViews, loadViews, recordView, renderBarChart } from "./lib/analytics.js";
 
+const ANALYTICS_SALT = Deno.env.get("ANALYTICS_SALT") ?? ""
+if (!ANALYTICS_SALT) {
+  console.warn("ANALYTICS_SALT not set — unique visitor counts will stay at 0.")
+}
+
+function clientIp(c) {
+  const xff = c.req.header('x-forwarded-for')
+  if (xff) return xff.split(',')[0].trim()
+  return c.req.header('x-real-ip') ?? c.req.header('cf-connecting-ip') ?? ""
+}
+
 const app = new Hono()
 
 const ROOT = import.meta.dirname
@@ -475,7 +486,7 @@ app.get('/posts/:slug', async (c) => {
   const posts = await loadPosts()
   const post = posts.find(p => p.slug === slug)
   if (!post) return c.notFound()
-  recordView(ROOT, { slug: post.slug, userAgent: c.req.header('user-agent') ?? "" })
+  recordView(ROOT, { slug: post.slug, userAgent: c.req.header('user-agent') ?? "", ip: clientIp(c), salt: ANALYTICS_SALT })
   return c.html(signalPage({
     title: post.title,
     description: descriptionFor(post),
@@ -517,7 +528,7 @@ app.get('/tag/:tag', async (c) => {
 })
 
 app.get('/feed.xml', async (c) => {
-  recordView(ROOT, { kind: "rss", userAgent: c.req.header('user-agent') ?? "" })
+  recordView(ROOT, { kind: "rss", userAgent: c.req.header('user-agent') ?? "", ip: clientIp(c), salt: ANALYTICS_SALT })
   const posts = await loadPosts()
   const items = posts.slice(0, 50).map((post) => {
     const description = post.excerpt || excerptFromBody(post.body)
@@ -656,7 +667,7 @@ function formatChicagoDateTime(ts) {
   })
 }
 
-function dashboardData(stats, generatedAt) {
+function dashboardData(stats, generatedAt, { saltSet = true } = {}) {
   const topTen = stats.top.slice(0, 10)
   const chart = renderBarChart(topTen.map((r) => ({ label: r.title, value: r.all })))
   const rows = stats.top.map((row, i) => `
@@ -665,7 +676,7 @@ function dashboardData(stats, generatedAt) {
         <span class="tag">${String(i + 1).padStart(2, '0')}</span>
         <span class="archive-row-title">${escapeHtml(row.title)}</span>
       </div>
-      <time>${row.all} views · last ${escapeHtml(formatChicagoDateTime(row.last))}</time>
+      <time>${row.all} views · ${row.uniqAll} unique · last ${escapeHtml(formatChicagoDateTime(row.last))}</time>
     </div>
   `).join('')
   const since = stats.firstSeen
@@ -680,6 +691,7 @@ function dashboardData(stats, generatedAt) {
     rows,
     dek,
     rssLine,
+    saltSet,
     hasViews: stats.top.length > 0,
   }
 }
@@ -695,9 +707,21 @@ function dashboardBody(data) {
       <hr class="post-divider">
       <div class="post-body">
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem;">
-          <div><div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">Today</div><div style="font-size:2.5rem;font-family:'Playfair Display',serif;" id="dash-day">${data.totals.day}</div></div>
-          <div><div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">Last 7 days</div><div style="font-size:2.5rem;font-family:'Playfair Display',serif;" id="dash-week">${data.totals.week}</div></div>
-          <div><div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">All time</div><div style="font-size:2.5rem;font-family:'Playfair Display',serif;" id="dash-all">${data.totals.all}</div></div>
+          <div>
+            <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">Today</div>
+            <div style="font-size:2.5rem;font-family:'Playfair Display',serif;" id="dash-day">${data.totals.day}</div>
+            <div style="font-size:0.85rem;opacity:0.6;font-family:'DM Mono',ui-monospace,monospace;" id="dash-uniq-day">${data.totals.uniqDay} unique</div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">Last 7 days</div>
+            <div style="font-size:2.5rem;font-family:'Playfair Display',serif;" id="dash-week">${data.totals.week}</div>
+            <div style="font-size:0.85rem;opacity:0.6;font-family:'DM Mono',ui-monospace,monospace;" id="dash-uniq-week">${data.totals.uniqWeek} unique</div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">All time</div>
+            <div style="font-size:2.5rem;font-family:'Playfair Display',serif;" id="dash-all">${data.totals.all}</div>
+            <div style="font-size:0.85rem;opacity:0.6;font-family:'DM Mono',ui-monospace,monospace;" id="dash-uniq-all">${data.totals.uniqAll} unique</div>
+          </div>
         </div>
 
         <div class="section-header"><span class="section-label">Top 10 posts</span><div class="section-rule"></div></div>
@@ -709,7 +733,7 @@ function dashboardBody(data) {
         <div class="section-header" style="margin-top:2.5rem;"><span class="section-label">RSS</span><div class="section-rule"></div></div>
         <p id="dash-rss" style="margin:0.5rem 0 2rem;font-family:'DM Mono',ui-monospace,monospace;font-size:0.9rem;">${escapeHtml(data.rssLine)}</p>
 
-        <p style="opacity:0.6;font-size:0.85rem;margin-top:2rem;">Raw events live in <code>analytics/views.jsonl</code> on the VPS. Gitignored. Not backed up automatically. This page polls <code>/analytics.json</code> every 10s.</p>
+        <p style="opacity:0.6;font-size:0.85rem;margin-top:2rem;">Raw events live in <code>analytics/views.jsonl</code> on the VPS. Gitignored. Not backed up automatically. This page polls <code>/analytics.json</code> every 10s. Uniques are distinct salted-hash buckets of client IP; one IP = one unique, no cookies.${data.saltSet ? "" : " <strong>ANALYTICS_SALT is not set on the server — uniques will stay at 0.</strong>"}</p>
       </div>
       <script>
         (function () {
@@ -729,6 +753,9 @@ function dashboardBody(data) {
                 setText('dash-day', d.totals.day)
                 setText('dash-week', d.totals.week)
                 setText('dash-all', d.totals.all)
+                setText('dash-uniq-day', d.totals.uniqDay + ' unique')
+                setText('dash-uniq-week', d.totals.uniqWeek + ' unique')
+                setText('dash-uniq-all', d.totals.uniqAll + ' unique')
                 setText('dash-rss', d.rssLine)
                 setText('dash-dek', d.dek)
                 setHtml('dash-chart', d.chart || '<p class="empty-state">No post views recorded yet.</p>')
@@ -746,7 +773,7 @@ function dashboardBody(data) {
 app.get('/analytics', async (c) => {
   const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
   const stats = aggregateViews(views, posts)
-  const data = dashboardData(stats, Date.now())
+  const data = dashboardData(stats, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
   return c.html(signalPage({
     title: "Analytics",
     description: "evbogue.com analytics",
@@ -759,7 +786,7 @@ app.get('/analytics', async (c) => {
 app.get('/analytics.json', async (c) => {
   const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
   const stats = aggregateViews(views, posts)
-  const data = dashboardData(stats, Date.now())
+  const data = dashboardData(stats, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
   return c.json(data, 200, { "Cache-Control": "no-store" })
 })
 
