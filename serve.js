@@ -644,62 +644,101 @@ app.post('/unsubscribe', async (c) => {
   }))
 })
 
-function dashboardBody({ stats, generatedAt }) {
+function formatChicagoDateTime(ts) {
+  if (!ts) return "—"
+  return new Date(ts).toLocaleString("en-US", {
+    timeZone: "America/Chicago",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  })
+}
+
+function dashboardData(stats, generatedAt) {
   const topTen = stats.top.slice(0, 10)
   const chart = renderBarChart(topTen.map((r) => ({ label: r.title, value: r.all })))
-  const formatDateTime = (ts) => {
-    if (!ts) return "—"
-    return new Date(ts).toLocaleString("en-US", {
-      timeZone: "America/Chicago",
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-    })
-  }
-  const tableRows = stats.top.map((row, i) => `
+  const rows = stats.top.map((row, i) => `
     <div class="archive-row">
       <div class="archive-row-main">
         <span class="tag">${String(i + 1).padStart(2, '0')}</span>
         <span class="archive-row-title">${escapeHtml(row.title)}</span>
       </div>
-      <time>${row.all} views · last ${escapeHtml(formatDateTime(row.last))}</time>
+      <time>${row.all} views · last ${escapeHtml(formatChicagoDateTime(row.last))}</time>
     </div>
   `).join('')
   const since = stats.firstSeen
     ? new Date(stats.firstSeen).toLocaleDateString("en-US", { timeZone: "America/Chicago", year: "numeric", month: "long", day: "numeric" })
     : "—"
+  const dek = `First-party view counts. Bots filtered. Generated ${formatChicagoDateTime(generatedAt)} America/Chicago. Tracking since ${since}.`
+  const rssLine = `${stats.rss.day} today · ${stats.rss.week} this week · ${stats.rss.all} all time`
+  return {
+    totals: stats.totals,
+    rss: stats.rss,
+    chart,
+    rows,
+    dek,
+    rssLine,
+    hasViews: stats.top.length > 0,
+  }
+}
+
+function dashboardBody(data) {
   return `
     <article>
       <div class="post-header">
         <span class="tag">Dashboard</span>
         <h1 class="hero-title">Post hits</h1>
-        <p class="hero-dek">First-party view counts. Bots filtered. Generated ${escapeHtml(formatDateTime(generatedAt))} America/Chicago. Tracking since ${escapeHtml(since)}.</p>
+        <p class="hero-dek" id="dash-dek">${escapeHtml(data.dek)}</p>
       </div>
       <hr class="post-divider">
       <div class="post-body">
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem;">
-          <div><div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">Today</div><div style="font-size:2.5rem;font-family:'Playfair Display',serif;">${stats.totals.day}</div></div>
-          <div><div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">Last 7 days</div><div style="font-size:2.5rem;font-family:'Playfair Display',serif;">${stats.totals.week}</div></div>
-          <div><div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">All time</div><div style="font-size:2.5rem;font-family:'Playfair Display',serif;">${stats.totals.all}</div></div>
+          <div><div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">Today</div><div style="font-size:2.5rem;font-family:'Playfair Display',serif;" id="dash-day">${data.totals.day}</div></div>
+          <div><div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">Last 7 days</div><div style="font-size:2.5rem;font-family:'Playfair Display',serif;" id="dash-week">${data.totals.week}</div></div>
+          <div><div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;">All time</div><div style="font-size:2.5rem;font-family:'Playfair Display',serif;" id="dash-all">${data.totals.all}</div></div>
         </div>
 
-        ${chart ? `
-          <div class="section-header"><span class="section-label">Top 10 posts</span><div class="section-rule"></div></div>
-          <div style="margin:1rem 0 2.5rem;">${chart}</div>
-        ` : '<p class="empty-state">No post views recorded yet.</p>'}
+        <div class="section-header"><span class="section-label">Top 10 posts</span><div class="section-rule"></div></div>
+        <div id="dash-chart" style="margin:1rem 0 2.5rem;">${data.chart || '<p class="empty-state">No post views recorded yet.</p>'}</div>
 
-        ${stats.top.length ? `
-          <div class="section-header"><span class="section-label">All posts with hits</span><div class="section-rule"></div></div>
-          <div class="archive-list-signal">${tableRows}</div>
-        ` : ''}
+        <div class="section-header"><span class="section-label">All posts with hits</span><div class="section-rule"></div></div>
+        <div id="dash-rows" class="archive-list-signal">${data.rows}</div>
 
         <div class="section-header" style="margin-top:2.5rem;"><span class="section-label">RSS</span><div class="section-rule"></div></div>
-        <p style="margin:0.5rem 0 2rem;font-family:'DM Mono',ui-monospace,monospace;font-size:0.9rem;">${stats.rss.day} today · ${stats.rss.week} this week · ${stats.rss.all} all time</p>
+        <p id="dash-rss" style="margin:0.5rem 0 2rem;font-family:'DM Mono',ui-monospace,monospace;font-size:0.9rem;">${escapeHtml(data.rssLine)}</p>
 
-        <p style="opacity:0.6;font-size:0.85rem;margin-top:2rem;">Raw events live in <code>analytics/views.jsonl</code> on the VPS. Gitignored. Not backed up automatically.</p>
+        <p style="opacity:0.6;font-size:0.85rem;margin-top:2rem;">Raw events live in <code>analytics/views.jsonl</code> on the VPS. Gitignored. Not backed up automatically. This page polls <code>/analytics.json</code> every 10s.</p>
       </div>
+      <script>
+        (function () {
+          var setText = function (id, value) {
+            var el = document.getElementById(id)
+            if (el && el.textContent !== String(value)) el.textContent = value
+          }
+          var setHtml = function (id, value) {
+            var el = document.getElementById(id)
+            if (el && el.innerHTML !== value) el.innerHTML = value
+          }
+          var tick = function () {
+            fetch('/analytics.json', { cache: 'no-store' })
+              .then(function (r) { return r.ok ? r.json() : null })
+              .then(function (d) {
+                if (!d) return
+                setText('dash-day', d.totals.day)
+                setText('dash-week', d.totals.week)
+                setText('dash-all', d.totals.all)
+                setText('dash-rss', d.rssLine)
+                setText('dash-dek', d.dek)
+                setHtml('dash-chart', d.chart || '<p class="empty-state">No post views recorded yet.</p>')
+                setHtml('dash-rows', d.rows)
+              })
+              .catch(function () {})
+          }
+          setInterval(tick, 10000)
+        })()
+      </script>
     </article>
   `
 }
@@ -707,13 +746,21 @@ function dashboardBody({ stats, generatedAt }) {
 app.get('/analytics', async (c) => {
   const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
   const stats = aggregateViews(views, posts)
+  const data = dashboardData(stats, Date.now())
   return c.html(signalPage({
     title: "Analytics",
     description: "evbogue.com analytics",
-    body: dashboardBody({ stats, generatedAt: Date.now() }),
+    body: dashboardBody(data),
   }), 200, {
     "Cache-Control": "no-store",
   })
+})
+
+app.get('/analytics.json', async (c) => {
+  const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
+  const stats = aggregateViews(views, posts)
+  const data = dashboardData(stats, Date.now())
+  return c.json(data, 200, { "Cache-Control": "no-store" })
 })
 
 app.get('/confirm', async (c) => {
