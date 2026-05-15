@@ -83,8 +83,7 @@ Specialized role files now live in `Agents/`. Use them when the task is narrower
 |---|---|---|
 | Writer | `Agents/WRITER.md` | Turning rough notes into publishable drafts |
 | Editor | `Agents/EDITOR.md` | Sharpening posts into Ev's punchier 2010/Gawker-informed voice |
-| Archivist | `Agents/ARCHIVIST.md` | Full-blog rewrite, archive restoration, continuity posts back in time |
-| Restorationist | `Agents/RESTORATIONIST.md` | Cleaning recovered archive essays in small batches without rewriting history |
+| Restorationist | `Agents/RESTORATIONIST.md` | Restoring recovered archive essays in batches: remove dead web machinery, clean imports, preserve provenance, promote to `posts/` |
 | Designer | `Agents/DESIGNER.md` | Site readability, layout, and visual restraint |
 | Coder | `Agents/CODER.md` | Small blog features and tooling |
 | DevOps | `Agents/DEVOPS.md` | VPS, pull process, deployment, route health |
@@ -174,7 +173,7 @@ Phases 6 (signup attribution) and 7 (per-recipient email click tracking) remain 
 
 ### Archive (ongoing)
 
-- [ ] **Restoration backlog**: 154 staged drafts in `archive/evbogue-drafts/` await Archivist review. When ready, work in batches of 10–20 per `Agents/ARCHIVIST.md`. High-confidence Wayback candidates listed in the manifest; do not bulk-import the ambiguous bucket.
+- [ ] **Restoration backlog**: 154 staged drafts in `archive/evbogue-drafts/` await review. When ready, work in batches of 10–20 per `Agents/RESTORATIONIST.md`. High-confidence Wayback candidates listed in the manifest; do not bulk-import the ambiguous bucket.
 - [ ] **Link-normalization pass**: Amazon and book links with tracking parameters exist across batch 1 restored posts. Strip tracking params, preserve the reference links.
 - [ ] **Batch 2 image restoration**: the five evbogue.com pilot posts in batch 2 had external images stripped during HTML-to-Markdown conversion. If any images matter, localize them into `assets/posts/`.
 - [ ] **Retire `Agents/RESTORATIONIST.md`**: fold its useful content into `Agents/ARCHIVIST.md` if active restoration is paused, or keep it alive if batch work resumes.
