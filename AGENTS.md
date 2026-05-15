@@ -147,30 +147,61 @@ SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env reconf
 
 The script sends the reconfirmation email first; only on a successful send does it set `confirmed_at: null`. So a bad password or transient SMTP failure leaves state untouched and the run is safe to retry.
 
-## Work order — remaining tasks
+## Work order
 
-### 1. VPS auto-pull from GitHub
-On the VPS, set up a cron job (no systemd — the Deno process lives in a tmux session) running every 60s:
-```
-git -C /path/to/evbogue.com pull --ff-only
-```
-The server reads markdown at request time so no restart is needed after a pull. Needs a deploy key or HTTPS token with read access to the GitHub repo.
+This is the single work order for the repo. All outstanding tasks live here. Do not maintain separate work orders in other files.
 
-### 2. End-to-end dry run
-Compose a real post with the Writer agent (pitch topics, draft, editor headline pass), save the `.md` file in `drafts/`, move it into `posts/` when ready, push to GitHub, confirm it appears on the live site and in `/feed.xml`, then run `send-post.js <slug>` and verify the subscriber email lands cleanly.
+### Infrastructure
+
+- [ ] **VPS auto-pull**: on the VPS, add a cron job (no systemd — Deno lives in a tmux session) running every 60s: `git -C /path/to/evbogue.com pull --ff-only`. No restart needed after a pull; markdown is read at request time. Requires a deploy key or HTTPS token with read access to the GitHub repo. Status unknown from local repo — confirm with Ev.
+
+### Analytics
+
+Four of seven planned phases remain. Full implementation spec is in `Agents/ANALYST-WORKORDER.md`.
+
+- [ ] **Phase 2 — Funnel events**: write subscribe, confirm, and unsubscribe outcomes to `analytics/views.jsonl`. Small changes to `serve.js` and `lib/subscribers.js`. No PII — just the verb and a status code.
+- [ ] **Phase 3 — Weekly report script**: `scripts/weekly_report.js` reads `analytics/views.jsonl` and writes `analytics/reports/YYYY-Www.md`. Sections: headline, top posts, subscriber funnel, archive vs. new, week-over-week deltas. See spec for full section list and chart rules.
+- [ ] **Phase 4 — Cron + email (DevOps)**: Monday 09:00 America/Chicago cron on the VPS — runs the weekly report, commits the report file, emails Ev the rendered markdown via SMTP. Subject: `[evbogue.com] weekly report: YYYY-Www`.
+- [ ] **Phase 5 — Gate `/analytics`**: add an `ANALYTICS_TOKEN` env check to the `/analytics` and `/analytics.json` routes. Currently both are public.
+
+Phases 6 (signup attribution) and 7 (per-recipient email click tracking) are deferred — high complexity for current scale.
+
+### Cleanup
+
+- [ ] **Remove `fbts_evbogue_mnml/`** (34 MB of PDFs): FBTS recovery is complete — 171/171 dated posts are published. The PDFs bloat every clone. Move off-repo or delete locally; keep a backup elsewhere before removing.
+- [ ] **Prune `scripts/`**: 14 archive import and restoration scripts are one-shot scaffolding from completed recovery work (`build_pdf_manifest`, `bulk_import_pdf_posts`, `bulk_restore_from_wayback`, `import_evbogue_from_manifest`, `extract_pdf_text.swift`, etc.). Delete or move to a separate archive branch.
+- [ ] **Remove `archive/` one-time docs**: `RECOVERY_SYSTEM.md`, `FBTS_COMPLETENESS_ASSESSMENT.md`, `RESTORATION_BATCHES.md`, `pdf-manifest.json`, `evbogue-2011-2016-manifest.json`, and `archive/tmp/` are artifacts of completed recovery work. Strip them from the main branch.
+- [ ] **Fix `README.md`**: the `deno serve` command is missing `--allow-write --allow-env --port 8082`. Update to match `deno.json`.
+- [ ] **Deduplicate newsletter form**: the subscribe form renders twice on every page — once as a header modal dialog and once as a full-width band at the bottom of `signalPage()`. Decide whether to keep both with differentiated copy or remove the bottom band.
+- [ ] **FBTS non-essay artifacts**: two Wayback items not covered by the local PDF set (`Books I'm Reading` at `how-to-read-a-book-a-week-in-2010`, Babauta contest post). Classify both as `bury` — do not import into `posts/`.
+
+### Archive (ongoing)
+
+- [ ] **Restoration backlog**: 154 staged drafts in `archive/evbogue-drafts/` await Archivist review. When ready, work in batches of 10–20 per `Agents/ARCHIVIST.md`. High-confidence Wayback candidates listed in the manifest; do not bulk-import the ambiguous bucket.
+- [ ] **Link-normalization pass**: Amazon and book links with tracking parameters exist across batch 1 restored posts. Strip tracking params, preserve the reference links.
+- [ ] **Batch 2 image restoration**: the five evbogue.com pilot posts in batch 2 had external images stripped during HTML-to-Markdown conversion. If any images matter, localize them into `assets/posts/`.
+- [ ] **Retire `Agents/RESTORATIONIST.md`**: fold its useful content into `Agents/ARCHIVIST.md` if active restoration is paused, or keep it alive if batch work resumes.
+
+### Code quality
+
+- [ ] **Tag display**: `signalTagFor()` forces all posts into four display buckets (AI / Media / Analysis / Essay), hiding real frontmatter tags. Consider showing actual post tags or extending the mapping.
 
 ## Recently completed
 
-- RSS feed exists at `/feed.xml`, and `signalPage()` includes the alternate RSS link.
-- Subscribe form on every page posts to `/subscribe`; result banner (`?subscribe=ok|invalid|error`) renders on the home page.
-- `send-post.js` sends a post to the subscriber list via SMTP, one-to-one with `List-Unsubscribe` headers; supports `--dry-run`.
-- Published `posts/how-to-fire-up-a-blog-with-openclaw.md` on 2026-04-25.
-- Created the `Agents/` role system, including the Archivist continuity role for backdated timeline work.
+- FBTS archive fully recovered: 171/171 dated posts published. Restoration batches 1 and 2 complete (mechanical cleanup on oldest 10 FBTS posts; 5 evbogue.com Wayback pilots promoted and anonymized).
+- First-party analytics: `analytics/views.jsonl`, `/analytics` dashboard with live 10s polling, `/analytics.json` API, salted-IP unique visitor counts, bot filtering. Phase 1 done.
+- DOI subscribe flow: double opt-in confirmation email, admin notifications on signup/confirm/unsubscribe, atomic `subscribers.json` writes, one-click unsubscribe with token, `reconfirm.js` permission-pass script.
+- `send-post.js` sends posts to the active subscriber list via SMTP, one-to-one with `List-Unsubscribe` headers; supports `--dry-run`.
+- Modal subscribe dialog in page header; avatar in date ribbon; squared avatars on `/about`.
+- Headline-pass workflow in CLAUDE.md: editor proposes 3–5 candidates early; second pass before publish.
+- Writer, Editor, Archivist, Restorationist, Designer, Coder, DevOps, Social Media, Account Manager, Product Manager, and Analyst agent roles in `Agents/`.
+- Posts composed with the Writer agent and published: `agents-md`, `how-to-fire-up-a-blog-with-openclaw`, `my-subscriber-list-is-a-json-file`, `i-built-a-dashboard-with-no-cookies-and-no-pixels`, `i-maintain-git-ssb-i-still-push-to-github`, `agentic-harnesses-and-the-discipline-of-attention`, `the-ai-did-not-ruin-your-codebase-you-let-it`, `james-pain-is-right-he-got-dumber`, and more.
 
 ## Notes
 
 - `subscribers.json` is gitignored — it lives only on the VPS. Back it up separately.
-- `test-email.js` is gitignored — it's a scratch SMTP test file.
+- `test-email.js` is gitignored — it is a scratch SMTP test file.
+- `analytics/views.jsonl` is gitignored — it lives only on the VPS.
 - The live design is the Signal layout in `assets/signal.css` and `signalPage()`; there is no active Pico/head.html shell.
 - The ntfy send widget on `/about` posts to `https://ntfy.sh/evbogue` — Ev receives these as push notifications.
 - git-ssb integration was discussed and deferred — the remote plumbing can be added later without changing the rest of the pipeline.

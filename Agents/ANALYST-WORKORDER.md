@@ -1,6 +1,6 @@
-# ANALYST-WORKORDER.md - Prototype work order for site analytics
+# ANALYST-WORKORDER.md - Analytics implementation spec
 
-A one-time work order to give evbogue.com analytics the Analyst can actually use. Hand this to the coder agent. Devops takes the last phase.
+> **Active tasks have moved.** The work order for this project lives entirely in `AGENTS.md`. This file is a technical specification only — implementation details, schemas, and phase definitions for the analytics system. Check `AGENTS.md` for what is currently assigned and what has been completed.
 
 ## Goal
 
