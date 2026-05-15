@@ -1,4 +1,5 @@
 import nodemailer from "npm:nodemailer";
+import { recordEvent } from "./lib/analytics.js";
 import { excerptFromBody, loadPost } from "./lib/posts.js";
 import { activeSubscribers, loadSubscribers, unsubscribeUrl } from "./lib/subscribers.js";
 
@@ -104,4 +105,7 @@ for (const sub of subscribers) {
 }
 
 console.log(`\nDone. Sent: ${sent}. Failed: ${failed}.`);
+if (sent > 0) {
+  await recordEvent(ROOT, { kind: "send", slug, recipient_count: sent });
+}
 if (failed) Deno.exit(1);

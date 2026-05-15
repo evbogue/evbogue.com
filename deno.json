@@ -1,5 +1,6 @@
 {
   "tasks": {
-    "start": "deno serve --allow-net --allow-read --allow-write --allow-env --port 8082 serve.js"
+    "start": "deno serve --allow-net --allow-read --allow-write --allow-env --port 8082 serve.js",
+    "weekly-report": "deno run --allow-read --allow-write --allow-env --allow-net scripts/weekly_report.js"
   }
 }

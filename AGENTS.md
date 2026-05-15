@@ -157,14 +157,17 @@ This is the single work order for the repo. All outstanding tasks live here. Do 
 
 ### Analytics
 
-Four of seven planned phases remain. Full implementation spec is in `Agents/ANALYST-WORKORDER.md`.
+Phases 2–5 are shipped. Phases 6 and 7 remain deferred.
 
-- [ ] **Phase 2 — Funnel events**: write subscribe, confirm, and unsubscribe outcomes to `analytics/views.jsonl`. Small changes to `serve.js` and `lib/subscribers.js`. No PII — just the verb and a status code.
-- [ ] **Phase 3 — Weekly report script**: `scripts/weekly_report.js` reads `analytics/views.jsonl` and writes `analytics/reports/YYYY-Www.md`. Sections: headline, top posts, subscriber funnel, archive vs. new, week-over-week deltas. See spec for full section list and chart rules.
-- [ ] **Phase 4 — Cron + email (DevOps)**: Monday 09:00 America/Chicago cron on the VPS — runs the weekly report, commits the report file, emails Ev the rendered markdown via SMTP. Subject: `[evbogue.com] weekly report: YYYY-Www`.
-- [ ] **Phase 5 — Gate `/analytics`**: add an `ANALYTICS_TOKEN` env check to the `/analytics` and `/analytics.json` routes. Currently both are public.
+- **Phase 2** — Funnel events: `subscribe_attempt`, `confirm`, `unsubscribe`, and `send` events now write to `analytics/views.jsonl` alongside view data. No PII.
+- **Phase 3** — `scripts/weekly_report.js` generates `analytics/reports/YYYY-Www.md`. Run with `deno task weekly-report` or `--week=YYYY-Www` for a specific week. Add `--email` to send via SMTP.
+- **Phase 4** — Cron line and commit+email workflow documented in `Agents/DEVOPS.md`. VPS setup is a manual step for Ev.
+- **Phase 5** — `/analytics` and `/analytics.json` are gated behind `ANALYTICS_TOKEN` env var. If not set, routes remain open with a console warning.
 
-Phases 6 (signup attribution) and 7 (per-recipient email click tracking) are deferred — high complexity for current scale.
+- [ ] **VPS: set up weekly report cron** — see `Agents/DEVOPS.md` for the Monday 09:00 cron line. Requires `SMTP_PASS` and `ANALYTICS_SALT` in env.
+- [ ] **VPS: set `ANALYTICS_TOKEN`** — add to the server env to gate the dashboard from public access.
+
+Phases 6 (signup attribution) and 7 (per-recipient email click tracking) remain deferred — high complexity for current scale.
 
 ### Cleanup
 
@@ -185,7 +188,7 @@ Phases 6 (signup attribution) and 7 (per-recipient email click tracking) are def
 ## Recently completed
 
 - FBTS archive fully recovered: 171/171 dated posts published. Restoration batches 1 and 2 complete (mechanical cleanup on oldest 10 FBTS posts; 5 evbogue.com Wayback pilots promoted and anonymized).
-- First-party analytics: `analytics/views.jsonl`, `/analytics` dashboard with live 10s polling, `/analytics.json` API, salted-IP unique visitor counts, bot filtering. Phase 1 done.
+- First-party analytics (phases 1–5): view counts, salted-IP unique visitors, funnel events (subscribe/confirm/unsubscribe/send), weekly report script (`scripts/weekly_report.js`), gated `/analytics` dashboard (`ANALYTICS_TOKEN`). Reports go to `analytics/reports/`.
 - DOI subscribe flow: double opt-in confirmation email, admin notifications on signup/confirm/unsubscribe, atomic `subscribers.json` writes, one-click unsubscribe with token, `reconfirm.js` permission-pass script.
 - `send-post.js` sends posts to the active subscriber list via SMTP, one-to-one with `List-Unsubscribe` headers; supports `--dry-run`.
 - Modal subscribe dialog in page header; avatar in date ribbon; squared avatars on `/about`.

@@ -3,11 +3,16 @@ import { marked } from "https://esm.sh/gh/evbogue/bog5@de70376265/lib/marked.esm
 import { excerptFromBody, loadPosts as readPosts } from "./lib/posts.js";
 import { addSubscriber, confirmByToken, findByToken, unsubscribeByToken } from "./lib/subscribers.js";
 import { sendAdminNotification, sendConfirmation } from "./lib/mailer.js";
-import { aggregateViews, loadViews, recordView, renderBarChart } from "./lib/analytics.js";
+import { aggregateViews, loadViews, recordEvent, recordView, renderBarChart } from "./lib/analytics.js";
 
 const ANALYTICS_SALT = Deno.env.get("ANALYTICS_SALT") ?? ""
 if (!ANALYTICS_SALT) {
   console.warn("ANALYTICS_SALT not set — unique visitor counts will stay at 0.")
+}
+
+const ANALYTICS_TOKEN = Deno.env.get("ANALYTICS_TOKEN") ?? ""
+if (!ANALYTICS_TOKEN) {
+  console.warn("ANALYTICS_TOKEN not set — /analytics is publicly accessible.")
 }
 
 function clientIp(c) {
@@ -568,7 +573,11 @@ app.post('/subscribe', async (c) => {
     const form = await c.req.formData()
     const email = form.get('email')?.toString() ?? ''
     const result = await addSubscriber(ROOT, email)
-    if (!result) return c.redirect('/?subscribe=invalid', 303)
+    if (!result) {
+      recordEvent(ROOT, { kind: "subscribe_attempt", outcome: "invalid" }).catch(() => {})
+      return c.redirect('/?subscribe=invalid', 303)
+    }
+    recordEvent(ROOT, { kind: "subscribe_attempt", outcome: result.status }).catch(() => {})
     if (result.status === 'new' || result.status === 'pending' || result.status === 'resubscribed') {
       sendConfirmation(result.entry).catch((err) => {
         console.error('confirmation send failed:', err)
@@ -582,6 +591,7 @@ app.post('/subscribe', async (c) => {
     return c.redirect(`/?subscribe=${result.status}`, 303)
   } catch (err) {
     console.error('subscribe error:', err)
+    recordEvent(ROOT, { kind: "subscribe_attempt", outcome: "error" }).catch(() => {})
     return c.redirect('/?subscribe=error', 303)
   }
 })
@@ -645,6 +655,7 @@ app.post('/unsubscribe', async (c) => {
     }), 404)
   }
   if (result.status === 'fresh') {
+    recordEvent(ROOT, { kind: "unsubscribe" }).catch(() => {})
     sendAdminNotification('unsubscribe', result.entry).catch((err) => {
       console.error('admin notification failed:', err)
     })
@@ -771,6 +782,7 @@ function dashboardBody(data) {
 }
 
 app.get('/analytics', async (c) => {
+  if (ANALYTICS_TOKEN && c.req.query('token') !== ANALYTICS_TOKEN) return c.notFound()
   const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
   const stats = aggregateViews(views, posts)
   const data = dashboardData(stats, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
@@ -784,6 +796,7 @@ app.get('/analytics', async (c) => {
 })
 
 app.get('/analytics.json', async (c) => {
+  if (ANALYTICS_TOKEN && c.req.query('token') !== ANALYTICS_TOKEN) return c.notFound()
   const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
   const stats = aggregateViews(views, posts)
   const data = dashboardData(stats, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
@@ -800,6 +813,7 @@ app.get('/confirm', async (c) => {
     }), 404)
   }
   if (result.status === 'fresh') {
+    recordEvent(ROOT, { kind: "confirm" }).catch(() => {})
     sendAdminNotification('confirm', result.entry).catch((err) => {
       console.error('admin notification failed:', err)
     })

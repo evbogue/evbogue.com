@@ -27,6 +27,30 @@ The production model is intentionally boring: GitHub repo on a bare-metal VPS, D
 - Keep rollback instructions simple.
 - **Never tell Ev to restart the server.** He runs the VPS and restarts it himself as part of his normal flow. Suggesting it wastes a turn and reads as condescending. Assume any code change he merges will be live on his end before he asks for follow-up.
 
+## Weekly report cron
+
+Add this to the VPS crontab (`crontab -e`) to generate and email the weekly report every Monday at 09:00 Chicago time. Adjust the path and env vars as needed.
+
+```
+# Weekly analytics report — Monday 09:00 America/Chicago (UTC-5 CDT / UTC-6 CST)
+0 14 * * 1 cd /path/to/evbogue.com && SMTP_PASS=... ANALYTICS_SALT=... deno run --allow-read --allow-write --allow-env --allow-net scripts/weekly_report.js --email && git add analytics/reports/ && git commit -m "Weekly report $(date +\%G-W\%V)" && git push
+```
+
+The cron runs at 14:00 UTC which is 09:00 CDT (UTC-5). Adjust to 15:00 UTC in winter when Chicago is on CST (UTC-6).
+
+To run manually without emailing:
+```sh
+deno task weekly-report
+deno task weekly-report -- --week=2026-W19
+```
+
+To run and email:
+```sh
+SMTP_PASS=... deno run --allow-read --allow-write --allow-env --allow-net scripts/weekly_report.js --email
+```
+
+Reports are written to `analytics/reports/YYYY-Www.md` and committed to the repo. `analytics/views.jsonl` is gitignored and stays on the VPS only.
+
 ## Useful commands
 
 ```sh
