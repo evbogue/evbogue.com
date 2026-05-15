@@ -10,11 +10,6 @@ if (!ANALYTICS_SALT) {
   console.warn("ANALYTICS_SALT not set — unique visitor counts will stay at 0.")
 }
 
-const ANALYTICS_TOKEN = Deno.env.get("ANALYTICS_TOKEN") ?? ""
-if (!ANALYTICS_TOKEN) {
-  console.warn("ANALYTICS_TOKEN not set — /analytics is publicly accessible.")
-}
-
 function clientIp(c) {
   const xff = c.req.header('x-forwarded-for')
   if (xff) return xff.split(',')[0].trim()
@@ -782,7 +777,6 @@ function dashboardBody(data) {
 }
 
 app.get('/analytics', async (c) => {
-  if (ANALYTICS_TOKEN && c.req.query('token') !== ANALYTICS_TOKEN) return c.notFound()
   const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
   const stats = aggregateViews(views, posts)
   const data = dashboardData(stats, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
@@ -796,7 +790,6 @@ app.get('/analytics', async (c) => {
 })
 
 app.get('/analytics.json', async (c) => {
-  if (ANALYTICS_TOKEN && c.req.query('token') !== ANALYTICS_TOKEN) return c.notFound()
   const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
   const stats = aggregateViews(views, posts)
   const data = dashboardData(stats, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
