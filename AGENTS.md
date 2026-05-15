@@ -153,7 +153,8 @@ This is the single work order for the repo. All outstanding tasks live here. Do 
 
 ### Infrastructure
 
-- [ ] **VPS auto-pull**: on the VPS, add a cron job (no systemd — Deno lives in a tmux session) running every 60s: `git -C /path/to/evbogue.com pull --ff-only`. No restart needed after a pull; markdown is read at request time. Requires a deploy key or HTTPS token with read access to the GitHub repo. Status unknown from local repo — confirm with Ev.
+- [ ] **VPS auto-pull**: add a cron job (no systemd — Deno lives in a tmux session) running every 60s: `git -C /path/to/evbogue.com pull --ff-only`. No restart needed. Requires a deploy key or HTTPS token. Status unknown — confirm with Ev.
+- [ ] **VPS weekly report cron**: see `Agents/DEVOPS.md` for the Monday 09:00 cron line. Requires `SMTP_PASS` and `ANALYTICS_SALT` in env.
 
 ### Analytics
 
@@ -162,10 +163,7 @@ Phases 2–5 are shipped. Phases 6 and 7 remain deferred.
 - **Phase 2** — Funnel events: `subscribe_attempt`, `confirm`, `unsubscribe`, and `send` events now write to `analytics/views.jsonl` alongside view data. No PII.
 - **Phase 3** — `scripts/weekly_report.js` generates `analytics/reports/YYYY-Www.md`. Run with `deno task weekly-report` or `--week=YYYY-Www` for a specific week. Add `--email` to send via SMTP.
 - **Phase 4** — Cron line and commit+email workflow documented in `Agents/DEVOPS.md`. VPS setup is a manual step for Ev.
-- **Phase 5** — `/analytics` and `/analytics.json` are gated behind `ANALYTICS_TOKEN` env var. If not set, routes remain open with a console warning.
-
-- [ ] **VPS: set up weekly report cron** — see `Agents/DEVOPS.md` for the Monday 09:00 cron line. Requires `SMTP_PASS` and `ANALYTICS_SALT` in env.
-- [ ] **VPS: set `ANALYTICS_TOKEN`** — add to the server env to gate the dashboard from public access.
+- **Phase 5** — `/analytics` token gate was built and then deliberately removed. The dashboard is intentionally public.
 
 Phases 6 (signup attribution) and 7 (per-recipient email click tracking) remain deferred — high complexity for current scale.
 
