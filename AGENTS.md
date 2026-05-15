@@ -157,7 +157,7 @@ git -C /path/to/evbogue.com pull --ff-only
 The server reads markdown at request time so no restart is needed after a pull. Needs a deploy key or HTTPS token with read access to the GitHub repo.
 
 ### 2. End-to-end dry run
-Write a real post in Obsidian, save the `.md` file in `drafts/`, move it into `posts/` when ready, push to GitHub, confirm it appears on the live site and in `/feed.xml`, then run `send-post.js <slug>` and verify the subscriber email lands cleanly.
+Compose a real post with the Writer agent (pitch topics, draft, editor headline pass), save the `.md` file in `drafts/`, move it into `posts/` when ready, push to GitHub, confirm it appears on the live site and in `/feed.xml`, then run `send-post.js <slug>` and verify the subscriber email lands cleanly.
 
 ## Recently completed
 
