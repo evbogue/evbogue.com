@@ -12,7 +12,7 @@ restored_on: "2026-05-15"
 restoration_note: "Mechanical cleanup only; original essay preserved."
 people_anonymized: true
 anonymized_on: "2026-05-15"
-anonymization_note: "Pre-2025 personal names changed to initials for the public archive."
+anonymization_note: "Private individuals changed to initials. Public figures (Tim Ferriss, Seth Godin, Wayne Coyne) restored by name."
 ---
 
 ### Escape homelessness, live and work from a 3rd world country, and join the unlimited beer riche.
@@ -25,7 +25,7 @@ Here are your pointers, Drew.
 
 Let's start here... 4hWW is still on the bestselling selves of most ~~Borders~~ Barnes and Nobles. Think and Grow Rich is still a best seller too, and that book came out 80 or 90 years ago. As far as physical books go, there aren't many options besides these two books. I have to admit I've read each at least 3 times. However, it's 2014. We gotta update our mental models.
 
-I listened to T.F.'s The Four Hour Workweek sitting at a desk in 2007 in lower Manhattan. The audiobook. I'm not certain T.F. was reading, but maybe he did. Anyway, I thought it was a load of bullshit. Live and work from anywhere? What? I'm living and working from this fucking desk. This CANNOT be possible.
+I listened to Tim Ferriss's The Four Hour Workweek sitting at a desk in 2007 in lower Manhattan. The audiobook. I'm not certain Tim Ferriss was reading, but maybe he did. Anyway, I thought it was a load of bullshit. Live and work from anywhere? What? I'm living and working from this fucking desk. This CANNOT be possible.
 
 Geo-arbitrage? Working four hours a week? Throwing all of your shit in a backpack and living and working from anywhere? This CANNOT BE POSSIBLE.
 
@@ -47,15 +47,15 @@ In the fall of 2009, I threw all of my shit into three bags. One giant backpacki
 
 Little did I know this was the beginning of a grand new era. An era where I struggled to make money, then made $20,000 in one day, then ended up homeless on the streets of America over a mere four years of adventuring.
 
-I ran into T.F. in the elevator at The Ace in early 2011. I was with G.B., but this was before I was bangin' G.B. He was shorter than expected, and gayer looking. Or the party he (and I) was coming from was gayer. So he probably thinks the same thing about me. Anyway, he pretended he didn't know me. I shook his hand, and said 'Hey, you're T.F. I'm Ev Bogue, and this is G.B.' That was it, then he got off the elevator and left, and we went up to G.B.'s room at the Ace where she painted my nails electric blue.
+I ran into Tim Ferriss in the elevator at The Ace in early 2011. I was with G.B., but this was before I was bangin' G.B. He was shorter than expected, and gayer looking. Or the party he (and I) was coming from was gayer. So he probably thinks the same thing about me. Anyway, he pretended he didn't know me. I shook his hand, and said 'Hey, you're Tim Ferriss. I'm Ev Bogue, and this is G.B.' That was it, then he got off the elevator and left, and we went up to G.B.'s room at the Ace where she painted my nails electric blue.
 
 These days you'd be better off getting a hooker at an Airbnb than trying to book a room at the Ace, but this was 2011, you could still do that kind of thing.
 
-Now that it's 2014, EIGHT YEARS after T4HWW was published I figure it's time to update the fucker. If T.F. won't do it, I will. If you hate it, there's no need to throw a raccoon at me. The world has changed. It's time for us to change with it.
+Now that it's 2014, EIGHT YEARS after T4HWW was published I figure it's time to update the fucker. If Tim Ferriss won't do it, I will. If you hate it, there's no need to throw a raccoon at me. The world has changed. It's time for us to change with it.
 
-### Chapter 1. S.G. doesn't get speaking gigs anymore.
+### Chapter 1. Seth Godin doesn't get speaking gigs anymore.
 
-There's something about lying to your audience every fucking day that can throw a wrench into your wallet. It leads to some unexpected results, such as no one trusting you anymore. Lying isn't legit, bullshitting isn't legit, S.G. isn't legit anymore. Now I have no beef with S.G., but I wish he'd stop lying and write the following post.
+There's something about lying to your audience every fucking day that can throw a wrench into your wallet. It leads to some unexpected results, such as no one trusting you anymore. Lying isn't legit, bullshitting isn't legit, Seth Godin isn't legit anymore. Now I have no beef with Seth Godin, but I wish he'd stop lying and write the following post.
 
 "I'm broke. I'm scared. All marketers are liars, and I've been bullshitting you since 2011. In fact, all of my social proof is daily linkbots. The world has changed, people without tech skills don't have an edge, and I should have learned how to do geoarbitrage three years ago."
 
@@ -65,7 +65,7 @@ These days it is very much impossible to reach anyone. If you want unlimited bee
 
 There is no such thing as something for nothing. Something only comes if you're willing to lock yourself in a room with seventeen beers and cold call the slippery-as-fuck nearly-anonymous people of the current Internet and attempt to convince them that you provide a service that will give them an edge.
 
-S.G.? He doesn't get speaking gigs anymore. Or book deals. I'm pretty broke, but I imagine he's broker. Until proven otherwise with cold hard facts. None of which are available anywhere.
+Seth Godin? He doesn't get speaking gigs anymore. Or book deals. I'm pretty broke, but I imagine he's broker. Until proven otherwise with cold hard facts. None of which are available anywhere.
 
 ### Chapter 2. Get your ass to a developing country.
 
@@ -95,7 +95,7 @@ But no one lives and works from anywhere without doing some work. You're liable 
 
 ### Chapter 4. Book that one-way plane ticket.
 
-This chapter is brought to you by the crazy-fucking-tripping Flaming Lips album The Terror from 2013. Thank you W.C.
+This chapter is brought to you by the crazy-fucking-tripping Flaming Lips album The Terror from 2013. Thank you Wayne Coyne.
 
 Given that WWIII is a mere xxx days away, don't you think it's a good idea to get the fuck to a country that doesn't give a shit about pissing all over the world? Yes, it's a good idea.
 

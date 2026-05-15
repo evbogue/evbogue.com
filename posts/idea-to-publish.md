@@ -14,7 +14,7 @@ restoration_note: "Mechanical cleanup only; original essay preserved."
 
 How do I get from idea to publish every day?
 
-It's easy to stay in idea phase. As D.S. mentions in his book *Anything You Want*: "To me, ideas are worth nothing unless executed. They are just a multiplier. Execution is worth millions."
+It's easy to stay in idea phase. As Derek Sivers mentions in his book *Anything You Want*: "To me, ideas are worth nothing unless executed. They are just a multiplier. Execution is worth millions."
 
 So, I do my best to get from idea to execution as fast as possible.
 

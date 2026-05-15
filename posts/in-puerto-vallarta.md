@@ -10,11 +10,14 @@ archive_layout: "wordpress-2011b"
 archive_status: restored
 restored_on: 2026-05-15
 restoration_note: "Mechanical cleanup only; original essay preserved."
+people_anonymized: true
+anonymized_on: 2026-05-15
+anonymization_note: "Pre-2025 personal names changed to initials for the public archive."
 ---
 
 October 29, 2011
 
-I'm sitting in Cafe Oro Verde, the only cafe in Puerto Vallarta where they roast their own beans. The owner Wen tells me that the coffee is grown 30 kilometers from the cafe in the jungle above Puerto Vallarta.
+I'm sitting in Cafe Oro Verde, the only cafe in Puerto Vallarta where they roast their own beans. The owner W. tells me that the coffee is grown 30 kilometers from the cafe in the jungle above Puerto Vallarta.
 
 I'm writing a letter, from me to you, on [Evolving Your Digital Work](/posts/evolve). I take notes from that notebook (above) and riff on them in depth in [Scrivener](/posts/how-i-write). Then? I'll push the publish button, mañana.
 
