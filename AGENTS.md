@@ -168,10 +168,6 @@ Phases 6 (signup attribution) and 7 (per-recipient email click tracking) are def
 
 ### Cleanup
 
-- [ ] **Remove `fbts_evbogue_mnml/`** (34 MB of PDFs): FBTS recovery is complete — 171/171 dated posts are published. The PDFs bloat every clone. Move off-repo or delete locally; keep a backup elsewhere before removing.
-- [ ] **Prune `scripts/`**: 14 archive import and restoration scripts are one-shot scaffolding from completed recovery work (`build_pdf_manifest`, `bulk_import_pdf_posts`, `bulk_restore_from_wayback`, `import_evbogue_from_manifest`, `extract_pdf_text.swift`, etc.). Delete or move to a separate archive branch.
-- [ ] **Remove `archive/` one-time docs**: `RECOVERY_SYSTEM.md`, `FBTS_COMPLETENESS_ASSESSMENT.md`, `RESTORATION_BATCHES.md`, `pdf-manifest.json`, `evbogue-2011-2016-manifest.json`, and `archive/tmp/` are artifacts of completed recovery work. Strip them from the main branch.
-- [ ] **Fix `README.md`**: the `deno serve` command is missing `--allow-write --allow-env --port 8082`. Update to match `deno.json`.
 - [ ] **Deduplicate newsletter form**: the subscribe form renders twice on every page — once as a header modal dialog and once as a full-width band at the bottom of `signalPage()`. Decide whether to keep both with differentiated copy or remove the bottom band.
 - [ ] **FBTS non-essay artifacts**: two Wayback items not covered by the local PDF set (`Books I'm Reading` at `how-to-read-a-book-a-week-in-2010`, Babauta contest post). Classify both as `bury` — do not import into `posts/`.
 
@@ -196,6 +192,7 @@ Phases 6 (signup attribution) and 7 (per-recipient email click tracking) are def
 - Headline-pass workflow in CLAUDE.md: editor proposes 3–5 candidates early; second pass before publish.
 - Writer, Editor, Archivist, Restorationist, Designer, Coder, DevOps, Social Media, Account Manager, Product Manager, and Analyst agent roles in `Agents/`.
 - Posts composed with the Writer agent and published: `agents-md`, `how-to-fire-up-a-blog-with-openclaw`, `my-subscriber-list-is-a-json-file`, `i-built-a-dashboard-with-no-cookies-and-no-pixels`, `i-maintain-git-ssb-i-still-push-to-github`, `agentic-harnesses-and-the-discipline-of-attention`, `the-ai-did-not-ruin-your-codebase-you-let-it`, `james-pain-is-right-he-got-dumber`, and more.
+- Repo cleanup: removed 171 FBTS source PDFs (`fbts_evbogue_mnml/`), completed one-shot import scripts, and stale archive assessment docs. `scripts/` now contains only tools needed for ongoing Wayback archive work.
 
 ## Notes
 

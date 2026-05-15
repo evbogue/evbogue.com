@@ -7,7 +7,7 @@ Deno + Hono. Published posts are markdown files in `posts/`; unpublished drafts 
 ## Run locally
 
 ```
-deno serve --allow-net --allow-read serve.js
+deno task start
 ```
 
 ## Write a post
@@ -30,20 +30,6 @@ Post body...
 
 Commit and push. The VPS pulls periodically and serves anything in `posts/`. Files left in `drafts/` are not public and do not appear in the RSS feed.
 
-## Archive recovery
+## Archive
 
-The repo includes a PDF archive under `fbts_evbogue_mnml/`.
-
-For the full archive import workflow and current handoff state, see `archive/INTEGRATION.md`.
-
-Build a manifest of the archive:
-
-```sh
-deno run --allow-read --allow-write scripts/build_pdf_manifest.js
-```
-
-Import one PDF into a draft markdown file under `drafts/`:
-
-```sh
-deno run --allow-read --allow-write --allow-run scripts/import_pdf_post.js "fbts_evbogue_mnml/20101108_How to Destroy Your Past Lives - starting over.pdf"
-```
+Staged evbogue.com Wayback drafts live in `archive/evbogue-drafts/`. Promote them to `posts/` in batches per `Agents/ARCHIVIST.md`. The FBTS PDF archive (2009–2011) is fully recovered — 171/171 posts are published.
