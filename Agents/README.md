@@ -12,8 +12,7 @@ Use these when you want an agent to take on a specific job instead of the whole 
 - `SOCIAL-MEDIA-MANAGER.md` — turn finished posts into sharp distribution copy.
 - `ACCOUNT-MANAGER.md` — handle subscribers, replies, sponsors, and reader relationships.
 - `PRODUCT-MANAGER.md` — prioritize the publishing system roadmap.
-- `ARCHIVIST.md` — classify, restore, contextualize, and rewrite the full blog archive.
-- `RESTORATIONIST.md` — clean recovered archive essays in small batches without rewriting history.
+- `RESTORATIONIST.md` — restore recovered archive essays in batches: remove dead web machinery, clean imports, preserve provenance, promote to `posts/`.
 - `ANALYST.md` — first-party analytics, weekly report, signal over vanity.
 
 Keep role files practical. Each one should explain the job, the standard of quality, what files it should touch, and what to report back.

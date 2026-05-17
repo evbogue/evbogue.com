@@ -8,8 +8,7 @@ Specialized role files live in `Agents/`. When the user asks you to bring up or 
 |---|---|
 | writer agent, write a post, pitch topics | `Agents/WRITER.md` |
 | editor agent, sharpen this, edit this | `Agents/EDITOR.md` |
-| archivist agent, archive work | `Agents/ARCHIVIST.md` |
-| restorationist agent, restore drafts | `Agents/RESTORATIONIST.md` |
+| archivist agent, archive work, restore drafts | `Agents/RESTORATIONIST.md` |
 | designer agent, design, layout | `Agents/DESIGNER.md` |
 | coder agent, implement, build | `Agents/CODER.md` |
 | devops agent, deploy, server, VPS | `Agents/DEVOPS.md` |

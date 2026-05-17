@@ -83,8 +83,7 @@ Specialized role files now live in `Agents/`. Use them when the task is narrower
 |---|---|---|
 | Writer | `Agents/WRITER.md` | Turning rough notes into publishable drafts |
 | Editor | `Agents/EDITOR.md` | Sharpening posts into Ev's punchier 2010/Gawker-informed voice |
-| Archivist | `Agents/ARCHIVIST.md` | Full-blog rewrite, archive restoration, continuity posts back in time |
-| Restorationist | `Agents/RESTORATIONIST.md` | Cleaning recovered archive essays in small batches without rewriting history |
+| Restorationist | `Agents/RESTORATIONIST.md` | Restoring recovered archive essays in batches: remove dead web machinery, clean imports, preserve provenance, promote to `posts/` |
 | Designer | `Agents/DESIGNER.md` | Site readability, layout, and visual restraint |
 | Coder | `Agents/CODER.md` | Small blog features and tooling |
 | DevOps | `Agents/DEVOPS.md` | VPS, pull process, deployment, route health |
@@ -153,7 +152,8 @@ This is the single work order for the repo. All outstanding tasks live here. Do 
 
 ### Infrastructure
 
-- [ ] **VPS auto-pull**: on the VPS, add a cron job (no systemd — Deno lives in a tmux session) running every 60s: `git -C /path/to/evbogue.com pull --ff-only`. No restart needed after a pull; markdown is read at request time. Requires a deploy key or HTTPS token with read access to the GitHub repo. Status unknown from local repo — confirm with Ev.
+- [ ] **VPS auto-pull**: add a cron job (no systemd — Deno lives in a tmux session) running every 60s: `git -C /path/to/evbogue.com pull --ff-only`. No restart needed. Requires a deploy key or HTTPS token. Status unknown — confirm with Ev.
+- [ ] **VPS weekly report cron**: see `Agents/DEVOPS.md` for the Monday 09:00 cron line. Requires `SMTP_PASS` and `ANALYTICS_SALT` in env.
 
 ### Analytics
 
@@ -162,32 +162,27 @@ Phases 2–5 are shipped. Phases 6 and 7 remain deferred.
 - **Phase 2** — Funnel events: `subscribe_attempt`, `confirm`, `unsubscribe`, and `send` events now write to `analytics/views.jsonl` alongside view data. No PII.
 - **Phase 3** — `scripts/weekly_report.js` generates `analytics/reports/YYYY-Www.md`. Run with `deno task weekly-report` or `--week=YYYY-Www` for a specific week. Add `--email` to send via SMTP.
 - **Phase 4** — Cron line and commit+email workflow documented in `Agents/DEVOPS.md`. VPS setup is a manual step for Ev.
-- **Phase 5** — `/analytics` and `/analytics.json` are gated behind `ANALYTICS_TOKEN` env var. If not set, routes remain open with a console warning.
-
-- [ ] **VPS: set up weekly report cron** — see `Agents/DEVOPS.md` for the Monday 09:00 cron line. Requires `SMTP_PASS` and `ANALYTICS_SALT` in env.
-- [ ] **VPS: set `ANALYTICS_TOKEN`** — add to the server env to gate the dashboard from public access.
+- **Phase 5** — `/analytics` token gate was built and then deliberately removed. The dashboard is intentionally public.
 
 Phases 6 (signup attribution) and 7 (per-recipient email click tracking) remain deferred — high complexity for current scale.
 
 ### Cleanup
 
-- [ ] **Deduplicate newsletter form**: the subscribe form renders twice on every page — once as a header modal dialog and once as a full-width band at the bottom of `signalPage()`. Decide whether to keep both with differentiated copy or remove the bottom band.
-- [ ] **FBTS non-essay artifacts**: two Wayback items not covered by the local PDF set (`Books I'm Reading` at `how-to-read-a-book-a-week-in-2010`, Babauta contest post). Classify both as `bury` — do not import into `posts/`.
+- [x] **Deduplicate newsletter form**: removed bottom-of-page newsletter band; modal dialog in header is the single subscribe entry point. Done 2026-05-15.
+- [x] **FBTS non-essay artifacts**: `how-to-read-a-book-a-week-in-2010` and Babauta contest post classified as `bury` — not imported into `posts/`.
 
-### Archive (ongoing)
+### Archive
 
-- [ ] **Restoration backlog**: 154 staged drafts in `archive/evbogue-drafts/` await Archivist review. When ready, work in batches of 10–20 per `Agents/ARCHIVIST.md`. High-confidence Wayback candidates listed in the manifest; do not bulk-import the ambiguous bucket.
-- [ ] **Link-normalization pass**: Amazon and book links with tracking parameters exist across batch 1 restored posts. Strip tracking params, preserve the reference links.
-- [ ] **Batch 2 image restoration**: the five evbogue.com pilot posts in batch 2 had external images stripped during HTML-to-Markdown conversion. If any images matter, localize them into `assets/posts/`.
-- [ ] **Retire `Agents/RESTORATIONIST.md`**: fold its useful content into `Agents/ARCHIVIST.md` if active restoration is paused, or keep it alive if batch work resumes.
+- [x] **Restoration complete**: 131/154 staged drafts promoted to `posts/`; 23 buried. All 2011–2014 evbogue.com Wayback drafts processed. HTML→Markdown, entities decoded, dead widgets stripped, pre-2025 private names anonymized to initials. Done 2026-05-15.
+- [ ] **Batch 2 image restoration**: five evbogue.com pilot posts in batch 2 had external images stripped during HTML-to-Markdown conversion. If any images matter, localize them into `assets/posts/`.
 
 ### Code quality
 
-- [ ] **Tag display**: `signalTagFor()` forces all posts into four display buckets (AI / Media / Analysis / Essay), hiding real frontmatter tags. Consider showing actual post tags or extending the mapping.
+- [x] **Tag display**: replaced forced Essay catch-all with Archive bucket. Posts tagged `archive`/`evbogue`/`fbts` now display as "Archive"; all other posts show their real first tag titlecased. Done 2026-05-15.
 
 ## Recently completed
 
-- FBTS archive fully recovered: 171/171 dated posts published. Restoration batches 1 and 2 complete (mechanical cleanup on oldest 10 FBTS posts; 5 evbogue.com Wayback pilots promoted and anonymized).
+- FBTS archive fully recovered: 171/171 dated posts published. Full archive restoration complete (2026-05-15): 131/154 evbogue.com Wayback drafts promoted to `posts/`, 23 buried. HTML→Markdown, entity decoding, dead widget removal, pre-2025 name anonymization applied across all batches.
 - First-party analytics (phases 1–5): view counts, salted-IP unique visitors, funnel events (subscribe/confirm/unsubscribe/send), weekly report script (`scripts/weekly_report.js`), gated `/analytics` dashboard (`ANALYTICS_TOKEN`). Reports go to `analytics/reports/`.
 - DOI subscribe flow: double opt-in confirmation email, admin notifications on signup/confirm/unsubscribe, atomic `subscribers.json` writes, one-click unsubscribe with token, `reconfirm.js` permission-pass script.
 - `send-post.js` sends posts to the active subscriber list via SMTP, one-to-one with `List-Unsubscribe` headers; supports `--dry-run`.

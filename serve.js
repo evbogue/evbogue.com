@@ -86,7 +86,7 @@ function signalTagFor(post) {
   if (tags.includes("ai") || tags.includes("agents")) return "AI"
   if (tags.includes("media") || tags.includes("blogging")) return "Media"
   if (tags.includes("meta") || tags.includes("business")) return "Analysis"
-  if (tags.includes("minimalism") || tags.includes("archive") || tags.includes("import")) return "Essay"
+  if (tags.includes("archive") || tags.includes("evbogue") || tags.includes("fbts")) return "Archive"
   return primaryTagFor(post).replace(/\b\w/g, (letter) => letter.toUpperCase())
 }
 
@@ -163,7 +163,7 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
           <a href="/about">About</a>
           <a href="/posts" class="nav-priority">Archive</a>
           <a href="/feed.xml">RSS</a>
-          <a href="#subscribe" class="subscribe-btn" data-open-subscribe>Subscribe</a>
+          <a href="#subscribe-dialog" class="subscribe-btn" data-open-subscribe>Subscribe</a>
         </nav>
       </div>
     </header>
@@ -185,19 +185,6 @@ function signalPage({ title = "evbogue.com", description = "Writing by Everett B
     <div class="date-ribbon">${escapeHtml(now)} &nbsp;&middot;&nbsp; Augmented publishing by <a href="/about" class="date-ribbon-byline"><img src="/assets/ev-profile.jpg" alt="Ev Bogue" class="date-ribbon-avatar">Ev Bogue</a></div>
 
     ${body}
-
-    <div class="newsletter" id="subscribe">
-      <div class="newsletter-inner">
-        <div class="newsletter-copy">
-          <h3>Get evbogue.com in your inbox.</h3>
-          <p>One essay, three stories, no noise.</p>
-        </div>
-        <form class="newsletter-form" action="/subscribe" method="POST">
-          <input type="email" name="email" placeholder="you@example.com" required>
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-    </div>
 
     <footer>
       <div class="footer-inner">

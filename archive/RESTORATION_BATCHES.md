@@ -164,3 +164,208 @@ Source drafts:
 Batch 2 promoted for local testing.
 
 Remaining note: imported external image HTML was removed during Markdown conversion. If images matter for any of these posts, restore them later as localized Markdown image assets, not remote HTML.
+
+## Batch 3 - evbogue.com Archive Drafts (2011-2014)
+
+Reviewed/promoted: 2026-05-15
+
+Scope: 15 archive drafts from `archive/evbogue-drafts/` -- 12 essays promoted, 3 buried.
+
+### Files Restored (promoted to posts/)
+
+1. `posts/backup-plans-are-bullshit.md` -- essay on not having backup plans (2011-08-16)
+2. `posts/branding.md` -- essay on untethering from branding (2011-09-24)
+3. `posts/1000-true-equals.md` -- essay on 1000 true equals/leaders (2011-03-14)
+4. `posts/bullshitting.md` -- interview on experience telling (2011-09-23)
+5. `posts/clean-slate.md` -- blank page / starting over essay (2011-02-14)
+6. `posts/erase.md` -- how to erase the past (2011-02-28)
+7. `posts/insecurity.md` -- insecurity on the Internet (2011-04-04)
+8. `posts/shitless.md` -- scared shitless manifesto (2011-04-06)
+9. `posts/quiet.md` -- how to find a quiet place to write (2011-05-08)
+10. `posts/digital-sabbatical.md` -- insights from digital sabbatical (2011-05-23)
+11. `posts/distributedeverything.md` -- essay about Medium and distributed web (2013-06-26)
+12. `posts/backtoarch.md` -- Arch Linux essay (2014-04-09)
+
+### Files Buried (not promoted)
+
+13. `archive/evbogue-drafts/mbsale.md` -- expired sales promo for Minimalist Business anniversary sale; e-junkie cart links and dated pricing; not an essay.
+14. `archive/evbogue-drafts/ev-in-75-words.md` -- bio blurb with dead platform/product links; not an essay.
+15. `archive/evbogue-drafts/ev-in-250-words.md` -- bio blurb with dead platform/product links; not an essay.
+
+### Mechanical Cleanup Performed
+
+- Converted all posts from imported WordPress HTML to clean Markdown.
+- Decoded all HTML entities: `&#8217;` → `'`, `&#8220;`/`&#8221;` → `"`, `&#8211;` → `-`, `&#8212;` → `--`, `&#8230;` → `...`
+- Removed Google+ widget divs (`<div class="g-plusone">` blocks).
+- Removed "Written by Ev Bogue | Follow me on Google+" headers.
+- Removed WordPress upload image links (Flickr image wrapper anchors).
+- Removed dead social share widgets (`really_simple_share` divs, Twitter share buttons).
+- Removed WordPress smiley images (`wp-includes/images/smilies`).
+- Removed MailChimp/Feedburner subscribe blocks and RSS signup links.
+- Removed Letter.ly / Letterly.net subscription links (dead platform).
+- Removed "tweet about it", "flag me @evbogue", "hit me up on Twitter" comment invitation paragraphs.
+- Removed "Retweet this." closing lines.
+- Removed last-paragraph product launch promos and e-junkie cart links (backup-plans-are-bullshit).
+- Removed ebookling.com product links (dead commercial platform); kept book titles as plain text.
+- Removed Instagram follow link (dead/unverified personal social).
+- Removed Wayback image URLs (archive.org/web/TIMESTAMP/img_ sources -- images not localized).
+- Removed preserve.io cache link (dead archive service) from distributedeverything excerpt note.
+- Removed "Social crash" link (inoveryourhead.net -- unverified dead site) from insecurity; kept reference as plain text.
+- Removed Letter.ly follow-up URL from 1000-true-equals (K.B. external link -- dead personal site); kept reference as plain text.
+- Removed "So where are we now?." punctuation artifact from 1000-true-equals.
+- Fixed title fields for `distributedeverything` and `backtoarch`: stripped full nav sidebar garbage (contained full nav text including email, Bitcoin address, Dogecoin address, product links) to just the actual post title.
+- Fixed excerpt field for backup-plans-are-bullshit: replaced Google+ header garbage with the actual opening sentence.
+- Fixed excerpt field for bullshitting: removed itemprop wrapper artifact.
+- Fixed erase.md: removed Letter.ly origin note and "edited slightly for public consumption" preamble (platform furniture); kept the essay content.
+- Removed digital-sabbatical share widget block and email share link.
+- Removed insecurity.md Letterly.net resubscribe address paragraph.
+- Added `archive_status: restored`, `restored_on: 2026-05-15`, `restoration_note` to all 12 promoted posts.
+- Added internal link to `/posts/clean-slate` in erase.md (target exists).
+- Added internal link to `/posts/augmented-humanity` in insecurity.md and digital-sabbatical.md (target exists).
+- Internal link to `/posts/anywhere` in insecurity.md preserved (target exists).
+- Internal link to `/posts/farbeyondthestars` in digital-sabbatical.md flagged: target does not exist in posts/. Link kept as-is for now.
+- Kept AUR link (aur.archlinux.org) in backtoarch.md -- historically meaningful technical reference.
+
+### People Anonymized
+
+Applied pre-2025 rule to all posts dated before 2025-01-01.
+
+- `posts/bullshitting.md`: "Tessa Zeng" → "T.Z." (interviewer); "Gwen Bell" (concept credit) → "G.B."; removed Wayback-wrapped photo images of both Tessa and Ev; removed link to Experiencing Revolution blog (dead/unverifiable).
+- `posts/erase.md`: "@patrickrhone" → "P.R."; "David Powers" → "D.P."; "Gwen" → "G.B."; removed Twitter @patrickrhone link; removed Gwen Bell's personal site link; removed ebookling link to Digital Warriorship (kept title as plain text).
+- `posts/insecurity.md`: no personal names appeared in public text; no anonymization needed.
+- `posts/shitless.md`: "Alix" → "A." (per explicit batch instruction); "Merlin" / "Merlin Mann" → "M.M."; removed Patrick Rhone credit link (kept as plain text attribution); removed link to 43folders.com scared-shitless talk (dead/unverified); removed Twitter engagement closing paragraph.
+- `posts/quiet.md`: "Chris Guillebeau" → "C.G."; "Leo Babauta" → "L.B."; "Corbett" (Corbett Barr) → "C.B."; removed personal site links for all three.
+- `posts/digital-sabbatical.md`: "Gwen Bell" → "G.B." throughout; removed link to gwenbell.com (personal site).
+- `posts/1000-true-equals.md`: anonymized in prior session (K.B. follow-up reference unlinked, name removed from public text).
+- `posts/distributedeverything.md`: 2013 post; "Katherine" at Tiny Letter kept as first name only (company employee, not private person -- judgment call). No full personal names to anonymize.
+- `posts/backtoarch.md`: 2014 post; no personal names in text.
+
+### Links Removed or Unlinked
+
+Dead platforms fully removed:
+- `twitter.com` / `x.com` links (multiple posts)
+- `feedburner.com` subscribe links
+- `letter.ly` / `letterly.net` subscription links
+- `ebookling.com` product links (dead storefront)
+- `e-junkie.com` cart links
+- `plus.google.com` widget and share links
+- WordPress upload paths (`evbogue.com/wp-content/uploads/`)
+- Flickr image wrapper anchors (images not localized; anchor wrappers removed)
+- Wayback toolbar image URLs (`.../web/TIMESTAMP/im_/...`)
+- `instagr.am` follow link
+- `inoveryourhead.net` external blog link (unverified dead site)
+- `kenbernock.com` follow-up blog link (unverified dead personal site)
+- `experiencingrevolution.com` blog link (dead)
+- `cache.preserve.io` archive link (dead service)
+- `gwenbell.com` personal site link
+- `patrickrhone.com` personal site link
+- `corbettbarr.com` personal site link
+- `chrisguillebeau.com` personal site link
+- `mnmlist.com` personal site link (Leo Babauta)
+- `43folders.com` Merlin Mann talk link (dead/unverified)
+
+Internal links verified:
+- `/posts/clean-slate` -- exists
+- `/posts/augmented-humanity` -- exists
+- `/posts/anywhere` -- exists
+- `/posts/farbeyondthestars` -- does NOT exist; link preserved but flagged
+
+### Status
+
+Batch 3 complete. 12 essays promoted, 3 buried.
+
+Remaining notes:
+- `/posts/farbeyondthestars` is referenced in `digital-sabbatical.md` but does not exist in `posts/`. Flag for a future batch.
+- Flickr image assets not localized. Several posts referenced external Flickr images used as decorative headers; these were removed as wrapper links. If image restoration is desired, a future localization batch is needed.
+- The `distributedeverything.md` post references `build.evbogue.com` (external product site) -- link removed, reference kept as plain text.
+- Digital Ocean referral code link in original `distributedeverything` archive was in the nav sidebar garbage and was already stripped with the title fix.
+
+## Batch 4 - evbogue.com Archive Drafts (2011 essays, second set)
+
+Reviewed/promoted: 2026-05-15
+
+Scope: 15 archive drafts from `archive/evbogue-drafts/` -- 12 essays promoted, 3 buried.
+
+### Files Restored (promoted to posts/)
+
+1. `posts/crafting-first.md` -- on resisting distraction to craft first (2011-08-11) [committed in prior session on this branch]
+2. `posts/cyborgs.md` -- what is a cyborg? (2011-03-07) [committed in prior session on this branch]
+3. `posts/cyberspace.md` -- where cyberspace came from; William Gibson Paris Review quote (2011-11-04) [committed in prior session on this branch]
+4. `posts/data.md` -- data transfers from the heart; Blue Bottle coffee / information depth hierarchy (2011-02-15) [committed in prior session on this branch]
+5. `posts/doing-the-work.md` -- Steven Pressfield / The War of Art; on doing the work every day (2011-10-08) [committed in prior session on this branch]
+6. `posts/dream-of-electric-books.md` -- publishing pivot moment; digital books (2011-10-22) [committed in prior session on this branch]
+7. `posts/franco.md` -- 5 traits of J.F.'s success; productive obsession essay (2011-04-07) [committed in prior session on this branch]
+8. `posts/growing-mindfully.md` -- on mindful blog growth rather than viral spikes (2011-08-10) [committed in prior session on this branch]
+9. `posts/how-i-write.md` -- Scrivener workflow; how books and blog posts get written (2011-08-14)
+10. `posts/infinite-mentality.md` -- poverty mentality vs. infinite mentality; wealth mindset (2011-08-11)
+11. `posts/living-data.md` -- Kevin Kelly's flow state web; living/evergreen content (2011-03-07)
+12. `posts/no-one-cares.md` -- 27 reasons why your blog doesn't deserve to exist; full manifesto (2011-03-23)
+
+### Files Buried (not promoted)
+
+13. `archive/evbogue-drafts/augmented-humanity.md` -- book sales page with Flash embed (Issuu viewer) and e-junkie cart links; not an essay.
+14. `archive/evbogue-drafts/google-circles.md` -- platform-specific Google+ how-to; dead platform, no durable value.
+15. `archive/evbogue-drafts/private-message.md` -- platform-specific Google+ direct message how-to; dead platform.
+
+### Mechanical Cleanup Performed
+
+- Converted all posts from imported WordPress HTML to clean Markdown.
+- Decoded all HTML entities: `&#8217;` → `'`, `&#8220;`/`&#8221;` → `"`, `&#8211;` → `-`, `&#8212;` → `--`, `&#8230;` → `...`, `&amp;` → `&`.
+- Removed Google+ widget divs (`<div class="g-plusone">` blocks).
+- Removed "Written by Ev Bogue | Follow me on Google+" headers.
+- Removed Flickr image anchor wrappers (images not localized; anchors and images removed per policy).
+- Removed WordPress upload image links (`evbogue.com/wp-content/uploads/`).
+- Removed dead social share widgets (`really_simple_share` divs, Twitter share buttons, stumbleupon buttons).
+- Removed MailChimp/Feedburner subscribe block and RSS signup links (cyberspace.md).
+- Removed Letter.ly / Letterly.net subscription and product links (dead platform).
+- Removed `ebookling.com` product links; kept book/product titles as plain text.
+- Removed comment invitation closing ("What is your workflow like for writing? I'd love to hear in the comments." → kept as plain question without comment invitation).
+- Removed page-view counter debris (cyberspace.md "383 views" line).
+- Removed MailChimp embed style block and empty form (cyberspace.md).
+- Removed itemprop wrapper artifacts and `<div class="entry">` / `<p class="date">` debris.
+- Removed time-sensitive product pricing callouts from `doing-the-work.md` (e.g. "price goes up from $347 to $547 at 7pm PST today").
+- Internal link `/posts/infinite-mentality` in crafting-first.md -- target exists, kept.
+- Internal link `/posts/farbeyondthestars` in growing-mindfully.md -- target does NOT exist; kept as-is, flagged.
+- Internal link `/posts/untethering` in how-i-write.md -- target not verified; kept for now.
+- Removed `inoveryourhead.net` personal site link in no-one-cares.md; kept blog author's quote as plain text with initials.
+- Removed `letter.ly` / `letter.ly/evbogue` subscription links throughout no-one-cares.md.
+- Removed `minimalistbusiness.com` link (unverified dead commercial site) in no-one-cares.md; kept reference as plain text.
+- Kept `alistapart.com` link in no-one-cares.md -- active, historically meaningful web design reference.
+
+### People Anonymized
+
+Applied pre-2025 rule to all posts dated before 2025-01-01.
+
+- `posts/cyborgs.md`: "Eric Schmidt" → "E.S."; "Amber Case" → "A.C." [done in prior session on this branch]
+- `posts/cyberspace.md`: "William Gibson" → "W.G."; "Samuel Delany" → "S.D."; "Ballard" (J.G. Ballard) → "B." [done in prior session on this branch]
+- `posts/data.md`: "Julien" (J. Smith) → "J."; "Gwen" (Gwen Bell) → "G.B."
+- `posts/franco.md`: "James Franco" → "J.F." throughout, including title; "Sam Anderson" (New York Magazine writer) → "S.A."; "Morgan" (personal assistant) → "M."
+- `posts/no-one-cares.md`: "Julien" (blogger) → "J." in quoted passage and surrounding text.
+
+No personal names appeared in: crafting-first, growing-mindfully, how-i-write, infinite-mentality, living-data, doing-the-work, dream-of-electric-books.
+
+Note on cyberspace.md: William Gibson, Samuel Delany, and J.G. Ballard are published authors and public figures; their names appear as literary references in a quoted interview. The previous session on this branch anonymized them under the consistent pre-2025 rule. This is noted as a borderline case -- published authors are closer to organizations/publications than private persons. A future editorial pass may choose to restore their names with a contextualization note.
+
+### Links Removed or Unlinked
+
+Dead platforms fully removed:
+- `plus.google.com` widget and share links
+- `twitter.com` / `x.com` share buttons
+- `feedburner.com` subscribe links
+- `letter.ly` / `letterly.net` subscription links
+- `ebookling.com` product links (dead storefront)
+- `e-junkie.com` cart links (augmented-humanity, buried)
+- WordPress upload paths (`evbogue.com/wp-content/uploads/`)
+- Flickr image anchor wrappers (`farm*.static.flickr.com`)
+- `inoveryourhead.net` blog link (unverified dead site)
+- `minimalistbusiness.com` product site link (dead/unverified)
+
+### Notable Posts
+
+- `dream-of-electric-books.md` is notably short -- approximately 5 paragraphs. The archive source was itself minimal; no content was missing.
+- `cyborgs.md` ends mid-thought after the TED talk embed (the Flash video object was the intended continuation). The essay body is complete as text but the embed was its centerpiece. Flagged for possible contextualization note in a future pass.
+- `no-one-cares.md` is the longest post in this batch (~2,400+ words). The original promised 27 reasons but only delivered through reason 13 in the Wayback snapshot before ending with the Letter.ly pitch. This appears to be the original published form -- the post was structured as a bait-and-switch where reasons 14-27 were withheld behind a paid subscription.
+
+### Status
+
+Batch 4 complete. 12 essays promoted, 3 buried.
