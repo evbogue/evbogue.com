@@ -1,5 +1,5 @@
 import nodemailer from "npm:nodemailer";
-import { recordEvent } from "./lib/analytics.js";
+import { hashClient, recordEvent } from "./lib/analytics.js";
 import { excerptFromBody, loadPost } from "./lib/posts.js";
 import { activeSubscribers, loadSubscribers, unsubscribeUrl } from "./lib/subscribers.js";
 
@@ -39,6 +39,16 @@ const SMTP_PASS = Deno.env.get("SMTP_PASS");
 if (!SMTP_PASS && !dryRun) {
   console.error("SMTP_PASS not set in env.");
   Deno.exit(1);
+}
+
+const ANALYTICS_SALT = Deno.env.get("ANALYTICS_SALT") || "evbogue-click";
+const SITE_URL = "https://evbogue.com";
+
+function wrapLinks(html, subHash, campaign) {
+  return html.replace(/href="(https?:\/\/[^"]+)"/g, (match, rawUrl) => {
+    if (rawUrl.includes("/unsubscribe")) return match;
+    return `href="${SITE_URL}/c/${campaign}/${subHash}/${encodeURIComponent(rawUrl)}"`;
+  });
 }
 
 function buildText(unsubUrl) {
@@ -84,13 +94,14 @@ await transporter.verify();
 let sent = 0, failed = 0;
 for (const sub of subscribers) {
   const unsubUrl = unsubscribeUrl(sub.token);
+  const subHash = await hashClient(sub.token, ANALYTICS_SALT) ?? sub.token.slice(0, 12);
   try {
     await transporter.sendMail({
       from: `Ev Bogue <${SMTP_USER}>`,
       to: sub.email,
       subject: title,
       text: buildText(unsubUrl),
-      html: buildHtml(unsubUrl),
+      html: wrapLinks(buildHtml(unsubUrl), subHash, slug),
       headers: {
         "List-Unsubscribe": `<${unsubUrl}>, <mailto:${SMTP_USER}?subject=unsubscribe>`,
         "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",

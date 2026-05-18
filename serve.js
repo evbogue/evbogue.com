@@ -769,6 +769,15 @@ function dashboardBody(data) {
   `
 }
 
+app.get('/c/:campaign/:sub/:url', async (c) => {
+  const { campaign, sub, url } = c.req.param()
+  let dest
+  try { dest = decodeURIComponent(url) } catch { return c.redirect('/') }
+  if (!dest.startsWith('http://') && !dest.startsWith('https://')) return c.redirect('/')
+  await recordEvent(ROOT, { kind: 'email_click', sub, campaign, url: dest })
+  return c.redirect(dest, 302)
+})
+
 app.get('/analytics', async (c) => {
   const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
   const stats = aggregateViews(views, posts)
