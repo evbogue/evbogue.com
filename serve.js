@@ -3,7 +3,7 @@ import { marked } from "https://esm.sh/gh/evbogue/bog5@de70376265/lib/marked.esm
 import { excerptFromBody, loadPosts as readPosts } from "./lib/posts.js";
 import { addSubscriber, confirmByToken, findByToken, unsubscribeByToken } from "./lib/subscribers.js";
 import { sendAdminNotification, sendConfirmation } from "./lib/mailer.js";
-import { aggregateViews, loadViews, recordEvent, recordView, renderBarChart } from "./lib/analytics.js";
+import { aggregateDailyViews, aggregateViews, loadViews, recordEvent, recordView, renderBarChart, renderLineChart } from "./lib/analytics.js";
 
 const ANALYTICS_SALT = Deno.env.get("ANALYTICS_SALT") ?? ""
 if (!ANALYTICS_SALT) {
@@ -660,9 +660,10 @@ function formatChicagoDateTime(ts) {
   })
 }
 
-function dashboardData(stats, generatedAt, { saltSet = true } = {}) {
+function dashboardData(stats, views, generatedAt, { saltSet = true } = {}) {
   const topTen = stats.top.slice(0, 10)
   const chart = renderBarChart(topTen.map((r) => ({ label: r.title, value: r.all })))
+  const lineChart = renderLineChart(aggregateDailyViews(views))
   const rows = stats.top.map((row, i) => `
     <div class="archive-row">
       <div class="archive-row-main">
@@ -681,6 +682,7 @@ function dashboardData(stats, generatedAt, { saltSet = true } = {}) {
     totals: stats.totals,
     rss: stats.rss,
     chart,
+    lineChart,
     rows,
     dek,
     rssLine,
@@ -717,6 +719,9 @@ function dashboardBody(data) {
           </div>
         </div>
 
+        <div class="section-header"><span class="section-label">Daily hits</span><div class="section-rule"></div></div>
+        <div id="dash-line" style="margin:1rem 0 2.5rem;">${data.lineChart || '<p class="empty-state">No daily data yet.</p>'}</div>
+
         <div class="section-header"><span class="section-label">Top 10 posts</span><div class="section-rule"></div></div>
         <div id="dash-chart" style="margin:1rem 0 2.5rem;">${data.chart || '<p class="empty-state">No post views recorded yet.</p>'}</div>
 
@@ -752,6 +757,7 @@ function dashboardBody(data) {
                 setText('dash-rss', d.rssLine)
                 setText('dash-dek', d.dek)
                 setHtml('dash-chart', d.chart || '<p class="empty-state">No post views recorded yet.</p>')
+                setHtml('dash-line', d.lineChart || '<p class="empty-state">No daily data yet.</p>')
                 setHtml('dash-rows', d.rows)
               })
               .catch(function () {})
@@ -766,7 +772,7 @@ function dashboardBody(data) {
 app.get('/analytics', async (c) => {
   const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
   const stats = aggregateViews(views, posts)
-  const data = dashboardData(stats, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
+  const data = dashboardData(stats, views, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
   return c.html(signalPage({
     title: "Analytics",
     description: "evbogue.com analytics",
@@ -779,7 +785,7 @@ app.get('/analytics', async (c) => {
 app.get('/analytics.json', async (c) => {
   const [views, posts] = await Promise.all([loadViews(ROOT), loadPosts()])
   const stats = aggregateViews(views, posts)
-  const data = dashboardData(stats, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
+  const data = dashboardData(stats, views, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
   return c.json(data, 200, { "Cache-Control": "no-store" })
 })
 
