@@ -1,4 +1,4 @@
-import { aggregateFunnelEvents, loadViews, renderBarChart } from "../lib/analytics.js"
+import { aggregateDailyViews, aggregateFunnelEvents, loadViews, renderBarChart, renderLineChart } from "../lib/analytics.js"
 import { loadPosts } from "../lib/posts.js"
 import { sendWeeklyReport } from "../lib/mailer.js"
 
@@ -119,6 +119,10 @@ const convPct = funnel.attempts > 0 ? Math.round((funnel.confirms / funnel.attem
 // Bar chart (top 10)
 const chart = renderBarChart(topPosts.map((r) => ({ label: r.title.slice(0, 40), value: r.views })))
 
+// Daily hits line chart
+const dailyRows = aggregateDailyViews(weekPostViews)
+const lineChart = renderLineChart(dailyRows)
+
 // --- Headline ---
 let headline = "No post views recorded this week."
 if (topPosts.length > 0) {
@@ -152,6 +156,8 @@ if (topPosts.length === 0) {
   for (const [i, p] of topPosts.entries()) lines.push(`| ${i + 1} | ${p.title} | ${p.views} |`)
   if (chart) lines.push(``, chart)
 }
+
+if (lineChart) lines.push(``, `## Daily hits`, ``, lineChart)
 
 lines.push(
   ``,
