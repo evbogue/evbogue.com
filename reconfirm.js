@@ -1,10 +1,11 @@
 import { activeSubscribers, loadSubscribers, saveSubscribers } from "./lib/subscribers.js";
 import { sendReconfirmation } from "./lib/mailer.js";
-
-const ROOT = import.meta.dirname;
+import { loadSites, siteById } from "./lib/sites.js";
 
 const args = Deno.args.filter((a) => !a.startsWith("--"));
 const flags = new Set(Deno.args.filter((a) => a.startsWith("--")));
+const siteId = Deno.args.find((a) => a.startsWith("--site="))?.slice("--site=".length) || "evbogue.com";
+const site = siteById(await loadSites(), siteId);
 const targetEmail = args[0]?.trim().toLowerCase();
 const dryRun = flags.has("--dry-run");
 
@@ -14,7 +15,7 @@ if (!SMTP_PASS && !dryRun) {
   Deno.exit(1);
 }
 
-const subscribers = await loadSubscribers(ROOT);
+const subscribers = await loadSubscribers(site.subscribersPath);
 const candidates = activeSubscribers(subscribers);
 
 const targets = targetEmail
@@ -31,6 +32,7 @@ if (!targets.length) {
   Deno.exit(0);
 }
 
+console.log(`Site: ${site.id}`);
 console.log(`Reconfirming ${targets.length} subscriber(s)${targetEmail ? "" : " (all active)"}:`);
 for (const s of targets) console.log(`  - ${s.email}`);
 
@@ -42,9 +44,9 @@ if (dryRun) {
 let sent = 0, failed = 0;
 for (const entry of targets) {
   try {
-    await sendReconfirmation(entry);
+    await sendReconfirmation(entry, site);
     entry.confirmed_at = null;
-    await saveSubscribers(ROOT, subscribers);
+    await saveSubscribers(site.subscribersPath, subscribers);
     console.log(`  ok   ${entry.email}`);
     sent++;
   } catch (err) {

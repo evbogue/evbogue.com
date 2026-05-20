@@ -4,14 +4,14 @@ Instructions for the next agent working on this project.
 
 ## What this is
 
-A minimal blog for Ev Bogue (ev@evbogue.com). The goal is a professional publishing outlet — think Gawker-era editorial voice, informed by Ev's 2010 minimalism blog. No CMS, no build step, just markdown files and a tiny Deno server.
+A minimal multi-site publishing repo for Ev Bogue (ev@evbogue.com). evbogue.com is Ev's personal site; bogbook.com is being planned as a Gawker/NYMag-style media blog. No CMS, no build step, just markdown files and a tiny Deno server.
 
 ## Stack
 
 - **Runtime:** Deno 2.x (`brew install deno`)
 - **Server:** Hono via `jsr:@hono/hono`
 - **Markdown:** `marked` via `https://esm.sh/gh/evbogue/bog5@...`
-- **CSS:** `assets/signal.css` served directly by the Deno app
+- **CSS:** `sites/<site>/assets/*.css` served directly by the Deno app
 - **Fonts:** Playfair Display, DM Sans, and DM Mono via Google Fonts
 - **Deployment:** VPS running this repo, pulled from GitHub
 
@@ -24,14 +24,16 @@ deno task start
 ## File structure
 
 ```
-serve.js          — all routes; `signalPage()` is the page wrapper
-assets/signal.css — site stylesheet (cache-busted via ?v= query)
-about.md          — bio + contact info (rendered at /about)
-drafts/           — unpublished markdown drafts
-posts/            — published markdown posts
+serve.js          — all routes; `sitePage()` is the page wrapper
+lib/sites.js      — site registry + Host-header dispatch
+sites/evbogue.com/assets/signal.css — evbogue stylesheet (cache-busted via ?v= query)
+sites/evbogue.com/about.md          — bio + contact info (rendered at /about)
+sites/evbogue.com/drafts/           — unpublished evbogue drafts
+sites/evbogue.com/posts/            — published evbogue posts
+sites/evbogue.com/site.json         — evbogue metadata, hosts, email identity
 Agents/           — specialized role instructions for writing, editing, ops, archive work, etc.
 send-post.js      — emails a post to subscribers via SMTP (run manually after publishing)
-subscribers.json  — email list (gitignored, lives only on server)
+sites/evbogue.com/subscribers.json  — email list (gitignored, lives only on server)
 test-email.js     — SMTP test script (gitignored)
 ```
 
@@ -42,11 +44,11 @@ test-email.js     — SMTP test script (gitignored)
 | `/` | Post index — title, date, excerpt, newest first |
 | `/posts/:slug` | Full post rendered from markdown |
 | `/about` | Bio + social links + ntfy send widget |
-| `/subscribe` | POST endpoint — saves email to subscribers.json |
+| `/subscribe` | POST endpoint — saves email to the current site's `subscribers.json` |
 
 ## Posts
 
-Draft a markdown file in `drafts/` with this frontmatter:
+Draft an evbogue markdown file in `sites/evbogue.com/drafts/` with this frontmatter:
 
 ```
 ---
@@ -60,7 +62,7 @@ excerpt: "One-liner shown on the homepage index."
 Body text...
 ```
 
-Publish by moving the file from `drafts/` to `posts/`. Anything in `posts/` is public and appears in the index and feed. Anything in `drafts/` is private to the repo and ignored by the server. Do not use a `draft` frontmatter field.
+Publish by moving the file from `sites/evbogue.com/drafts/` to `sites/evbogue.com/posts/`. Anything in the site's `posts/` directory is public and appears in that site's index and feed. Anything in `drafts/` is private to the repo and ignored by the server. Do not use a `draft` frontmatter field.
 
 ## Code direction
 
@@ -81,9 +83,10 @@ Specialized role files now live in `Agents/`. Use them when the task is narrower
 
 | Role | File | Use for |
 |---|---|---|
-| Writer | `Agents/WRITER.md` | Turning rough notes into publishable drafts |
+| Writer | `Agents/WRITER.md` | Turning rough notes into publishable drafts (evbogue.com) |
+| Gawker Writer | `Agents/GAWKER-WRITER.md` | News and media reporting for bogbook.com — see `BOGBOOK-WORKORDER.md` |
 | Editor | `Agents/EDITOR.md` | Sharpening posts into Ev's punchier 2010/Gawker-informed voice |
-| Restorationist | `Agents/RESTORATIONIST.md` | Restoring recovered archive essays in batches: remove dead web machinery, clean imports, preserve provenance, promote to `posts/` |
+| Restorationist | `Agents/RESTORATIONIST.md` | Restoring recovered archive essays in batches: remove dead web machinery, clean imports, preserve provenance, promote to `sites/evbogue.com/posts/` |
 | Designer | `Agents/DESIGNER.md` | Site readability, layout, and visual restraint |
 | Coder | `Agents/CODER.md` | Small blog features and tooling |
 | DevOps | `Agents/DEVOPS.md` | VPS, pull process, deployment, route health |
@@ -115,7 +118,7 @@ Ev uses PrivateEmail (Namecheap) SMTP:
 - User: ev@evbogue.com
 - Pass: stored in env var `SMTP_PASS` on the server — do not hardcode
 
-Subscribers are stored in `subscribers.json` (gitignored) as an array of objects:
+Subscribers are stored per-site in `sites/<site>/subscribers.json` (gitignored) as an array of objects:
 
 ```json
 [{ "email": "you@example.com", "token": "...", "subscribed_at": "...", "confirmed_at": "...", "unsubscribed_at": null, "source": "form" }]
@@ -128,20 +131,20 @@ Old string-only entries are upgraded to this shape on first read (and grandfathe
 Send a post to the active list with:
 
 ```sh
-SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env send-post.js [slug]
+SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env send-post.js [slug] --site=evbogue.com
 ```
 
-The slug is optional — omit it to send the latest post (newest by `date` in frontmatter). Add `--dry-run` to print the recipient list without sending. The script refuses drafts, sends one-to-one (no BCC blast), and sets `List-Unsubscribe` headers with both a per-recipient unsubscribe URL and the `ev@evbogue.com` mailto fallback. Each subscriber gets a unique unsubscribe token; the public `/unsubscribe?token=...` route flips `unsubscribed_at` and `activeSubscribers()` excludes them from future sends. For a manual removal, set `unsubscribed_at` to an ISO timestamp on the relevant entry in `subscribers.json` on the VPS.
+The slug is optional — omit it to send the latest post (newest by `date` in frontmatter). `--site` defaults to `evbogue.com`. Add `--dry-run` to print the recipient list without sending. The script refuses drafts, sends one-to-one (no BCC blast), and sets `List-Unsubscribe` headers with both a per-recipient unsubscribe URL and the `ev@evbogue.com` mailto fallback. Each subscriber gets a unique unsubscribe token; the public `/unsubscribe?token=...` route flips `unsubscribed_at` and `activeSubscribers()` excludes them from future sends. For a manual removal, set `unsubscribed_at` to an ISO timestamp on the relevant entry in the site's `subscribers.json` on the VPS.
 
 To run a permission pass (ask currently-confirmed subscribers to re-confirm under the DOI flow):
 
 ```sh
 # preview only
-SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env reconfirm.js [email] --dry-run
+SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env reconfirm.js [email] --site=evbogue.com --dry-run
 
 # real run — one address (testing) or all active
-SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env reconfirm.js ev@evbogue.com
-SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env reconfirm.js
+SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env reconfirm.js ev@evbogue.com --site=evbogue.com
+SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env reconfirm.js --site=evbogue.com
 ```
 
 The script sends the reconfirmation email first; only on a successful send does it set `confirmed_at: null`. So a bad password or transient SMTP failure leaves state untouched and the run is safe to retry.
@@ -159,8 +162,8 @@ This is the single work order for the repo. All outstanding tasks live here. Do 
 
 Phases 2–5 are shipped. Phases 6 and 7 remain deferred.
 
-- **Phase 2** — Funnel events: `subscribe_attempt`, `confirm`, `unsubscribe`, and `send` events now write to `analytics/views.jsonl` alongside view data. No PII.
-- **Phase 3** — `scripts/weekly_report.js` generates `analytics/reports/YYYY-Www.md`. Run with `deno task weekly-report` or `--week=YYYY-Www` for a specific week. Add `--email` to send via SMTP.
+- **Phase 2** — Funnel events: `subscribe_attempt`, `confirm`, `unsubscribe`, and `send` events now write to `analytics/<site>.jsonl` alongside view data. No PII.
+- **Phase 3** — `scripts/weekly_report.js` generates `analytics/reports/<site>/YYYY-Www.md`. Run with `deno task weekly-report` or `--week=YYYY-Www` for a specific week. Add `--email` to send via SMTP.
 - **Phase 4** — Cron line and commit+email workflow documented in `Agents/DEVOPS.md`. VPS setup is a manual step for Ev.
 - **Phase 5** — `/analytics` token gate was built and then deliberately removed. The dashboard is intentionally public.
 
@@ -173,8 +176,8 @@ Phases 6 (signup attribution) and 7 (per-recipient email click tracking) remain 
 
 ### Archive
 
-- [x] **Restoration complete**: 131/154 staged drafts promoted to `posts/`; 23 buried. All 2011–2014 evbogue.com Wayback drafts processed. HTML→Markdown, entities decoded, dead widgets stripped, pre-2025 private names anonymized to initials. Done 2026-05-15.
-- [ ] **Batch 2 image restoration**: five evbogue.com pilot posts in batch 2 had external images stripped during HTML-to-Markdown conversion. If any images matter, localize them into `assets/posts/`.
+- [x] **Restoration complete**: 131/154 staged drafts promoted to `sites/evbogue.com/posts/`; 23 buried. All 2011–2014 evbogue.com Wayback drafts processed. HTML→Markdown, entities decoded, dead widgets stripped, pre-2025 private names anonymized to initials. Done 2026-05-15.
+- [ ] **Batch 2 image restoration**: five evbogue.com pilot posts in batch 2 had external images stripped during HTML-to-Markdown conversion. If any images matter, localize them into `sites/evbogue.com/assets/posts/`.
 
 ### Code quality
 
@@ -182,7 +185,7 @@ Phases 6 (signup attribution) and 7 (per-recipient email click tracking) remain 
 
 ## Recently completed
 
-- FBTS archive fully recovered: 171/171 dated posts published. Full archive restoration complete (2026-05-15): 131/154 evbogue.com Wayback drafts promoted to `posts/`, 23 buried. HTML→Markdown, entity decoding, dead widget removal, pre-2025 name anonymization applied across all batches.
+- FBTS archive fully recovered: 171/171 dated posts published. Full archive restoration complete (2026-05-15): 131/154 evbogue.com Wayback drafts promoted to `sites/evbogue.com/posts/`, 23 buried. HTML→Markdown, entity decoding, dead widget removal, pre-2025 name anonymization applied across all batches.
 - First-party analytics (phases 1–5): view counts, salted-IP unique visitors, funnel events (subscribe/confirm/unsubscribe/send), weekly report script (`scripts/weekly_report.js`), gated `/analytics` dashboard (`ANALYTICS_TOKEN`). Reports go to `analytics/reports/`.
 - DOI subscribe flow: double opt-in confirmation email, admin notifications on signup/confirm/unsubscribe, atomic `subscribers.json` writes, one-click unsubscribe with token, `reconfirm.js` permission-pass script.
 - `send-post.js` sends posts to the active subscriber list via SMTP, one-to-one with `List-Unsubscribe` headers; supports `--dry-run`.
@@ -194,9 +197,9 @@ Phases 6 (signup attribution) and 7 (per-recipient email click tracking) remain 
 
 ## Notes
 
-- `subscribers.json` is gitignored — it lives only on the VPS. Back it up separately.
+- `sites/evbogue.com/subscribers.json` is gitignored — it lives only on the VPS. Back it up separately.
 - `test-email.js` is gitignored — it is a scratch SMTP test file.
-- `analytics/views.jsonl` is gitignored — it lives only on the VPS.
-- The live design is the Signal layout in `assets/signal.css` and `signalPage()`; there is no active Pico/head.html shell.
+- `analytics/evbogue.jsonl` is gitignored — it lives only on the VPS.
+- The live design is the Signal layout in `sites/evbogue.com/assets/signal.css` and `sitePage()`; there is no active Pico/head.html shell.
 - The ntfy send widget on `/about` posts to `https://ntfy.sh/evbogue` — Ev receives these as push notifications.
 - git-ssb integration was discussed and deferred — the remote plumbing can be added later without changing the rest of the pipeline.

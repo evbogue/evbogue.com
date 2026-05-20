@@ -1,8 +1,8 @@
 import { restorePost } from "./restore_post_from_wayback.js";
 
 const allPosts = [];
-for await (const entry of Deno.readDir("posts")) {
-  if (entry.isFile && entry.name.endsWith(".md")) allPosts.push(`posts/${entry.name}`);
+for await (const entry of Deno.readDir("sites/evbogue.com/posts")) {
+  if (entry.isFile && entry.name.endsWith(".md")) allPosts.push(`sites/evbogue.com/posts/${entry.name}`);
 }
 allPosts.sort();
 

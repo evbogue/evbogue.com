@@ -1,5 +1,7 @@
 import { parseFrontmatter, stringifyFrontmatter } from "./restore_post_from_wayback.js";
 
+const DEFAULT_ASSETS_DIR = "sites/evbogue.com/assets/posts";
+
 function extFromUrl(url) {
   const clean = url.split("?")[0].split("#")[0];
   const match = clean.match(/\.([a-zA-Z0-9]{2,5})$/);
@@ -52,7 +54,7 @@ export async function localizePostImages(postPath) {
   const slug = data.slug ?? postPath.split("/").pop()?.replace(/\.md$/, "");
   let updatedBody = body;
 
-  await Deno.mkdir("assets/posts", { recursive: true });
+  await Deno.mkdir(DEFAULT_ASSETS_DIR, { recursive: true });
 
   let index = 0;
   const failed = [];
@@ -70,7 +72,7 @@ export async function localizePostImages(postPath) {
 
     const ext = extFromUrl(src) || extFromContentType(downloaded.contentType);
     const localName = `${slug}-img${index}${ext}`;
-    const localPath = `assets/posts/${localName}`;
+    const localPath = `${DEFAULT_ASSETS_DIR}/${localName}`;
     await Deno.writeFile(localPath, downloaded.bytes);
 
     const escapedSrc = src.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

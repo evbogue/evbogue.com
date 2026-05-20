@@ -1,12 +1,15 @@
 import { aggregateDailyViews, aggregateFunnelEvents, loadViews, renderBarChart, renderLineChart } from "../lib/analytics.js"
 import { loadPosts } from "../lib/posts.js"
 import { sendWeeklyReport } from "../lib/mailer.js"
+import { loadSites, siteById } from "../lib/sites.js"
 
 const ROOT = new URL("..", import.meta.url).pathname.replace(/\/+$/, "")
 
 // --- CLI ---
 const weekArg = Deno.args.find((a) => a.startsWith("--week="))?.slice("--week=".length)
+const siteId = Deno.args.find((a) => a.startsWith("--site="))?.slice("--site=".length) || "evbogue.com"
 const doEmail = Deno.args.includes("--email")
+const site = siteById(await loadSites(), siteId)
 
 // --- ISO week helpers ---
 
@@ -69,7 +72,7 @@ const { start, end } = getWeekBounds(year, week)
 const prev = week === 1 ? { year: year - 1, week: 52 } : { year, week: week - 1 }
 const prevBounds = getWeekBounds(prev.year, prev.week)
 
-const [allViews, posts] = await Promise.all([loadViews(ROOT), loadPosts(ROOT)])
+const [allViews, posts] = await Promise.all([loadViews(ROOT, site.analyticsNamespace), loadPosts(site.root)])
 
 const weekViews = allViews.filter((v) => { const t = Date.parse(v.t); return t >= start && t <= end })
 const prevViews = allViews.filter((v) => { const t = Date.parse(v.t); return t >= prevBounds.start && t <= prevBounds.end })
@@ -137,7 +140,7 @@ const generatedAt = new Date().toLocaleString("en-US", {
 })
 
 const lines = [
-  `# Weekly report: ${weekLabel}`,
+  `# Weekly report: ${site.title} ${weekLabel}`,
   ``,
   `${fmtDate(start)} – ${fmtDate(end)} · Generated ${generatedAt} Chicago`,
   ``,
@@ -196,13 +199,13 @@ lines.push(
 const report = lines.join("\n")
 
 // --- Write ---
-const reportDir = `${ROOT}/analytics/reports`
+const reportDir = `${ROOT}/analytics/reports/${site.analyticsNamespace}`
 const reportPath = `${reportDir}/${weekLabel}.md`
 await Deno.mkdir(reportDir, { recursive: true })
 await Deno.writeTextFile(reportPath, report)
 console.log(`Report written: ${reportPath}`)
 
 if (doEmail) {
-  await sendWeeklyReport(weekLabel, report)
+  await sendWeeklyReport(weekLabel, report, site)
   console.log(`Report emailed for ${weekLabel}`)
 }

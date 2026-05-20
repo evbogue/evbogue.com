@@ -1,0 +1,20 @@
+{
+  "id": "evbogue.com",
+  "hosts": ["evbogue.com", "www.evbogue.com", "localhost", "127.0.0.1"],
+  "title": "evbogue.com",
+  "wordmark": "evbogue.com",
+  "tagline": "Augmented publishing from Everett Bogue.",
+  "description": "Writing by Everett Bogue.",
+  "baseUrl": "https://evbogue.com",
+  "cssFile": "assets/signal.css",
+  "favicon": "assets/ev.png",
+  "emailFrom": "Ev Bogue <ev@evbogue.com>",
+  "emailReplyTo": "ev@evbogue.com",
+  "emailSignature": "Ev\nev@evbogue.com | 773-510-8601",
+  "subscribersFile": "subscribers.json",
+  "analyticsNamespace": "evbogue",
+  "archiveLabel": "Archive",
+  "subscribeTitle": "Get evbogue.com in your inbox.",
+  "subscribeDek": "One essay, three stories, no noise.",
+  "footerCopy": "Everett Bogue"
+}

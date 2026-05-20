@@ -2,27 +2,30 @@ import nodemailer from "npm:nodemailer";
 import { hashClient, recordEvent } from "./lib/analytics.js";
 import { excerptFromBody, loadPost, loadPosts } from "./lib/posts.js";
 import { activeSubscribers, loadSubscribers, unsubscribeUrl } from "./lib/subscribers.js";
+import { loadSites, REPO_ROOT, siteById } from "./lib/sites.js";
 
-const ROOT = import.meta.dirname;
+const ROOT = REPO_ROOT;
 
 const args = Deno.args.filter((a) => !a.startsWith("--"));
 const flags = new Set(Deno.args.filter((a) => a.startsWith("--")));
+const siteId = Deno.args.find((a) => a.startsWith("--site="))?.slice("--site=".length) || "evbogue.com";
 const dryRun = flags.has("--dry-run");
+const site = siteById(await loadSites(), siteId);
 
 let slug = args[0];
 let post;
 
 if (slug) {
   try {
-    post = await loadPost(ROOT, slug);
+    post = await loadPost(site.root, slug);
   } catch {
-    console.error(`Post not found: posts/${slug}.md`);
+    console.error(`Post not found: sites/${site.id}/posts/${slug}.md`);
     Deno.exit(1);
   }
 } else {
-  const posts = await loadPosts(ROOT);
+  const posts = await loadPosts(site.root);
   if (!posts.length) {
-    console.error("No posts found in posts/.");
+    console.error(`No posts found in sites/${site.id}/posts/.`);
     Deno.exit(1);
   }
   post = posts[0];
@@ -32,9 +35,9 @@ if (slug) {
 
 const title = post.title || slug;
 const excerpt = post.excerpt || excerptFromBody(post.body);
-const url = `https://evbogue.com/posts/${slug}`;
+const url = `${site.baseUrl}/posts/${slug}`;
 
-const subscribers = activeSubscribers(await loadSubscribers(ROOT));
+const subscribers = activeSubscribers(await loadSubscribers(site.subscribersPath));
 
 if (!subscribers.length) {
   console.log("No active subscribers. Nothing to send.");
@@ -49,7 +52,7 @@ if (!SMTP_PASS && !dryRun) {
 }
 
 const ANALYTICS_SALT = Deno.env.get("ANALYTICS_SALT") || "evbogue-click";
-const SITE_URL = "https://evbogue.com";
+const SITE_URL = site.baseUrl;
 
 function wrapLinks(html, subHash, campaign) {
   return html.replace(/href="(https?:\/\/[^"]+)"/g, (match, rawUrl) => {
@@ -66,8 +69,7 @@ ${excerpt}
 Read it: ${url}
 
 Best,
-Ev
-ev@evbogue.com | 773-510-8601
+${site.emailSignature}
 
 Unsubscribe: ${unsubUrl}`;
 }
@@ -75,11 +77,12 @@ Unsubscribe: ${unsubUrl}`;
 function buildHtml(unsubUrl) {
   return `<p style="font-size:1.1rem;"><strong>${title}</strong></p>
 <p>${excerpt}</p>
-<p><a href="${url}">Read it on evbogue.com</a></p>
-<p>Best,<br>Ev<br><a href="mailto:ev@evbogue.com">ev@evbogue.com</a> | <a href="tel:7735108601">773-510-8601</a></p>
+<p><a href="${url}">Read it on ${site.title}</a></p>
+<p>Best,<br>${site.emailSignature.replaceAll("\n", "<br>")}</p>
 <p style="color:#888;font-size:12px;">Don't want these? <a href="${unsubUrl}">Unsubscribe</a>.</p>`;
 }
 
+console.log(`Site:    ${site.id}`);
 console.log(`Post:    ${title}`);
 console.log(`URL:     ${url}`);
 console.log(`Sending: ${subscribers.length} subscriber(s)`);
@@ -100,11 +103,12 @@ await transporter.verify();
 
 let sent = 0, failed = 0;
 for (const sub of subscribers) {
-  const unsubUrl = unsubscribeUrl(sub.token);
+  const unsubUrl = unsubscribeUrl(site, sub.token);
   const subHash = await hashClient(sub.token, ANALYTICS_SALT) ?? sub.token.slice(0, 12);
   try {
     await transporter.sendMail({
-      from: `Ev Bogue <${SMTP_USER}>`,
+      from: site.emailFrom || `Ev Bogue <${SMTP_USER}>`,
+      replyTo: site.emailReplyTo || SMTP_USER,
       to: sub.email,
       subject: title,
       text: buildText(unsubUrl),
@@ -124,6 +128,6 @@ for (const sub of subscribers) {
 
 console.log(`\nDone. Sent: ${sent}. Failed: ${failed}.`);
 if (sent > 0) {
-  await recordEvent(ROOT, { kind: "send", slug, recipient_count: sent });
+  await recordEvent(ROOT, { kind: "send", slug, recipient_count: sent }, site.analyticsNamespace);
 }
 if (failed) Deno.exit(1);

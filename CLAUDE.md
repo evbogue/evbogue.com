@@ -7,6 +7,7 @@ Specialized role files live in `Agents/`. When the user asks you to bring up or 
 | When the user says... | Read this file |
 |---|---|
 | writer agent, write a post, pitch topics | `Agents/WRITER.md` |
+| gawker writer, bogbook writer, media reporting | `Agents/GAWKER-WRITER.md` |
 | editor agent, sharpen this, edit this | `Agents/EDITOR.md` |
 | archivist agent, archive work, restore drafts | `Agents/RESTORATIONIST.md` |
 | designer agent, design, layout | `Agents/DESIGNER.md` |
@@ -44,4 +45,4 @@ git config --local user.email "ev@evbogue.com"
 
 ## Project summary
 
-Minimal blog for Ev Bogue (ev@evbogue.com). Deno/Hono server, markdown drafts in `drafts/`, published posts in `posts/`, no build step. Editorial voice: direct, punchy, brutally honest — Gawker-era filtered through Ev's 2010 minimalism blog. See `AGENTS.md` for full stack, routes, and work order.
+Minimal multi-site Deno/Hono publishing repo. evbogue.com lives under `sites/evbogue.com/`, with markdown drafts in `sites/evbogue.com/drafts/` and published posts in `sites/evbogue.com/posts/`. Bogbook planning lives in `BOGBOOK-WORKORDER.md`; future bogbook.com content will live under `sites/bogbook.com/`. No build step. Editorial voice for evbogue.com: direct, punchy, brutally honest — Gawker-era filtered through Ev's 2010 minimalism blog. See `AGENTS.md` for full stack, routes, and work order.
