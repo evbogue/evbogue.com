@@ -508,11 +508,11 @@ app.get('/about', async (c) => {
       <article>
         <div class="post-header">
           <span class="tag">About</span>
-          <h1 class="hero-title">About evbogue.com</h1>
+          <h1 class="hero-title">About ${escapeHtml(site.wordmark || site.title)}</h1>
         </div>
         <hr class="post-divider">
         <div class="post-body about-body">
-          <img class="about-portrait" src="/assets/ev-profile.jpg" alt="Everett Bogue">
+          ${site.id === "evbogue.com" ? `<img class="about-portrait" src="/assets/ev-profile.jpg" alt="Everett Bogue">` : ""}
           ${marked(doc)}
           ${ntfyWidget}
         </div>
