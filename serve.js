@@ -512,7 +512,7 @@ app.get('/about', async (c) => {
         </div>
         <hr class="post-divider">
         <div class="post-body about-body">
-          ${site.id === "evbogue.com" ? `<img class="about-portrait" src="/assets/ev-profile.jpg" alt="Everett Bogue">` : ""}
+          ${site.aboutPortrait ? `<img class="about-portrait" src="/${escapeHtml(site.aboutPortrait)}" alt="${escapeHtml(site.aboutPortraitAlt || site.title)}">` : ""}
           ${marked(doc)}
           ${ntfyWidget}
         </div>

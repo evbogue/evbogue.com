@@ -7,6 +7,8 @@
   "description": "Independent press about the tech industry, written by Ev Bogue.",
   "baseUrl": "https://bogbook.com",
   "cssFile": "assets/bogbook.css",
+  "aboutPortrait": "assets/ev-profile.jpg",
+  "aboutPortraitAlt": "Ev Bogue",
   "emailFrom": "Ev Bogue <ev@evbogue.com>",
   "emailReplyTo": "ev@evbogue.com",
   "emailSignature": "Ev\nev@evbogue.com",

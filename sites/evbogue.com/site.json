@@ -8,6 +8,8 @@
   "baseUrl": "https://evbogue.com",
   "cssFile": "assets/signal.css",
   "favicon": "assets/ev.png",
+  "aboutPortrait": "assets/ev-profile.jpg",
+  "aboutPortraitAlt": "Everett Bogue",
   "emailFrom": "Ev Bogue <ev@evbogue.com>",
   "emailReplyTo": "ev@evbogue.com",
   "emailSignature": "Ev\nev@evbogue.com | 773-510-8601",
