@@ -3,7 +3,7 @@
   "hosts": ["bogbook.com", "www.bogbook.com", "bogbook.localhost"],
   "title": "Bogbook",
   "wordmark": "bogbook.com",
-  "tagline": "Chicago against the Valley.",
+  "tagline": "Augmented Chicago Against Silicon Valley",
   "description": "Independent press about the tech industry, written by Ev Bogue.",
   "baseUrl": "https://bogbook.com",
   "cssFile": "assets/bogbook.css",
