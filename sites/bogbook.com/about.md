@@ -1,4 +1,4 @@
-Chicago against the Valley.
+Augmented Chicago Against Silicon Valley.
 
 Bogbook is an independent press about the tech industry, the founders and funds running it, and the captured trade press that lets them get away with it. Every piece is reported and written by Ev Bogue.
 
