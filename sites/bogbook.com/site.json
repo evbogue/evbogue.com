@@ -1,0 +1,19 @@
+{
+  "id": "bogbook.com",
+  "hosts": ["bogbook.com", "www.bogbook.com", "bogbook.localhost"],
+  "title": "Bogbook",
+  "wordmark": "bogbook.com",
+  "tagline": "Chicago against the Valley.",
+  "description": "Independent press about the tech industry, written by Ev Bogue.",
+  "baseUrl": "https://bogbook.com",
+  "cssFile": "assets/bogbook.css",
+  "emailFrom": "Ev Bogue <ev@evbogue.com>",
+  "emailReplyTo": "ev@evbogue.com",
+  "emailSignature": "Ev\nev@evbogue.com",
+  "subscribersFile": "subscribers.json",
+  "analyticsNamespace": "bogbook",
+  "archiveLabel": "Archive",
+  "subscribeTitle": "Get Bogbook in your inbox.",
+  "subscribeDek": "Reporting that doesn't ask permission.",
+  "footerCopy": "Bogbook"
+}
