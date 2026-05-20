@@ -128,10 +128,10 @@ Old string-only entries are upgraded to this shape on first read (and grandfathe
 Send a post to the active list with:
 
 ```sh
-SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env send-post.js <slug>
+SMTP_PASS=... deno run --allow-net --allow-read --allow-write --allow-env send-post.js [slug]
 ```
 
-Add `--dry-run` to print the recipient list without sending. The script refuses drafts, sends one-to-one (no BCC blast), and sets `List-Unsubscribe` headers with both a per-recipient unsubscribe URL and the `ev@evbogue.com` mailto fallback. Each subscriber gets a unique unsubscribe token; the public `/unsubscribe?token=...` route flips `unsubscribed_at` and `activeSubscribers()` excludes them from future sends. For a manual removal, set `unsubscribed_at` to an ISO timestamp on the relevant entry in `subscribers.json` on the VPS.
+The slug is optional — omit it to send the latest post (newest by `date` in frontmatter). Add `--dry-run` to print the recipient list without sending. The script refuses drafts, sends one-to-one (no BCC blast), and sets `List-Unsubscribe` headers with both a per-recipient unsubscribe URL and the `ev@evbogue.com` mailto fallback. Each subscriber gets a unique unsubscribe token; the public `/unsubscribe?token=...` route flips `unsubscribed_at` and `activeSubscribers()` excludes them from future sends. For a manual removal, set `unsubscribed_at` to an ISO timestamp on the relevant entry in `subscribers.json` on the VPS.
 
 To run a permission pass (ask currently-confirmed subscribers to re-confirm under the DOI flow):
 

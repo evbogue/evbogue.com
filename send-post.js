@@ -1,26 +1,33 @@
 import nodemailer from "npm:nodemailer";
 import { hashClient, recordEvent } from "./lib/analytics.js";
-import { excerptFromBody, loadPost } from "./lib/posts.js";
+import { excerptFromBody, loadPost, loadPosts } from "./lib/posts.js";
 import { activeSubscribers, loadSubscribers, unsubscribeUrl } from "./lib/subscribers.js";
 
 const ROOT = import.meta.dirname;
 
 const args = Deno.args.filter((a) => !a.startsWith("--"));
 const flags = new Set(Deno.args.filter((a) => a.startsWith("--")));
-const slug = args[0];
 const dryRun = flags.has("--dry-run");
 
-if (!slug) {
-  console.error("usage: deno run --allow-net --allow-read --allow-write --allow-env send-post.js <slug> [--dry-run]");
-  Deno.exit(1);
-}
-
+let slug = args[0];
 let post;
-try {
-  post = await loadPost(ROOT, slug);
-} catch {
-  console.error(`Post not found: posts/${slug}.md`);
-  Deno.exit(1);
+
+if (slug) {
+  try {
+    post = await loadPost(ROOT, slug);
+  } catch {
+    console.error(`Post not found: posts/${slug}.md`);
+    Deno.exit(1);
+  }
+} else {
+  const posts = await loadPosts(ROOT);
+  if (!posts.length) {
+    console.error("No posts found in posts/.");
+    Deno.exit(1);
+  }
+  post = posts[0];
+  slug = post.slug;
+  console.log(`No slug given — sending latest: ${slug}`);
 }
 
 const title = post.title || slug;
