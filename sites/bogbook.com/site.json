@@ -8,6 +8,8 @@
   "baseUrl": "https://bogbook.com",
   "noindex": true,
   "cssFile": "assets/bogbook.css",
+  "headerLogo": "assets/bogbook-logo.png",
+  "headerLogoAlt": "Bogbook",
   "aboutPortrait": "assets/ev-profile.jpg",
   "aboutPortraitAlt": "Ev Bogue",
   "emailFrom": "Ev Bogue <ev@evbogue.com>",
