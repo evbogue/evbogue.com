@@ -6,6 +6,7 @@
   "tagline": "Augmented Chicago Against Silicon Valley",
   "description": "Independent press about the tech industry, written by Ev Bogue.",
   "baseUrl": "https://bogbook.com",
+  "noindex": true,
   "cssFile": "assets/bogbook.css",
   "aboutPortrait": "assets/ev-profile.jpg",
   "aboutPortraitAlt": "Ev Bogue",

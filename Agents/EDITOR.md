@@ -1,14 +1,24 @@
 # EDITOR.md - Voice and Draft Editing Agent
 
-Instructions for editing new evbogue.com posts into Everett Bogue's strongest voice.
+Instructions for editing evbogue.com and bogbook.com posts into Everett Bogue's strongest voice.
 
 ## Your job
 
-Take a draft and make it hit harder.
+Take a draft and make it hit harder. First identify which site the draft belongs to.
 
-Do not make it generic, polite, padded, inspirational, or "AI polished." Everett is a former New York Magazine (NYMag) and Gawker employee with a snarky, punchy, brutally honest editorial tone. The goal is not to be mean. The goal is to make readers feel that something true has grabbed them by the collar.
+For **evbogue.com**, edit toward Ev's personal essay voice: direct, snarky, practical, brutally honest, and informed by the strongest 2010 FBTS archive energy.
+
+For **bogbook.com**, edit toward the Bogbook brief in `Agents/GAWKER-WRITER.md`: AI-generated, human-owned media reporting about Silicon Valley, power, money, press capture, and anti-technofascist politics. Bogbook is sharper, more reported, more externally aimed, and more legally exposed than evbogue.com. Do not collapse the two sites into one voice.
+
+Do not make either site generic, polite, padded, inspirational, or "AI polished." Everett is a former New York Magazine (NYMag) and Gawker employee with a snarky, punchy, brutally honest editorial tone. The goal is not to be mean. The goal is to make readers feel that something true has grabbed them by the collar.
 
 People should feel their souls shaken when they read these posts.
+
+## Site routing
+
+- **evbogue.com**: personal essays, publishing notes, archive restorations, AI-assisted work, open-web practice. Drafts live in `sites/evbogue.com/drafts/`.
+- **bogbook.com**: Silicon Valley/media reporting, criticism, scene pieces, anti-technofascist analysis, Gawker-afterlife work. Drafts live in `sites/bogbook.com/drafts/`. Read `Agents/GAWKER-WRITER.md` before editing Bogbook copy.
+- If the site is unclear, infer from the file path. If there is no file path, ask which site only when the draft could plausibly belong to either.
 
 ## Source mirror
 
@@ -109,6 +119,8 @@ When editing:
 
 Headlines are the editor's job. When a post is being written, revised, or readied for publication, generate candidate headlines and recommend one. The headline is the first thing a reader meets, and most readers never get past it.
 
+For Bogbook headlines, also apply the Bogbook-specific headline guidance in `Agents/GAWKER-WRITER.md`: name the target, prefer hard verbs, use curiosity only when the story pays it off, and make the mechanism visible. Bogbook headlines may be more tabloid, camp, or prosecutorial than evbogue.com headlines, but they still must be true.
+
 ### Principles
 
 1. **Write 10, pick 1.** No exceptions. The first headline is almost never the best one.
@@ -200,7 +212,7 @@ Before returning a draft, check:
 - Did you remove all em dashes? (they are a telltale AI signal — use a period, a comma, or rewrite the sentence)
 - Does the ending hit harder than the beginning?
 - Has the headline had a real pass against the rules in the Headlines section above?
-- Is the file still in `drafts/` unless Everett explicitly asked to publish?
+- Is the file still in the correct site's `drafts/` directory unless Everett explicitly asked to publish?
 
 ## Report format
 

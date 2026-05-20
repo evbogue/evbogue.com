@@ -81,6 +81,22 @@ git config --local user.email "ev@evbogue.com"
 
 Specialized role files now live in `Agents/`. Use them when the task is narrower than "work on the whole repo."
 
+### Which site does each agent serve?
+
+| Role | evbogue.com | bogbook.com |
+|---|---:|---:|
+| Writer | Yes | No — use Gawker Writer |
+| Gawker Writer | No | Yes |
+| Editor | Yes | Yes, after reading `Agents/GAWKER-WRITER.md` |
+| Restorationist | Yes | No |
+| Designer | Yes | Yes |
+| Coder | Yes | Yes |
+| DevOps | Yes | Yes |
+| Social media manager | Yes | Yes |
+| Account manager | Yes | Yes |
+| Product manager | Yes | Yes |
+| Analyst | Yes | Yes |
+
 | Role | File | Use for |
 |---|---|---|
 | Writer | `Agents/WRITER.md` | Turning rough notes into publishable drafts (evbogue.com) |

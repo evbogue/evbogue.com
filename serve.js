@@ -164,6 +164,7 @@ function sitePage(site, { title = site.title, description = site.description, bo
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="description" content="${escapeHtml(description)}">
+    ${site.noindex ? '<meta name="robots" content="noindex, nofollow">' : ''}
     <link rel="icon" href="/${escapeHtml(site.favicon || "assets/ev.png")}">
     <link rel="alternate" type="application/rss+xml" title="${escapeHtml(site.title)}" href="/feed.xml">
     <link rel="stylesheet" href="/${escapeHtml(site.cssFile)}?v=20260514c">
