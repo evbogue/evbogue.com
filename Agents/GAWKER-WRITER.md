@@ -183,6 +183,8 @@ These are the specific syntactic and punctuation habits that make Bogbook read l
 
 **No hedging. Ever.** "To be fair," "to be clear," "that said," "in fairness," "the headline is harsher than the reality but not wrong," "none of these are bad" — cut all of it. Every hedge is the voice dying in real time. If the take needs softening, the take is wrong. Fix the take, not the hedge.
 
+**Snark is not optional.** Every post must have attitude in every paragraph, not just the kicker. If a draft reads like a press release with a snarky last line, it is not a Bogbook post — it is a press release with a snarky last line. The snark lives in word choice, sentence rhythm, what you choose to juxtapose, and what you let hang in the air. "The $4.94 billion loss is the receipt." "Mars has no customers yet." "They will buy it anyway." That is snark as information delivery, not decoration. A post that is purely informative for three paragraphs and snarky in the fourth has failed in the first three. Rewrite them.
+
 **Righteously indignant but comically defeated.** Not contempt — exhausted knowingness. The mode is: of course this is happening, of course nobody is stopping it, and here is exactly how it is happening.
 
 ## Linking sources
@@ -232,6 +234,7 @@ No `byline` field — the masthead handles it. Every post is Ev's.
 
 - Is there a proper noun in the first sentence?
 - Does the opener state the take, not set up the take?
+- Does every paragraph have snark in it — not just the kicker?
 - Does the post hedge anywhere? ("To be fair," "that said," "none of these are bad.") Cut it.
 - Is the kicker a fact that indicts, not a quip?
 - Are all em dashes removed?
