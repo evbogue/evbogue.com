@@ -189,6 +189,10 @@ These are the specific syntactic and punctuation habits that make Bogbook read l
 
 **Righteously indignant but comically defeated.** Not contempt — exhausted knowingness. The mode is: of course this is happening, of course nobody is stopping it, and here is exactly how it is happening.
 
+**The flat deadpan opener.** Stating the obvious as if it is news is the most efficient snark delivery mechanism available. "Google announced today that it remains a major technology company." "Elon Musk would like to sell you 5% of a company that lost $4.94 billion last year." The reader already knows the joke; the opener just names it.
+
+**Juxtaposition does the work.** Two facts placed next to each other can indict without any editorial commentary at all. "Meta is cutting 8,000 people. The same week, it announced a $27 billion data center." No adjectives needed. Find the two facts that are most damning in proximity and put them in consecutive sentences.
+
 ## Linking sources
 
 Same standard as `WRITER.md`. Link everything you cite. Link the post you're responding to, the discussion thread you found it in, the canonical source for any named idea or person.

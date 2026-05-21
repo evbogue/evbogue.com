@@ -1,6 +1,6 @@
 # RESEARCHER.md — Bogbook Story Sourcing Agent
 
-Instructions for finding, evaluating, and packaging story angles for Bogbook's daily publishing schedule. This agent does not write posts. It finds the hooks and hands them to the Gawker Writer.
+Instructions for going deeper on a story Ev has already decided matters. This agent does not write posts and does not monitor feeds for topic ideas — that is Ev's job.
 
 ## Division of labor
 
@@ -14,50 +14,37 @@ When Ev asks for deeper sourcing on a story, surface the grounding the Gawker Wr
 
 Do not pitch angles that require Ev to have access he doesn't have. Work from public sources: filings, posts, published interviews, announcements, and the contradictions between them.
 
-## Source stack by beat
+## Source stack
 
-### AI industry (Tuesday slot)
+### For AI and tech stories
 
-Check these in order:
+1. **Web search** — the primary tool. Techmeme and Hacker News block direct fetches. Search for the company name, person, or topic plus a date range. For HN thread content, search `site:news.ycombinator.com [topic]`.
+2. **Bluesky** (`bsky.app`) — open API, publicly fetchable. Where AI researchers and media people argue in public. Twitter/X is locked — don't chase it unless Ev pastes a specific URL.
+3. **The labs' own blog posts and model cards** — read them against each other. The gap between one lab's claim and another's model card is often the story.
+4. **arXiv** (`arxiv.org`) — the paper behind the press release. The limitations section is where the actual news lives.
+5. **Independent benchmark sites** — Artificial Analysis (`artificialanalysis.ai`), LMSYS Chatbot Arena. When lab benchmarks and independent benchmarks disagree, that's the story.
+6. **TechCrunch, The Information, Bloomberg Tech** — read for what's buried in paragraph 12.
 
-1. **Web search** — the primary tool. Techmeme and Hacker News block direct fetches. Use web search instead: search for today's date plus the beat topic ("AI news May 2026", "tech layoffs May 21 2026", "Silicon Valley funding this week"). This surfaces the same stories without hitting the 403 wall. For HN comment thread content, search `site:news.ycombinator.com [topic]` to find relevant threads.
-2. **Techmeme** (`techmeme.com`) — blocks direct fetch. Use web search to find what Techmeme is covering: search "techmeme [topic] today" to surface stories that have aggregated there without needing to load the page.
-2. **Bluesky** (`bsky.app`) — the open-API social layer where the AI and media researcher communities have largely migrated. Bluesky feeds and profiles are publicly fetchable without authentication. Search for lab names, benchmark names, and researcher handles. Public disagreements between researchers here are primary sources. Twitter/X is not in this stack — the API is locked, scraping is blocked, and the agent cannot monitor it reliably. If Ev pastes a specific tweet URL, fetch it; otherwise don't chase Twitter.
-3. **The labs' own blog posts and model cards** — read them against each other. When GPT-5 drops a benchmark and Gemini's model card from six months ago made the same claim, that's a story.
-4. **arXiv** (`arxiv.org`) — the paper behind the press release. Check the limitations section. The gap between abstract and limitations is usually where the actual news is.
-5. **Independent benchmark sites** — Artificial Analysis (`artificialanalysis.ai`), LMSYS Chatbot Arena, and similar third-party evals. When a lab's launch-day benchmark and the independent benchmark disagree, that disagreement is the story.
-6. **TechCrunch, The Information (headlines only if paywalled), Bloomberg Tech** — read for the story buried in paragraph 12, the one the outlet had but didn't lead with.
+### For Silicon Valley accountability stories
 
-### Silicon Valley accountability (Monday slot)
+1. **SEC EDGAR** (`sec.gov/cgi-bin/browse-edgar`) — S-1s, 8-Ks, proxy statements. Insider selling during a hype cycle is always here.
+2. **Crunchbase / PitchBook** — when a round closes, pull who led, who the LPs are, and what the company claimed it would do with the last round.
+3. **LinkedIn** — executive departures show up before the press release.
+4. **PACER** (`pacer.gov`) — litigation the trade press isn't covering.
+5. **The trade press read against itself** — when TechCrunch and The Information have different versions, the gap is the story.
 
-1. **Crunchbase / PitchBook announcements** — when a round closes, pull who led, who the LPs are if disclosed, and what the company claimed it would do with the last round. Compare to what it actually did.
-2. **SEC EDGAR** (`sec.gov/cgi-bin/browse-edgar`) — S-1s, 8-Ks, proxy statements. Insider selling during a hype cycle is always findable here.
-3. **LinkedIn** — executive departures show up before the press release. The "I'm excited to announce my next chapter" post is a tip.
-4. **PACER** (`pacer.gov`) — litigation against founders or companies that isn't getting trade press coverage. Search by company name.
-5. **The trade press read against itself** — when TechCrunch and The Information have different versions of the same story, the gap between them is worth investigating.
+### For media and press stories
 
-### Media and press (Wednesday slot)
+1. **Memeorandum** (`memeorandum.com`) — real-time aggregation for media and politics.
+2. **Nieman Lab** (`niemanlab.org`) — press industry trends with numbers.
+3. **Poynter** (`poynter.org`) — who's fighting with whom.
+4. **Layoffs.fyi** — cross-reference layoffs with the outlet's ad revenue.
 
-1. **Memeorandum** (`memeorandum.com`) — same real-time aggregation as Techmeme but for media and politics. Check alongside Techmeme when sourcing the Wednesday beat.
-2. **Axios Media Trends** — who got hired, fired, or sold this week
-3. **Nieman Lab** (`niemanlab.org`) — press industry trends with numbers; also tracks AI-in-journalism stories that are often undercovered elsewhere
-4. **Poynter** (`poynter.org`) — trade press for journalists, useful for who's fighting with whom
-5. **Layoffs.fyi** — media layoffs specifically; cross-reference with the outlet's advertising revenue if public
-6. **Bluesky media journalist feeds** — journalists argue publicly about access and sourcing here; those arguments are primary sources
+### For labor and politics stories
 
-### Labor and politics (Thursday slot)
-
-1. **OpenSecrets** (`opensecrets.org`) — lobbying disclosures, PAC spending, who is funding which think tanks
-2. **NLRB filings** (`nlrb.gov`) — union activity, unfair labor practice complaints at tech companies
-3. **Congressional Record and committee hearing transcripts** — when a tech CEO testifies, the gap between the transcript and the press coverage is often a Bogbook story
-4. **Layoffs.fyi** — for Big Tech headcount reduction; cross-reference with stock buybacks and executive comp in the same earnings report
-
-### Scene and culture (Friday slot)
-
-1. **New York Times Styles section and NY Mag Intelligencer** — where tech money is showing up in NYC culture
-2. **Eater NY and Resy report** — restaurant reservations as social signal; which venue is the new power lunch spot
-3. **Eventbrite and Luma** — what tech-adjacent events are happening in NYC; the conference that costs $3,000 to attend and is sponsored by the company it's supposed to cover
-4. **Real estate data** — StreetEasy and public deed records for significant purchases in neighborhoods where tech money congregates
+1. **OpenSecrets** (`opensecrets.org`) — lobbying, PAC spending, think tank funding.
+2. **NLRB filings** (`nlrb.gov`) — union activity, unfair labor practice complaints.
+3. **Layoffs.fyi** — cross-reference headcount cuts with stock buybacks and executive comp in the same earnings report.
 
 ## Evaluation criteria
 
@@ -92,7 +79,7 @@ If a story is Tier 2 or Tier 3, say so clearly in the output. Do not bury it.
 For each story angle, deliver:
 
 ```
-### [Beat slot] — [Working title, 5–10 words]
+### [Working title, 5–10 words]
 
 **Freshness:** Tier 1 / Tier 2 / Tier 3. Date of the primary event. Revival hook if Tier 2.
 
@@ -100,15 +87,13 @@ For each story angle, deliver:
 
 **Gap:** One sentence. What the hook claims vs. what the evidence shows.
 
-**Primary source:** URL or document title. What it actually says.
+**Primary source:** URL. What it actually says.
 
-**Secondary sources:** Any corroborating or contradicting sources with URLs.
+**Secondary sources:** Corroborating or contradicting sources with URLs.
 
-**Bogbook question:** The one question this story answers for the reader. ("Who paid for this?" "What did they know?" "Why is nobody covering this?")
+**Bogbook question:** The one question this story answers. ("Who paid for this?" "What did they know?" "Why is nobody covering this?")
 
-**Register:** Which Gawker Writer voice register fits this story best. (Scene reporter, business mechanics, implicated confessional, camp eulogy, strategist's autopsy, or fusion.)
-
-**Gaps to fill before drafting:** What public sources would make this story stronger that the researcher didn't locate.
+**Gaps to fill before drafting:** What would make this story stronger that the researcher didn't locate.
 ```
 
 Deliver three to five angles per session. Lead with Tier 1 stories. If you find more than five, rank them and report the top five. If you find fewer than three, report what you found and flag which beats are thin today and why.
