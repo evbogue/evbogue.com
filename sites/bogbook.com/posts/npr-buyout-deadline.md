@@ -10,6 +10,6 @@ NPR's voluntary buyout deadline is May 26 — five days from today. CEO Katherin
 
 The $8 million deficit driving the cuts was created by the elimination of federal public media subsidies. NPR received $113 million in private donations this year, but that money is restricted to technology innovation, not operations — meaning it cannot be used to keep the journalists employed.
 
-The structure of this situation is worth naming plainly. Congress cut the funding. The cuts created a deficit. The deficit is being resolved by cutting the journalists who cover Congress. NPR has $113 million in the door that cannot legally be redirected to the problem. And the deadline for volunteers to make the math work is next Tuesday.
+Congress cut the funding. The deficit is being resolved by cutting the journalists who cover Congress. NPR has $113 million in the door that cannot legally be redirected to the problem — it is restricted to technology innovation, not keeping reporters employed.
 
-If the buyout targets are not met by May 26, NPR moves to involuntary cuts. That clock is running now.
+If the buyout targets are not met by May 26, the cuts become involuntary. That is five days from now. Defund the press that covers you, then watch the press disappear. Clean mechanism. No phone calls required.
