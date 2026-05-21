@@ -55,6 +55,7 @@ The mission is to bring Gawker's useful function back from the dead and point it
 
 ## Operating rules
 
+- The publication is always called **Bogbook** — one g, one word, capital B. Never "Boggbook," never "Bog Book," never "bog book." This applies in copy, commit messages, file names, and agent prompts.
 - Every Bogbook post publishes under Ev Bogue's byline. AI can draft and organize, but Ev owns the claims.
 - Bogbook must disclose its AI-generated workflow honestly. Do not pretend there is a newsroom of hidden humans.
 - Punch up at power and pretension. Punch sideways at industry excuses. Do not punch down.
