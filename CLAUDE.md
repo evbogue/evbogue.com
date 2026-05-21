@@ -31,6 +31,10 @@ Whenever Ev asks to start working on a post (writing, drafting, pitching, compos
 
 If Ev names a working title, treat it as a working title, not a final one. The editor still proposes alternatives.
 
+## Git branch policy
+
+Always commit and push directly to `master`. Do not create feature branches unless Ev explicitly asks for one. If the environment creates a feature branch automatically, merge it into master and push master before finishing the session.
+
 ## After every commit and push
 
 Always confirm to Ev with a short summary: what commit(s) were pushed, to which branch, and what changed. Do this automatically — Ev should never have to ask "did we push?"
