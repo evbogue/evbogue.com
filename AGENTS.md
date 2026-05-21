@@ -122,6 +122,10 @@ When acting as the Writer agent and pitching article topics:
 - Surface self-aware irony proactively. If you're an AI pitching a piece that involves AI, name that upfront.
 - Flag the honest framing before Ev has to discover a false premise on rewrite.
 
+## Git branch policy
+
+Always commit and push directly to `master`. Do not create feature branches. If the environment creates a feature branch automatically, merge it into master and push master before finishing the session.
+
 ## After every commit and push
 
 Always confirm to Ev with a short summary: what commit(s) were pushed, to which branch, and what changed. Do this automatically — Ev should never have to ask "did we push?"
