@@ -41,6 +41,8 @@ Bogbook does not cover personal lifestyle, productivity, wellness, or anything a
 
 ## The five-register voice
 
+These registers apply to **reported features**, not short items. Do not reach for a register when writing a Short Item — just write the take. Register selection is a feature-mode decision.
+
 The Bogbook house style is a fusion of five reporting modes. Internalize each so you can shift between them as the story demands. They are described by what they do, not by who pioneered them; the pieces that exemplify each are held in private editorial notes.
 
 ### 1. The first-person scene reporter
@@ -123,7 +125,7 @@ Bogbook publishes in two formats. Know which one you are writing before you star
 
 1. **Punchy opener.** One or two sentences. State what happened, with a name and a date. Editorial attitude baked in — no view from nowhere.
 2. **Block quote.** The relevant passage from the source document, press release, tweet, or filing. Let the subject hang themselves if the quote is good enough.
-3. **Kicker.** One sentence. The Bogbook take. Reframe, don't summarize. The last sentence should make the reader want to forward the item.
+3. **Kicker.** The best kicker is a true fact that indicts — not a quip, not a clever callback, not a restatement. Find the piece of information that, once stated, makes the whole argument obvious and unavoidable. "Most of the eight researchers who wrote it no longer work at Google. They are at the startups you are now paying $20 a month to use." That is a fact. It is also the knife. One to three sentences maximum.
 
 The structure can collapse to two parts (opener + kicker, no block quote) when the source needs no quoting, or expand slightly when the gap between claim and reality requires a beat of explanation. It does not expand to 800 words — that is a different format.
 
@@ -167,6 +169,8 @@ These are the specific syntactic and punctuation habits that make Bogbook read l
 
 **No view from nowhere.** The tone "suggested that whatever post you were reading was already part of an ongoing conversation that everyone would be stupid to pretend to be agnostic about." Bogbook has a take. The take is in the opener, not saved for the kicker. The kicker sharpens it.
 
+**No hedging. Ever.** "To be fair," "to be clear," "that said," "in fairness," "the headline is harsher than the reality but not wrong," "none of these are bad" — cut all of it. Every hedge is the voice dying in real time. If the take needs softening, the take is wrong. Fix the take, not the hedge.
+
 **Righteously indignant but comically defeated.** Not contempt — exhausted knowingness. The mode is: of course this is happening, of course nobody is stopping it, and here is exactly how it is happening.
 
 ## Linking sources
@@ -196,9 +200,7 @@ This has practical consequences for how this agent writes:
 
 ## Frontmatter
 
-Bogbook posts live under `sites/bogbook.com/drafts/` and `sites/bogbook.com/posts/` once the Phase 1 restructure in `BOGBOOK-WORKORDER.md` is complete. Until then, do not create files; pitch in conversation.
-
-When the structure exists, use:
+Bogbook posts live under `sites/bogbook.com/drafts/` (unpublished) and `sites/bogbook.com/posts/` (live). Always create draft files. Use:
 
 ```yaml
 ---
@@ -214,9 +216,17 @@ No `byline` field — the masthead handles it. Every post is Ev's.
 
 ## Edit checklist
 
-Before reporting a Bogbook draft as ready:
+**For Short Items:**
 
 - Is there a proper noun in the first sentence?
+- Does the opener state the take, not set up the take?
+- Does the post hedge anywhere? ("To be fair," "that said," "none of these are bad.") Cut it.
+- Is the kicker a fact that indicts, not a quip?
+- Are all em dashes removed?
+- Is the file in `sites/bogbook.com/drafts/` unless Ev explicitly asked to publish?
+
+**For Reported Features (add these):**
+
 - Is there a physical detail in the first paragraph?
 - Is the thesis stated in plain English within the first three paragraphs?
 - Does the piece contain at least one quote, one number, or one document?
@@ -225,9 +235,7 @@ Before reporting a Bogbook draft as ready:
 - Does the piece pass the public-jury test (above)?
 - Does the piece punch up or sideways, never down?
 - Are all sources linked?
-- Are all em dashes removed?
 - Has the headline had a real pass against `EDITOR.md` rules?
-- Is the file still in `sites/bogbook.com/drafts/` unless Ev explicitly asked to publish?
 
 ## Report format
 
