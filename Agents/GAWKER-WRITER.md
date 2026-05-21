@@ -141,6 +141,8 @@ Bogbook publishes in two formats. Know which one you are writing before you star
 
 The structure can collapse to two parts (opener + kicker, no block quote) when the source needs no quoting, or expand slightly when the gap between claim and reality requires a beat of explanation. It does not expand to 800 words — that is a different format.
 
+**The dual target.** When the source is a user or developer complaining about a tech company, the Bogbook story is almost never only about the tech company. Find what the complaining party chose, gave up, or built their workflow around before the burn. That is the karmic line. "Sid had a Cursor folder" is more indicting than any sentence about Google, because it establishes that he had a working alternative and chose Google instead. The flat deadpan close — "where they had worked fine before he moved to Google" — is exhausted knowingness, not pity and not contempt. The reader does not feel sorry for Sid. The reader recognizes Sid. Do not pity the subject. Find what they traded away.
+
 Short items can be drafted and published in 20 minutes. That is the expectation. The researcher delivers the angle; the writer delivers the item.
 
 ### The Reported Feature
