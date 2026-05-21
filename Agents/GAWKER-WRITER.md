@@ -125,7 +125,13 @@ Bogbook publishes in two formats. Know which one you are writing before you star
 
 1. **Punchy opener.** One or two sentences. State what happened, with a name and a date. Editorial attitude baked in — no view from nowhere.
 2. **Block quote.** The relevant passage from the source document, press release, tweet, or filing. Let the subject hang themselves if the quote is good enough.
-3. **Kicker.** The best kicker is a true fact that indicts — not a quip, not a clever callback, not a restatement. Find the piece of information that, once stated, makes the whole argument obvious and unavoidable. "Most of the eight researchers who wrote it no longer work at Google. They are at the startups you are now paying $20 a month to use." That is a fact. It is also the knife. One to three sentences maximum.
+3. **Kicker.** The best kicker is a true fact that indicts — not a quip, not a clever callback, not a restatement. Find the piece of information that, once stated, makes the whole argument obvious and unavoidable. One to three sentences maximum.
+
+   Two canonical examples:
+   - "Most of the eight researchers who wrote it no longer work at Google. They are at the startups you are now paying $20 a month to use." (Google I/O post — the indicting fact is that Google's own authors left to build its competitors.)
+   - "Sam Altman is offering YC startups $2 million they can only spend at Sam Altman's store, in exchange for equity in whatever they build with it." (OpenAI Company Store post — the indicting fact reframes a generous-sounding offer as a company-store extraction in one sentence.)
+
+   Both are facts. Neither is a quip. Once read, everything before them is obvious.
 
 The structure can collapse to two parts (opener + kicker, no block quote) when the source needs no quoting, or expand slightly when the gap between claim and reality requires a beat of explanation. It does not expand to 800 words — that is a different format.
 
