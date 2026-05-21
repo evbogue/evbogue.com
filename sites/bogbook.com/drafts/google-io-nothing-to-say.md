@@ -19,4 +19,4 @@ Among the things Google said:
 
 In 2017, eight Google researchers published a paper called "Attention Is All You Need." It described the transformer architecture. Every large language model running on Earth in 2026 descends from that paper: OpenAI's, Anthropic's, Meta's, the one your company's IT department is frantically evaluating. OpenAI built ChatGPT on it. Anthropic built Claude on it. Meta built Llama on it. Google built five reorgs and a brand refresh on it, and is now competing on price.
 
-The paper was titled "Attention Is All You Need." Anyway, Gemini 3.5 Flash is $1.50 per million input tokens.
+The paper was titled "Attention Is All You Need." Most of the eight researchers who wrote it no longer work at Google. They are at the startups you are now paying $20 a month to use.
