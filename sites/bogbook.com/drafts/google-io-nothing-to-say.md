@@ -6,10 +6,17 @@ tags: [google, ai, silicon-valley]
 excerpt: "Google's I/O sessions went on-demand today. Apple Insider's take on the keynote: 'had nothing to say and said it badly.' The Gemini 3.5 Flash pricing tells you everything."
 ---
 
-Google I/O wrapped Monday and Tuesday. Apple Insider's verdict: "Google I/O 2026 had nothing to say and said it badly." All 85 sessions went on-demand today so you can watch Google not say it at your own pace.
+Google announced today that it remains a major technology company.
 
-To be fair: Gemini 3.5 Flash is four times faster and priced at $1.50 per million input tokens. Voice editing in Docs! A personal AI agent that integrates with Workspace, which you already pay for and barely use! These are real things that exist.
+I/O 2026 wrapped Monday and Tuesday. All 85 sessions went on-demand this morning, so you can watch Google not say anything at your own preferred pace. Apple Insider, offering what may be the kindest summary of the week, called it: "had nothing to say and said it badly."
 
-Google invented the transformer architecture. Every large language model running today — OpenAI's, Anthropic's, Meta's, the one your company's IT department is frantically evaluating — descends from a 2017 Google research paper. Google then spent three years watching other people commercialize it while internally reorganizing, rebranding, and staging keynote demos of products that weren't ready.
+Among the things Google said:
 
-Gemini 3.5 Flash is competitively priced because it has to be. That is not a comeback. That is a company that once owned the future announcing it will match the market rate for it.
+- Gemini 3.5 Flash is faster now ($1.50 per million input tokens, market rate)
+- Docs has voice editing (you can speak to the thing you already type at)
+- There is a personal AI agent in Workspace (which you pay for and never open)
+- Antigravity got an upgrade (you have not heard of Antigravity)
+
+In 2017, eight Google researchers published a paper called "Attention Is All You Need." It described the transformer architecture. Every large language model running on Earth in 2026 descends from that paper: OpenAI's, Anthropic's, Meta's, the one your company's IT department is frantically evaluating. OpenAI built ChatGPT on it. Anthropic built Claude on it. Meta built Llama on it. Google built five reorgs and a brand refresh on it, and is now competing on price.
+
+The paper was titled "Attention Is All You Need." Anyway, Gemini 3.5 Flash is $1.50 per million input tokens.
