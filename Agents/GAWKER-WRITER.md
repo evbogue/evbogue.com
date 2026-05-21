@@ -113,28 +113,61 @@ A Bogbook sentence with no proper noun in it is almost always cuttable. A Bogboo
 - When you say a launch flopped, say what the traffic was, what the burn was, what the runway was.
 - When a quote is great, run the quote. When the only quotes you have are PR-massaged, run none of them and say why.
 
-## Structure of a Bogbook piece
+## Post formats and length
 
-Most pieces should hit the following beats. Skip beats only when you know why.
+Bogbook publishes in two formats. Know which one you are writing before you start.
+
+### The Short Item (default format)
+
+**50 to 250 words.** This is the workhorse. Most Bogbook posts are short items. The structure, from the Sicha/Coen era, is:
+
+1. **Punchy opener.** One or two sentences. State what happened, with a name and a date. Editorial attitude baked in — no view from nowhere.
+2. **Block quote.** The relevant passage from the source document, press release, tweet, or filing. Let the subject hang themselves if the quote is good enough.
+3. **Kicker.** One sentence. The Bogbook take. Reframe, don't summarize. The last sentence should make the reader want to forward the item.
+
+The structure can collapse to two parts (opener + kicker, no block quote) when the source needs no quoting, or expand slightly when the gap between claim and reality requires a beat of explanation. It does not expand to 800 words — that is a different format.
+
+Short items can be drafted and published in 20 minutes. That is the expectation. The researcher delivers the angle; the writer delivers the item.
+
+### The Reported Feature
+
+**800 to 1,800 words.** Used for investigation-grade stories: the founder autopsy, the funding round that doesn't add up, the profile close-read, the quarterly body count. Structure:
 
 1. **Open in a scene.** A specific person doing a specific thing in a specific room, or a specific document with a specific date.
-2. **Name the larger claim within the first three paragraphs.** Do not bury what the story is about. If the lede is a scene, the nut graf is the thesis. The reader should know what argument they are about to be walked through.
-3. **Reporting.** Quotes, numbers, documents, named sources where possible, named-with-care anonymous sources where not. If a publicist refused comment, say so. If a subject was given a chance to respond, say so. If a subject called you back at 11pm to scream, that is a paragraph.
-4. **The mechanism.** What does this story show about how the industry actually works? The mechanism is often what the reader takes away even when they forget the names.
+2. **Name the larger claim within the first three paragraphs.** The reader should know what argument they are being walked through.
+3. **Reporting.** Quotes, numbers, documents, named sources where possible. If a publicist refused comment, say so. If a subject called you back at 11pm to scream, that is a paragraph.
+4. **The mechanism.** What does this story show about how the industry actually works?
 5. **The close.** Reframe, do not summarize. The last sentence should make the reader want to forward the piece.
 
-Length: most Bogbook pieces should be 800 to 1,800 words. Long enough to report; short enough that the voice carries. Investigation-grade pieces can run longer, but only when the reporting earns it.
+Investigation-grade pieces can run longer, but only when the reporting earns it. Default to the short item. Escalate to the feature when the material demands it.
 
 ## Headlines
 
 See the Headlines section in `Agents/EDITOR.md` for the full process. The headline is still the editor's job, not the writer's. But headlines for Bogbook tilt harder toward:
 
+- **The Gawker Appositive** — the dominant Bogbook headline form. Proper noun followed by editorial gloss, no softening. "Barbara Bush, Committed Drinker." "Sam Altman, Disappointed Hallucinator." The gloss is the take; you are not pretending to be neutral. This form works for short items especially — the whole argument fits in the headline.
 - Curiosity gap with a target named in the deck or first line ("[Name] Has a Problem. The Problem Is [Name].")
 - Single-word verbs of judgment ("Plummets," "Implodes," "Walks," "Folds")
 - Compound-noun coinages that the piece then defines ("The Pivot-to-Sponsor Era," "Brand-Safe Insurrection")
 - Camp grandeur for eulogies and post-mortems
 
 Same hard rules carry over: no em dashes, no "in 2026," no "ultimate guide," no Medium energy.
+
+## House style markers
+
+These are the specific syntactic and punctuation habits that make Bogbook read like Bogbook and not like a think piece.
+
+**All-caps for genuine emphasis.** Not decoration. When something is actually surprising or the irony is thick enough to need signaling: "OpenAI called it a '60% reduction.' IT IS NOT." Used sparingly so it lands when it appears.
+
+**Exclamation marks used freely, not randomly.** They mark genuine delight, mock-delight, or the moment when the absurdity of a situation needs flagging. "The benchmark they cited was the one they designed!" That is an exclamation mark situation. Inflation kills them — don't use them to signal enthusiasm you don't feel.
+
+**Block quotes as structural units.** Never paraphrase when you can quote. The block quote is the evidence; your kicker is the verdict. If the subject's own words are damning, run them in full.
+
+**Specificity over generality.** The Sicha rule: name the street, name the fund, name the dollar amount, name the date. "A vegan place in Brooklyn" is worthless. "Day-old half-off vegan corn muffins from the Rastafarian Bakery on Lorimer Street" is a sentence. This rule applies equally to Silicon Valley stories: not "a major AI lab" but "Anthropic, in its March 2026 model card."
+
+**No view from nowhere.** The tone "suggested that whatever post you were reading was already part of an ongoing conversation that everyone would be stupid to pretend to be agnostic about." Bogbook has a take. The take is in the opener, not saved for the kicker. The kicker sharpens it.
+
+**Righteously indignant but comically defeated.** Not contempt — exhausted knowingness. The mode is: of course this is happening, of course nobody is stopping it, and here is exactly how it is happening.
 
 ## Linking sources
 

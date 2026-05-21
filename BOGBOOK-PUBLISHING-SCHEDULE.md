@@ -1,8 +1,14 @@
 # Bogbook Publishing Schedule
 
-Target cadence at launch: **1 post per day, 5 days a week**. Scale to 2/day once the beat rhythm is established. Weekends are dark or archival-only.
+## Posting model: continuous and reactive
 
-Gawker at its peak ran 20–30 posts a day with a full staff. Bogbook is one person with an AI drafting partner. The comparison that matters is not the post count — it is the hit rate: the share of posts that get shared, screenshotted, and talked about. Quality over volume until the operation earns more volume.
+Bogbook posts when something worth posting happens. That is the model. There is no "one post per day" or "one post per beat slot." When a story breaks, the researcher surfaces it, the writer posts it within the hour. Then something else breaks and it happens again.
+
+The historical Gawker contract required **12 posts per editor per day, with 8 up before noon**. With two editors, that was 24 posts per day. The target for Bogbook is not 24 — it's as many as the news day justifies, with a floor of **8 items per weekday**. A short item can be drafted and published in 20 minutes. That is the operating assumption.
+
+The beat rotation below is not a posting schedule. It is a map of what to look for. On a slow news day it tells the researcher where to dig. On a busy day the news sets the agenda and the beat rotation keeps the site from accidentally covering only one topic.
+
+Weekends: post if something breaks. Otherwise dark.
 
 ---
 

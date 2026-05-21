@@ -14,8 +14,9 @@ Do not pitch angles that require Ev to have access he doesn't have (he is not at
 
 Check these in order:
 
-1. **Hacker News front page** (`news.ycombinator.com`) — open the front page AND search `site:news.ycombinator.com` for the topic. Read the comment threads, not just the linked article. Engineers push back in the comments with specific technical objections. That pushback is frequently the actual story. A 400-comment HN thread disagreeing with the press release is primary source material.
-2. **AI Twitter/X** — follow the labs' own researchers (@ylecun, @karpathy, @sama, @demishassabis), the skeptics (@emilybender, @timnit), and the people who actually test the products. Look for quote-tweets, corrections, and disagreements. Public arguments between researchers are primary sources.
+1. **Techmeme** (`techmeme.com`) — the real-time aggregator for tech news. Check this first. If something is breaking in Silicon Valley or AI, it appears on Techmeme within the hour. Shows the conversation clustering: who is responding, which outlets are covering it, what angle each is taking. The gap between how two outlets frame the same story is often the Bogbook angle.
+2. **Hacker News front page and /new queue** (`news.ycombinator.com` and `news.ycombinator.com/newest`) — check both. The front page is what's already gaining traction; the /new queue is what's breaking in the next two hours. Open the front page AND search `site:news.ycombinator.com` for the topic. Read the comment threads, not just the linked article. Engineers push back in the comments with specific technical objections. That pushback is frequently the actual story. A 400-comment HN thread disagreeing with the press release is primary source material.
+2. **Bluesky** (`bsky.app`) — the open-API social layer where the AI and media researcher communities have largely migrated. Bluesky feeds and profiles are publicly fetchable without authentication. Search for lab names, benchmark names, and researcher handles. Public disagreements between researchers here are primary sources. Twitter/X is not in this stack — the API is locked, scraping is blocked, and the agent cannot monitor it reliably. If Ev pastes a specific tweet URL, fetch it; otherwise don't chase Twitter.
 3. **The labs' own blog posts and model cards** — read them against each other. When GPT-5 drops a benchmark and Gemini's model card from six months ago made the same claim, that's a story.
 4. **arXiv** (`arxiv.org`) — the paper behind the press release. Check the limitations section. The gap between abstract and limitations is usually where the actual news is.
 5. **Independent benchmark sites** — Artificial Analysis (`artificialanalysis.ai`), LMSYS Chatbot Arena, and similar third-party evals. When a lab's launch-day benchmark and the independent benchmark disagree, that disagreement is the story.
@@ -31,11 +32,12 @@ Check these in order:
 
 ### Media and press (Wednesday slot)
 
-1. **Axios Media Trends** — who got hired, fired, or sold this week
-2. **Nieman Lab** (`niemanlab.org`) — academic-ish coverage of press industry trends, often with numbers
-3. **Poynter** (`poynter.org`) — trade press for journalists, useful for who's fighting with whom
-4. **Layoffs.fyi** — media layoffs specifically; cross-reference with the outlet's advertising revenue if public
-5. **Twitter/X media discourse** — journalists arguing publicly about access and sourcing are producing primary sources in real time
+1. **Memeorandum** (`memeorandum.com`) — same real-time aggregation as Techmeme but for media and politics. Check alongside Techmeme when sourcing the Wednesday beat.
+2. **Axios Media Trends** — who got hired, fired, or sold this week
+3. **Nieman Lab** (`niemanlab.org`) — press industry trends with numbers; also tracks AI-in-journalism stories that are often undercovered elsewhere
+4. **Poynter** (`poynter.org`) — trade press for journalists, useful for who's fighting with whom
+5. **Layoffs.fyi** — media layoffs specifically; cross-reference with the outlet's advertising revenue if public
+6. **Bluesky media journalist feeds** — journalists argue publicly about access and sourcing here; those arguments are primary sources
 
 ### Labor and politics (Thursday slot)
 
