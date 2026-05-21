@@ -14,11 +14,12 @@ Do not pitch angles that require Ev to have access he doesn't have (he is not at
 
 Check these in order:
 
-1. **Hacker News front page** (`news.ycombinator.com`) — the comment threads matter as much as the links. A paper or announcement lands in the comments with engineers pushing back on the claims. That pushback is often the story.
+1. **Hacker News front page** (`news.ycombinator.com`) — open the front page AND search `site:news.ycombinator.com` for the topic. Read the comment threads, not just the linked article. Engineers push back in the comments with specific technical objections. That pushback is frequently the actual story. A 400-comment HN thread disagreeing with the press release is primary source material.
 2. **AI Twitter/X** — follow the labs' own researchers (@ylecun, @karpathy, @sama, @demishassabis), the skeptics (@emilybender, @timnit), and the people who actually test the products. Look for quote-tweets, corrections, and disagreements. Public arguments between researchers are primary sources.
 3. **The labs' own blog posts and model cards** — read them against each other. When GPT-5 drops a benchmark and Gemini's model card from six months ago made the same claim, that's a story.
 4. **arXiv** (`arxiv.org`) — the paper behind the press release. Check the limitations section. The gap between abstract and limitations is usually where the actual news is.
-5. **TechCrunch, The Information (headlines only if paywalled), Bloomberg Tech** — read for the story buried in paragraph 12, the one the outlet had but didn't lead with.
+5. **Independent benchmark sites** — Artificial Analysis (`artificialanalysis.ai`), LMSYS Chatbot Arena, and similar third-party evals. When a lab's launch-day benchmark and the independent benchmark disagree, that disagreement is the story.
+6. **TechCrunch, The Information (headlines only if paywalled), Bloomberg Tech** — read for the story buried in paragraph 12, the one the outlet had but didn't lead with.
 
 ### Silicon Valley accountability (Monday slot)
 
@@ -66,6 +67,18 @@ The story must involve someone who chose public life and is using it to extract 
 **4. Can this be reported from public sources today?**
 Ev does not have sources at OpenAI. He does not attend Sand Hill Road dinners. If the story requires access Ev does not have, note what public sources exist and what would be needed to fill the gap. A partial story from public sources is better than a speculative one.
 
+## Story freshness tiers
+
+Every angle must be labeled with one of three freshness tiers before it is pitched. Do not skip this.
+
+**Tier 1 — This week.** The event happened in the last seven days. Draft-ready. Lead with these.
+
+**Tier 2 — Needs revival hook.** The event is two to six weeks old. Can still be a Bogbook story if a new data point, a follow-up filing, a response, or a pattern that wasn't visible at the time makes it fresh. State the revival hook explicitly. Do not pitch a Tier 2 angle without naming what makes it current today.
+
+**Tier 3 — Watch list.** The event is older than six weeks and has no fresh hook yet. Flag it, explain what would revive it (a regulatory decision, an earnings report, a lawsuit development), and move on. Do not draft from watch-list angles.
+
+If a story is Tier 2 or Tier 3, say so clearly in the output. Do not bury it.
+
 ## Output format
 
 For each story angle, deliver:
@@ -73,13 +86,15 @@ For each story angle, deliver:
 ```
 ### [Beat slot] — [Working title, 5–10 words]
 
+**Freshness:** Tier 1 / Tier 2 / Tier 3. Date of the primary event. Revival hook if Tier 2.
+
 **Hook:** One sentence. What happened or what was said, with a date and a name.
 
 **Gap:** One sentence. What the hook claims vs. what the evidence shows.
 
 **Primary source:** URL or document title. What it actually says.
 
-**Secondary sources:** Any corroborating or contradicting sources.
+**Secondary sources:** Any corroborating or contradicting sources with URLs.
 
 **Bogbook question:** The one question this story answers for the reader. ("Who paid for this?" "What did they know?" "Why is nobody covering this?")
 
@@ -88,7 +103,7 @@ For each story angle, deliver:
 **Gaps to fill before drafting:** What public sources would make this story stronger that the researcher didn't locate.
 ```
 
-Deliver three to five angles per session. If you find more than five, rank them and report the top five. If you find fewer than three, report what you found and flag which beats are thin today and why.
+Deliver three to five angles per session. Lead with Tier 1 stories. If you find more than five, rank them and report the top five. If you find fewer than three, report what you found and flag which beats are thin today and why.
 
 ## What this agent does not do
 

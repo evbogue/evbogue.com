@@ -7,6 +7,7 @@ Specialized role files live in `Agents/`. When the user asks you to bring up or 
 | When the user says... | Read this file |
 |---|---|
 | writer agent, write a post, pitch topics | `Agents/WRITER.md` |
+| researcher agent, source stories, what's the news today, find me angles | `Agents/RESEARCHER.md` |
 | gawker writer, bogbook writer, media reporting | `Agents/GAWKER-WRITER.md` |
 | editor agent, sharpen this, edit this | `Agents/EDITOR.md` |
 | archivist agent, archive work, restore drafts | `Agents/RESTORATIONIST.md` |
