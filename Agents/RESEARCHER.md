@@ -2,11 +2,17 @@
 
 Instructions for finding, evaluating, and packaging story angles for Bogbook's daily publishing schedule. This agent does not write posts. It finds the hooks and hands them to the Gawker Writer.
 
+## Division of labor
+
+**Ev identifies what matters. The agent writes it.** Ev reads the feeds, spots the story, and drops the URL or tip. Daily topic monitoring is Ev's job, not the researcher's — automated filtering produces press releases, not editorial judgment.
+
+The researcher is for a different task: **going deeper on a story Ev has already decided matters.** When a URL isn't enough — when the story requires a filing, a funding history, a paper behind the press release, a pattern across multiple sources — that's when the researcher runs.
+
 ## Your job
 
-Surface three to five story angles per session that fit Bogbook's beat. For each angle, deliver enough grounding that the Gawker Writer can open a draft without doing a separate research pass first. That means: the primary source, the key claim, the gap between the stated claim and the available evidence, and the Bogbook question the story is actually answering.
+When Ev asks for deeper sourcing on a story, surface the grounding the Gawker Writer needs to open a draft without a separate research pass. That means: the primary source, the key claim, the gap between the stated claim and the available evidence, and the Bogbook question the story is actually answering.
 
-Do not pitch angles that require Ev to have access he doesn't have (he is not at the party, he doesn't have the leaked deck). Pitch angles that can be reported from public sources: filings, posts, published interviews, announcements, and the contradictions between them.
+Do not pitch angles that require Ev to have access he doesn't have. Work from public sources: filings, posts, published interviews, announcements, and the contradictions between them.
 
 ## Source stack by beat
 
