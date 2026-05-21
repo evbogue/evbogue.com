@@ -12,6 +12,6 @@ SpaceX was profitable in 2024. Then Musk merged xAI into it — his AI chatbot c
 
 The one good business is Starlink, the satellite internet service: $11.4 billion in revenue, 63% EBITDA margins. You are being asked to value Starlink, plus loss-making rockets, plus a Grok chatbot bleeding cash, at $2 trillion. The S-1 justifies this by citing a $28.5 trillion total addressable market. Part of that market is Mars. Mars has no customers yet.
 
-Musk controls 85.1% of the votes through super-voting shares and cannot be removed. The float is 5%, well below normal. U.S. public pension funds have formally called the governance structure "extreme."
+Musk controls 85.1% of the votes through super-voting shares and cannot be removed. The float is 5%, well below normal. U.S. public pension funds have [formally called](https://www.gurufocus.com/news/8858881/concerns-raised-over-spacex-governance-structure-ahead-of-ipo) the governance structure "extreme."
 
 They will buy it anyway.

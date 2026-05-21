@@ -8,7 +8,7 @@ excerpt: "Google's I/O sessions went on-demand today. Apple Insider's take on th
 
 Google announced today that it remains a major technology company.
 
-I/O 2026 wrapped Monday and Tuesday. All 85 sessions went on-demand this morning, so you can watch Google not say anything at your own preferred pace. Apple Insider, offering what may be the kindest summary of the week, called it: "had nothing to say and said it badly."
+I/O 2026 wrapped Monday and Tuesday. All 85 sessions went on-demand this morning, so you can watch Google not say anything at your own preferred pace. Apple Insider, offering what may be the kindest summary of the week, [called it](https://appleinsider.com/articles/26/05/20/google-io-2026-had-nothing-to-say-and-said-it-badly-ahead-of-apples-wwdc): "had nothing to say and said it badly."
 
 Among the things Google said:
 
@@ -17,6 +17,6 @@ Among the things Google said:
 - There is a personal AI agent in Workspace (which you pay for and never open)
 - Antigravity got an upgrade (you have not heard of Antigravity)
 
-In 2017, eight Google researchers published a paper called "Attention Is All You Need." It described the transformer architecture. Every large language model running on Earth in 2026 descends from that paper: OpenAI's, Anthropic's, Meta's, the one your company's IT department is frantically evaluating. OpenAI built ChatGPT on it. Anthropic built Claude on it. Meta built Llama on it. Google built five reorgs and a brand refresh on it, and is now competing on price.
+In 2017, eight Google researchers published a paper called ["Attention Is All You Need."](https://arxiv.org/abs/1706.03762) It described the transformer architecture. Every large language model running on Earth in 2026 descends from that paper: OpenAI's, Anthropic's, Meta's, the one your company's IT department is frantically evaluating. OpenAI built ChatGPT on it. Anthropic built Claude on it. Meta built Llama on it. Google built five reorgs and a brand refresh on it, and is now competing on price.
 
 The paper was titled "Attention Is All You Need." Most of the eight researchers who wrote it no longer work at Google. They are at the startups you are now paying $20 a month to use.

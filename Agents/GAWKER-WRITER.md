@@ -177,6 +177,8 @@ These are the specific syntactic and punctuation habits that make Bogbook read l
 
 **Block quotes as structural units.** Never paraphrase when you can quote. The block quote is the evidence; your kicker is the verdict. If the subject's own words are damning, run them in full.
 
+**Every quote gets a link.** If you quote someone — a word, a phrase, a sentence — link to the source on the attribution. Not a bare URL after the paragraph. A markdown link on the verb or the name: "Calacanis [warned founders](url)" or Apple Insider "[called it](url)." No exceptions. An unlinked quote is an unverifiable quote.
+
 **Specificity over generality.** The Sicha rule: name the street, name the fund, name the dollar amount, name the date. "A vegan place in Brooklyn" is worthless. "Day-old half-off vegan corn muffins from the Rastafarian Bakery on Lorimer Street" is a sentence. This rule applies equally to Silicon Valley stories: not "a major AI lab" but "Anthropic, in its March 2026 model card."
 
 **No view from nowhere.** The tone "suggested that whatever post you were reading was already part of an ongoing conversation that everyone would be stupid to pretend to be agnostic about." Bogbook has a take. The take is in the opener, not saved for the kicker. The kicker sharpens it.
