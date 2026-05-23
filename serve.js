@@ -144,14 +144,6 @@ function wordmarkHtml(site) {
   return escapeHtml(wordmark)
 }
 
-function headerBrandHtml(site) {
-  if (site.headerLogo) {
-    const alt = site.headerLogoAlt || site.title
-    return `<img src="/${escapeHtml(site.headerLogo)}" alt="${escapeHtml(alt)}" class="site-logo">`
-  }
-  return wordmarkHtml(site)
-}
-
 function sitePage(site, { title = site.title, description = site.description, body }) {
   const fullTitle = title === site.title ? site.title : `${title} - ${site.title}`
   const now = new Date().toLocaleDateString("en-US", {
@@ -180,7 +172,7 @@ function sitePage(site, { title = site.title, description = site.description, bo
   <body>
     <header>
       <div class="header-inner">
-        <a href="/" class="wordmark">${headerBrandHtml(site)}</a>
+        <a href="/" class="wordmark">${wordmarkHtml(site)}</a>
         <nav>
           <a href="/about">About</a>
           <a href="/posts" class="nav-priority">${escapeHtml(site.archiveLabel || "Archive")}</a>

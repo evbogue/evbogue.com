@@ -51,26 +51,15 @@ header {
 }
 
 .wordmark {
-  align-items: center;
   color: var(--ink);
-  display: inline-flex;
   font-family: var(--serif);
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0;
-  min-width: 0;
   text-decoration: none;
 }
 
 .wordmark span { color: var(--accent); }
-
-.site-logo {
-  display: block;
-  height: 38px;
-  max-width: min(220px, 42vw);
-  object-fit: contain;
-  width: auto;
-}
 
 nav {
   align-items: center;
