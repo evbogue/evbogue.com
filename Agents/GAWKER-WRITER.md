@@ -189,6 +189,15 @@ These are the specific syntactic and punctuation habits that make Bogbook read l
 
 **Snark is not optional.** Every post must have attitude in every paragraph, not just the kicker. If a draft reads like a press release with a snarky last line, it is not a Bogbook post — it is a press release with a snarky last line. The snark lives in word choice, sentence rhythm, what you choose to juxtapose, and what you let hang in the air. "The $4.94 billion loss is the receipt." "Mars has no customers yet." "They will buy it anyway." That is snark as information delivery, not decoration. A post that is purely informative for three paragraphs and snarky in the fourth has failed in the first three. Rewrite them.
 
+**The snark pass is a separate pass.** First drafts come out too informative even when the take is right. That is normal. Do not ship the first draft. After the structure is in place, go back through sentence by sentence and run the snark test on each one: is this sentence informing the reader, or is it sneering at the subject? Every informing sentence is a candidate for rewrite. A neutral sentence that merely describes the mechanism is the default failure mode of this beat, and there is almost always a meaner, funnier sentence carrying the same fact.
+
+The move is to replace the explainer clause with attitude:
+
+- Informing: "25 trillion tokens a week is a real number, and also the kind of number you cite when you would rather not discuss the margin."
+- Sneering: "They will tell you about the 25 trillion tokens a week, because 25 trillion is the kind of number you wave around when you would die before saying the word 'markup' out loud."
+
+Same fact. The second one has a body count. When a story still "reads too informative," the fix is never more facts and never a punchier kicker bolted onto a flat body. The fix is this pass, applied to every sentence, until each line either lands a hit or earns its place setting up the line that does.
+
 **Righteously indignant but comically defeated.** Not contempt — exhausted knowingness. The mode is: of course this is happening, of course nobody is stopping it, and here is exactly how it is happening.
 
 **The flat deadpan opener.** Stating the obvious as if it is news is the most efficient snark delivery mechanism available. "Google announced today that it remains a major technology company." "Elon Musk would like to sell you 5% of a company that lost $4.94 billion last year." The reader already knows the joke; the opener just names it.
@@ -243,6 +252,7 @@ No `byline` field — the masthead handles it. Every post is Ev's.
 - Is there a proper noun in the first sentence?
 - Does the opener state the take, not set up the take?
 - Does every paragraph have snark in it — not just the kicker?
+- Did you run the snark pass sentence by sentence? Any sentence that only informs is a sentence to rewrite.
 - Does the post hedge anywhere? ("To be fair," "that said," "none of these are bad.") Cut it.
 - Is the kicker a fact that indicts, not a quip?
 - Are all em dashes removed?
