@@ -24,7 +24,7 @@ I don't have a clean answer. No one does, and I'm suspicious of anyone who claim
 
 What I can tell you is that the practical response, from where I'm standing, is to stay small, stay decentralized, and don't depend on any single platform or employer. That's not a solution to the Dead Economy problem. It's a hedge. It's the difference between being inside the machine when it breaks and being outside it.
 
-The work I do on [ANProto](https://anproto.com), on [Wiredove](https://github.com/evbogue/wiredove), on decentralized publishing infrastructure, is partly a bet that the centralized platforms are going to do exactly what McGrann describes: optimize themselves past the point where they need users, then wonder why no one can afford a subscription. Decentralized infrastructure is slower, harder, less polished. But it doesn't fire the person who was also its user.
+The work I do on [ANProto](https://anproto.com), on [Wiredove](https://github.com/evbogue/wiredove), on maintaining [Secure Scuttlebutt](https://github.com/evbogue/ssbc) after the original project shut down in 2024, is partly a bet that the centralized platforms are going to do exactly what McGrann describes: optimize themselves past the point where they need users, then wonder why no one can afford a subscription. Decentralized infrastructure is slower, harder, less polished. But it doesn't fire the person who was also its user.
 
 Read McGrann's piece. Read the [HN thread](https://news.ycombinator.com/item?id=48324712). Then ask yourself how many of your income sources are one automation decision away from gone.
 
