@@ -17,6 +17,26 @@ function clientIp(c) {
   return c.req.header('x-real-ip') ?? c.req.header('cf-connecting-ip') ?? ""
 }
 
+// In-memory per-IP rate limiter for the subscribe endpoint. Single tmux
+// process, so a Map is plenty. Sliding window: SUBSCRIBE_MAX hits per window.
+const SUBSCRIBE_RATE = { max: 3, windowMs: 10 * 60 * 1000 }
+const subscribeHits = new Map()
+
+function subscribeRateLimited(ip) {
+  if (!ip) return false
+  const now = Date.now()
+  const recent = (subscribeHits.get(ip) ?? []).filter((t) => now - t < SUBSCRIBE_RATE.windowMs)
+  recent.push(now)
+  subscribeHits.set(ip, recent)
+  // Opportunistic cleanup so the Map can't grow unbounded.
+  if (subscribeHits.size > 5000) {
+    for (const [key, times] of subscribeHits) {
+      if (times.every((t) => now - t >= SUBSCRIBE_RATE.windowMs)) subscribeHits.delete(key)
+    }
+  }
+  return recent.length > SUBSCRIBE_RATE.max
+}
+
 const app = new Hono()
 
 const ROOT = REPO_ROOT
@@ -190,6 +210,9 @@ function sitePage(site, { title = site.title, description = site.description, bo
         <h3 id="subscribe-dialog-title">${escapeHtml(site.subscribeTitle || `Get ${site.title} in your inbox.`)}</h3>
         <p>${escapeHtml(site.subscribeDek || "Dispatches by email.")}</p>
         <form class="newsletter-form" action="/subscribe" method="POST">
+          <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden">
+            <label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
           <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
           <button type="submit">Subscribe</button>
         </form>
@@ -576,6 +599,20 @@ app.post('/subscribe', async (c) => {
   try {
     const form = await c.req.formData()
     const email = form.get('email')?.toString() ?? ''
+
+    // Honeypot: bots fill the hidden "website" field; humans never see it.
+    // Fake a success redirect so bots don't learn they were filtered.
+    if ((form.get('website')?.toString() ?? '').trim() !== '') {
+      recordEvent(ROOT, { kind: "subscribe_attempt", outcome: "honeypot" }, site.analyticsNamespace).catch(() => {})
+      return c.redirect('/?subscribe=new', 303)
+    }
+
+    // Per-IP rate limit. Same fake-success response so scripts get no signal.
+    if (subscribeRateLimited(clientIp(c))) {
+      recordEvent(ROOT, { kind: "subscribe_attempt", outcome: "rate_limited" }, site.analyticsNamespace).catch(() => {})
+      return c.redirect('/?subscribe=new', 303)
+    }
+
     const result = await addSubscriber(site.subscribersPath, email)
     if (!result) {
       recordEvent(ROOT, { kind: "subscribe_attempt", outcome: "invalid" }, site.analyticsNamespace).catch(() => {})
