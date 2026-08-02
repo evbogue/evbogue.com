@@ -556,7 +556,7 @@ app.get('/projects', async (c) => {
   }
   return c.html(sitePage(site, {
     title: "Projects",
-    description: `Twenty years of work by ${site.wordmark || site.title}.`,
+    description: `From LiveJournal in 1999 to decentralized protocols today — the work of ${site.wordmark || site.title}.`,
     body: `
       <article>
         <div class="post-header">

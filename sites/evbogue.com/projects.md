@@ -1,12 +1,20 @@
-For twenty years I have been building the same thing under different names. The tools change every few years. The instinct never does.
+I have been publishing on the web since 1999. The names and the tools change every few years. The instinct never does.
 
-The question underneath all of it is small and stubborn: can you publish what you make, and reach the people who want it, without asking a platform for permission? Everything below is one long answer to that question, worked out in public, oldest to newest.
+The question underneath all of it is small and stubborn: can you publish what you make, and reach the people who want it, without asking anyone for permission? Everything below is one long answer to that question, worked out in public, oldest to newest.
 
-I started in the blog era owning my own words. I am ending up in the decentralization era owning my own network. It turns out those were never two different projects.
+I started on a free journal host as a teenager. I spent my twenties inside legacy media learning how the machine actually worked. Then I walked out to do it myself, and I have been building the tools to make that possible ever since.
+
+## Where it started
+
+**LiveJournal and catharsis.org** (1999). I started publishing online in 1999 — as `evbogue` on LiveJournal, and on catharsis.org — back when a personal site was something you hand-coded and a public journal was something you kept before anyone thought to call it blogging. Nobody gave me a column. I just started writing on the open web. That reflex never left.
+
+**NYU** — journalism and dance. I studied journalism at NYU, which meant learning the craft the formal way at exactly the moment the web was quietly making the formal way optional.
+
+**Gawker and New York Magazine.** Then I went inside the machine. I interned at **Gawker** in the middle of the blog era that rewired media, and I was a **photo editor at New York Magazine**. I learned how a real newsroom decides what a story looks like, what a picture is worth, and who gets to hit publish. It was a great education in exactly the gatekeeping I would spend the next fifteen years routing around.
 
 ## The writing
 
-Before I wrote a line of protocol code, I was a blogger. The discipline is the same one I still run on: publish directly, own the archive, keep the stack small, and let the writing do the damage.
+In 2009 I left corporate media to publish for myself, and I have not been on a masthead since. Before I wrote a line of protocol code I was a blogger, and the discipline is the one I still run on: publish directly, own the archive, keep the stack small, and let the writing do the damage.
 
 **Far Beyond The Stars** (2009–2011). The minimalism blog I wrote when blogs still felt like they could change your life. I lived out of a bag, wrote every day, and grew an audience without a publisher, a platform deal, or anyone's permission. Most of that work is recovered and living in the [archive](/posts) here.
 
@@ -38,6 +46,6 @@ That is exactly how ANProto happened. Scuttlebutt, then Bogbook v1, v2, v3, then
 
 Decentralization is that same argument, run on the network instead of the closet. Own your words. Own your list. Own your feed. Own the protocol underneath the feed. Keep the stack small enough that one person can hold the whole thing in their head and nobody upstream can switch it off.
 
-Twenty years, one refusal to ask permission. The names keep changing because the platforms keep failing. The work is the same work.
+Since 1999, one refusal to ask permission. The names keep changing because the platforms keep failing. The kid posting to LiveJournal, the photo editor at a magazine, and the person designing a protocol that runs off a USB stick are all doing the same thing. The work is the same work.
 
 If you want to build git over ANProto, argue with me about any of this, or just say hello — [ev@evbogue.com](mailto:ev@evbogue.com) or [773-510-8601](tel:7735108601).
