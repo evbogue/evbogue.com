@@ -4,13 +4,15 @@ Recover Ev Bogue's **earliest** web publishing — 1999 through 2009 — so the 
 
 This is the layer *before* the Far Beyond The Stars minimalism archive. It covers the LiveJournal/catharsis.org years, the NYU-through-corporate-media period (Gawker intern, New York Magazine photo editor), and the earliest `evbogue.com` captures that bridge into the 2009 indie pivot.
 
+**Recovery, not publication.** The point of this work order is to establish the record and confirm the timeline — not to put teenage journal entries on the site. The 1999–2009 LiveJournal/catharsis material is Ev's early, personal writing ("mostly the ramblings of a teenager"). Default disposition is **archive-only / private reference.** Nothing from this era goes public without Ev's explicit, per-item sign-off.
+
 The restoration mechanics are already defined. This work order only defines **what to find, from where, and in what order.** For cleanup, provenance, anonymization, and promotion rules, follow `Agents/RESTORATIONIST.md`. For how a Wayback CDX pull becomes a manifest, mirror `archive/evbogue-2011-2016-manifest.json`.
 
 ## Why this matters
 
 - The `/projects` page now opens on LiveJournal (1999), NYU, Gawker, and New York Magazine. Those lines are currently written from Ev's recollection, not sources. Confirm or correct them.
 - Understanding the early career development means seeing the actual arc: teenage journal → journalism school → inside legacy media → walked out in 2009. The primary sources make that arc legible instead of asserted.
-- Anything recovered feeds two places: provenance-stamped entries under `archive/evbogue-drafts/`, and a possible "read the first entry" link or pull-quote in the `/projects` origin section.
+- Anything recovered lives as provenance-stamped, private reference under `archive/evbogue-drafts/`. What it feeds into the *public* `/projects` page is facts, not entries: a confirmed date, a corrected title, at most one short quote — and only with Ev's sign-off.
 
 ## Known blocker: archive.org is unreachable from web sessions
 
@@ -72,11 +74,11 @@ curl -sS "http://web.archive.org/cdx/search/cdx?url=www.evbogue.com*&output=json
 1. [ ] **Discover.** Run the CDX pulls above from a network with archive.org access. Commit raw JSON under `archive/cdx/`.
 2. [ ] **Manifest.** Generate an `archive/evbogue-early-1999-2009-manifest.json` in the same shape as the 2011–2016 manifest: per-URL `slug`, `path`, `confidence`, `reason`, `firstSeen`, `lastSeen`, `captureCount`. Reuse or adapt the existing manifest-builder script (check `scripts/` for the tool that produced the 2011–2016 manifest; if it is not committed, write one that reads the CDX JSON and emits the same schema).
 3. [ ] **Triage.** For each high/medium-confidence capture, decide: is this a journal entry, an about/bio page, a resume/portfolio page, or platform chrome? Bios and resume pages are gold for the career timeline even if they are not "posts."
-4. [ ] **Stage.** Pull the best snapshot for each keeper into `archive/evbogue-drafts/` as Markdown, with provenance frontmatter (`original_url`, `wayback_snapshot_url`, `firstSeen`/`lastSeen`, `archive_status: staged`). Do not promote to `posts/` yet.
-5. [ ] **Restore.** Hand to the Restorationist (`Agents/RESTORATIONIST.md`): mechanical cleanup only, unwrap Wayback links, strip dead widgets, decode entities, honest provenance. Classify each as `preserve` / `restore` / `contextualize` / `bury`.
-6. [ ] **Anonymize.** Every source here predates 2025, so the pre-2025 people-anonymization rule applies (names → initials in public-facing text; Ev is exempt). See `Agents/RESTORATIONIST.md`.
+4. [ ] **Stage.** Pull the best snapshot for each keeper into `archive/evbogue-drafts/` as Markdown, with provenance frontmatter (`original_url`, `wayback_snapshot_url`, `firstSeen`/`lastSeen`, `archive_status: staged`). This is the archive of record. Do **not** promote to `posts/`.
+5. [ ] **Restore lightly.** These are private reference, so full restoration is optional. Do enough that the entries are legible and dated (decode entities, unwrap Wayback links, strip crawler debris) per `Agents/RESTORATIONIST.md`. Default classification for the LiveJournal/catharsis era is `bury` (keep in `archive/`, out of the public flow); `contextualize` only if Ev later wants a specific piece surfaced.
+6. [ ] **Anonymize.** Every source here predates 2025, so the pre-2025 people-anonymization rule applies (names → initials; Ev is exempt) — and doubly so given how personal this material is. See `Agents/RESTORATIONIST.md`.
 7. [ ] **Log.** Record the batch in `archive/RESTORATION_BATCHES.md`.
-8. [ ] **Feed the narrative.** Once real entries exist, revisit the `/projects` "Where it started" section: confirm the 1999 date, fix anything the sources contradict, and add at most one short pull-quote or a "read the first entry" link. Keep the section tight — the archive carries the depth, the projects page carries the throughline.
+8. [ ] **Feed the timeline, not the feed.** Use the recovered material to confirm or correct the `/projects` "Where it started" facts (dates, titles, order). Do not publish the entries. Any public quotation is one line at most, and only with Ev's explicit per-item sign-off. The archive carries the depth privately; the projects page carries the throughline.
 
 ## Facts to verify against sources
 
@@ -92,7 +94,7 @@ These are currently asserted from memory on `/projects`. Confirm, date, or corre
 
 - Raw CDX JSON for all three source groups committed under `archive/cdx/`.
 - An `evbogue-early-1999-2009-manifest.json` that enumerates every recoverable early capture with confidence scoring.
-- Keeper entries staged in `archive/evbogue-drafts/` with honest provenance frontmatter.
+- Keeper entries staged privately in `archive/evbogue-drafts/` with honest provenance frontmatter — nothing from this era promoted to `posts/`.
 - The five facts above either confirmed against a source or corrected on `/projects`.
 - A batch entry in `archive/RESTORATION_BATCHES.md`.
 
@@ -105,5 +107,5 @@ These are currently asserted from memory on `/projects`. Confirm, date, or corre
 ## Open questions for Ev
 
 - Was there anything **between** catharsis.org and evbogue.com — a Blogspot, a Typepad, an early Tumblr, a domain other than evbogue.com — worth sweeping?
-- Do you want the LiveJournal/catharsis era **public** on the site, or recovered-and-archived-only for your own reference and the timeline?
+- Publication is settled: the LiveJournal/catharsis era stays **archive-only** by default. Open sub-question — is there any *single* early piece you would ever consider surfacing, or is the whole era off-limits and this is purely for the record and the timeline?
 - Any names from that era that should be scrubbed beyond the default initials rule (old handles, people who would not want to be found)?
