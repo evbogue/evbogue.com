@@ -8,7 +8,9 @@ This is the layer *before* the Far Beyond The Stars minimalism archive. It cover
 
 The restoration mechanics are already defined. This work order only defines **what to find, from where, and in what order.** For cleanup, provenance, anonymization, and promotion rules, follow `Agents/RESTORATIONIST.md`. For how a Wayback CDX pull becomes a manifest, mirror `archive/evbogue-2011-2016-manifest.json`.
 
-## Confirmed timeline (working record)
+## Confirmed timeline (LOCKED 2026-08-02)
+
+**This is the authoritative account, locked per Ev.** Treat it as ground truth. The research below can *strengthen* dates and add texture, but it does not overwrite this — if the writing contradicts a locked line, flag the conflict for Ev rather than silently changing it.
 
 Private reference, kept here so the arc is not lost. Sources noted per line: **[Ev]** = confirmed directly by Ev; **[archive]** = reconstructed from dated posts in this repo. If any of this reaches the public `/projects` page, it is cities-only — no birth year, no addresses.
 
@@ -34,6 +36,39 @@ The shape: **Chicago → New York → a years-long SF ⇄ Mexico City churn → 
 - **First LiveJournal / catharsis.org entry** — actual earliest date (is 1999 right?). Needs the Wayback recovery below.
 - **NYU graduation year** — nice-to-have to bookend the NYC arrival.
 - **Finer texture of the Mexico years (2011–2017)** — how much was CDMX vs. Puerto Vallarta vs. travel (Japan, Singapore, PNW). Optional; the endpoints are confirmed.
+
+## Research through the writing (reachable now — do this first)
+
+The Wayback sweep further down is blocked from this environment. The published and archived writing is **not** — it is in this repo right now, and it is the cheaper, faster path to stronger facts. Mine it before reaching for Wayback; use Wayback only for what the writing genuinely can't answer (mostly the pre-2009 era).
+
+Leads, roughly in order of payoff:
+
+- **Read each era's posts in date order.** Sort `sites/evbogue.com/posts/` and `archive/evbogue-drafts/` by frontmatter `date` and read the transitions in sequence. The first and last dated post that mentions a city brackets that stint far better than any single quote. Priorities: first Portland post, first CDMX post, and the **last Mexico post before the end-of-2017 Chicago move** (that one is the best corroboration of the return date).
+- **Mine the 2011–2016 manifest timestamps.** `archive/evbogue-2011-2016-manifest.json` carries `firstSeen`/`lastSeen` per URL — those are capture dates, i.e. free chronology already sitting in the repo. Scan the latest 2016–2017 slugs for anything that corroborates the end-of-2017 return, and the earliest 2010–2011 slugs for the SF/CDMX churn.
+- **Grep for self-dating phrases.** Lines like "X years ago", "when I was NN", "my first year in", "N months in", plus birthday/anniversary and visa/border mentions, can pin the 1985 birth, the ~2003 NYC arrival, and Mexico stay lengths.
+
+  ```sh
+  rg -ni "years ago|when i was [0-9]|my first (year|month)|[0-9]+ months in|birthday|anniversary|my visa|the border" sites/evbogue.com/posts archive/evbogue-drafts
+  ```
+
+- **Corroborate the jobs.** Grep for direct references to the mastheads — any dates or details Ev stated in his own writing.
+
+  ```sh
+  rg -ni "gawker|new york magazine|nymag|\bnyu\b|apple" sites/evbogue.com/posts archive/evbogue-drafts
+  ```
+
+- **Read the drafts, not just the posts.** `archive/evbogue-drafts/` holds unpublished pieces that are often more candid about where he was and why — good for texture and for dates that never made it into a public post.
+- **Cross-date the launches and interviews.** "The Art of Being Minimalist", "Minimalist Business", and the named interviews (initials per the anonymization rule) have publish/launch dates that anchor the 2010–2011 career milestones precisely.
+
+When a fact lands, update the locked timeline's source tags and note the specific post. When the writing and Ev's memory disagree, **flag it — do not silently overwrite Ev's account.**
+
+## Proposed public line for `/projects` (cities only — awaiting Ev's sign-off)
+
+Locked wording, ready to drop into the "Where it started" / writing section on Ev's go. Cities only, no birth year, no addresses:
+
+> Born in Chicago, spent my twenties in New York media, then most of a decade bouncing between the Bay Area and Mexico City before coming home to Chicago.
+
+Do **not** publish this line until Ev greenlights it.
 
 ## Why this matters
 
