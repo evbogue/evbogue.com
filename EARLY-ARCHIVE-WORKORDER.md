@@ -16,12 +16,11 @@ Private reference, kept here so the arc is not lost. Sources noted per line: **[
 
 - **Chicago — 1985–2003.** Born and raised; home. **[Ev]** The 1999 LiveJournal/catharsis writing dates from here (teenage-era).
 - **New York — ~2003–2009.** NYU (from ~2003), then corporate media: Gawker intern summer 2005, New York Magazine photo editor 2006–2009. Brooklyn apartment. **[Ev, archive]**
-- **Portland, OR — fall 2009.** "I arrived in Portland" (2009-10-16); "I moved to Portland" (2009-10-28). The indie pivot. **[archive]**
-- **West Coast nomad — 2009–2011.** Portland / Oakland / San Francisco, with returns to Brooklyn. Dated markers: Oakland by 2010-10, back to Brooklyn 2011-08, Oakland→SF 2011-09. Deliberately itinerant ("live and work from anywhere"), so the hop order is fuzzy. **[archive]**
-- **Mexico — 2011 to end of 2017.** Left San Francisco for Puerto Vallarta in fall 2011: "This is me, in Puerto Vallarta" (2011-10-30) has a section "How I got from San Francisco to Puerto Vallarta." Based in **Mexico City (CDMX)** by ~2013 (dated CDMX posts 2013-06 through 2014-04), with travel to Japan and Singapore in the same window. **[Ev, archive]**
-- **Chicago — end of 2017 to present.** Left Mexico for Chicago at the end of 2017; home ever since. "here in Chicago" (2026-05), `about.md`, 773 number, "Augmented Chicago Against Silicon Valley." **[Ev, archive]**
+- **Portland, OR — fall 2009.** First landing after leaving New York; the indie pivot. "I arrived in Portland" (2009-10-16); "I moved to Portland" (2009-10-28). **[archive]**
+- **The SF/Oakland ⇄ Mexico City era — ~2010 to end of 2017.** Not a line, a loop. Ev kept moving to the Bay Area (Oakland, San Francisco) and **washing back out to Mexico City** when the Bay didn't hold — the same churn, repeated for years, with occasional returns to Brooklyn and travel to Japan and Singapore. This is why the dated markers read as contradictions rather than a sequence: Oakland by 2010-10, back to Brooklyn 2011-08, Oakland→SF 2011-09, SF→Puerto Vallarta fall 2011 ("How I got from San Francisco to Puerto Vallarta," 2011-10-30), based in CDMX by ~2013 (dated posts 2013-06 through 2014-04). They are cycles of one SF-and-out pattern. **[Ev, archive]**
+- **Chicago — end of 2017 to present.** The loop ended when Ev left Mexico for Chicago at the end of 2017; home ever since. "here in Chicago" (2026-05), `about.md`, 773 number, "Augmented Chicago Against Silicon Valley." **[Ev, archive]**
 
-The shape: **Chicago → New York → West Coast → Mexico → back to Chicago.** A return, not a discovery.
+The shape: **Chicago → New York → a years-long SF ⇄ Mexico City churn → back to Chicago.** A return, not a discovery — after most of a decade of trying to make the Bay Area work and retreating to CDMX when it didn't.
 
 ### Career facts [Ev]
 
