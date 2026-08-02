@@ -195,6 +195,7 @@ function sitePage(site, { title = site.title, description = site.description, bo
         <a href="/" class="wordmark">${wordmarkHtml(site)}</a>
         <nav>
           <a href="/about">About</a>
+          ${site.id === "evbogue.com" ? '<a href="/projects">Projects</a>' : ''}
           <a href="/posts" class="nav-priority">${escapeHtml(site.archiveLabel || "Archive")}</a>
           <a href="/feed.xml">RSS</a>
           <a href="#subscribe-dialog" class="subscribe-btn" data-open-subscribe>Subscribe</a>
@@ -539,6 +540,32 @@ app.get('/about', async (c) => {
           ${site.aboutPortrait ? `<img class="about-portrait" src="/${escapeHtml(site.aboutPortrait)}" alt="${escapeHtml(site.aboutPortraitAlt || site.title)}">` : ""}
           ${marked(doc)}
           ${ntfyWidget}
+        </div>
+      </article>
+    `,
+  }))
+})
+
+app.get('/projects', async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY)
+  let doc
+  try {
+    doc = await Deno.readTextFile(site.projectsFile)
+  } catch {
+    return c.notFound()
+  }
+  return c.html(sitePage(site, {
+    title: "Projects",
+    description: `Twenty years of work by ${site.wordmark || site.title}.`,
+    body: `
+      <article>
+        <div class="post-header">
+          <span class="tag">Projects</span>
+          <h1 class="hero-title">Projects</h1>
+        </div>
+        <hr class="post-divider">
+        <div class="post-body">
+          ${marked(doc)}
         </div>
       </article>
     `,
