@@ -15,27 +15,26 @@ Private reference, kept here so the arc is not lost. Sources noted per line: **[
 ### Residence arc
 
 - **Chicago — 1985–2003.** Born and raised; home. **[Ev]** The 1999 LiveJournal/catharsis writing dates from here (teenage-era).
-- **New York — ~2003–2009.** NYU, then corporate media. Brooklyn apartment. **[Ev, archive]**
+- **New York — ~2003–2009.** NYU (from ~2003), then corporate media: Gawker intern summer 2005, New York Magazine photo editor 2006–2009. Brooklyn apartment. **[Ev, archive]**
 - **Portland, OR — fall 2009.** "I arrived in Portland" (2009-10-16); "I moved to Portland" (2009-10-28). The indie pivot. **[archive]**
 - **West Coast nomad — 2009–2011.** Portland / Oakland / San Francisco, with returns to Brooklyn. Dated markers: Oakland by 2010-10, back to Brooklyn 2011-08, Oakland→SF 2011-09. Deliberately itinerant ("live and work from anywhere"), so the hop order is fuzzy. **[archive]**
-- **Mexico — from fall 2011.** Left San Francisco for Puerto Vallarta: "This is me, in Puerto Vallarta" (2011-10-30) has a section "How I got from San Francisco to Puerto Vallarta"; "I'm wandering in Mexico right now" (2011). **[archive]**
-- **Mexico City (CDMX) — ~2013–2014.** Dated posts from CDMX 2013-06 through 2014-04 ("Mexico City, and both of my Mexico experiences to date, have been far more enjoyable than living in los Estados Unidos"). Japan and Singapore referenced in the same window, so Asia travel was mixed in. **[archive]**
-- **Chicago — return, present.** Home again; "here in Chicago" (2026-05), `about.md`, 773 number, "Augmented Chicago Against Silicon Valley." Exact return date unknown. **[Ev, archive]**
+- **Mexico — 2011 to end of 2017.** Left San Francisco for Puerto Vallarta in fall 2011: "This is me, in Puerto Vallarta" (2011-10-30) has a section "How I got from San Francisco to Puerto Vallarta." Based in **Mexico City (CDMX)** by ~2013 (dated CDMX posts 2013-06 through 2014-04), with travel to Japan and Singapore in the same window. **[Ev, archive]**
+- **Chicago — end of 2017 to present.** Left Mexico for Chicago at the end of 2017; home ever since. "here in Chicago" (2026-05), `about.md`, 773 number, "Augmented Chicago Against Silicon Valley." **[Ev, archive]**
 
 The shape: **Chicago → New York → West Coast → Mexico → back to Chicago.** A return, not a discovery.
 
 ### Career facts [Ev]
 
-- **NYU** — journalism and dance.
-- **Gawker** — intern.
-- **New York Magazine** — photo editor.
+- **NYU** — journalism and dance (from ~2003).
+- **Gawker** — intern, summer 2005.
+- **New York Magazine** — photo editor, 2006–2009.
 - **2009** — left corporate media to go indie.
 
 ### Still to pin down
 
-- **The CDMX → Chicago return date.** Falls in the post-2014 publishing gap (published posts thin out after ~2014, resume 2025–2026), so it is *not* in the readable archive. Mine `archive/evbogue-2011-2016-manifest.json` and later Wayback captures for the return.
-- **Exact start/end of the Mexico years** and how much of 2012–2016 was CDMX vs. travel (Japan, Singapore, PNW).
-- **Everything pre-2009** (LiveJournal/catharsis) — still needs the Wayback recovery below.
+- **First LiveJournal / catharsis.org entry** — actual earliest date (is 1999 right?). Needs the Wayback recovery below.
+- **NYU graduation year** — nice-to-have to bookend the NYC arrival.
+- **Finer texture of the Mexico years (2011–2017)** — how much was CDMX vs. Puerto Vallarta vs. travel (Japan, Singapore, PNW). Optional; the endpoints are confirmed.
 
 ## Why this matters
 
@@ -114,13 +113,13 @@ curl -sS "http://web.archive.org/cdx/search/cdx?url=www.evbogue.com*&output=json
 Confirmed items are recorded in the Confirmed timeline above. What remains open:
 
 - [x] NYU — journalism and dance. **[Ev]** (graduation year still nice-to-have.)
-- [x] Gawker — intern. **[Ev]** (which year(s) still open.)
-- [x] New York Magazine — photo editor. **[Ev]** (which year(s) still open.)
+- [x] Gawker — intern, summer 2005. **[Ev]**
+- [x] New York Magazine — photo editor, 2006–2009. **[Ev]**
 - [x] Left corporate media to go indie in 2009. **[Ev, archive]**
 - [x] Chicago 1985–2003; NYU→NYC ~2003. **[Ev]**
+- [x] Mexico 2011–2017; returned to Chicago end of 2017. **[Ev, archive]**
 - [ ] First LiveJournal / catharsis.org entry — actual earliest date (is 1999 right?). Needs Wayback.
-- [ ] CDMX → Chicago return date, and the end of the Mexico years. Needs the post-2014 gap (2011–2016 manifest + later Wayback).
-- [ ] Graduation year (NYU) and the specific year ranges for Gawker and NYMag.
+- [ ] NYU graduation year.
 
 ## Success criteria
 
