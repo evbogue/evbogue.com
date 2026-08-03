@@ -61,6 +61,39 @@ curl -I https://evbogue.com/
 curl -s https://evbogue.com/feed.xml | head
 ```
 
+## Production topology (verified 2026-08-03)
+
+The `/path/to/...` placeholders elsewhere in this file resolve to these actual facts. Confirmed by inspecting the live VPS.
+
+- **SSH:** `root@evbogue.com` (key auth; the `evbogue` user is not authorized). DigitalOcean Debian box, hostname `debian-s-1vcpu-512mb-10gb-nyc3-01`.
+- **Repo:** `/root/evbogue.com`.
+- **The evbogue app** runs as `deno serve -A --port=8082 serve.js` in **tmux session `10`** (working dir `/root/evbogue.com`). It listens only on `:8082`.
+- **`:443`** is a **separate TLS reverse proxy** (`/root/reverse-proxy`, its own `serve.js`) that forwards to the app on `:8082`. **`:80`** is an HTTP→HTTPS redirect (`/root/http-redirect`). Neither is the evbogue app — do not stop, restart, or edit them when deploying the blog.
+- There is **no auto-pull cron** currently — deploys are a manual `git pull` on the VPS (the box was several commits behind when checked). This resolves the "status unknown" note in `AGENTS.md`.
+- `serve.js` ends in `export default app` and is run via `deno serve`, **not** `deno run`. Do not add a `Deno.serve(...)` call to it.
+
+## Deploying a change (the one thing that bites)
+
+`git pull` on the VPS updates files on disk, but **the two kinds of change deploy differently:**
+
+- **Markdown** (posts, pages, `projects.md`, `about.md`) is read **per request** → live the instant the VPS pulls. No reload.
+- **`serve.js`** (routes, nav links, HTML templates, redirects) is loaded into memory **once at process start** → a pull does **nothing** until the app process is reloaded. A new post appears immediately; a new route 404s and a new nav link is missing until the reload.
+
+### Safe reload procedure (app only, proxy untouched)
+
+The app is a foreground process in tmux session `10`, so reload it in place — this keeps its exact launch command and env, and never touches the `:443`/`:80` proxy:
+
+```sh
+ssh root@evbogue.com
+tmux send-keys -t 10:0.0 C-c            # stop the app (8082 goes down ~seconds)
+tmux send-keys -t 10:0.0 Up Enter       # re-run the same command from shell history
+# verify locally, then publicly:
+curl -s -o /dev/null -w '%{http_code}\n' http://localhost:8082/projects   # expect 200
+curl -s -o /dev/null -w '%{http_code}\n' https://evbogue.com/projects      # expect 200
+```
+
+Never `git pull` and expect a `serve.js` change to be live without this. Never kill the `:443`/`:80` processes to "restart the site" — they are the proxy, not the app. And note: the app does **not** auto-start on reboot (foreground tmux process); a reboot needs a manual relaunch of the session-`10` command.
+
 ## Report format
 
 When finished, report:

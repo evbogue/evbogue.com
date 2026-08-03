@@ -13,7 +13,7 @@ A minimal multi-site publishing repo for Ev Bogue (ev@evbogue.com). evbogue.com 
 - **Markdown:** `marked` via `https://esm.sh/gh/evbogue/bog5@...`
 - **CSS:** `sites/<site>/assets/*.css` served directly by the Deno app
 - **Fonts:** Playfair Display, DM Sans, and DM Mono via Google Fonts
-- **Deployment:** VPS running this repo, pulled from GitHub
+- **Deployment:** `root@evbogue.com`, repo at `/root/evbogue.com`. App runs as `deno serve --port=8082 serve.js` in tmux session `10`, behind a TLS reverse proxy on `:443`. Manual `git pull` to deploy. Markdown goes live on pull; `serve.js` changes need an app reload. Full runbook in `Agents/DEVOPS.md`.
 
 ## Run locally
 
@@ -175,7 +175,7 @@ This is the single work order for the repo. All outstanding tasks live here. Do 
 
 ### Infrastructure
 
-- [ ] **VPS auto-pull**: add a cron job (no systemd — Deno lives in a tmux session) running every 60s: `git -C /path/to/evbogue.com pull --ff-only`. No restart needed. Requires a deploy key or HTTPS token. Status unknown — confirm with Ev.
+- [ ] **VPS auto-pull**: confirmed NOT set up as of 2026-08-03 — deploys are a manual `git -C /root/evbogue.com pull --ff-only`. If automating, note a plain pull only makes markdown live; `serve.js` changes still need the app reload (see `Agents/DEVOPS.md`). No systemd — Deno lives in tmux session `10`.
 - [ ] **VPS weekly report cron**: see `Agents/DEVOPS.md` for the Monday 09:00 cron line. Requires `SMTP_PASS` and `ANALYTICS_SALT` in env.
 
 ### Analytics
