@@ -26,16 +26,30 @@ The shape: **Chicago → New York → a years-long SF ⇄ Mexico City churn → 
 
 ### Career facts [Ev]
 
-- **NYU** — journalism and dance (from ~2003).
+- **NYU** — journalism and dance (from ~2003), **graduated 2006**. **[Ev]**
 - **Gawker** — intern, summer 2005.
 - **New York Magazine** — photo editor, 2006–2009.
 - **2009** — left corporate media to go indie.
 
 ### Still to pin down
 
-- **First LiveJournal / catharsis.org entry** — actual earliest date (is 1999 right?). Needs the Wayback recovery below.
-- **NYU graduation year** — nice-to-have to bookend the NYC arrival.
+- **First LiveJournal / catharsis.org entry** — actual earliest date (is 1999 right?). **Wayback cannot reach 1999** for these hosts (see discovery results below): the earliest capture of `livejournal.com/users/evbogue` is **2003-02-06** and of `evbogue.catharsis.org` is **2002-05-25**. The 1999 start is Ev's recollection; Wayback simply did not crawl that early, so it stays recollection rather than a sourced date. Recovering the actual first entry would need a source other than Wayback (LJ export, personal backup).
+- ~~**NYU graduation year**~~ — **confirmed 2006 [Ev]** (2026-08-03).
 - **Finer texture of the Mexico years (2011–2017)** — how much was CDMX vs. Puerto Vallarta vs. travel (Japan, Singapore, PNW). Optional; the endpoints are confirmed.
+
+### Discovery results — CDX pulls run 2026-08-03 (from Ev's Mac)
+
+The archive.org blocker below applies to Claude Code *web* sessions; this local session reached archive.org fine. Raw CDX committed under `archive/cdx/`:
+
+| Source | Rows (collapse=digest) | Earliest capture |
+|---|---|---|
+| `evbogue.livejournal.com*` | 2 (only robots.txt) | 2006-03-09 |
+| `livejournal.com/users/evbogue*` | 8 | **2003-02-06** |
+| `evbogue.catharsis.org*` | 334 | **2002-05-25** |
+| `catharsis.org/*evbogue*` | 1 | — |
+| `evbogue.com*` 1999–2010 | 437 | 2005-10-28 |
+
+Takeaways: **catharsis.org is the rich early source** (334 captures from 2002), not LiveJournal. evbogue.com already existed in 2005 (overlapping the NY Magazine years). Next step for the pre-2009 era is manifest → triage → stage on the catharsis.org captures, per the pipeline below.
 
 ## Research through the writing (reachable now — do this first)
 
@@ -133,7 +147,7 @@ curl -sS "http://web.archive.org/cdx/search/cdx?url=www.evbogue.com*&output=json
 
 ## Pipeline
 
-1. [ ] **Discover.** Run the CDX pulls above from a network with archive.org access. Commit raw JSON under `archive/cdx/`.
+1. [x] **Discover.** CDX pulls run 2026-08-03 from Ev's Mac (archive.org reachable locally); raw JSON committed under `archive/cdx/`. See "Discovery results" above.
 2. [ ] **Manifest.** Generate an `archive/evbogue-early-1999-2009-manifest.json` in the same shape as the 2011–2016 manifest: per-URL `slug`, `path`, `confidence`, `reason`, `firstSeen`, `lastSeen`, `captureCount`. Reuse or adapt the existing manifest-builder script (check `scripts/` for the tool that produced the 2011–2016 manifest; if it is not committed, write one that reads the CDX JSON and emits the same schema).
 3. [ ] **Triage.** For each high/medium-confidence capture, decide: is this a journal entry, an about/bio page, a resume/portfolio page, or platform chrome? Bios and resume pages are gold for the career timeline even if they are not "posts."
 4. [ ] **Stage.** Pull the best snapshot for each keeper into `archive/evbogue-drafts/` as Markdown, with provenance frontmatter (`original_url`, `wayback_snapshot_url`, `firstSeen`/`lastSeen`, `archive_status: staged`). This is the archive of record. Do **not** promote to `posts/`.
@@ -152,8 +166,8 @@ Confirmed items are recorded in the Confirmed timeline above. What remains open:
 - [x] Left corporate media to go indie in 2009. **[Ev, archive]**
 - [x] Chicago 1985–2003; NYU→NYC ~2003. **[Ev]**
 - [x] Mexico 2011–2017; returned to Chicago end of 2017. **[Ev, archive]**
-- [ ] First LiveJournal / catharsis.org entry — actual earliest date (is 1999 right?). Needs Wayback.
-- [ ] NYU graduation year.
+- [~] First LiveJournal / catharsis.org entry — Wayback's earliest is catharsis.org 2002-05-25 / LJ 2003-02-06, not 1999. 1999 stays as recollection; would need a non-Wayback source to confirm. (See "Discovery results" above.)
+- [x] NYU graduation year — **2006 [Ev]** (2026-08-03).
 
 ## Success criteria
 
