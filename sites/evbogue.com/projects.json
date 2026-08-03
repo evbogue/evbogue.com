@@ -1,0 +1,69 @@
+{
+  "projects": [
+    {
+      "slug": "wiredove",
+      "name": "Wiredove",
+      "period": "2024 – now",
+      "kind": "Flagship client",
+      "blurb": "The flagship. A distributed social app that runs entirely in a browser window — ANProto for identity, apds for delivery, WebRTC for serverless peer-to-peer collaboration. Local-first, no install, no account to be deleted. This is what the whole stack is for.",
+      "url": "https://wiredove.net/",
+      "repo": "https://github.com/evbogue/wiredove"
+    },
+    {
+      "slug": "apds",
+      "name": "apds",
+      "period": "2024 – now",
+      "kind": "Infrastructure",
+      "blurb": "A personal data server for ANProto: a small always-on box that stores and relays your signed messages and wakes your clients over web push when something new arrives. A convenience layer for people who want one — never a dependency for people who don't.",
+      "url": "https://apds.anproto.com/",
+      "repo": "https://github.com/evbogue/apds"
+    },
+    {
+      "slug": "anproto",
+      "name": "ANProto",
+      "period": "2025 – now",
+      "kind": "Protocol",
+      "blurb": "The Authenticated, Non-networked Protocol. An ed25519 signature over a timestamp and a content hash, encoded in base64 — the whole primitive. No log, no chain, no opinion about how the message reaches you. Bring your own network. Small enough that implementations exist in JavaScript, Go, Rust, and Python.",
+      "url": "https://anproto.com/",
+      "repo": "https://github.com/evbogue/ANProto"
+    },
+    {
+      "slug": "ssbc",
+      "name": "Secure-Scuttlebot Classic",
+      "period": "2024 – now",
+      "kind": "Maintainer",
+      "blurb": "The original Scuttlebutt project was discontinued in 2024, so I came back to it. I maintain the classic-functionality restoration — which makes me the current maintainer of git-ssb, hosting git repositories over SSB with no GitHub required.",
+      "url": "https://decent.evbogue.com/",
+      "repo": "https://github.com/evbogue/ssbc",
+      "links": [
+        { "label": "ssbski skin", "href": "https://ssbski.evbogue.com/" }
+      ]
+    },
+    {
+      "slug": "this-site",
+      "name": "evbogue.com",
+      "period": "2025 – now",
+      "kind": "This site",
+      "blurb": "The current desk. Deno and Hono, markdown files on disk, an RSS feed, and a subscriber list that is literally a JSON file. No CMS, no build step, nothing between me and publishing. The minimalism argument compiled into a stack.",
+      "url": "https://evbogue.com/",
+      "repo": "https://github.com/evbogue/evbogue.com"
+    },
+    {
+      "slug": "bogbook",
+      "name": "Bogbook",
+      "period": "2020 – 2024",
+      "kind": "Protocol lab",
+      "blurb": "Four years building my own protocol from scratch, getting it wrong three times on purpose — no replication strategy, then an append-only log, then a backward hash chain that finally synced fast. The laboratory that became ANProto once every load-bearing piece had been removed. A terrible name for marketing materials.",
+      "repo": "https://github.com/evbogue/bogbookv4"
+    },
+    {
+      "slug": "far-beyond-the-stars",
+      "name": "Far Beyond The Stars",
+      "period": "2009 – 2011",
+      "kind": "Writing",
+      "blurb": "The minimalism blog I wrote when blogs still felt like they could change your life. I lived out of a bag, wrote every day, and grew an audience without a publisher, a platform deal, or anyone's permission. Most of that work is recovered and living in the archive here.",
+      "url": "/posts",
+      "urlLabel": "Read the archive"
+    }
+  ]
+}

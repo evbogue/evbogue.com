@@ -187,7 +187,7 @@ function sitePage(site, { title = site.title, description = site.description, bo
     ${site.noindex ? '<meta name="robots" content="noindex, nofollow">' : ''}
     <link rel="icon" href="/${escapeHtml(site.favicon || "assets/ev.png")}">
     <link rel="alternate" type="application/rss+xml" title="${escapeHtml(site.title)}" href="/feed.xml">
-    <link rel="stylesheet" href="/${escapeHtml(site.cssFile)}?v=20260514c">
+    <link rel="stylesheet" href="/${escapeHtml(site.cssFile)}?v=20260803a">
   </head>
   <body>
     <header>
@@ -546,6 +546,107 @@ app.get('/about', async (c) => {
   }))
 })
 
+async function loadProjects(site) {
+  try {
+    const raw = await Deno.readTextFile(`${site.root}/projects.json`)
+    const data = JSON.parse(raw)
+    return Array.isArray(data.projects) ? data.projects : []
+  } catch {
+    return []
+  }
+}
+
+// Map each project slug to its screenshot URL, if a matching image has been
+// dropped into assets/projects/. Missing dir or no shots is fine — cards fall
+// back to a rendered browser-frame placeholder.
+async function availableProjectShots(site) {
+  const map = new Map()
+  try {
+    for await (const entry of Deno.readDir(`${site.assetsDir}/projects`)) {
+      if (!entry.isFile) continue
+      const m = entry.name.match(/^(.+)\.(png|jpe?g|webp|gif)$/i)
+      if (m) map.set(m[1], `/assets/projects/${entry.name}`)
+    }
+  } catch {
+    // no screenshots captured yet
+  }
+  return map
+}
+
+function splitOnPortfolioMarker(doc) {
+  const parts = String(doc).split(/<!--\s*PORTFOLIO\s*-->/i)
+  if (parts.length < 2) return [doc, ""]
+  return [parts[0], parts.slice(1).join("")]
+}
+
+function prettyHost(url = "") {
+  try {
+    return new URL(url).host.replace(/^www\./, "")
+  } catch {
+    return String(url).replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/+$/, "")
+  }
+}
+
+function projectCardHtml(project, shots) {
+  const shot = shots.get(project.slug)
+  const external = /^https?:\/\//i.test(project.url || "")
+  const primary = project.url || project.repo || "#"
+  const primaryAttrs = external ? ' target="_blank" rel="noopener"' : ''
+  const visitLabel = external ? prettyHost(project.url) : (project.urlLabel || "Read more")
+  const addr = external
+    ? prettyHost(project.url)
+    : (project.url ? (project.urlLabel || project.name) : project.name)
+
+  const media = shot
+    ? `<img src="${escapeHtml(shot)}" alt="Screenshot of ${escapeHtml(project.name)}" loading="lazy">`
+    : `<div class="project-frame" aria-hidden="true">
+         <div class="project-frame-bar"><span></span><span></span><span></span><em>${escapeHtml(addr)}</em></div>
+         <div class="project-frame-body"><span>${escapeHtml(project.name)}</span></div>
+       </div>`
+
+  const links = []
+  if (project.url) {
+    links.push(`<a href="${escapeHtml(project.url)}"${primaryAttrs} class="project-link project-link--visit">${escapeHtml(visitLabel)}${external ? ' <span class="ext">&#8599;</span>' : ''}</a>`)
+  }
+  if (project.repo) {
+    links.push(`<a href="${escapeHtml(project.repo)}" target="_blank" rel="noopener" class="project-link project-link--repo">Source <span class="ext">&#8599;</span></a>`)
+  }
+  for (const link of project.links || []) {
+    if (!link || !link.href) continue
+    links.push(`<a href="${escapeHtml(link.href)}" target="_blank" rel="noopener" class="project-link">${escapeHtml(link.label || prettyHost(link.href))} <span class="ext">&#8599;</span></a>`)
+  }
+
+  return `
+    <article class="project-card">
+      <a class="project-shot${shot ? '' : ' project-shot--placeholder'}" href="${escapeHtml(primary)}"${primaryAttrs} tabindex="-1" aria-hidden="true">
+        ${media}
+      </a>
+      <div class="project-info">
+        <div class="project-eyebrow">
+          <span class="tag">${escapeHtml(project.kind || "Project")}</span>
+          <span class="project-period">${escapeHtml(project.period || "")}</span>
+        </div>
+        <h2 class="project-name"><a href="${escapeHtml(primary)}"${primaryAttrs}>${escapeHtml(project.name)}</a></h2>
+        <p class="project-blurb">${escapeHtml(project.blurb || "")}</p>
+        ${links.length ? `<div class="project-links">${links.join("")}</div>` : ""}
+      </div>
+    </article>
+  `
+}
+
+function projectsGridHtml(projects, shots) {
+  if (!projects.length) return ""
+  return `
+    <div class="section-header portfolio-header">
+      <span class="section-label">Selected work</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="portfolio-grid">
+      ${projects.map((project) => projectCardHtml(project, shots)).join("")}
+    </div>
+  `
+}
+
 app.get('/projects', async (c) => {
   const site = siteFromRequest(c, SITE_REGISTRY)
   let doc
@@ -554,9 +655,12 @@ app.get('/projects', async (c) => {
   } catch {
     return c.notFound()
   }
+  const projects = await loadProjects(site)
+  const shots = await availableProjectShots(site)
+  const [intro, outro] = splitOnPortfolioMarker(doc)
   return c.html(sitePage(site, {
     title: "Projects",
-    description: `From LiveJournal in 1999 to decentralized protocols today — the work of ${site.wordmark || site.title}.`,
+    description: `From LiveJournal in 1999 to decentralized protocols today — a portfolio by ${site.wordmark || site.title}, latest work first.`,
     body: `
       <article>
         <div class="post-header">
@@ -565,8 +669,10 @@ app.get('/projects', async (c) => {
         </div>
         <hr class="post-divider">
         <div class="post-body">
-          ${marked(doc)}
+          ${marked(intro)}
         </div>
+        ${projectsGridHtml(projects, shots)}
+        ${outro.trim() ? `<div class="post-body">${marked(outro)}</div>` : ""}
       </article>
     `,
   }))
