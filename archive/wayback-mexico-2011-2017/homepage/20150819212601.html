@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Evbogue.com | Ev Bogue's Metalwork Blog</title>
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	<link rel="stylesheet" href="/static/framework.css">
+	<link rel="stylesheet" href="/static/style.css">
+	<link rel="stylesheet" href="/static/zenburn.css">
+	<script src="/static/highlight.min.js"></script>
+	<script>
+		hljs.initHighlightingOnLoad();
+	</script>
+</head>
+
+<body>
+	<div class="contain">
+		<div class="twelve col">
+			<h1><a href="/">EVBOGUE<span style="color: #999;">.COM</span></a></h1>
+			<hr>
+		</div>
+		<div class="eight col">
+			<h3><a href="/blog/terminalgifs/">How to use Node.js to make animated terminal gifs</a></h3>
+			<p style="color: #666;">August 19th 2015</p>
+			<div>
+				<p>Animated Gifs! I know so retro.</p>
+				<p>I was wondering how people were creating little animated gifs of their terminal-based programming projects for their README files, and I went down a bit of a
+					rabbit hole to find a terminal-based recording program. I tried out a whole bunch of things, such as ttygif and tty2gif. tty2gif didn&#39;t seem to work, and
+					ttygif appeared be a big hassel.</p>
+				<p>I poked around a little more and behold! I found a terminal recording application written in Node.js! It is called <code>ttystudio</code></p>
+				<p>To install, you need to be running the latest version of Node.js. Right now thats 0.12.7. ttystudio doesn&#39;t work with io.js, which is node-gyp&#39;s fault.
+					Almost everything that goes wrong with Node.js is node-gyps fault. Anyway, node-gyp needs to fix a problem that&#39;s messing up their compatibility with io.js.</p>
+				<p>So if you&#39;re using io.js, make sure to use <code>n</code> to install the latest version of node.js</p>
+				<pre><code>% sudo n node latest
+% node -v
+0.12.7
+</code></pre>
+				<p>And then do a global install of <code>ttystudio</code></p>
+				<pre><code>% sudo npm install -g ttystudio
+</code></pre>
+				<p>This should take a minute, and may show a node-gyp error. But the install should work with Node, but not io as I said above.</p>
+				<p>When the install is done see if <code>ttystudio</code> is installed by typing</p>
+				<pre><code>% ttystudio --help
+</code></pre>
+				<p>And it&#39;ll print the man pages.</p>
+				<p>Next record a few lines on your terminal, and see how it works</p>
+				<pre><code>% ttystudio output.gif
+</code></pre>
+				<p>Type things into your terminal and hit <code>ctrl-q</code> when you&#39;re done recording.</p>
+				<p>I recorded the basic <code>Hello World</code> Koa.js example that I have in <a href="/node/">The Node.js Book</a></p>
+				<p><img src="../static/20150819-koa.gif" style="width: 608px;" /></p>
+			</div>
+			<hr>
+			<h3><a href="/blog/markdownemail/">How to write a markdown email with Nodemailer</a></h3>
+			<p style="color: #666;">August 17th 2015</p>
+			<div>
+				<p>There are two types of emails, HTML and plain text. </p>
+				<p>You&#39;ve probably seen some pretty bad HTML emails if you use an email client that can parse HTML. I&#39;ve seen some pretty bad HTML emails in Mutt that don&#39;t
+					have plain text versions.</p>
+				<p>The good news is, if you&#39;re sending emails using Node.js you can send both.</p>
+				<p>Up in until recently I&#39;ve only been sending plain text emails, because I&#39;m a <a href="https://www.enlightenment.org/about-terminology">Terminology</a>					junkie and spend most of my life in <a href="http://dwm.suckless.org/">dwm</a> firing up tiled terminals to <a href="https://mosh.mit.edu/#">mosh</a> into my
+					<a href="/om/">vps</a>.</p>
+				<p>I wrote a basic <a href="/node/">Node.js</a> program using <code>nodemailer</code> and <code>graymatter</code> to send emails. But they are only in plain text,
+					and I want to be able to send HTML emails too. This way you can click the links.</p>
+				<p>So today I was experimenting with sending markdown emails using <code>nodemailer-markdown</code>. The example in the module readme didn&#39;t work, so this is
+					the one I used.</p>
+				<pre><code>var nodemailer = require(&#39;nodemailer&#39;),
+    markdown   = require(&#39;nodemailer-markdown&#39;).markdown;
+
+var transporter = nodemailer.createTransport();
+
+transporter.use(&#39;compile&#39;, markdown());
+
+transporter.sendMail({
+    from: &#39;ev@evbogue.com&#39;,
+    to: &#39;ev@evbogue.com&#39;,
+    subject: &#39;Markdown email&#39;,
+    markdown: &#39;# Hello World!\n\nThis is a [markdown](http://evbogue.com/) email.&#39;
+})
+</code></pre>
+				<p>Make sure you <code>npm install nodemailer nodemailer-markdown</code> for the program to work.</p>
+				<p>This program renders two different version of an email, html and plain text, and sends them in the email.</p>
+				<p>The only weird thing is the plain text version is written in markdown, which doesn&#39;t seem write to me. But I can&#39;t think about how to do it differently,
+					so I suppose that&#39;ll have to work. Pretty much anyone using a plain text email reader can probably parse markdown with their brains anyway, right?</p>
+				<p>Try it out. See if it works. You can email me with a markdown formatted email, if you want.</p>
+			</div>
+			<hr>
+			<h3><a href="/blog/whyrunyourownemailserver/">Why run your own distributed email server?</a></h3>
+			<p style="color: #666;">August 15th 2015</p>
+			<div>
+				<p>I didn&#39;t write anything yesterday, because for some reason nothing popped into my mind to write to the public web. So I figured I should probably catch up
+					today. Because I promised I would write three times per week.</p>
+				<p>And I thought to myself: what is the most boring thing I could write about? Because saying that to myself has a way of inspiring me to write something. And the
+					idea popped into my head: what about distributed email servers? That&#39;s one of the most boring things on the planet that almost no one can figure out how
+					to do themselves.</p>
+				<p>Because what is the point of writing about things everyone already either knows how to do, or thinks they are an expert at?</p>
+				<p>I&#39;ve been running my own distributed email server on a virtual private server (VPS). Right now it&#39;s on <a href="https://www.digitalocean.com/?refcode=26d8ed49730d">Digital Ocean</a>					(rewards link), because I have credit there I had to use up. But it might as well be anywhere that lets you run VPSes. </p>
+				<p>Virtual private servers are tiny virtual computers that live out on the Internet somewhere. I think of <a href="/om/">Operator&#39;s Manual</a>, the book I wrote
+					in January, as an ode to the incredible benefits of running your own VPS. Without virtual private servers, we&#39;d basically be inslaved to the guys at the
+					top of the digital startup pyramid built on the backs of users around the globe.</p>
+				<p>On a VPS you can run any software you want on the Internet, without the bounds of reasonable practice, if you can figure out how to do it.</p>
+				<p>And a distributed email server is one of the most boring things you can run on a VPS.</p>
+				<p>I run a distributed email server using Postfix, Spamassassin, and Procmail. I use Mutt as my email client and Vim as my text editor. I log into my server using
+					ssh and send emails from there.</p>
+				<p>Postfix is for sending and receiving emails.</p>
+				<p>Spamassassin is for sorting out the spam.</p>
+				<p>And Procmail is for sorting spam that doesn&#39;t get caught by Spamassassin and a list of 1-5 assholes who email me loco shit. </p>
+				<p>To install these on Arch Linux all you need to do is type</p>
+				<pre><code>% sudo pacman -Syu postfix spamassassin procmail
+</code></pre>
+				<p>And you&#39;ll have them in no time.</p>
+				<p>Why would you want to run your own distributed email server? All sorts of reasons.</p>
+				<p>Self-reliance is a good reason. You want to run your own email address, with your own username, on your own domain name. This has all sorts of benefits, such
+					as privacy, security, you can delete emails so they won&#39;t be saved in Goolphas database forever and ever to be sold to the highest bidder when the lean
+					times eventually arrive. Knowing you can do it is another good reason. Because if you can&#39;t figure it out, you must not be a very talented technologist.
+					</p>
+				<p>What if you want to send emails to other people without having to go through a third party? That&#39;s a great reason. One of my most well known beefs is: I
+					used to use Mailchimp to send emails until they started using a censored keyword list that included the words &quot;Bitcoin&quot; and &quot;Fuck&quot; and an
+					unclear number of other words I wasn&#39;t allowed to send over their servers. So now I use my own VPS, and I can send permission-based emails from my own server
+					without having to run them by the the preschool teacher.</p>
+				<p>Obviously privacy is a relative thing with email servers. If you&#39;re not encrypting you&#39;re not really private, because emails get sent over the Internet
+					in the same way postcards do, with all of your message hanging out. Unless you use GPG key. Sometimes I use a GPG key, but I only found a handful of people
+					were sending me encrypted emails so I figured I&#39;d give it a rest until there was a very good reason to use one. You never know.</p>
+				<p>I think the best reason to learn is for your own self-gratification. Especially right now, in the age of phone thumbing where almost everyone thinks they are
+					technologist but no one knows how to do anything a toddler can&#39;t accomplish probably faster and with less squinting. </p>
+				<p>So are you running you own email server? I&#39;ll give you mad props. Lemme know what your email stack is <a href="mailto:ev@evbogue.com">ev@evbogue.com</a>.
+					Want to do it? Also let me know. Can&#39;t figure it out? I&#39;d love to hear about that too.</p>
+			</div>
+			<hr>
+			<h3><a href="/blog/nodejstest/">Take The Node.js Test</a></h3>
+			<p style="color: #666;">August 12th 2015</p>
+			<div>
+				<p>A few months ago I sent an email to The Mailing where I asked people to take The Node.js Test.</p>
+				<p>I was surprised by the people who passed. I was also surprised by the people who failed.</p>
+				<p>Today I thought to myself: I should put The Node.js Test up in public, and see who takes it. This is now The Node.js perma-test. If you ever read this blog post,
+					and want to take The Node.js Test you are free to do so.</p>
+				<p>The Node.js Test is simple:</p>
+				<ol>
+					<li>Write a simple Node.js application that writes a line of words into the browser </li>
+					<li>Deploy the Node.js application somewhere on the web</li>
+					<li>Send me the link --&gt; <a href="mailto:ev@evbogue.com">ev@evbogue.com</a></li>
+				</ol>
+				<p>The line of words can either be &quot;Hello World!&quot; or a secret message to me.</p>
+				<p>I&#39;ll reply. If you pass the prize is a high five, from me to you over the Internet.</p>
+				<p>If you need hints at how to pass, read <a href="/node/">The Node.js Book</a></p>
+			</div>
+			<hr>
+			<h3><a href="/blog/isotime/">How to get ISO time in JavaScript</a></h3>
+			<p style="color: #666;">August 10th 2015</p>
+			<div>
+				<p>I had this strange thing I had come up, which I want to tell you about.</p>
+				<p>It&#39;s an error that appears everytime I run <a href="/metalwork/">Metalwork</a>, which uses Moment.js to render dates.</p>
+				<p>The problem is that if I use a date output by the UNIX command <code>date</code> it looks similar to this:</p>
+				<pre><code>Mon Aug 10 16:20:30 CDT 2015
+</code></pre>
+				<p>But Moment.js for what seem to be somewhat anal reasons, doesn&#39;t want to parse this date. It does parse it, and the parse works fine. However, I got this
+					error demanding that I use a thing called ISO time instead of the standard UNIX format of time which has some other name I&#39;m sure. </p>
+				<p>Anyway, Moment.js is sending everyone to a Github issue thread with five million comments where the lead developer is trying to defend his decision to depricate
+					the output of a standard UNIX command. Which seems to be to be dumb, and a lot of other people too. But you can&#39;t fix stubburn.</p>
+				<p>So I wondered, how the hell do I get the current standard ISO time that Moment.js demands with oh so unsolid reasons? </p>
+				<p>The answer took awhile to find, but here it is. Let&#39;s call this file <code>isotime.js</code> and write a brief JavaScript program.</p>
+				<pre><code>var date = new Date().toISOString()
+
+console.log(date)
+</code></pre>
+				<p>This gets the current time in the regular format and converts it into an ISO string:</p>
+				<pre><code>% node isotime.js
+2015-08-10T21:19:18.549Z
+</code></pre>
+				<p>Then you can put it in your Metalwork YAML frontmatter:</p>
+				<pre><code>---
+title: How to get ISO time in JavaScript
+date: 2015-08-10T21:19:18.549Z
+template: post.jade
+collection: blog 
+---
+</code></pre>
+				<p>And you won&#39;t get the stubborn &#39;your date isn&#39;t ISO enough&#39; error from Moment.js that leads to the Moment.js issue thread that will never end.</p>
+				<p>Another idea I have is to sub a different module for Moment.js that will parse UNIX standard dates. But I haven&#39;t got around to doing that yet. One module
+					I have my eye on is <code>fecha</code>.</p>
+			</div>
+			<hr>
+		</div>
+		<div class="four col">
+			<h4>The Mailing</h4>
+			<p>Hear from me when I write a blog post. I'll confirm via email.</p>
+			<form action="http://evbogue.com:4000/send" method="post" class="form-horizontal">
+				<input type="input" name="name" placeholder="Full name" />
+				<br />
+				<input type="input" name="email" placeholder="Email" />
+				<br />
+				<input type="input" name="website" placeholder="Website (optional)" />
+				<br />
+				<button type="submit">Subscribe</button>
+			</form>
+			<p>To unsubscribe <a href="mailto:ev@evbogue.com">email me</a>. </p>
+			<h4>Blog posts</h4>
+			<ul>
+				<li>2015-08-19 - <a href="/blog/terminalgifs/">How to use Node.js to make animated terminal gifs</a></li>
+				<li>2015-08-17 - <a href="/blog/markdownemail/">How to write a markdown email with Nodemailer</a></li>
+				<li>2015-08-15 - <a href="/blog/whyrunyourownemailserver/">Why run your own distributed email server?</a></li>
+				<li>2015-08-12 - <a href="/blog/nodejstest/">Take The Node.js Test</a></li>
+				<li>2015-08-10 - <a href="/blog/isotime/">How to get ISO time in JavaScript</a></li>
+				<li>2015-08-07 - <a href="/blog/takeminimalism/">What will it take to bring minimalism back?</a></li>
+				<li>2015-08-05 - <a href="/blog/commenting/">Node.js Project - Invent a commenting system that works</a></li>
+				<li>2015-08-03 - <a href="/blog/fourmnclientlist/">Four months of The Client List</a></li>
+				<li>2015-07-31 - <a href="/blog/minimalistunicorn/">Is minimalism a dead unicorn?</a></li>
+				<li>2015-07-29 - <a href="/blog/bareminimum/">Bare Minimum Metalwork Stack</a></li>
+				<li>2015-07-28 - <a href="/blog/delicious/">Node project idea - Delicio.us clone</a></li>
+				<li>2015-07-27 - <a href="/blog/framework/">Framework.css</a></li>
+			</ul>
+			<h4>About</h4>
+			<p>
+				<a href="/static/chilleb.jpg"><img src="/static/chilleb.jpg" class="profile" style="width: 25%; float: left; margin-right: 1em;" /></a>
+			</p>
+			<p>Ev Bogue is the author of <a href="http://evbogue.com/node/">Node.js - Code JavaScript</a>.</p>
+			</p>
+			<p>Email: <a href="mailto:ev@evbogue.com">ev@evbogue.com</a>.</p>
+			</p>
+			<p>Built with <a href="http://evbogue.com/metalwork/">Metalwork</a>.</p>
+		</div>
+	</div>
+</body>
+
+</html>

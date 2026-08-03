@@ -1,0 +1,29 @@
+START Mon Aug  3 14:44:23 2026  2577 versions to fetch
+FAIL / 20110429045305 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20110501070359 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20110505050844 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20110923154720 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20110924084332 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20120423154928 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20130728170332 :: <urlopen error [Errno 61] Connection refused>
+  100/2577  ok=93 skip=0 fail=7
+FAIL / 20140611082225 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20140614161100 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20140907090146 :: <urlopen error [Errno 61] Connection refused>
+FAIL /freemoney 20140908162545 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20140913042924 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20140914110300 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20140925052225 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20141001223205 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20141014050820 :: <urlopen error [Errno 61] Connection refused>
+START Mon Aug  3 14:57:28 2026  2577 versions to fetch
+FAIL / 20141014050820 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20141230102451 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20141230234356 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20150106082245 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20150827051631 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20150831195851 :: <urlopen error [Errno 61] Connection refused>
+  200/2577  ok=43 skip=151 fail=6
+FAIL / 20151120133645 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20160113025025 :: <urlopen error [Errno 61] Connection refused>
+FAIL / 20160307054500 :: <urlopen error [Errno 61] Connection refused>

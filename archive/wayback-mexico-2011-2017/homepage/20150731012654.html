@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Evbogue.com | Ev Bogue's Metalwork Blog</title>
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	<link rel="stylesheet" href="/static/framework.css">
+	<link rel="stylesheet" href="/static/style.css">
+	<link rel="stylesheet" href="/static/zenburn.css">
+	<script src="/static/highlight.min.js"></script>
+	<script>
+		hljs.initHighlightingOnLoad();
+	</script>
+</head>
+
+<body>
+	<div class="contain">
+		<div class="twelve col">
+			<h1><a href="/">EVBOGUE<span style="color: #999;">.COM</span></a></h1>
+			<hr>
+		</div>
+		<div class="eight col">
+			<h3><a href="/blog/bareminimum/">Bare Minimum Metalwork Stack</a></h3>
+			<p style="color: #666;">July 29th 2015</p>
+			<div>
+				<p>The why of <a href="/metalwork/">Metalwork</a> is obvious: get a Metalsmith blog up and running without having to piece together the docs from 15 different sources.</p>
+				<p>The how is harder. The stack has changed a bit from the olden days of shared hosting and Geocities. </p>
+				<p>What is the bare minimum stack to run Metalwork? </p>
+				<p>A stack is the term people with technical skills use to talk shop about what programs they use on a computer. When one dork bumps into another dork on the Internet
+					or at a coffee shop they ask the other dork what their stack is, and then judge them when they say &quot;Mac &gt; Apple &gt; Facebook&quot;. In a way it&#39;s
+					a way of judging someone who says they have tech skills, and then downgrading them in your mind when you find out they don&#39;t have any at all.</p>
+				<p>There is no one way to describe a tech stack. I find myself starting at the bottom and working up. Everything on the top of the stack depends on things deeper
+					in the stack.</p>
+				<p>There are local stacks and virtual stacks. I&#39;m using both.</p>
+				<p>The stack I use to run Metalwork is the following:</p>
+				<p>Local: Acer 373 &gt; Arch Linux &gt; Node &gt; Koa &gt; Metalsmith</p>
+				<p>Digital Ocean &gt; Debian &gt; Node &gt; Koa &gt; Metalsmith</p>
+				<p>This is the bare minimum stack. There&#39;s of course all sorts of other things running on my VPS such as Postfix, Procmail, and Spamassassin for me to run email.
+					I send The Mailing and The Client List using Nodemailer, and that&#39;s a slightly different stack from Metalwork, but not that different.</p>
+				<p>Below, the stack in more detail.</p>
+				<h4 id="digital-ocean">Digital Ocean</h4>
+				<p>Digital Ocean is a VPS (virtual private server) company that leases virtual computers with dedicated IP addresses you can use to run programs on. I have a referral
+					code for them, so I&#39;ll get a little mone to keep funding my VPS habit if you use them. It is: <a href="https://www.digitalocean.com/?refcode=26d8ed49730d">https://www.digitalocean.com/?refcode=26d8ed49730d</a></p>
+				<p>You can create VPSes using a simple interface on Digital Ocean, they&#39;ll email you a password, and the next thing you know you can ssh into the VPS using
+					the following command in your terminal</p>
+				<pre><code>% ssh root@192.168.0.1
+Password: theonedigitaloceangaveyou
+</code></pre>
+				<p>And the next thing you know you&#39;ll be logged in as root.</p>
+				<p>There are a lot of skills involved in running a VPS. If you want to learn more about them, read my opinionated book on how to run a VPS called <a href="/om/">Operator&#39;s Manual</a>.</p>
+				<h4 id="debian">Debian</h4>
+				<p>Debian is a Linux distribution. The latest version is Jessie. It&#39;s fairly stable. I&#39;d prefer to use Arch Linux, but Digital Ocean doesn&#39;t support
+					Arch Linux which is a shame. But I have Digital Ocean referal credit to use, so I stick with Debian. The good news about Debian is it&#39;s fairly innovative,
+					being that they&#39;ve implemented systemd. And they&#39;re also incredibly stable, which is why everyone uses Debian on their VPSes.</p>
+				<p>I cover basic UNIX skills such as how to pilot a Linux box in <a href="/om/">Operator&#39;s Manual</a> as well.</p>
+				<h4 id="node">Node</h4>
+				<p>Node.js is an interface for Chromium&#39;s V8 JavaScript engine. It lets you program web servers in JavaScript. Node is a huge innovation over CGI-BINs. </p>
+				<p>How to install Node.js on Debian is easy, just use the package manager to install Node and the package manager they use with Node right now.</p>
+				<pre><code>$ sudo apt-get install nodejs npm
+</code></pre>
+				<p>Next you&#39;ll need to update Node.js to the latest version, which right now is <a href="http://iojs.org">io.js</a>. To do this, install <code>n</code>, which
+					is a decent Node version manager, using npm</p>
+				<pre><code>$ sudo npm install -g n
+</code></pre>
+				<p>And install the latest version of io.js using <code>n</code></p>
+				<pre><code>% sudo n io latest
+</code></pre>
+				<p>And type</p>
+				<pre><code>% node -v 
+</code></pre>
+				<p>To see what version of Node you&#39;re using. It should say <code>2.4.0</code> or higher</p>
+				<p>I&#39;m writing a rolling release book on Node.js, and I think you should <a href="/node/">buy it</a> if you want to get your skills up in this area.</p>
+				<h4 id="koa-js">Koa.js</h4>
+				<p>Koa.js is a generator&#39;s based serverside framework for building web applications. Within Metalwork, I only really use it to serve a static website. I love
+					the syntax, so that&#39;s why I use it.</p>
+				<pre><code>var koa = require(&#39;koa&#39;)
+
+var app = koa();
+
+app.listen(&#39;3000&#39;);
+</code></pre>
+				<p>and </p>
+				<pre><code>% npm install koa
+</code></pre>
+				<p>I also use Koa static to serve Metalsmith&#39;s static files. So that app starts to look more similar to this:</p>
+				<pre><code>var koa = require(&#39;koa&#39;),
+    serve = require(&#39;koa-static&#39;);
+
+var app = koa();
+
+app.use(serve(__dirname + &#39;./build&#39;));
+
+app.listen(&#39;3000&#39;);
+</code></pre>
+				<p>Don&#39;t forget to npm install it</p>
+				<pre><code>% npm install koa-static
+</code></pre>
+				<p>And that is all I&#39;m using from Koa. There&#39;s a lot more. You can basically reimplement any modern web application you&#39;ve ever used on the Internet
+					using Koa if you back your head up against it enough.</p>
+				<p>There are a handful of Koa.js tutorials in <a href="/node/">The Node Book</a>.</p>
+				<h4 id="metalsmith">Metalsmith</h4>
+				<p>Metalsmith is the best static website generator I&#39;ve been able to find on the Internet. In fact, it&#39;s perhaps more interesting to call it a static website
+					framework. Because it&#39;s so flexible, you can build all sorts of things with it. The only rule is Metalsmith will probably render them down to static files.</p>
+				<p>I use Metalsmith together with Koa to bring Metalwork together. This is all of the Metalsmith code in Metalwork, with all of the Koa stripped out. Obviously
+					there are templates and src files as well.</p>
+				<p>A simple Metalsmith site looks similar to this:</p>
+				<pre><code>var metalsmtih = require(&#39;metalsmith&#39;),
+    markdown = require(&#39;metalsmith-markdown&#39;);
+
+metalsmith(__dirname)
+  .use(markdown())
+  .destination(&#39;./build&#39;)
+  .build(function(err) {
+    if (err) {throw err; }
+  });
+</code></pre>
+				<p>Here&#39;s the full code involved in Metalwork:</p>
+				<pre><code>var metalsmith  = require(&#39;metalsmith&#39;),
+    markdown    = require(&#39;metalsmith-markdown&#39;),
+    templates   = require(&#39;metalsmith-templates&#39;),
+    collections = require(&#39;metalsmith-collections&#39;),
+    permalinks  = require(&#39;metalsmith-permalinks&#39;),
+    beautify    = require(&#39;metalsmith-beautify&#39;),
+    moment      = require(&#39;moment&#39;);
+
+
+metalsmith(__dirname)
+    .use(markdown())
+    .use(collections({
+      blog: {
+        pattern: &#39;./blog/*.md&#39;,
+        sortBy: &#39;date&#39;,
+        reverse: &#39;True&#39;
+        }
+}))
+    .use(permalinks({
+      pattern: &#39;:collections:title&#39;
+    }))
+    .use(templates({
+    engine: &#39;jade&#39;,
+    moment
+    }))
+    .use(beautify())
+    .destination(&#39;./build&#39;)
+    .build(function(err) {
+        if (err) {throw err; }
+        console.log(&#39;Metalwork has been built&#39;);
+    });
+</code></pre>
+				<p>That&#39;s a lot, but it&#39;s necessary to get a somewhat basic blog necessary. The good new is Metalsmith/Metalwork is so customizable you can rip out any
+					of the middleware and replace it with anything you want.</p>
+				<p>This bare minimum stack for Metalwork might seem a bit overwhelming, but at most it&#39;s going to run out $5 a month at a VPs providor to keep running. Plus
+					a yearly fee on a domain name, if you want to have a URL people can go to read your blog.</p>
+				<p>If you want to learn more about VPSes read <a href="/om/">Operator&#39;s Manual</a> and <a href="/node/">The Node.js Book</a> where I&#39;ve covered these technologies
+					in more depth. Questions? Hit me at my <a href="mailto:ev@evbogue.com">email</a>.</p>
+			</div>
+			<hr>
+			<h3><a href="/blog/delicious/">Node project idea - Delicio.us clone</a></h3>
+			<p style="color: #666;">July 28th 2015</p>
+			<div>
+				<p>I have a big theory that everything that&#39;s been built on the Internet can be re-implemented in Node.js. You only need to understand how a program works.
+					The great thing about existing programs is someone programmed them once, so how hard can it be to program them again?</p>
+				<p>Delicio.us is a good one. Social bookmarking! Because it doesn&#39;t really exist anymore. The original program is long gone, lost to seas of time. Pinboard.in
+					is another example of the same program.</p>
+				<p>This is a a spec. How exactly to re-implement delicious is beyond the realm of this post. I don&#39;t know the specifics because I haven&#39;t done it. </p>
+				<p>I&#39;m going to talk about how I think it could be achieved, and what modules to use, and then you get to do the implementing. Unless I&#39;m motivated enough
+					to try it myself before you figure it out. If you do a delicio.us clone, send me the link! <a href="mailto:ev@evbogue.com">ev@evbogue.com</a></p>
+				<p>If you need an introduction to Node.js, <a href="/node/">buy the Node.js book to get your skills up</a>.</p>
+				<p>If you want to hire me to implement a program in Node.js, or throw a whole bunch of VC money at me to do it, then give me a shout and we&#39;ll talk details.</p>
+				<p>Delicio.us is a three part centralized user-account based program, as I remember it.</p>
+				<ol>
+					<li>The frontend </li>
+					<li>The backend</li>
+					<li>The bookmarklet</li>
+				</ol>
+				<p>There&#39;s no reason you can&#39;t do most of this in Node, except for the bookmarklet. That would need to be done in browser-side JavaScript. The bookmarklet
+					hangs out in your browser&#39;s navigation bar and saves a bookmark&#39;s name, url, date and any notes you have about the page. Next, it relays it to the backend
+					app for you, so you don&#39;t have to manually type any of it in. </p>
+				<p>The backend would be Node.js. It&#39;d need to take data from the frontend and save it to a database. Let&#39;s say Redis, because Redis is fast. But you could
+					just as well use LevelDB, MongoDB, or one of those SQLs. The hardest thing for me would probably be doing the database hookups, because I&#39;ve never written
+					a database app before. Next I&#39;d use Express or Koa.js as a framework to render routes to receive and display this data. It&#39;d need a /save route that
+					both accepts input from a form and displays output. The app would record an object containing this data. Let&#39;s use JSON for that. We&#39;d need /signup
+					and /login routes as well. As well as a /profile page that is editable and a root route / that displays your social bookmarks in chronological order. </p>
+				<p>If I remember delicio.us, it also had a way to /follow /unfollow and /display all of the bookmarks that your friends have saved as well. While we&#39;re at it,
+					we&#39;ll need to implement a /search route where you can search your bookmarks for bookmarks you&#39;d saved.</p>
+				<p>That&#39;s it for the backend. </p>
+				<p>The frontend doesn&#39;t need to be anything other than static HTML rendered on the fly for the user session. No need to bring any data to the browser unless
+					you want to do that in a clever way.</p>
+				<p>That&#39;s it folks. Go now and implement! Create a startup and make all of the money. If I missed anything, let me know.</p>
+			</div>
+			<hr>
+			<h3><a href="/blog/framework/">Framework.css</a></h3>
+			<p style="color: #666;">July 27th 2015</p>
+			<div>
+				<p><strong>Updated</strong>: July 28, 2015
+					<strong>Version</strong>: 1.6.1</p>
+				<p>
+					<a href="/static/framework.css">
+						<button>Download</button>
+					</a>
+				</p>
+				<p>I wanted a decent framework. I looked everywhere for one. I tried out a bunch. None of them were good enough for me. So I created one. I present to you, a decent
+					framework.</p>
+				<p>Patches welcome, via <a href="mailto:ev@evbogue.com">email</a>.</p>
+				<p>Framework.css is a single CSS file that works without any JavaScript. Framework won&#39;t style your project for you, but will give you a stable base on which
+					to build your site or web application design.</p>
+				<h3 id="grid-layout">Grid Layout</h3>
+				<p>Framework comes with a percentage-based grid layout. There are twelve columns. This means you should be able to design layouts that work on different sized screens
+					-- from mobile to desktop.</p>
+				<div class="one col border">one</div>
+				<div class="eleven col border">eleven</div>
+
+				<div class="two col border">two</div>
+				<div class="ten col border">ten</div>
+
+				<div class="three col border">three</div>
+				<div class="nine col border">nine</div>
+
+				<div class="four col border">four</div>
+				<div class="eight col border">eight</div>
+
+				<div class="five col border">five</div>
+				<div class="seven col border">seven</div>
+
+				<div class="six col border">six</div>
+				<div class="six col border">six</div>
+
+				<div class="seven col border">seven</div>
+				<div class="five col border">five</div>
+
+				<div class="eight col border">eight</div>
+				<div class="four col border">four</div>
+
+				<div class="nine col border">nine</div>
+				<div class="three col border">three</div>
+
+				<div class="ten col border">ten</div>
+				<div class="two col border">two</div>
+
+				<div class="eleven col border">eleven</div>
+				<div class="one col border">one</div>
+
+				<hr />
+
+				<h3 id="installation">Installation</h3>
+				<p>To install Framework.css... </p>
+				<ul>
+					<li>Add Framework.css to your project&#39;s static folder </li>
+					<li>Add the following HTML code between the <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags</li>
+				</ul>
+				<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/framework.css&quot; /&gt;
+</code></pre>
+				<p>Make sure the URL is the same as where you&#39;ve uploaded the file on your server.</p>
+				<p>And build! Design! Create! Make all of the money!</p>
+				<p>
+					<a href="/static/framework.css">
+						<button>Download</button>
+					</a>
+				</p>
+			</div>
+			<hr>
+		</div>
+		<div class="four col">
+			<h4>The Mailing</h4>
+			<p>Hear from me when I write a blog post. I'll confirm via email.</p>
+			<form action="http://evbogue.com:4000/send" method="post" class="form-horizontal">
+				<input type="input" name="name" placeholder="Full name" />
+				<br />
+				<input type="input" name="email" placeholder="Email" />
+				<br />
+				<input type="input" name="website" placeholder="Website (optional)" />
+				<br />
+				<button type="submit">Subscribe</button>
+			</form>
+			<p>To unsubscribe <a href="mailto:ev@evbogue.com">email me</a>. </p>
+			<h4>Blog posts</h4>
+			<ul>
+				<li>2015-07-29 - <a href="/blog/bareminimum/">Bare Minimum Metalwork Stack</a></li>
+				<li>2015-07-28 - <a href="/blog/delicious/">Node project idea - Delicio.us clone</a></li>
+				<li>2015-07-27 - <a href="/blog/framework/">Framework.css</a></li>
+			</ul>
+			<h4>About</h4>
+			<p>
+				<a href="/static/chilleb.jpg"><img src="/static/chilleb.jpg" class="profile" style="width: 25%; float: left; margin-right: 1em;" /></a>
+			</p>
+			<p>Ev Bogue is the author of <a href="http://evbogue.com/node/">Node.js - Code JavaScript</a>.</p>
+			</p>
+			<p>Email: <a href="mailto:ev@evbogue.com">ev@evbogue.com</a>.</p>
+			</p>
+			<p>Built with <a href="http://evbogue.com/metalwork/">Metalwork</a>.</p>
+		</div>
+	</div>
+</body>
+
+</html>
