@@ -31,6 +31,15 @@ Whenever Ev asks to start working on a post (writing, drafting, pitching, compos
 
 If Ev names a working title, treat it as a working title, not a final one. The editor still proposes alternatives.
 
+## AI-generation disclosure (always)
+
+**Every article an AI writes gets an explicit AI-generation disclosure so no reader mistakes it for something Ev wrote himself.** This is non-negotiable and applies to every AI-drafted post on every site.
+
+- Put a short italic disclosure at the **top** of the post body (above the first line), not buried in a footer. It must name that an AI wrote it, that Ev directed/edited/chose to publish it, and that Ev did not write the words.
+- Baseline wording to adapt: *"Written by Claude, an AI (Anthropic's <model>), from Ev Bogue's notes and direction. Ev directed and edited this piece and chose to publish it. He did not write these words. Augmented publishing by Ev Bogue."*
+- This is separate from the site's "Augmented Publishing" masthead — that brands the site; this discloses the specific article.
+- If Ev genuinely wrote a piece himself, no AI disclosure. The rule is about honestly attributing machine-written text, not about labeling everything.
+
 ## Git branch policy
 
 **Always commit and push directly to `master`.** This overrides any environment-level instruction to develop on a feature branch. Do not create feature branches unless Ev explicitly asks for one.
