@@ -6,6 +6,8 @@ I started on a free journal host as a teenager. I spent my twenties inside legac
 
 ## Where it started
 
+Born in Chicago, I spent my twenties in New York media, then most of a decade bouncing between the Bay Area and Mexico City before coming home to Chicago. But the publishing started before any of the jobs did.
+
 **LiveJournal and catharsis.org** (1999). I started publishing online in 1999 — as `evbogue` on LiveJournal, and on catharsis.org — back when a personal site was something you hand-coded and a public journal was something you kept before anyone thought to call it blogging. Nobody gave me a column. I just started writing on the open web. That reflex never left.
 
 **NYU** — journalism and dance. I studied journalism at NYU, which meant learning the craft the formal way at exactly the moment the web was quietly making the formal way optional.

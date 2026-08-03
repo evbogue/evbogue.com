@@ -62,13 +62,13 @@ Leads, roughly in order of payoff:
 
 When a fact lands, update the locked timeline's source tags and note the specific post. When the writing and Ev's memory disagree, **flag it — do not silently overwrite Ev's account.**
 
-## Proposed public line for `/projects` (cities only — awaiting Ev's sign-off)
+## Public line for `/projects` (cities only — PUBLISHED 2026-08-02)
 
-Locked wording, ready to drop into the "Where it started" / writing section on Ev's go. Cities only, no birth year, no addresses:
+Published to the live `/projects` "Where it started" section per Ev. Cities only, no birth year, no addresses:
 
-> Born in Chicago, spent my twenties in New York media, then most of a decade bouncing between the Bay Area and Mexico City before coming home to Chicago.
+> Born in Chicago, I spent my twenties in New York media, then most of a decade bouncing between the Bay Area and Mexico City before coming home to Chicago.
 
-Do **not** publish this line until Ev greenlights it.
+Any future edits to this line stay cities-only unless Ev says otherwise.
 
 ## Why this matters
 
