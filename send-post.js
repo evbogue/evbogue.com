@@ -1,4 +1,4 @@
-import nodemailer from "npm:nodemailer";
+import nodemailer from "npm:nodemailer@8.0.6";
 import { hashClient, recordEvent } from "./lib/analytics.js";
 import { excerptFromBody, loadPost, loadPosts } from "./lib/posts.js";
 import { activeSubscribers, loadSubscribers, unsubscribeUrl } from "./lib/subscribers.js";

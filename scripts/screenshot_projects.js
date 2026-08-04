@@ -36,7 +36,13 @@ if (!targets.length) {
 const outDir = `${site.assetsDir}/projects`
 await Deno.mkdir(outDir, { recursive: true })
 
-const browser = await chromium.launch()
+// In a Claude Code container Chromium is preinstalled at $PLAYWRIGHT_BROWSERS_PATH
+// and must be launched by explicit path (Playwright's version-matched auto-
+// discovery won't find it). Everywhere else, let Playwright find its own browser.
+const pwPath = Deno.env.get("PLAYWRIGHT_BROWSERS_PATH")
+const preinstalled = pwPath ? `${pwPath}/chromium` : ""
+const usePreinstalled = preinstalled && await Deno.stat(preinstalled).then(() => true, () => false)
+const browser = await chromium.launch(usePreinstalled ? { executablePath: preinstalled } : {})
 const context = await browser.newContext({
   viewport: { width: 1280, height: 800 },
   deviceScaleFactor: 2,

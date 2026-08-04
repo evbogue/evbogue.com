@@ -9,8 +9,8 @@ A minimal multi-site publishing repo for Ev Bogue (ev@evbogue.com). evbogue.com 
 ## Stack
 
 - **Runtime:** Deno 2.x (`brew install deno`)
-- **Server:** Hono via `jsr:@hono/hono`
-- **Markdown:** `marked` via `https://esm.sh/gh/evbogue/bog5@...`
+- **Server:** Hono via `npm:hono` (npm registry, so it resolves everywhere including locked-down containers)
+- **Markdown:** `marked`, vendored at `vendor/marked.esm.js` (the bog5 build, committed so there's no runtime CDN dependency)
 - **CSS:** `sites/<site>/assets/*.css` served directly by the Deno app
 - **Fonts:** Playfair Display, DM Sans, and DM Mono via Google Fonts
 - **Deployment:** `root@evbogue.com`, repo at `/root/evbogue.com`. App runs as `deno serve --port=8082 serve.js` in tmux session `10`, behind a TLS reverse proxy on `:443`. Manual `git pull` to deploy. Markdown goes live on pull; `serve.js` changes need an app reload. Full runbook in `Agents/DEVOPS.md`.
@@ -37,24 +37,32 @@ install -m 0755 /tmp/deno /usr/local/bin/deno
 deno --version
 ```
 
-**But installing Deno is not enough to boot this app in a container.** `serve.js`
-resolves its dependencies at runtime from hosts that are *also* blocked by the
-egress policy:
+Once Deno is on the PATH, `deno task start` boots cleanly in a container. That
+wasn't always true: `jsr.io` and `esm.sh` are both 403-blocked here, so the app
+used to die fetching Hono and `marked`. It doesn't anymore, because those two
+deps were moved to sources the container *can* reach:
 
-| Host | Used for | In a Claude container |
+| Dependency | Source | In a Claude container |
 |---|---|---|
-| `jsr.io` | `jsr:@hono/hono` | **403 — blocked** |
-| `esm.sh` | the bog5 `marked` build | **403 — blocked** |
-| `registry.npmjs.org` | `npm:nodemailer`, `npm:playwright` | 200 — reachable |
+| Hono | `npm:hono` (was `jsr:@hono/hono`) | reachable — npm registry is allowed |
+| `marked` | `vendor/marked.esm.js` (was `esm.sh`) | reachable — committed in-repo |
+| `nodemailer`, `playwright` | npm registry | reachable |
+| `deno.land`, `jsr.io`, `esm.sh` | — | **403 — still blocked, but nothing imports from them** |
 
-So a fresh `deno task start` dies on `JSR package manifest for '@hono/hono'
-failed to load … 403 Forbidden`. Only the npm registry works; Hono and `marked`
-can't be fetched. To actually run or screenshot the site inside a container
-you'd need vendored/cached dependencies (commit `deno vendor` output, or prime
-a `DENO_DIR` while those hosts are reachable) — or just run it on a normal
-machine, where `deno.land`, `jsr.io`, and `esm.sh` are all reachable and
-`deno task start` works unchanged. `bun` and `node` are preinstalled in the
-container if you need a quick JS runtime for something unrelated to `serve.js`.
+If you ever add a new `jsr:` or `esm.sh`/`deno.land` import it will fail in
+containers — prefer `npm:` specifiers or vendor the file under `vendor/`. `bun`
+and `node` are also preinstalled if you need a quick JS runtime for something
+unrelated to `serve.js`.
+
+**Screenshots in a container.** `deno task screenshots` runs Chromium fine here
+— it's preinstalled at `$PLAYWRIGHT_BROWSERS_PATH` and the script launches it by
+explicit path (don't run `playwright install`). The catch is egress: the live
+project sites (`wiredove.net`, `anproto.com`, `apds.anproto.com`,
+`decent.evbogue.com`, even `evbogue.com`) are all 403-blocked from a container,
+so there's nothing to capture. Real portfolio screenshots have to be taken where
+those sites are reachable — your machine or the VPS. From a container you can
+only screenshot a target the container can reach, e.g. the local dev server
+(`deno task start`, then point a capture at `http://localhost:8082/`).
 
 ## File structure
 

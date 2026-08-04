@@ -1,5 +1,5 @@
-import { Hono } from "jsr:@hono/hono";
-import { marked } from "https://esm.sh/gh/evbogue/bog5@de70376265/lib/marked.esm.js";
+import { Hono } from "npm:hono@4.12.15";
+import { marked } from "./vendor/marked.esm.js";
 import { excerptFromBody, loadPosts as readPosts } from "./lib/posts.js";
 import { addSubscriber, confirmByToken, findByToken, unsubscribeByToken } from "./lib/subscribers.js";
 import { sendAdminNotification, sendConfirmation } from "./lib/mailer.js";
