@@ -21,6 +21,41 @@ A minimal multi-site publishing repo for Ev Bogue (ev@evbogue.com). evbogue.com 
 deno task start
 ```
 
+### Running in a Claude Code container
+
+Claude Code web/cloud containers do **not** ship Deno, and the normal install
+paths are blocked by the session's egress policy — `brew install deno` isn't
+available and the `deno.land` installer returns **403** (so does `dl.deno.land`).
+Deno itself still runs here; you just have to fetch the binary from GitHub
+(which is allowed) instead of from deno.land:
+
+```sh
+curl -fsSL -o /tmp/deno.zip \
+  https://github.com/denoland/deno/releases/latest/download/deno-x86_64-unknown-linux-gnu.zip
+unzip -o /tmp/deno.zip -d /tmp
+install -m 0755 /tmp/deno /usr/local/bin/deno
+deno --version
+```
+
+**But installing Deno is not enough to boot this app in a container.** `serve.js`
+resolves its dependencies at runtime from hosts that are *also* blocked by the
+egress policy:
+
+| Host | Used for | In a Claude container |
+|---|---|---|
+| `jsr.io` | `jsr:@hono/hono` | **403 — blocked** |
+| `esm.sh` | the bog5 `marked` build | **403 — blocked** |
+| `registry.npmjs.org` | `npm:nodemailer`, `npm:playwright` | 200 — reachable |
+
+So a fresh `deno task start` dies on `JSR package manifest for '@hono/hono'
+failed to load … 403 Forbidden`. Only the npm registry works; Hono and `marked`
+can't be fetched. To actually run or screenshot the site inside a container
+you'd need vendored/cached dependencies (commit `deno vendor` output, or prime
+a `DENO_DIR` while those hosts are reachable) — or just run it on a normal
+machine, where `deno.land`, `jsr.io`, and `esm.sh` are all reachable and
+`deno task start` works unchanged. `bun` and `node` are preinstalled in the
+container if you need a quick JS runtime for something unrelated to `serve.js`.
+
 ## File structure
 
 ```
