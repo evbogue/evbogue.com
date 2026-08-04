@@ -1,31 +1,43 @@
 {
+  "groups": [
+    {
+      "id": "anproto",
+      "label": "The ANProto Stack",
+      "period": "2024 – now",
+      "blurb": "One system in three layers. ANProto is the primitive that everything hangs off — a signed, timestamped hash and nothing else. Wiredove is the client you actually open. apds is an optional data server that relays and notifies. Take the protocol on its own and it still works; the client and the server are conveniences you can throw away without breaking anything.",
+      "members": ["anproto", "wiredove", "apds"]
+    }
+  ],
   "projects": [
+    {
+      "slug": "anproto",
+      "name": "ANProto",
+      "group": "anproto",
+      "period": "2025 – now",
+      "kind": "Protocol",
+      "blurb": "The Authenticated, Non-networked Protocol — the load-bearing piece. An ed25519 signature over a timestamp and a content hash, encoded in base64, and nothing more. No log, no chain, no opinion about how the message reaches you: bring your own network. Small enough that implementations already exist in JavaScript, Go, Rust, and Python.",
+      "url": "https://anproto.com/",
+      "repo": "https://github.com/evbogue/ANProto"
+    },
     {
       "slug": "wiredove",
       "name": "Wiredove",
+      "group": "anproto",
       "period": "2024 – now",
-      "kind": "Flagship client",
-      "blurb": "The flagship. A distributed social app that runs entirely in a browser window — ANProto for identity, apds for delivery, WebRTC for serverless peer-to-peer collaboration. Local-first, no install, no account to be deleted. This is what the whole stack is for.",
+      "kind": "Client",
+      "blurb": "The client you actually open. A distributed social app that runs entirely in a browser window — ANProto for identity, WebRTC for serverless peer-to-peer collaboration, and apds when you want it for delivery. Local-first, no install, no account to be deleted. Works on its own; the server just makes it nicer.",
       "url": "https://wiredove.net/",
       "repo": "https://github.com/evbogue/wiredove"
     },
     {
       "slug": "apds",
       "name": "apds",
+      "group": "anproto",
       "period": "2024 – now",
-      "kind": "Infrastructure",
-      "blurb": "A personal data server for ANProto: a small always-on box that stores and relays your signed messages and wakes your clients over web push when something new arrives. A convenience layer for people who want one — never a dependency for people who don't.",
+      "kind": "Data server",
+      "blurb": "The optional always-on box. A personal data server for ANProto that stores and relays your signed messages and wakes your clients over web push when something new arrives. A convenience layer for people who want one — never a dependency for people who don't.",
       "url": "https://apds.anproto.com/",
       "repo": "https://github.com/evbogue/apds"
-    },
-    {
-      "slug": "anproto",
-      "name": "ANProto",
-      "period": "2025 – now",
-      "kind": "Protocol",
-      "blurb": "The Authenticated, Non-networked Protocol. An ed25519 signature over a timestamp and a content hash, encoded in base64 — the whole primitive. No log, no chain, no opinion about how the message reaches you. Bring your own network. Small enough that implementations exist in JavaScript, Go, Rust, and Python.",
-      "url": "https://anproto.com/",
-      "repo": "https://github.com/evbogue/ANProto"
     },
     {
       "slug": "ssbc",

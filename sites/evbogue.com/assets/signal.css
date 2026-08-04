@@ -1003,15 +1003,51 @@ footer {
 .project-link--repo { color: var(--ink-2); }
 .project-link .ext { font-family: var(--sans); }
 
+/* A grouped cluster (e.g. the ANProto stack) reads as one bound area:
+   a full-width tinted band with a shared header, an intro line, and the
+   member cards laid out as a trio. */
+.project-group {
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: 0.5rem 0 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.project-group .section-label { color: var(--accent); }
+
+.project-group-blurb {
+  color: var(--ink-2);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: var(--max);
+  padding: 0 2rem;
+}
+
+.portfolio-grid--group {
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 1.5rem;
+}
+
+/* On the tinted band the placeholder frame would blend in; lift it to paper. */
+.project-group .project-shot { background: var(--paper); }
+
 @media (max-width: 860px) {
   .portfolio-grid {
     gap: 2.5rem;
     grid-template-columns: 1fr;
     max-width: var(--col);
   }
+  .portfolio-grid--group {
+    grid-template-columns: 1fr;
+    max-width: var(--col);
+  }
+  .project-group-blurb { max-width: var(--col); }
 }
 
 @media (max-width: 560px) {
   .portfolio-grid { padding-inline: 1rem; }
+  .project-group-blurb { padding-inline: 1rem; }
   .project-name { font-size: 1.3rem; }
 }

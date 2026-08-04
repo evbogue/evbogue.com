@@ -550,9 +550,12 @@ async function loadProjects(site) {
   try {
     const raw = await Deno.readTextFile(`${site.root}/projects.json`)
     const data = JSON.parse(raw)
-    return Array.isArray(data.projects) ? data.projects : []
+    return {
+      projects: Array.isArray(data.projects) ? data.projects : [],
+      groups: Array.isArray(data.groups) ? data.groups : [],
+    }
   } catch {
-    return []
+    return { projects: [], groups: [] }
   }
 }
 
@@ -634,17 +637,49 @@ function projectCardHtml(project, shots) {
   `
 }
 
-function projectsGridHtml(projects, shots) {
-  if (!projects.length) return ""
+function portfolioSectionHtml({ label, blurb, cards, shots, grouped }) {
+  if (!cards.length) return ""
+  const groupClass = grouped ? " portfolio-grid--group" : ""
   return `
-    <div class="section-header portfolio-header">
-      <span class="section-label">Selected work</span>
-      <div class="section-rule"></div>
-    </div>
-    <div class="portfolio-grid">
-      ${projects.map((project) => projectCardHtml(project, shots)).join("")}
-    </div>
+    <section class="portfolio-section${grouped ? " project-group" : ""}">
+      <div class="section-header portfolio-header">
+        <span class="section-label">${escapeHtml(label)}</span>
+        <div class="section-rule"></div>
+      </div>
+      ${blurb ? `<p class="project-group-blurb">${escapeHtml(blurb)}</p>` : ""}
+      <div class="portfolio-grid${groupClass}">
+        ${cards.map((project) => projectCardHtml(project, shots)).join("")}
+      </div>
+    </section>
   `
+}
+
+function portfolioHtml(projects, groups, shots) {
+  if (!projects.length) return ""
+  const bySlug = new Map(projects.map((p) => [p.slug, p]))
+  const claimed = new Set()
+  let out = ""
+
+  // Grouped clusters first (e.g. the ANProto stack), in declared member order.
+  for (const group of groups) {
+    const cards = (group.members || [])
+      .map((slug) => bySlug.get(slug))
+      .filter(Boolean)
+    if (!cards.length) continue
+    for (const card of cards) claimed.add(card.slug)
+    out += portfolioSectionHtml({
+      label: group.label || "Related work",
+      blurb: group.blurb,
+      cards,
+      shots,
+      grouped: true,
+    })
+  }
+
+  // Everything not pulled into a group falls under Selected work, source order.
+  const singles = projects.filter((p) => !claimed.has(p.slug))
+  out += portfolioSectionHtml({ label: "Selected work", cards: singles, shots, grouped: false })
+  return out
 }
 
 app.get('/projects', async (c) => {
@@ -655,7 +690,7 @@ app.get('/projects', async (c) => {
   } catch {
     return c.notFound()
   }
-  const projects = await loadProjects(site)
+  const { projects, groups } = await loadProjects(site)
   const shots = await availableProjectShots(site)
   const [intro, outro] = splitOnPortfolioMarker(doc)
   return c.html(sitePage(site, {
@@ -671,7 +706,7 @@ app.get('/projects', async (c) => {
         <div class="post-body">
           ${marked(intro)}
         </div>
-        ${projectsGridHtml(projects, shots)}
+        ${portfolioHtml(projects, groups, shots)}
         ${outro.trim() ? `<div class="post-body">${marked(outro)}</div>` : ""}
       </article>
     `,
