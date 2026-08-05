@@ -94,6 +94,42 @@ curl -s -o /dev/null -w '%{http_code}\n' https://evbogue.com/projects      # exp
 
 Never `git pull` and expect a `serve.js` change to be live without this. Never kill the `:443`/`:80` processes to "restart the site" — they are the proxy, not the app. And note: the app does **not** auto-start on reboot (foreground tmux process); a reboot needs a manual relaunch of the session-`10` command.
 
+## Reverse proxy and TLS certs (`:443` / `:80`)
+
+The front door for **all ~18 domains** (verified 2026-08-05):
+
+- **`:443`** — `/root/reverse-proxy`, run as `deno run -A serve.js`. Routes by **`domains.json`** (`"host": localhostPort`); an unmapped host gets a bare `404 Not Found`. Serves **one shared Let's Encrypt cert** (`/etc/letsencrypt/live/wiredove.net/{fullchain,privkey}.pem`) for every domain, read **once at startup**. Currently runs **detached** (parent = init, not in a tmux session).
+- **`:80`** — `/root/http-redirect`, `deno run --allow-net serve.js`. 308-redirects everything to HTTPS (so it can't serve ACME webroot challenges).
+
+**When is restarting the proxy OK?** The "never kill `:443`/`:80`" rule means *don't restart the proxy as a blog-deploy step* — the blog is the app on `:8082`, and bouncing the proxy just blips all 18 sites for nothing. But when you change the **proxy itself** — a new `domains.json` entry, or a **new cert** — restarting it is correct and required (it only loads `domains.json`/cert at startup). That's the legitimate exception.
+
+**Add a domain to the proxy:** add `"host": port` to `/root/reverse-proxy/domains.json`, then restart the proxy (below). If the host needs valid TLS, it must also be in the cert SAN (re-issue below).
+
+**Add a host to the shared cert (HTTP-01 is `standalone`, so `:80` must be free):**
+```sh
+# stop :80 so certbot can bind it
+pkill -f "deno run --allow-net serve.js"; sleep 2
+# re-issue with the FULL existing SAN list PLUS the new host (all-or-nothing; every -d must resolve here)
+certbot certonly --standalone --http-01-port 80 --cert-name wiredove.net --expand \
+  -d anproto.com -d www.anproto.com -d evbogue.com -d www.evbogue.com -d bogbook.com -d www.bogbook.com \
+  -d wiredove.net -d www.wiredove.net -d pub.wiredove.net -d decent.evbogue.com -d ssb.evbogue.com \
+  -d ssbski.evbogue.com -d ssbpro.evbogue.com -d ours.evbogue.com -d atchicago.evbogue.com \
+  -d codeandcoffee.evbogue.com -d sideeffects.evbogue.com -d sidequests.evbogue.com \
+  -d THE-NEW-HOST --non-interactive --agree-tos
+# restart :80
+cd /root/http-redirect && setsid /root/.deno/bin/deno run --allow-net serve.js >/dev/null 2>&1 </dev/null &
+```
+Do a `--dry-run` first (same command + `--dry-run`) — it validates every domain without spending the cert or touching the live one; a failure there is harmless. Pre-check that all `-d` hosts resolve to `45.55.134.151`, or the whole issue fails.
+
+**Restart the `:443` proxy (loads new domains.json / cert):**
+```sh
+PID=$(ss -ltnp | grep ':443 ' | grep -oP 'pid=\K[0-9]+' | head -1); kill "$PID"; sleep 2
+cd /root/reverse-proxy && setsid /root/.deno/bin/deno run -A serve.js >/root/reverse-proxy/proxy.log 2>&1 </dev/null &
+sleep 4; ss -ltn | grep -q ':443 ' && echo up || tail /root/reverse-proxy/proxy.log
+# verify a few: curl -s -o /dev/null -w '%{http_code}\n' https://evbogue.com/ https://wiredove.net/
+```
+~1–2s HTTPS blip across all domains during the restart. Auto-renewal is HTTP-01 standalone, which needs `:80` free — the running `http-redirect` will block an unattended `certbot renew`, so renewals are effectively manual (stop `:80`, renew, start `:80`, restart proxy).
+
 ## Report format
 
 When finished, report:
