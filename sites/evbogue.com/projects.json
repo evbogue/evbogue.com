@@ -6,6 +6,13 @@
       "period": "2024 – now",
       "blurb": "One system in three layers. ANProto is the primitive that everything hangs off — a signed, timestamped hash and nothing else. Wiredove is the client you actually open. apds is an optional data server that relays and notifies. Take the protocol on its own and it still works; the client and the server are conveniences you can throw away without breaking anything.",
       "members": ["anproto", "wiredove", "apds"]
+    },
+    {
+      "id": "ssb",
+      "label": "Secure Scuttlebutt, Restored",
+      "period": "2016 – now",
+      "blurb": "Scuttlebutt was the peer-to-peer social protocol I bet on early. When the original project was discontinued in 2024 I came back and took over the classic restoration — which makes me the current maintainer of git-ssb, hosting git repositories over SSB with no GitHub in the loop. It's one browser-based engine wearing three faces: same feed, same keys, live-switchable skins.",
+      "members": ["decent", "ssbski", "ssbpro"]
     }
   ],
   "projects": [
@@ -40,16 +47,34 @@
       "repo": "https://github.com/evbogue/apds"
     },
     {
-      "slug": "ssbc",
-      "name": "Secure-Scuttlebot Classic",
-      "period": "2024 – now",
-      "kind": "Maintainer",
-      "blurb": "The original Scuttlebutt project was discontinued in 2024, so I came back to it. I maintain the classic-functionality restoration — which makes me the current maintainer of git-ssb, hosting git repositories over SSB with no GitHub required.",
+      "slug": "decent",
+      "name": "Decent",
+      "group": "ssb",
+      "period": "2016 – now",
+      "kind": "Classic client",
+      "blurb": "The original. I forked Patchbay into Decent in 2016 — my first Scuttlebutt client — and it's the classic face of the restoration: a Patchwork-style reader that runs in the browser and shows the git-ssb activity feed, no native install and no upstream to depend on.",
       "url": "https://decent.evbogue.com/",
-      "repo": "https://github.com/evbogue/ssbc",
-      "links": [
-        { "label": "ssbski skin", "href": "https://ssbski.evbogue.com/" }
-      ]
+      "repo": "https://github.com/evbogue/ssbc"
+    },
+    {
+      "slug": "ssbski",
+      "name": "ssbski",
+      "group": "ssb",
+      "period": "2025 – now",
+      "kind": "Social skin",
+      "blurb": "A dark, modern skin over the same engine — Discover and Following timelines, trending channels, a feed that reads like the social apps everyone already knows. Same signed messages underneath; the skin switches live and the identity never moves.",
+      "url": "https://ssbski.evbogue.com/",
+      "repo": "https://github.com/evbogue/ssbc"
+    },
+    {
+      "slug": "ssbpro",
+      "name": "ssbpro",
+      "group": "ssb",
+      "period": "2025 – now",
+      "kind": "Pro skin",
+      "blurb": "The professional-network skin — Feed, Network, Messaging, and a Start-a-Post composer styled like the business social site you're avoiding, except every post is an SSB message on a feed you own. The interface is a costume; the protocol is the thing.",
+      "url": "https://ssbpro.evbogue.com/",
+      "repo": "https://github.com/evbogue/ssbc"
     },
     {
       "slug": "this-site",
