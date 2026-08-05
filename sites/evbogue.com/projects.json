@@ -42,8 +42,8 @@
       "group": "anproto",
       "period": "2024 – now",
       "kind": "Data server",
-      "blurb": "The optional always-on box. A personal data server for ANProto that stores and relays your signed messages and wakes your clients over web push when something new arrives. A convenience layer for people who want one — never a dependency for people who don't.",
-      "url": "https://apds.anproto.com/",
+      "blurb": "The optional always-on box. A personal data server for ANProto that stores and relays your signed messages and wakes your clients over web push when something new arrives. A convenience layer for people who want one — never a dependency for people who don't. This one runs as the wiredove.net pub, and its root is just the raw signed-message store as JSON.",
+      "url": "https://pub.wiredove.net/",
       "repo": "https://github.com/evbogue/apds"
     },
     {
