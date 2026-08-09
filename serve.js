@@ -1,8 +1,9 @@
 import { Hono } from "npm:hono@4.12.15";
 import { marked } from "./vendor/marked.esm.js";
 import { excerptFromBody, loadPosts as readPosts } from "./lib/posts.js";
-import { addSubscriber, confirmByToken, findByToken, unsubscribeByToken } from "./lib/subscribers.js";
+import { addSubscriber, confirmByToken, findByToken, markConfirmationSent, unsubscribeByToken } from "./lib/subscribers.js";
 import { sendAdminNotification, sendConfirmation } from "./lib/mailer.js";
+import { issueFormToken, verifyFormToken } from "./lib/formtoken.js";
 import { aggregateDailyViews, aggregateViews, loadViews, recordEvent, recordView, renderBarChart, renderLineChart } from "./lib/analytics.js";
 import { loadSites, REPO_ROOT, siteFromRequest } from "./lib/sites.js";
 
@@ -35,6 +36,25 @@ function subscribeRateLimited(ip) {
     }
   }
   return recent.length > SUBSCRIBE_RATE.max
+}
+
+// Per-address cooldown: never send more than one confirmation email to the same
+// address within this window, no matter how many times the form is submitted for
+// it. Stops the form being used to bomb a victim's inbox and to flood the admin.
+const CONFIRM_COOLDOWN_MS = 24 * 60 * 60 * 1000
+
+// Global ceiling on outbound confirmation emails across every IP. The per-IP
+// limiter can't see a distributed, IP-rotating subscription bomb; this caps the
+// total blast radius in any one hour regardless of source. Over the ceiling we
+// still record the signup (double opt-in keeps the list clean) but send nothing.
+const SEND_CEILING = { max: 40, windowMs: 60 * 60 * 1000 }
+let sendWindow = { start: Date.now(), count: 0 }
+function globalSendAllowed() {
+  const now = Date.now()
+  if (now - sendWindow.start > SEND_CEILING.windowMs) sendWindow = { start: now, count: 0 }
+  if (sendWindow.count >= SEND_CEILING.max) return false
+  sendWindow.count++
+  return true
 }
 
 const app = new Hono()
@@ -214,6 +234,7 @@ function sitePage(site, { title = site.title, description = site.description, bo
           <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden">
             <label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
           </div>
+          <input type="hidden" name="ft" value="${issueFormToken()}">
           <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
           <button type="submit">Subscribe</button>
         </form>
@@ -775,6 +796,15 @@ app.post('/subscribe', async (c) => {
       return c.redirect('/?subscribe=new', 303)
     }
 
+    // Signed form token: proves this POST came from a page we rendered and that
+    // it wasn't submitted inhumanly fast. Direct-to-endpoint and IP-rotating
+    // bots have no valid token. Same fake-success so scripts get no signal.
+    const tokenState = verifyFormToken(form.get('ft')?.toString())
+    if (tokenState !== 'ok') {
+      recordEvent(ROOT, { kind: "subscribe_attempt", outcome: `token_${tokenState}` }, site.analyticsNamespace).catch(() => {})
+      return c.redirect('/?subscribe=new', 303)
+    }
+
     // Per-IP rate limit. Same fake-success response so scripts get no signal.
     if (subscribeRateLimited(clientIp(c))) {
       recordEvent(ROOT, { kind: "subscribe_attempt", outcome: "rate_limited" }, site.analyticsNamespace).catch(() => {})
@@ -787,15 +817,27 @@ app.post('/subscribe', async (c) => {
       return c.redirect('/?subscribe=invalid', 303)
     }
     recordEvent(ROOT, { kind: "subscribe_attempt", outcome: result.status }, site.analyticsNamespace).catch(() => {})
+
     if (result.status === 'new' || result.status === 'pending' || result.status === 'resubscribed') {
-      sendConfirmation(result.entry, site).catch((err) => {
-        console.error('confirmation send failed:', err)
-      })
-    }
-    if (result.status === 'new' || result.status === 'resubscribed') {
-      sendAdminNotification(result.status, result.entry, site).catch((err) => {
-        console.error('admin notification failed:', err)
-      })
+      // Per-address cooldown + global ceiling gate every outbound email. A
+      // victim address is never mailed twice inside the window, and a flood
+      // can't push total sends past the hourly ceiling. Stamp before sending so
+      // a send failure can't reopen the cooldown for a retry storm.
+      const lastSent = result.entry.confirmation_sent_at
+      const cooled = !lastSent || (Date.now() - Date.parse(lastSent)) > CONFIRM_COOLDOWN_MS
+      if (cooled && globalSendAllowed()) {
+        await markConfirmationSent(site.subscribersPath, result.entry.email)
+        sendConfirmation(result.entry, site).catch((err) => {
+          console.error('confirmation send failed:', err)
+        })
+        if (result.status === 'new' || result.status === 'resubscribed') {
+          sendAdminNotification(result.status, result.entry, site).catch((err) => {
+            console.error('admin notification failed:', err)
+          })
+        }
+      } else {
+        recordEvent(ROOT, { kind: "subscribe_attempt", outcome: cooled ? "send_ceiling" : "confirm_cooldown" }, site.analyticsNamespace).catch(() => {})
+      }
     }
     return c.redirect(`/?subscribe=${result.status}`, 303)
   } catch (err) {
