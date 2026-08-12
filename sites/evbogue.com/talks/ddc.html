@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Autonomous Coding Agents — a talk with a title problem</title>
+<style>
+  :root{
+    --ink:#0e0e10;
+    --ink-2:#161619;
+    --paper:#f2efe6;
+    --muted:#6f6d66;
+    --hair:#3a3a3e;
+    --red:#e6382b;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html,body{height:100%}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow:hidden;
+  }
+
+  #deck{position:fixed;inset:0}
+
+  .slide{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:flex-start;
+    padding:clamp(28px,7vw,120px);
+    opacity:0;visibility:hidden;
+    transition:opacity .35s ease;
+    pointer-events:none;
+  }
+  .slide.active{opacity:1;visibility:visible;pointer-events:auto}
+
+  /* ---- the title being killed ---- */
+  .killtitle{
+    font-weight:800;
+    line-height:.98;
+    letter-spacing:-.03em;
+    font-size:clamp(38px,7.2vw,104px);
+    max-width:20ch;
+    color:var(--paper);
+    transition:color .45s ease .15s;
+  }
+  .killtitle .line{position:relative;display:inline}
+  .killtitle .line > span{position:relative;display:inline}
+  .killtitle .line > span::after{
+    content:"";
+    position:absolute;
+    left:-.06em;right:-.06em;
+    top:52%;height:.09em;
+    background:var(--red);
+    transform:scaleX(0);
+    transform-origin:left center;
+    border-radius:2px;
+    box-shadow:0 0 22px rgba(230,56,43,.55);
+  }
+
+  .flag{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:.82em;
+    letter-spacing:-.01em;
+    background:var(--ink-2);
+    border:1px solid var(--hair);
+    border-radius:8px;
+    padding:.02em .22em;
+  }
+
+  /* struck state */
+  .slide[data-kill].active .killtitle{color:var(--muted)}
+  .slide[data-kill].active .killtitle .line:nth-child(1) > span::after{transition:transform .5s cubic-bezier(.2,.7,.2,1) .05s;transform:scaleX(1)}
+  .slide[data-kill].active .killtitle .line:nth-child(2) > span::after{transition:transform .5s cubic-bezier(.2,.7,.2,1) .22s;transform:scaleX(1)}
+  .slide[data-kill].active .killtitle .line:nth-child(3) > span::after{transition:transform .5s cubic-bezier(.2,.7,.2,1) .39s;transform:scaleX(1)}
+
+  /* faint counter only */
+  .num{
+    position:fixed;bottom:14px;right:clamp(20px,4vw,40px);
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:12px;letter-spacing:.14em;
+    color:var(--muted);
+    font-variant-numeric:tabular-nums;
+    z-index:5;
+  }
+
+  #rail{position:fixed;top:0;left:0;height:2px;background:var(--red);width:0;transition:width .35s ease;z-index:6}
+
+  @media (prefers-reduced-motion:reduce){
+    .slide,.killtitle,.killtitle .line > span::after,#rail{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<div id="deck">
+
+  <!-- 1 · title one, displayed -->
+  <section class="slide active">
+    <h2 class="killtitle">
+      <span class="line"><span>How to lay off everyone</span></span><br>
+      <span class="line"><span>with OpenClaw</span></span>
+    </h2>
+  </section>
+
+  <!-- 2 · title one, killed -->
+  <section class="slide" data-kill>
+    <h2 class="killtitle">
+      <span class="line"><span>How to lay off everyone</span></span><br>
+      <span class="line"><span>with OpenClaw</span></span>
+    </h2>
+  </section>
+
+  <!-- 3 · title two, displayed -->
+  <section class="slide">
+    <h2 class="killtitle">
+      <span class="line"><span><span class="flag">--dangerously-skip-permissions</span></span></span><br>
+      <span class="line"><span>and insane amounts</span></span><br>
+      <span class="line"><span>of human consent</span></span>
+    </h2>
+  </section>
+
+  <!-- 4 · title two, killed -->
+  <section class="slide" data-kill>
+    <h2 class="killtitle">
+      <span class="line"><span><span class="flag">--dangerously-skip-permissions</span></span></span><br>
+      <span class="line"><span>and insane amounts</span></span><br>
+      <span class="line"><span>of human consent</span></span>
+    </h2>
+  </section>
+
+</div>
+
+<div class="num"><span id="cur">1</span>/4</div>
+<div id="rail"></div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const rail=document.getElementById('rail');
+  const cur=document.getElementById('cur');
+  let i=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    cur.textContent=i+1;
+    rail.style.width=(i/(slides.length-1)*100)+'%';
+  }
+  document.addEventListener('keydown',e=>{
+    if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();show(i+1)}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}
+    else if(e.key==='Home'){show(0)}
+    else if(e.key==='End'){show(slides.length-1)}
+  });
+  document.getElementById('deck').addEventListener('click',e=>{
+    (e.clientX/window.innerWidth<0.25)?show(i-1):show(i+1);
+  });
+  show(0);
+</script>
+
+</body>
+</html>

@@ -497,6 +497,19 @@ app.get('/assets/*', async (c) => {
   }
 })
 
+// Standalone talk deck — served raw so it keeps its own stylesheet instead of
+// the blog's sitePage() chrome. Not linked from anywhere; here for a talk.
+app.get('/ddc', async (c) => {
+  try {
+    const html = await Deno.readFile(`${ROOT}/sites/evbogue.com/talks/ddc.html`)
+    return new Response(html, {
+      headers: { "content-type": "text/html; charset=utf-8" },
+    })
+  } catch {
+    return c.notFound()
+  }
+})
+
 app.get('/', async (c) => {
   const site = siteFromRequest(c, SITE_REGISTRY)
   const query = c.req.query('q')?.trim() ?? ''
