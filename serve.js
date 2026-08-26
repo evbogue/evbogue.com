@@ -158,24 +158,6 @@ function tagSlugFor(tag) {
   return cleanTag(tag).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
 }
 
-const ntfyWidget = `
-  <h2>Send me a message</h2>
-  <textarea id='textarea' placeholder='Send a message'></textarea>
-  <button id='send'>Send</button>
-  <span>Powered by <a href='https://ntfy.sh/'>ntfy.sh</a></span>
-  <script>
-    const ta = document.getElementById('textarea')
-    const send = document.getElementById('send')
-    send.onclick = async () => {
-      if (ta.value) {
-        fetch('https://ntfy.sh/evbogue', { method: 'POST', body: ta.value })
-        ta.value = ''
-        ta.placeholder = 'Sent!'
-      }
-    }
-  </script>
-`
-
 function wordmarkHtml(site) {
   const wordmark = site.wordmark || site.title
   if (wordmark.endsWith(".com")) {
@@ -186,16 +168,6 @@ function wordmarkHtml(site) {
 
 function sitePage(site, { title = site.title, description = site.description, body }) {
   const fullTitle = title === site.title ? site.title : `${title} - ${site.title}`
-  const now = new Date().toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "America/Chicago",
-  })
-  const dateRibbon = site.id === "evbogue.com"
-    ? `${escapeHtml(now)} &nbsp;&middot;&nbsp; Augmented publishing by <a href="/about" class="date-ribbon-byline"><img src="/assets/ev-profile.jpg" alt="Ev Bogue" class="date-ribbon-avatar">Ev Bogue</a>`
-    : `${escapeHtml(now)} &nbsp;&middot;&nbsp; ${escapeHtml(site.tagline || site.description)}`
 
   return `<!doctype html>
 <html lang="en">
@@ -207,17 +179,16 @@ function sitePage(site, { title = site.title, description = site.description, bo
     ${site.noindex ? '<meta name="robots" content="noindex, nofollow">' : ''}
     <link rel="icon" href="/${escapeHtml(site.favicon || "assets/ev.png")}">
     <link rel="alternate" type="application/rss+xml" title="${escapeHtml(site.title)}" href="/feed.xml">
-    <link rel="stylesheet" href="/${escapeHtml(site.cssFile)}?v=20260803a">
+    <link rel="stylesheet" href="/${escapeHtml(site.cssFile)}?v=20260826g">
   </head>
   <body>
     <header>
       <div class="header-inner">
         <a href="/" class="wordmark">${wordmarkHtml(site)}</a>
         <nav>
-          <a href="/about">About</a>
+          <a href="/posts" class="nav-priority">Writing</a>
           ${site.id === "evbogue.com" ? '<a href="/projects">Projects</a>' : ''}
-          <a href="/posts" class="nav-priority">${escapeHtml(site.archiveLabel || "Archive")}</a>
-          <a href="/feed.xml">RSS</a>
+          <a href="/about">About</a>
           <a href="#subscribe-dialog" class="subscribe-btn" data-open-subscribe>Subscribe</a>
         </nav>
       </div>
@@ -241,16 +212,15 @@ function sitePage(site, { title = site.title, description = site.description, bo
       </div>
     </dialog>
 
-    <div class="date-ribbon">${dateRibbon}</div>
-
     ${body}
 
     <footer>
       <div class="footer-inner">
         <a href="/" class="wordmark">${wordmarkHtml(site)}</a>
         <div class="footer-links">
+          <a href="/posts">Writing</a>
+          ${site.id === "evbogue.com" ? '<a href="/projects">Projects</a>' : ''}
           <a href="/about">About</a>
-          <a href="/posts">Archive</a>
           <a href="/feed.xml">RSS</a>
         </div>
         <span class="footer-copy">&copy; ${new Date().getFullYear()} ${escapeHtml(site.footerCopy || site.title)}</span>
@@ -339,67 +309,29 @@ function signalCard(post) {
 }
 
 function signalHomeHtml(posts) {
-  const [hero, ...rest] = posts
-  const sideStories = rest.slice(0, 3)
-  const gridPosts = rest.slice(3, 6)
-  const morePosts = rest.slice(6, 9)
-  const featured = posts.find((post) => signalTagFor(post) === "Essay" && post.slug !== hero?.slug)
-  const heroTag = hero ? signalTagFor(hero) : ""
+  const latest = posts.slice(0, 7)
 
-  return hero ? `
-    <section class="hero">
-      <a href="${signalPostHref(hero)}" class="hero-main">
-        <span class="tag">${escapeHtml(heroTag)}</span>
-        <div class="hero-title">${escapeHtml(hero.title)}</div>
-        <p class="hero-dek">${escapeHtml(descriptionFor(hero))}</p>
-        ${signalMeta(hero, { className: "hero-meta" })}
-      </a>
-      <div class="hero-side">
-        ${sideStories.map((post) => {
-          const tag = signalTagFor(post)
-          return `
-            <a href="${signalPostHref(post)}" class="side-story">
-              <span class="tag">${escapeHtml(tag)}</span>
-              <div class="side-title">${escapeHtml(post.title)}</div>
-              <p class="side-dek">${escapeHtml(descriptionFor(post))}</p>
-              ${signalMeta(post, { className: "side-meta" })}
-            </a>
-          `
-        }).join('')}
-      </div>
-    </section>
+  return `
+    <main class="home">
+      <section class="intro">
+        <p class="kicker">Ev Bogue writes and builds on the open web.</p>
+        <h1>Independent publishing, small tools, and notes from the platform wreckage.</h1>
+        <p>I’m Ev, in Chicago. This is my home base for essays about AI, media, autonomy, protocols, and the business of staying human online.</p>
+      </section>
 
-    ${gridPosts.length ? `
-      <div class="section-header">
-        <span class="section-label">Latest</span>
-        <div class="section-rule"></div>
-      </div>
-      <div class="article-grid">
-        ${gridPosts.map((post) => signalCard(post)).join('')}
-      </div>
-    ` : ''}
+      <nav class="start-links" aria-label="Start here">
+        <a href="/about">About Ev</a>
+        <a href="/projects">Projects</a>
+        <a href="/posts">Full Archive</a>
+        <a href="#subscribe-dialog" data-open-subscribe>Subscribe</a>
+      </nav>
 
-    ${featured ? `
-      <div class="essay-band">
-        <div class="essay-inner">
-          <div class="essay-eyebrow">Featured Essay</div>
-          <h2 class="essay-title">${escapeHtml(featured.title)}</h2>
-          <div class="essay-body"><p>${escapeHtml(descriptionFor(featured))}</p></div>
-          <a href="${signalPostHref(featured)}" class="read-more">Continue Reading</a>
-        </div>
-      </div>
-    ` : ''}
-
-    ${morePosts.length ? `
-      <div class="section-header">
-        <span class="section-label">More Stories</span>
-        <div class="section-rule"></div>
-      </div>
-      <div class="article-grid">
-        ${morePosts.map((post) => signalCard(post)).join('')}
-      </div>
-    ` : ''}
-  ` : '<p class="empty-state">No posts are published yet.</p>'
+      <section class="listing" aria-labelledby="latest-heading">
+        <h2 id="latest-heading">Latest Writing</h2>
+        ${latest.length ? latest.map((post) => signalCard(post)).join('') : '<p class="empty-state">No posts are published yet.</p>'}
+      </section>
+    </main>
+  `
 }
 
 function signalPostHtml(post) {
@@ -408,8 +340,8 @@ function signalPostHtml(post) {
     <article>
       <div class="post-header">
         <a href="${signalTagHref(tag)}" class="tag">${escapeHtml(tag)}</a>
-        <h1 class="hero-title">${escapeHtml(post.title)}</h1>
-        <p class="hero-dek">${escapeHtml(descriptionFor(post))}</p>
+        <h1>${escapeHtml(post.title)}</h1>
+        <p class="dek">${escapeHtml(descriptionFor(post))}</p>
         ${signalMeta(post, { className: "hero-meta", dateStyle: "long" })}
       </div>
 
@@ -437,7 +369,7 @@ function signalArchiveHtml(posts) {
   }).join('')
 
   return `
-    <div class="section-header" style="padding-top:3rem">
+    <div class="section-header">
       <span class="section-label">Archive</span>
       <div class="section-rule"></div>
     </div>
@@ -449,12 +381,12 @@ function signalArchiveHtml(posts) {
 
 function signalTagHtml(posts, label) {
   return `
-    <div class="section-header" style="padding-top:3rem">
+    <div class="section-header">
       <span class="section-label">${escapeHtml(label)}</span>
       <div class="section-rule"></div>
     </div>
     ${posts.length ? `
-      <div class="article-grid">
+      <div class="listing">
         ${posts.map((post) => signalCard(post)).join('')}
       </div>
     ` : `<p class="empty-state">No posts found for ${escapeHtml(label)}.</p>`}
@@ -517,14 +449,11 @@ app.get('/', async (c) => {
   const allPosts = await loadPosts(site)
   const searchResults = query ? filterPosts(allPosts, query) : []
   const main = query ? `
-    <div class="section-header" style="padding-top:3rem">
-      <span class="section-label">Search</span>
-      <div class="section-rule"></div>
-    </div>
-    <p class="empty-state">Showing ${searchResults.length} result${searchResults.length === 1 ? '' : 's'} for "${escapeHtml(query)}". <a href="/">Clear search</a></p>
-    <div class="article-grid">
+    <main class="listing">
+      <h1>Search</h1>
+      <p class="empty-state">Showing ${searchResults.length} result${searchResults.length === 1 ? '' : 's'} for "${escapeHtml(query)}". <a href="/">Clear search</a></p>
       ${searchResults.map((post) => signalCard(post)).join('')}
-    </div>
+    </main>
   ` : signalHomeHtml(allPosts)
   return c.html(sitePage(site, {
     title: site.title,
@@ -567,13 +496,12 @@ app.get('/about', async (c) => {
       <article>
         <div class="post-header">
           <span class="tag">About</span>
-          <h1 class="hero-title">About ${escapeHtml(site.wordmark || site.title)}</h1>
+          <h1>About ${escapeHtml(site.wordmark || site.title)}</h1>
         </div>
         <hr class="post-divider">
         <div class="post-body about-body">
           ${site.aboutPortrait ? `<img class="about-portrait" src="/${escapeHtml(site.aboutPortrait)}" alt="${escapeHtml(site.aboutPortraitAlt || site.title)}">` : ""}
           ${marked(doc)}
-          ${ntfyWidget}
         </div>
       </article>
     `,
@@ -734,7 +662,7 @@ app.get('/projects', async (c) => {
       <article>
         <div class="post-header">
           <span class="tag">Projects</span>
-          <h1 class="hero-title">Projects</h1>
+          <h1>Projects</h1>
         </div>
         <hr class="post-divider">
         <div class="post-body">
@@ -876,8 +804,8 @@ function unsubscribePage(site, { heading, message, confirmToken }) {
       <article>
         <div class="post-header">
           <span class="tag">Unsubscribe</span>
-          <h1 class="hero-title">${escapeHtml(heading)}</h1>
-          <p class="hero-dek">${escapeHtml(message)}</p>
+          <h1>${escapeHtml(heading)}</h1>
+          <p class="dek">${escapeHtml(message)}</p>
         </div>
         <hr class="post-divider">
         <div class="post-body">${form}</div>
@@ -980,8 +908,8 @@ function dashboardBody(data) {
     <article>
       <div class="post-header">
         <span class="tag">Dashboard</span>
-        <h1 class="hero-title">Post hits</h1>
-        <p class="hero-dek" id="dash-dek">${escapeHtml(data.dek)}</p>
+        <h1>Post hits</h1>
+        <p class="dek" id="dash-dek">${escapeHtml(data.dek)}</p>
       </div>
       <hr class="post-divider">
       <div class="post-body">

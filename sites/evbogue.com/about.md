@@ -6,14 +6,14 @@ The point is simple: publish directly, own the archive, keep the stack small, an
 
 ## Contact
 
-📧 [ev@evbogue.com](mailto:ev@evbogue.com)
+[ev@evbogue.com](mailto:ev@evbogue.com)
 
-📱 [773-510-8601](tel:7735108601)
+[773-510-8601](tel:7735108601)
 
 ## Elsewhere
 
-🕊️ [ev](https://wiredove.net/#ev)
+[Wiredove](https://wiredove.net/#ev)
 
-🦋 [evbogue.com](https://bsky.app/profile/evbogue.com)
+[Bluesky](https://bsky.app/profile/evbogue.com)
 
-🐙 [evbogue](https://github.com/evbogue)
+[GitHub](https://github.com/evbogue)
