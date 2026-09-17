@@ -12,7 +12,7 @@ For a local-only preview, run `TIMELINE_RELAY='' deno task start`. This disables
 
 Import a Wiredove keypair into the browser or create a visitor identity. Identities are remembered on this browser by default. Uncheck “Remember my key on this browser” for a session-only identity, or use “Forget identity” to remove the saved key. Download an identity backup to keep access after closing the page. Remembered keys use this origin's localStorage; they are not encrypted at rest. Display names are labels, not proof of identity. Owner permissions use the public key, not the label.
 
-The feed opens in reading mode. The owner opens the composer with **Write a post**; identity, import/export and manual sync controls live under **Settings**. Posts show a friendly owner label, relative time (with an exact timestamp on hover), and compact reply/Details controls. Signed bytes and media hashes remain available in Details.
+The feed opens in reading mode. The owner opens the composer with **Write a post**; identity, import/export and manual sync controls live under **Settings**. Posts show the name embedded in each signed message (or a shortened public key if absent), relative time (with an exact timestamp on hover), and compact reply/Details controls. Signed bytes and media hashes remain available in Details.
 
 Only the owner can start a post. Other identities can reply to known conversations, including with attachments. Draft text is retained on a failed publish. There is no cross-device private-key synchronization or key recovery service.
 

@@ -78,6 +78,10 @@ try {
   await page.getByText('Saved on this site.', { exact: true }).waitFor()
   assert.equal(await page.locator('audio').count(), 1)
   assert.equal(await page.locator('article').count(), 1)
+  assert.equal(
+    await page.locator('.timeline-post-meta a').first().textContent(),
+    'Ev (local test)',
+  )
   await page.locator('audio').evaluate(async (audio) => {
     audio.load()
     await new Promise((resolve, reject) => {

@@ -155,9 +155,7 @@ function render() {
     heading.className = 'timeline-post-meta'
     const name = breakable(
       element('a'),
-      row.author === config.owner
-        ? 'Ev Bogue'
-        : row.parsed.name || row.author.slice(0, 12),
+      row.parsed.name || row.author.slice(0, 12),
     )
     name.href = 'https://wiredove.net/#' + encodeURIComponent(row.author)
     name.title = row.author
