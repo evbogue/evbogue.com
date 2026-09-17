@@ -3,7 +3,8 @@
   "specifiers": {
     "npm:hono@4.12.15": "4.12.15",
     "npm:nodemailer@8.0.6": "8.0.6",
-    "npm:playwright@*": "1.62.1"
+    "npm:playwright@*": "1.62.1",
+    "npm:playwright@1.62.1": "1.62.1"
   },
   "npm": {
     "fsevents@2.3.2": {
@@ -31,5 +32,18 @@
       ],
       "bin": true
     }
+  },
+  "remote": {
+    "https://cdn.jsdelivr.net/npm/idb@8.0.3/+esm": "94ad6ca21f4a531616be43f5323af15931462bef6556974198847612aed6cc80",
+    "https://cdn.jsdelivr.net/npm/idb@8/+esm": "94ad6ca21f4a531616be43f5323af15931462bef6556974198847612aed6cc80",
+    "https://esm.sh/gh/evbogue/anproto@ddc040c/an.js": "b6a289fc493bbd2e2ea10a77459ce3acb8b10a82d99f2dfd8eb3bd1ee3f37b29",
+    "https://esm.sh/gh/evbogue/anproto@ddc040c/denonext/an.mjs": "227a36d6e57397eeb195698a03959b10aca1d3a0a5f704b788bcfbf5af7b2c05",
+    "https://esm.sh/gh/evbogue/apds@e091911502c46feaff8f18ec9865c23f42a7dc40/apds.js": "47dd22c52766874bd5a138fdca10696baf73e22d315469079354efc2cb3c75c3",
+    "https://esm.sh/gh/evbogue/apds@e091911502c46feaff8f18ec9865c23f42a7dc40/es2022/__apds.mjs": "366345bf657b3ea30bfd2c539e56b98a4bfab1775feeb6f86cd38ba9dd77585c"
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:playwright@1.62.1"
+    ]
   }
 }

@@ -7,6 +7,14 @@ import { issueFormToken, verifyFormToken } from "./lib/formtoken.js";
 import { aggregateDailyViews, aggregateViews, loadViews, recordEvent, recordView, renderBarChart, renderLineChart } from "./lib/analytics.js";
 import { loadSites, REPO_ROOT, siteFromRequest } from "./lib/sites.js";
 
+import { createTimeline } from "./timeline/server.js";
+import timelineConfig from "./timeline/config.json" with { type: "json" };
+let timeline;
+const getTimeline = () => timeline ??= createTimeline({
+  directory: Deno.env.get("TIMELINE_DATA") || `${REPO_ROOT}/timeline-data`,
+  config: { ...timelineConfig, ...(Deno.env.get("TIMELINE_RELAY") !== undefined ? { relay: Deno.env.get("TIMELINE_RELAY") } : {}) },
+});
+
 const ANALYTICS_SALT = Deno.env.get("ANALYTICS_SALT") ?? ""
 if (!ANALYTICS_SALT) {
   console.warn("ANALYTICS_SALT not set — unique visitor counts will stay at 0.")
@@ -442,8 +450,17 @@ app.get('/ddc', async (c) => {
   }
 })
 
+app.all('/timeline/*', async (c) => {
+  if (siteFromRequest(c, SITE_REGISTRY).id !== 'evbogue.com') return c.notFound()
+  return (await getTimeline()).fetch(c.req.raw)
+})
+app.get('/timeline', (c) => c.redirect('/timeline/'))
+
 app.get('/', async (c) => {
   const site = siteFromRequest(c, SITE_REGISTRY)
+  if (site.id === 'evbogue.com' && !c.req.query('q') && !c.req.query('subscribe')) {
+    return (await getTimeline()).fetch(new Request(new URL('/timeline/', c.req.url), c.req.raw))
+  }
   const query = c.req.query('q')?.trim() ?? ''
   const subscribeStatus = c.req.query('subscribe') ?? ''
   const allPosts = await loadPosts(site)

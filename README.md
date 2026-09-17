@@ -4,6 +4,10 @@ Source for [evbogue.com](https://evbogue.com).
 
 Deno + Hono. Published evbogue.com posts are markdown files in `sites/evbogue.com/posts/`; unpublished drafts live in `sites/evbogue.com/drafts/`. `serve.js` renders published posts at request time. No build step.
 
+## Interactive timeline
+
+The evbogue.com homepage is a CSS-free ANProto timeline: owner posts, signed visitor replies, and AndFS audio/video attachments. Existing writing stays at `/posts`. See [timeline/README.md](timeline/README.md) for setup, the Wiredove compatibility contract, local-only preview, verification, and current limits.
+
 ## Run locally
 
 ```

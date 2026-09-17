@@ -8,3 +8,5 @@ analytics/reports/
 *.swp
 evbogue-*.png
 signal-*.png
+
+timeline-data/
