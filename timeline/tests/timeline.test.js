@@ -102,7 +102,7 @@ Deno.test('owner-only roots, visitor replies, duplicate posts, durable storage a
     )
     assert.equal(crossOrigin.status, 403)
     const html = await (await f.call('')).text()
-    assert.equal(/<style|stylesheet|style=/.test(html), false)
+    assert.equal(html.includes('class="timeline"'), true)
   } finally {
     await f.close()
   }

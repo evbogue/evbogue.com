@@ -187,7 +187,7 @@ function sitePage(site, { title = site.title, description = site.description, bo
     ${site.noindex ? '<meta name="robots" content="noindex, nofollow">' : ''}
     <link rel="icon" href="/${escapeHtml(site.favicon || "assets/ev.png")}">
     <link rel="alternate" type="application/rss+xml" title="${escapeHtml(site.title)}" href="/feed.xml">
-    <link rel="stylesheet" href="/${escapeHtml(site.cssFile)}?v=20260826g">
+    <link rel="stylesheet" href="/${escapeHtml(site.cssFile)}?v=20260917timeline">
   </head>
   <body>
     <header>
@@ -195,7 +195,7 @@ function sitePage(site, { title = site.title, description = site.description, bo
         <a href="/" class="wordmark">${wordmarkHtml(site)}</a>
         <nav>
           <a href="/posts" class="nav-priority">Writing</a>
-          ${site.id === "evbogue.com" ? '<a href="/projects">Projects</a>' : ''}
+          ${site.id === "evbogue.com" ? '<a href="/timeline/">Timeline</a><a href="/projects">Projects</a>' : ''}
           <a href="/about">About</a>
           <a href="#subscribe-dialog" class="subscribe-btn" data-open-subscribe>Subscribe</a>
         </nav>
@@ -227,7 +227,7 @@ function sitePage(site, { title = site.title, description = site.description, bo
         <a href="/" class="wordmark">${wordmarkHtml(site)}</a>
         <div class="footer-links">
           <a href="/posts">Writing</a>
-          ${site.id === "evbogue.com" ? '<a href="/projects">Projects</a>' : ''}
+          ${site.id === "evbogue.com" ? '<a href="/timeline/">Timeline</a><a href="/projects">Projects</a>' : ''}
           <a href="/about">About</a>
           <a href="/feed.xml">RSS</a>
         </div>
@@ -450,6 +450,19 @@ app.get('/ddc', async (c) => {
   }
 })
 
+async function timelinePage(c) {
+  const site = siteFromRequest(c, SITE_REGISTRY)
+  if (site.id !== 'evbogue.com') return c.notFound()
+  const template = await Deno.readTextFile(`${ROOT}/timeline/index.html`)
+  const body = template.split('<body>')[1].split('</body>')[0]
+  return c.html(sitePage(site, {
+    title: 'Timeline',
+    description: 'Posts and conversations from Ev Bogue.',
+    body,
+  }))
+}
+app.get('/timeline/', timelinePage)
+app.get('/timeline/index.html', timelinePage)
 app.get('/timeline', (c) => c.redirect('/timeline/'))
 app.all('/timeline/*', async (c) => {
   if (siteFromRequest(c, SITE_REGISTRY).id !== 'evbogue.com') return c.notFound()

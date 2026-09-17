@@ -73,10 +73,6 @@ try {
   await page.locator('#publish').click()
   await page.getByText('Saved on this site.', { exact: true }).waitFor()
   assert.equal(await page.locator('audio').count(), 1)
-  assert.equal(
-    await page.locator('style,link[rel=stylesheet],[style]').count(),
-    0,
-  )
   assert.equal(await page.locator('article').count(), 1)
   await page.locator('audio').evaluate(async (audio) => {
     audio.load()
@@ -183,7 +179,7 @@ try {
   assert.equal(await page.locator('#composer-section').isVisible(), false)
   assert.deepEqual(errors, [])
   console.log(
-    'Browser checks passed: CSS-free page, owner post, AndFS WAV playback/seeking and WebM playback, visitor reply, identity backup, mobile render, no script execution.',
+    'Browser checks passed: timeline controls, owner post, AndFS WAV playback/seeking and WebM playback, visitor reply, identity backup, mobile render, no script execution.',
   )
 } finally {
   await browser.close()

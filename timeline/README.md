@@ -1,6 +1,6 @@
 # Personal ANProto timeline
 
-A CSS-free HTML page at `/timeline/` for Ev's posts and public replies. Deno serves the page and stores exact signed Wiredove-compatible messages on disk. Browser signing uses the existing ANProto keypair format. AndFS stores audio/video and image bytes separately from the signed posts.
+A page at `/timeline/` using the blog’s shared navigation and stylesheet for Ev's posts and public replies. Deno serves the page and stores exact signed Wiredove-compatible messages on disk. Browser signing uses the existing ANProto keypair format. AndFS stores audio/video and image bytes separately from the signed posts.
 
 ## Run
 

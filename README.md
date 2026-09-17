@@ -6,7 +6,7 @@ Deno + Hono. Published evbogue.com posts are markdown files in `sites/evbogue.co
 
 ## Interactive timeline
 
-At `/timeline/`, evbogue.com has a CSS-free ANProto timeline: owner posts, signed visitor replies, and AndFS audio/video attachments. The existing homepage and writing archive remain in place. See [timeline/README.md](timeline/README.md) for setup, the Wiredove compatibility contract, local-only preview, verification, and current limits.
+At `/timeline/`, evbogue.com has a ANProto timeline using the blog’s navigation and stylesheet: owner posts, signed visitor replies, and AndFS audio/video attachments. The existing homepage and writing archive remain in place. See [timeline/README.md](timeline/README.md) for setup, the Wiredove compatibility contract, local-only preview, verification, and current limits.
 
 ## Run locally
 

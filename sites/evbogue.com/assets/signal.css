@@ -564,3 +564,58 @@ footer {
     padding-inline: 1.25rem;
   }
 }
+
+/* Timeline shares the blog's colors, type and reading width. */
+.timeline { margin-bottom: 3rem; }
+.timeline [hidden] { display: none !important; }
+.timeline p { overflow-wrap: anywhere; }
+.timeline details { margin-block: 1rem; }
+.timeline summary { cursor: pointer; color: var(--muted); }
+.timeline input,
+.timeline textarea,
+.timeline button { font: inherit; }
+.timeline input:not([type="checkbox"]),
+.timeline textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--faint);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+.timeline textarea { resize: vertical; }
+.timeline input[type="checkbox"] { accent-color: var(--link); }
+.timeline button {
+  margin-block: 0.2rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--faint);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+.timeline button:hover:not(:disabled) { border-color: var(--muted); }
+.timeline button:disabled { opacity: 0.5; cursor: default; }
+.timeline :is(input, textarea, button, summary):focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+.timeline #publish { background: var(--text); color: var(--bg); }
+.timeline #status,
+.timeline #media-limit { color: var(--muted); }
+.timeline #composer-section {
+  margin-block: 1.5rem;
+  padding-block: 1rem;
+  border-block: 1px solid var(--faint);
+}
+.timeline #feed article { padding-inline: 0; margin-block: 1.5rem; }
+.timeline #feed details article {
+  margin-left: 0.5rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--faint);
+}
+.timeline audio,
+.timeline video { display: block; width: 100%; max-width: 100%; }
+.timeline hr { border: 0; border-top: 1px solid var(--faint); }
