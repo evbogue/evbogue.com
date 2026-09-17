@@ -36,6 +36,14 @@ try {
   await page.locator('#keypair').fill(key)
   await page.getByRole('button', { name: 'Import identity', exact: true })
     .click()
+  await page.locator('#composer-section').waitFor()
+  await page.reload()
+  await page.locator('#composer-section').waitFor()
+  assert.equal(
+    await page.locator('#identity-label').textContent(),
+    'Signed in as ' + key.slice(0, 44),
+  )
+  await page.locator('#identity-panel summary').click()
   await page.locator('#name').fill('Ev (local test)')
   await page.locator('#body').fill(
     'Hello from the plain HTML timeline. <script>throw new Error("unsafe")</script>',
@@ -121,6 +129,24 @@ try {
   })
   await page.locator('#logout').click()
   await page.locator('#generate').click()
+  await page.locator('#backup').waitFor({ state: 'visible' })
+  await page.waitForFunction(() =>
+    document.getElementById('identity-label').textContent.startsWith(
+      'Signed in as ',
+    )
+  )
+  const generatedIdentity = await page.locator('#identity-label').textContent()
+  await page.reload()
+  await page.waitForFunction(() =>
+    document.getElementById('identity-label').textContent.startsWith(
+      'Signed in as ',
+    )
+  )
+  assert.equal(
+    await page.locator('#identity-label').textContent(),
+    generatedIdentity,
+  )
+  await page.locator('#identity-panel summary').click()
   await page.locator('#name').fill('Alice (local test)')
   assert.equal(await page.locator('#composer-section').isVisible(), false)
   await page.getByRole('button', { name: 'Reply', exact: true }).first().click()
@@ -145,6 +171,16 @@ try {
     path: '/tmp/evbogue-timeline-mobile.png',
     fullPage: true,
   })
+  await page.locator('#logout').click()
+  await page.reload()
+  await page.waitForFunction(() =>
+    document.getElementById('status').textContent !== 'Loading posts…'
+  )
+  assert.equal(
+    await page.locator('#identity-label').textContent(),
+    'Reading without signing in.',
+  )
+  assert.equal(await page.locator('#composer-section').isVisible(), false)
   assert.deepEqual(errors, [])
   console.log(
     'Browser checks passed: CSS-free page, owner post, AndFS WAV playback/seeking and WebM playback, visitor reply, identity backup, mobile render, no script execution.',

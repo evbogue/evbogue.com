@@ -10,7 +10,7 @@ For a local-only preview, run `TIMELINE_RELAY='' deno task start`. This disables
 
 `timeline/config.json` sets Ev's approved owner public key, the Wiredove relay, a 32 MiB attachment limit and a 1 GiB media quota. `TIMELINE_RELAY` overrides the relay, including an empty value to disable it. `TIMELINE_DATA` overrides storage (default `timeline-data/`, gitignored). Back up that whole directory; a JSON post export does not include media bytes. The key is never configured on the server.
 
-Import a Wiredove keypair into the browser or create a visitor identity. Keys remain in memory unless “Remember my key on this browser” is selected. Download an identity backup to keep access after closing the page. Remembered keys use this origin's localStorage; they are not encrypted at rest. Display names are labels, not proof of identity. Owner permissions use the public key, not the label.
+Import a Wiredove keypair into the browser or create a visitor identity. Identities are remembered on this browser by default. Uncheck “Remember my key on this browser” for a session-only identity, or use “Forget identity” to remove the saved key. Download an identity backup to keep access after closing the page. Remembered keys use this origin's localStorage; they are not encrypted at rest. Display names are labels, not proof of identity. Owner permissions use the public key, not the label.
 
 Only the owner can start a post. Other identities can reply to known conversations, including with attachments. Draft text is retained on a failed publish. There is no cross-device private-key synchronization or key recovery service.
 
