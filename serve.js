@@ -450,11 +450,11 @@ app.get('/ddc', async (c) => {
   }
 })
 
+app.get('/timeline', (c) => c.redirect('/timeline/'))
 app.all('/timeline/*', async (c) => {
   if (siteFromRequest(c, SITE_REGISTRY).id !== 'evbogue.com') return c.notFound()
   return (await getTimeline()).fetch(c.req.raw)
 })
-app.get('/timeline', (c) => c.redirect('/timeline/'))
 
 app.get('/', async (c) => {
   const site = siteFromRequest(c, SITE_REGISTRY)
