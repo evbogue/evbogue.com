@@ -84,7 +84,7 @@ test-email.js     — SMTP test script (gitignored)
 
 | Route | Description |
 |---|---|
-| `/` | evbogue.com: CSS-free ANProto timeline (other sites retain their index) |
+| `/` | Existing publishing homepage |
 | `/timeline/*` | Timeline page, signed-message API, and verified AndFS media reads |
 | `/posts/:slug` | Full post rendered from markdown |
 | `/about` | Bio + social links + ntfy send widget |
@@ -219,7 +219,7 @@ This is the single work order for the repo. All outstanding tasks live here. Do 
 
 ### Timeline
 
-- [x] **Basic personal timeline**: CSS-free homepage, browser ANProto identity/signing, owner posts, public replies, persistent AndFS audio/video, bounded relay exchange, and local verification. See `timeline/README.md`.
+- [x] **Basic personal timeline**: CSS-free page at `/timeline/`, browser ANProto identity/signing, owner posts, public replies, persistent AndFS audio/video, bounded relay exchange, and local verification. See `timeline/README.md`.
 - [ ] **Wiredove migration acceptance**: implement Wiredove `WORK_ORDER.md` and observe both clients posting/replying/playing AndFS media. Current relay checks use a local mock; an existing live owner message was verified through read-only retrieval.
 - [ ] **Timeline follow-up**: moderation, full history synchronization, edit/profile handling, streaming/resumable uploads, media garbage collection, and large-feed pagination.
 

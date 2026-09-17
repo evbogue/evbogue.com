@@ -458,9 +458,6 @@ app.get('/timeline', (c) => c.redirect('/timeline/'))
 
 app.get('/', async (c) => {
   const site = siteFromRequest(c, SITE_REGISTRY)
-  if (site.id === 'evbogue.com' && !c.req.query('q') && !c.req.query('subscribe')) {
-    return (await getTimeline()).fetch(new Request(new URL('/timeline/', c.req.url), c.req.raw))
-  }
   const query = c.req.query('q')?.trim() ?? ''
   const subscribeStatus = c.req.query('subscribe') ?? ''
   const allPosts = await loadPosts(site)

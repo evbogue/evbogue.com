@@ -19,7 +19,7 @@ const server = Deno.serve(
   { hostname: '127.0.0.1', port: 0, onListen() {} },
   (request) => {
     const url = new URL(request.url)
-    if (url.pathname === '/') url.pathname = '/timeline/'
+    if (url.pathname === '/timeline') url.pathname = '/timeline/'
     return app.fetch(new Request(url, request))
   },
 )
@@ -30,7 +30,7 @@ try {
   })
   const page = await context.newPage(), errors = []
   page.on('pageerror', (error) => errors.push(error.message))
-  await page.goto('http://127.0.0.1:' + server.addr.port)
+  await page.goto('http://127.0.0.1:' + server.addr.port + '/timeline/')
   await page.getByText('No posts yet.', { exact: true }).waitFor()
   await page.locator('#identity-panel summary').click()
   await page.locator('#keypair').fill(key)

@@ -119,7 +119,7 @@ function render() {
     name.href = 'https://wiredove.net/#' + encodeURIComponent(row.author)
     name.title = row.author
     const time = element('a', new Date(row.timestamp).toLocaleString())
-    time.href = '/#' + encodeURIComponent(row.id)
+    time.href = '/timeline/#' + encodeURIComponent(row.id)
     heading.append(name, ' · ', time)
     const body = element('div')
     // Text nodes preserve untrusted content; only explicit HTTP(S) links become anchors.

@@ -1,10 +1,10 @@
 # Personal ANProto timeline
 
-A CSS-free HTML homepage for Ev's posts and public replies. Deno serves the page and stores exact signed Wiredove-compatible messages on disk. Browser signing uses the existing ANProto keypair format. AndFS stores audio/video and image bytes separately from the signed posts.
+A CSS-free HTML page at `/timeline/` for Ev's posts and public replies. Deno serves the page and stores exact signed Wiredove-compatible messages on disk. Browser signing uses the existing ANProto keypair format. AndFS stores audio/video and image bytes separately from the signed posts.
 
 ## Run
 
-From the repository root, run `deno task start` and visit `http://127.0.0.1:8082/`. `/timeline/` opens the same page. Existing `/posts`, `/posts/:slug`, RSS and other site routes remain available. Other hosted sites retain their existing homepage.
+From the repository root, run `deno task start` and visit `http://127.0.0.1:8082/timeline/`. `/timeline` redirects there. The existing homepage stays at `/`. Existing `/posts`, `/posts/:slug`, RSS and other site routes remain available. Other hosted sites retain their existing homepage.
 
 For a local-only preview, run `TIMELINE_RELAY='' deno task start`. This disables relay publication and synchronization. Do not publish localhost media URLs to a public relay; deploy the site at its intended HTTPS origin first.
 
