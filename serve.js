@@ -187,7 +187,7 @@ function sitePage(site, { title = site.title, description = site.description, bo
     ${site.noindex ? '<meta name="robots" content="noindex, nofollow">' : ''}
     <link rel="icon" href="/${escapeHtml(site.favicon || "assets/ev.png")}">
     <link rel="alternate" type="application/rss+xml" title="${escapeHtml(site.title)}" href="/feed.xml">
-    <link rel="stylesheet" href="/${escapeHtml(site.cssFile)}?v=20260917timeline">
+    <link rel="stylesheet" href="/${escapeHtml(site.cssFile)}?v=20260917reading">
   </head>
   <body>
     <header>

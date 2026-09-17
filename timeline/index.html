@@ -9,9 +9,26 @@
 <body>
   <script type="module" src="/timeline/client.js"></script>
   <main class="timeline">
-  <h1>Timeline</h1>
-  <p><a href="/timeline/api/export" download="evbogue-posts.json">Export posts</a></p>
+  <div class="timeline-heading"><h1>Timeline</h1><div>
+    <button id="write-post" type="button" hidden aria-expanded="false" aria-controls="composer-section">Write a post</button>
+    <button id="settings-toggle" type="button" aria-expanded="false" aria-controls="settings">Settings</button>
+  </div></div>
   <p id="status" role="status" aria-live="polite">Loading posts…</p>
+  <section id="composer-section" hidden aria-labelledby="compose-label">
+    <h2 id="compose-label">Write a post</h2>
+    <form id="composer">
+      <p id="reply-context"></p>
+      <p><label>Message<br><textarea id="body" rows="5" cols="40" maxlength="50000"></textarea></label></p>
+      <p><label>Attach audio, video, or an image <input id="media" type="file" accept="audio/*,video/*,image/png,image/jpeg,image/gif,image/webp"></label></p>
+      <p id="media-limit"></p>
+      <p><button id="publish">Post</button> <button id="cancel-reply" type="button">Cancel</button></p>
+    </form>
+  </section>
+  <div class="timeline-updates" aria-live="polite"><button id="new-updates" type="button" hidden></button></div>
+  <section id="feed" aria-label="Posts"></section>
+  <p><button id="older" hidden>Older posts</button></p>
+  <section id="settings" hidden aria-label="Timeline settings">
+    <h2>Settings</h2>
   <details id="identity-panel">
     <summary>Your identity</summary>
     <p id="identity-label">Reading without signing in.</p>
@@ -24,20 +41,10 @@
     <p><button id="backup" disabled>Download identity backup</button> <button id="logout" disabled>Forget identity</button></p>
     <p>Your key stays in this browser. Keep a backup to use your identity on another device or in Wiredove.</p>
   </details>
-  <section id="composer-section" hidden aria-labelledby="compose-label">
-    <h2 id="compose-label">Write a post</h2>
-    <form id="composer">
-      <p id="reply-context"></p>
-      <p><label>Message<br><textarea id="body" rows="5" cols="40" maxlength="50000"></textarea></label></p>
-      <p><label>Attach audio, video, or an image <input id="media" type="file" accept="audio/*,video/*,image/png,image/jpeg,image/gif,image/webp"></label></p>
-      <p id="media-limit"></p>
-      <p><button id="publish">Post</button> <button id="cancel-reply" type="button" hidden>Cancel reply</button></p>
-    </form>
-  </section>
-  <p><button id="refresh">Refresh</button> <button id="sync">Sync from Wiredove</button></p>
-  <section id="feed" aria-label="Posts"></section>
-  <p><button id="older" hidden>Older posts</button></p>
+    <p><button id="refresh">Refresh</button> <button id="sync">Sync from Wiredove</button></p>
+    <p><a href="/timeline/api/export" download="evbogue-posts.json">Export posts</a></p>
   <details><summary>Import signed posts</summary><p>Import an export from this page. Signatures and author permissions are checked.</p><input id="import-posts" type="file" accept="application/json"><button id="import-button">Import posts</button></details>
+  </section>
   <noscript><p>JavaScript is needed to read the interactive timeline and sign posts. The writing archive is available above.</p></noscript>
   </main>
 </body>

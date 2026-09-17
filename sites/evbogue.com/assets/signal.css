@@ -619,3 +619,34 @@ footer {
 .timeline audio,
 .timeline video { display: block; width: 100%; max-width: 100%; }
 .timeline hr { border: 0; border-top: 1px solid var(--faint); }
+
+.timeline-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.timeline-heading h1 { margin-bottom: 0; }
+.timeline-heading > div { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+.timeline-heading button,
+.timeline-post-actions button { border: 0; padding: 0; background: transparent; color: var(--muted); }
+.timeline-heading button:hover:not(:disabled),
+.timeline-post-actions button:hover:not(:disabled) { color: var(--link); text-decoration: underline; }
+.timeline-updates { min-height: 2.75rem; padding-block: 0.4rem; }
+.timeline #new-updates { color: var(--link); }
+.timeline #feed > article { margin: 0; padding-block: 1.1rem; border-bottom: 1px solid var(--faint); }
+.timeline .timeline-post-meta { margin-bottom: 0.4rem; font-size: 0.88rem; color: var(--muted); }
+.timeline-post-meta a { text-decoration: none; color: var(--muted); }
+.timeline-post-meta a:first-child { color: var(--text); font-weight: 600; }
+.timeline-post-meta a:hover { text-decoration: underline; }
+.timeline-post-body p { margin-bottom: 0.65rem; }
+.timeline-post-actions { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 1rem; font-size: 0.85rem; }
+.timeline .timeline-post-actions details { margin: 0; }
+.timeline-post-actions details[open] { flex-basis: 100%; }
+.timeline-post-actions details[open] summary { margin-bottom: 0.75rem; }
+.timeline .timeline-reply-summary { display: none; }
+.timeline .timeline-attachment { font-size: 0.82rem; color: var(--muted); margin-top: 0.3rem; }
+.timeline .timeline-attachment a { color: var(--muted); }
+.timeline audio { max-width: 24rem; }
+.timeline .timeline-last-visit { color: var(--muted); font-size: 0.8rem; text-align: center; margin: 1rem 0 0; }
+.timeline #settings { margin-block: 2rem; padding-block: 1.5rem; border-top: 1px solid var(--faint); }
+@media (max-width: 560px) {
+  .timeline-heading { align-items: center; }
+  .timeline-heading h1 { font-size: 1.7rem; }
+  .timeline-heading > div { font-size: 0.85rem; }
+}

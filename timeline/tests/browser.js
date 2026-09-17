@@ -2,7 +2,7 @@
 import { chromium } from 'playwright'
 import { Buffer } from 'node:buffer'
 import { strict as assert } from 'node:assert'
-import { an } from '../protocol.js'
+import { an, compose } from '../protocol.js'
 import { createTimeline } from '../server.js'
 const directory = await Deno.makeTempDir()
 const key = await an.gen()
@@ -32,19 +32,23 @@ try {
   page.on('pageerror', (error) => errors.push(error.message))
   await page.goto('http://127.0.0.1:' + server.addr.port + '/timeline/')
   await page.getByText('No posts yet.', { exact: true }).waitFor()
+  await page.locator('#settings-toggle').click()
   await page.locator('#identity-panel summary').click()
   await page.locator('#keypair').fill(key)
   await page.getByRole('button', { name: 'Import identity', exact: true })
     .click()
-  await page.locator('#composer-section').waitFor()
+  await page.locator('#write-post').waitFor()
+  assert.equal(await page.locator('#composer-section').isVisible(), false)
   await page.reload()
-  await page.locator('#composer-section').waitFor()
+  await page.locator('#write-post').waitFor()
   assert.equal(
     await page.locator('#identity-label').textContent(),
     'Signed in as ' + key.slice(0, 44),
   )
+  await page.locator('#settings-toggle').click()
   await page.locator('#identity-panel summary').click()
   await page.locator('#name').fill('Ev (local test)')
+  await page.locator('#write-post').click()
   await page.locator('#body').fill(
     'Hello from the plain HTML timeline. <script>throw new Error("unsafe")</script>',
   )
@@ -106,6 +110,7 @@ try {
     stream.getTracks().forEach((track) => track.stop())
     return Array.from(new Uint8Array(await new Blob(chunks).arrayBuffer()))
   })
+  await page.locator('#write-post').click()
   await page.locator('#body').fill('A video attachment.')
   await page.locator('#media').setInputFiles({
     name: 'test.webm',
@@ -142,6 +147,7 @@ try {
     await page.locator('#identity-label').textContent(),
     generatedIdentity,
   )
+  await page.locator('#settings-toggle').click()
   await page.locator('#identity-panel summary').click()
   await page.locator('#name').fill('Alice (local test)')
   assert.equal(await page.locator('#composer-section').isVisible(), false)
@@ -177,9 +183,34 @@ try {
     'Reading without signing in.',
   )
   assert.equal(await page.locator('#composer-section').isVisible(), false)
+  // A background check must not replace the feed or move the reader.
+  const before = await page.locator('#feed').innerHTML()
+  const incoming = await compose(key, 'A newly arrived update', { name: 'Ev' })
+  const accepted = await app.fetch(
+    new Request('http://localhost/timeline/api/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(incoming),
+    }),
+  )
+  assert.equal(accepted.status, 201)
+  await page.evaluate(() => scrollTo(0, 100))
+  const scrollBefore = await page.evaluate(() => scrollY)
+  await page.evaluate(() =>
+    document.dispatchEvent(new Event('visibilitychange'))
+  )
+  await page.locator('#new-updates').waitFor()
+  assert.equal(await page.locator('#feed').innerHTML(), before)
+  assert.equal(await page.evaluate(() => scrollY), scrollBefore)
+  await page.locator('#new-updates').click()
+  await page.getByText('A newly arrived update', { exact: true }).waitFor()
+  assert.equal(await page.locator('#new-updates').isVisible(), false)
+  await page.getByText('New since your last visit', { exact: true }).waitFor()
+  await page.getByText('Last visit', { exact: true }).waitFor()
+  assert.equal(await page.locator('#composer-section').isVisible(), false)
   assert.deepEqual(errors, [])
   console.log(
-    'Browser checks passed: timeline controls, owner post, AndFS WAV playback/seeking and WebM playback, visitor reply, identity backup, mobile render, no script execution.',
+    'Browser checks passed: collapsed composer/settings, persisted identities, non-disruptive updates and last-visit marker, owner post, AndFS WAV playback/seeking and WebM playback, visitor reply, identity backup, mobile render, no script execution.',
   )
 } finally {
   await browser.close()

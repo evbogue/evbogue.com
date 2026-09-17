@@ -10,9 +10,13 @@ let keypair = '',
   posts = [],
   reply = null,
   pageSize = 20,
-  busy = false
+  busy = false,
+  composerOpen = false,
+  pendingPosts = null,
+  lastVisit = null
 const status = (message) => {
   $('status').textContent = message
+  $('status').hidden = !message
 }
 const element = (tag, text) => {
   const node = document.createElement(tag)
@@ -62,13 +66,15 @@ function updateIdentity() {
     }
   }
   $('backup').disabled = $('logout').disabled = !author
-  $('composer-section').hidden = !author || (author !== config.owner && !reply)
+  $('write-post').hidden = author !== config.owner
+  $('write-post').setAttribute('aria-expanded', String(composerOpen))
+  $('composer-section').hidden = !author || !composerOpen ||
+    (author !== config.owner && !reply)
   $('compose-label').textContent = reply ? 'Write a reply' : 'Write a post'
   $('reply-context').textContent = reply
     ? 'Replying to ' + (reply.parsed.name || reply.author) + ': ' +
       reply.parsed.body.slice(0, 100)
     : ''
-  $('cancel-reply').hidden = !reply
   $('publish').textContent = reply ? 'Reply' : 'Post'
 }
 async function useIdentity(value) {
@@ -80,22 +86,56 @@ async function useIdentity(value) {
   $('keypair').value = ''
   $('name').value = localStorage.getItem('evbogue.timeline.name.' + author) ||
     ''
+  if (reply) composerOpen = true
   updateIdentity()
   render()
 }
 function chooseReply(row) {
+  reply = row
   if (!author) {
+    showSettings(true)
     $('identity-panel').open = true
     $('keypair').focus()
     status('Import or create an identity to reply.')
     return
   }
   reply = row
+  composerOpen = true
   updateIdentity()
   $('body').focus()
   $('composer-section').scrollIntoView()
 }
+function relativeTime(timestamp) {
+  const elapsed = Math.max(0, Date.now() - timestamp)
+  if (elapsed < 60000) return 'Just now'
+  if (elapsed < 3600000) {
+    const n = Math.floor(elapsed / 60000)
+    return n + (n === 1 ? ' minute ago' : ' minutes ago')
+  }
+  if (elapsed < 86400000) {
+    const n = Math.floor(elapsed / 3600000)
+    return n + (n === 1 ? ' hour ago' : ' hours ago')
+  }
+  const date = new Date(timestamp), yesterday = new Date()
+  yesterday.setDate(yesterday.getDate() - 1)
+  if (date.toDateString() === yesterday.toDateString()) return 'Yesterday'
+  return date.toLocaleDateString(undefined, {
+    month: 'short',
+    day: 'numeric',
+    ...(date.getFullYear() !== new Date().getFullYear()
+      ? { year: 'numeric' }
+      : {}),
+  })
+}
+function showSettings(open) {
+  $('settings').hidden = !open
+  $('settings-toggle').setAttribute('aria-expanded', String(open))
+  if (open) $('settings').scrollIntoView({ block: 'start' })
+}
 function render() {
+  const expanded = new Set(
+    [...$('feed').querySelectorAll('details[open]')].map((node) => node.id),
+  )
   $('feed').replaceChildren()
   const roots = posts.filter((row) =>
     row.author === config.owner && !row.parsed.reply
@@ -112,18 +152,27 @@ function render() {
     const node = element('article')
     node.id = row.id
     const heading = element('p')
+    heading.className = 'timeline-post-meta'
     const name = breakable(
       element('a'),
-      row.parsed.name || row.author.slice(0, 12),
+      row.author === config.owner
+        ? 'Ev Bogue'
+        : row.parsed.name || row.author.slice(0, 12),
     )
     name.href = 'https://wiredove.net/#' + encodeURIComponent(row.author)
     name.title = row.author
-    const time = element('a', new Date(row.timestamp).toLocaleString())
+    const time = element('a', relativeTime(row.timestamp))
+    time.dataset.timestamp = row.timestamp
+    time.title = new Date(row.timestamp).toLocaleString()
+    time.setAttribute('aria-label', time.textContent + ', ' + time.title)
     time.href = '/timeline/#' + encodeURIComponent(row.id)
     heading.append(name, ' · ', time)
     const body = element('div')
+    body.className = 'timeline-post-body'
     // Text nodes preserve untrusted content; only explicit HTTP(S) links become anchors.
     for (const line of (row.parsed.body || '').split('\n')) {
+      if (row.parsed.andfs && line.trim() === row.parsed.media_url) continue
+      if (!line.trim()) continue
       const paragraph = element('p')
       for (const part of line.split(/(https?:\/\/[^\s)<>]+)/g)) {
         const url = /^https?:\/\//.test(part) ? safeURL(part) : null
@@ -148,7 +197,7 @@ function render() {
         player.width = 320
       } else {
         player.controls = true
-        player.preload = 'none'
+        player.preload = row.parsed.type === 'video' ? 'metadata' : 'none'
         if (row.parsed.type === 'video') {
           player.width = 320
           player.playsInline = true
@@ -158,11 +207,8 @@ function render() {
       const link = element('a', row.parsed.media_name || 'Download attachment')
       link.href = source
       const attachment = element('p')
-      attachment.append(
-        link,
-        ' · AndFS ',
-        breakable(element('span'), row.parsed.andfs),
-      )
+      attachment.className = 'timeline-attachment'
+      attachment.append(link)
       node.append(player, attachment)
     } else if (row.parsed.blob) {
       const link = element('a', 'Open legacy media in Wiredove')
@@ -171,9 +217,12 @@ function render() {
     }
     const button = element('button', 'Reply')
     button.onclick = () => chooseReply(row)
-    node.append(button)
+    const actions = element('div')
+    actions.className = 'timeline-post-actions'
+    actions.append(button)
+    node.append(actions)
     const raw = element('details'),
-      summary = element('summary', 'Signed message'),
+      summary = element('summary', 'Details'),
       pre = element('textarea')
     pre.value = JSON.stringify(
       { signature: row.signature, content: row.content },
@@ -184,8 +233,11 @@ function render() {
     pre.rows = 8
     pre.cols = 35
     pre.setAttribute('aria-label', 'Signed message and content')
-    raw.append(summary, pre)
-    node.append(raw)
+    raw.id = 'details-' + row.id
+    raw.open = expanded.has(raw.id)
+    raw.append(summary, element('p', 'Author: ' + row.author), pre)
+    if (row.parsed.andfs) raw.append(element('p', 'AndFS: ' + row.parsed.andfs))
+    actions.append(raw)
     if (config.relay && !row.relayed && row.author === author) {
       const retry = element('button', 'Send to Wiredove')
       retry.onclick = () =>
@@ -210,26 +262,47 @@ function render() {
             retry.disabled = false
           }
         })
-      node.append(retry)
+      raw.append(retry)
     }
     const children = (byParent.get(row.id) || []).sort((a, b) =>
       a.timestamp - b.timestamp
     )
     if (children.length && depth < 20) {
       const details = element('details')
-      details.append(
-        element(
-          'summary',
-          children.length + (children.length === 1 ? ' reply' : ' replies'),
-        ),
+      details.id = 'replies-' + row.id
+      details.open = expanded.has(details.id)
+      const count = element(
+        'button',
+        children.length + (children.length === 1 ? ' reply' : ' replies'),
       )
+      count.setAttribute('aria-expanded', String(details.open))
+      count.setAttribute('aria-controls', details.id)
+      count.onclick = () => {
+        details.open = !details.open
+      }
+      details.ontoggle = () =>
+        count.setAttribute('aria-expanded', String(details.open))
+      const summary = element('summary', 'Replies')
+      summary.className = 'timeline-reply-summary'
+      details.append(summary)
+      actions.insertBefore(count, raw)
       for (const child of children) details.append(article(child, depth + 1))
       node.append(details)
     }
-    node.append(element('hr'))
     return node
   }
-  for (const row of roots.slice(0, pageSize)) $('feed').append(article(row))
+  const hasNew = lastVisit && roots.some((row) => row.timestamp > lastVisit)
+  let dividerShown = false
+  if (hasNew) $('feed').append(element('p', 'New since your last visit'))
+  for (const row of roots.slice(0, pageSize)) {
+    if (hasNew && !dividerShown && row.timestamp <= lastVisit) {
+      const divider = element('p', 'Last visit')
+      divider.className = 'timeline-last-visit'
+      $('feed').append(divider)
+      dividerShown = true
+    }
+    $('feed').append(article(row))
+  }
   if (!roots.length) $('feed').append(element('p', 'No posts yet.'))
   $('older').hidden = roots.length <= pageSize
 }
@@ -255,18 +328,62 @@ function revealHash() {
     target.scrollIntoView()
   }
 }
-async function refresh() {
+async function fetchPosts() {
   const data = await request('posts')
-  // Verify all received messages before rendering or using them as reply targets.
-  posts = await Promise.all(
+  return await Promise.all(
     data.posts.map(async (row) => ({
       ...await verify(row.signature, row.content),
       relayed: row.relayed === true,
     })),
   )
+}
+async function refresh() {
+  posts = await fetchPosts()
+  pendingPosts = null
+  $('new-updates').hidden = true
   render()
   revealHash()
 }
+let checking = false
+async function checkUpdates() {
+  if (checking || document.hidden || busy) return
+  checking = true
+  try {
+    if (config.relay) await request('sync', { method: 'POST' }).catch(() => {})
+    const incoming = await fetchPosts(),
+      known = new Set(posts.map((row) => row.id))
+    const count = incoming.filter((row) => !known.has(row.id)).length
+    if (count) {
+      pendingPosts = incoming
+      $('new-updates').textContent = count +
+        (count === 1 ? ' new update' : ' new updates')
+      $('new-updates').hidden = false
+    }
+  } catch {
+    /* Keep the current reading position and retry on the next check. */
+  } finally {
+    checking = false
+  }
+}
+$('new-updates').onclick = () => {
+  if (!pendingPosts) return
+  posts = pendingPosts
+  pendingPosts = null
+  $('new-updates').hidden = true
+  render()
+  localStorage.setItem(
+    'evbogue.timeline.lastVisit.' + config.owner,
+    String(Date.now()),
+  )
+  $('feed').scrollIntoView({ block: 'start' })
+}
+$('write-post').onclick = () => {
+  reply = null
+  composerOpen = !composerOpen
+  updateIdentity()
+  if (composerOpen) $('body').focus()
+}
+$('settings-toggle').onclick = () => showSettings($('settings').hidden)
 async function run(fn) {
   try {
     await fn()
@@ -290,6 +407,7 @@ $('logout').onclick = () => {
   keypair = ''
   author = ''
   reply = null
+  composerOpen = false
   localStorage.removeItem('evbogue.timeline.key')
   updateIdentity()
   render()
@@ -307,6 +425,7 @@ $('name').onchange = () => {
 }
 $('cancel-reply').onclick = () => {
   reply = null
+  composerOpen = false
   updateIdentity()
 }
 $('older').onclick = () => {
@@ -440,6 +559,7 @@ $('composer').onsubmit = (event) => {
       $('body').value = ''
       $('media').value = ''
       reply = null
+      composerOpen = false
       updateIdentity()
       await refresh()
       status(
@@ -459,6 +579,9 @@ $('composer').onsubmit = (event) => {
 globalThis.addEventListener('hashchange', revealHash)
 await run(async () => {
   config = await request('config')
+  lastVisit = Number(
+    localStorage.getItem('evbogue.timeline.lastVisit.' + config.owner),
+  ) || null
   $('media-limit').textContent = 'Up to ' + config.maxMediaBytes / 1024 / 1024 +
     ' MiB per attachment.'
   const saved = localStorage.getItem('evbogue.timeline.key')
@@ -468,5 +591,18 @@ await run(async () => {
   }
   updateIdentity()
   await refresh()
-  status('Read posts, or connect your identity to reply.')
+  status('')
+  localStorage.setItem(
+    'evbogue.timeline.lastVisit.' + config.owner,
+    String(Date.now()),
+  )
+  setInterval(checkUpdates, 30000)
+  setInterval(() => {
+    for (const time of $('feed').querySelectorAll('[data-timestamp]')) {
+      time.textContent = relativeTime(Number(time.dataset.timestamp))
+    }
+  }, 60000)
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) void checkUpdates()
+  })
 })

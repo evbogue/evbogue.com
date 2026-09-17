@@ -12,6 +12,8 @@ For a local-only preview, run `TIMELINE_RELAY='' deno task start`. This disables
 
 Import a Wiredove keypair into the browser or create a visitor identity. Identities are remembered on this browser by default. Uncheck “Remember my key on this browser” for a session-only identity, or use “Forget identity” to remove the saved key. Download an identity backup to keep access after closing the page. Remembered keys use this origin's localStorage; they are not encrypted at rest. Display names are labels, not proof of identity. Owner permissions use the public key, not the label.
 
+The feed opens in reading mode. The owner opens the composer with **Write a post**; identity, import/export and manual sync controls live under **Settings**. Posts show a friendly owner label, relative time (with an exact timestamp on hover), and compact reply/Details controls. Signed bytes and media hashes remain available in Details.
+
 Only the owner can start a post. Other identities can reply to known conversations, including with attachments. Draft text is retained on a failed publish. There is no cross-device private-key synchronization or key recovery service.
 
 ## Signed-message compatibility
@@ -22,7 +24,9 @@ Vendored ANProto performs the same Ed25519 timestamp + content-hash signing as W
 
 Posts are sent to the configured relay using its existing `POST /gossip` protocol, content first and signature second. A separate request for the message hash confirms receipt. Local persistence happens first; unconfirmed posts show “Send to Wiredove” for their author, including after reload. JSON import only imports locally; it does not automatically republish.
 
-“Sync from Wiredove” performs bounded, manual synchronization: up to 30 owner-history links, plus the relay's poll results, with capped content lookups and ancestor depth. It is not a full network crawler, automatic background replication, or a complete archive import. Unavailable content is not forged or replaced. The poll cursor is persisted only after processing the batch; retained incomplete batches may require further sync work for large histories. Export/import provides an additional transport for signed posts. Imports report rejected messages and support parents appearing after children within the batch.
+While the page is visible, it checks for updates every 30 seconds (and when returning to the tab). If a relay is configured, it first attempts bounded inbound sync. New messages appear behind a **new updates** button; background checks never rebuild the feed or interrupt playback. Clicking the button shows the updates and takes you to the feed. The previous visit time is stored per owner in this browser to mark new posts and the last-visit boundary; this is a visit marker, not a read receipt.
+
+“Sync from Wiredove” in Settings also performs bounded synchronization: up to 30 owner-history links, plus the relay's poll results, with capped content lookups and ancestor depth. It is not a full network crawler, a service that runs while the page is closed, or a complete archive import. Unavailable content is not forged or replaced. The poll cursor is persisted only after processing the batch; retained incomplete batches may require further sync work for large histories. Export/import provides an additional transport for signed posts. Imports report rejected messages and support parents appearing after children within the batch.
 
 ## AndFS attachment contract
 
