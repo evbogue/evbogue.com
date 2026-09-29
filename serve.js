@@ -197,28 +197,10 @@ function sitePage(site, { title = site.title, description = site.description, bo
           <a href="/posts" class="nav-priority">Writing</a>
           ${site.id === "evbogue.com" ? '<a href="/timeline/">Timeline</a><a href="/projects">Projects</a>' : ''}
           <a href="/about">About</a>
-          <a href="#subscribe-dialog" class="subscribe-btn" data-open-subscribe>Subscribe</a>
+          <a href="mailto:${escapeHtml(site.emailReplyTo)}?subject=Subscribe%20me%20to%20${encodeURIComponent(site.title)}" class="subscribe-btn">Subscribe by email</a>
         </nav>
       </div>
     </header>
-
-    <dialog id="subscribe-dialog" class="subscribe-dialog" aria-labelledby="subscribe-dialog-title">
-      <form method="dialog" class="subscribe-dialog-close-form">
-        <button class="subscribe-dialog-close" aria-label="Close">&times;</button>
-      </form>
-      <div class="subscribe-dialog-body">
-        <h3 id="subscribe-dialog-title">${escapeHtml(site.subscribeTitle || `Get ${site.title} in your inbox.`)}</h3>
-        <p>${escapeHtml(site.subscribeDek || "Dispatches by email.")}</p>
-        <form class="newsletter-form" action="/subscribe" method="POST">
-          <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden">
-            <label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-          </div>
-          <input type="hidden" name="ft" value="${issueFormToken()}">
-          <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-    </dialog>
 
     ${body}
 
@@ -234,23 +216,6 @@ function sitePage(site, { title = site.title, description = site.description, bo
         <span class="footer-copy">&copy; ${new Date().getFullYear()} ${escapeHtml(site.footerCopy || site.title)}</span>
       </div>
     </footer>
-    <script>
-      (function () {
-        var dlg = document.getElementById('subscribe-dialog')
-        if (!dlg || typeof dlg.showModal !== 'function') return
-        document.querySelectorAll('[data-open-subscribe]').forEach(function (el) {
-          el.addEventListener('click', function (e) {
-            e.preventDefault()
-            dlg.showModal()
-            var input = dlg.querySelector('input[name="email"]')
-            if (input) input.focus()
-          })
-        })
-        dlg.addEventListener('click', function (e) {
-          if (e.target === dlg) dlg.close()
-        })
-      })()
-    </script>
   </body>
 </html>`
 }
@@ -331,7 +296,7 @@ function signalHomeHtml(posts) {
         <a href="/about">About Ev</a>
         <a href="/projects">Projects</a>
         <a href="/posts">Full Archive</a>
-        <a href="#subscribe-dialog" data-open-subscribe>Subscribe</a>
+        <a href="mailto:ev@evbogue.com?subject=Subscribe%20me%20to%20evbogue.com">Subscribe by email</a>
       </nav>
 
       <section class="listing" aria-labelledby="latest-heading">
@@ -753,6 +718,7 @@ app.get('/subscribe', (c) => c.redirect('/#subscribe'))
 
 app.post('/subscribe', async (c) => {
   const site = siteFromRequest(c, SITE_REGISTRY)
+  return c.text(`Email ${site.emailReplyTo} to subscribe.`, 410)
   try {
     const form = await c.req.formData()
     const email = form.get('email')?.toString() ?? ''
