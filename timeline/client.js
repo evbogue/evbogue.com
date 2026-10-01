@@ -577,6 +577,7 @@ $('composer').onsubmit = (event) => {
 globalThis.addEventListener('hashchange', revealHash)
 await run(async () => {
   config = await request('config')
+  breakable($('owner-identity'), 'Owner identity: ' + config.owner)
   lastVisit = Number(
     localStorage.getItem('evbogue.timeline.lastVisit.' + config.owner),
   ) || null
