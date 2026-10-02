@@ -13,7 +13,8 @@ let keypair = '',
   busy = false,
   composerOpen = false,
   pendingPosts = null,
-  lastVisit = null
+  lastVisit = null,
+  wiredoveUI = false
 const status = (message) => {
   $('status').textContent = message
   $('status').hidden = !message
@@ -151,6 +152,17 @@ function render() {
   function article(row, depth = 0) {
     const node = element('article')
     node.id = row.id
+    if (wiredoveUI) {
+      const message = element('wiredove-message')
+      message.post = row
+      message.onReply = () => chooseReply(row)
+      node.append(message)
+      if (row.parsed.blob) {
+        const link = element('a', 'Open legacy media in Wiredove')
+        link.href = 'https://wiredove.net/#' + encodeURIComponent(row.id)
+        node.append(link)
+      }
+    } else {
     const heading = element('p')
     heading.className = 'timeline-post-meta'
     const name = breakable(
@@ -213,11 +225,14 @@ function render() {
       link.href = 'https://wiredove.net/#' + encodeURIComponent(row.id)
       node.append(link)
     }
-    const button = element('button', 'Reply')
-    button.onclick = () => chooseReply(row)
+    }
     const actions = element('div')
     actions.className = 'timeline-post-actions'
-    actions.append(button)
+    if (!wiredoveUI) {
+      const button = element('button', 'Reply')
+      button.onclick = () => chooseReply(row)
+      actions.append(button)
+    }
     node.append(actions)
     const raw = element('details'),
       summary = element('summary', 'Details'),
@@ -577,6 +592,13 @@ $('composer').onsubmit = (event) => {
 globalThis.addEventListener('hashchange', revealHash)
 await run(async () => {
   config = await request('config')
+  try {
+    const module = await import('https://wiredove.net/client/ui.js')
+    module.defineWiredoveElements()
+    wiredoveUI = true
+  } catch (error) {
+    console.warn('Wiredove UI module unavailable:', error)
+  }
   breakable($('owner-identity'), 'Owner identity: ' + config.owner)
   lastVisit = Number(
     localStorage.getItem('evbogue.timeline.lastVisit.' + config.owner),

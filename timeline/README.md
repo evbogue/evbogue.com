@@ -2,6 +2,8 @@
 
 A page at `/timeline/` using the blog’s shared navigation and stylesheet for Ev's posts and public replies. Deno serves the page and stores exact signed Wiredove-compatible messages on disk. Browser signing uses the existing ANProto keypair format. AndFS stores audio/video and image bytes separately from the signed posts.
 
+The browser imports Wiredove's message component from `https://wiredove.net/client/ui.js`. The Timeline continues to verify, store, and publish posts on this site. If the component cannot load, the page uses its built-in post renderer.
+
 ## Run
 
 From the repository root, run `deno task start` and visit `http://127.0.0.1:8082/timeline/`. `/timeline` redirects there. The existing homepage stays at `/`. Existing `/posts`, `/posts/:slug`, RSS and other site routes remain available. Other hosted sites retain their existing homepage.

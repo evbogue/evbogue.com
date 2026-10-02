@@ -77,9 +77,9 @@ try {
   await page.locator('#publish').click()
   await page.getByText('Saved on this site.', { exact: true }).waitFor()
   assert.equal(await page.locator('audio').count(), 1)
-  assert.equal(await page.locator('article').count(), 1)
+  assert.equal(await page.locator('#feed > article').count(), 1)
   assert.equal(
-    await page.locator('.timeline-post-meta a').first().textContent(),
+    await page.locator('wiredove-message .avatarlink').first().textContent(),
     'Ev (local test)',
   )
   await page.locator('audio').evaluate(async (audio) => {
@@ -155,13 +155,13 @@ try {
   await page.locator('#identity-panel summary').click()
   await page.locator('#name').fill('Alice (local test)')
   assert.equal(await page.locator('#composer-section').isVisible(), false)
-  await page.getByRole('button', { name: 'Reply', exact: true }).first().click()
+  await page.getByRole('button', { name: 'Reply to this post' }).first().click()
   await page.locator('#body').fill('A reply using another identity.')
   await page.locator('#publish').click()
   await page.getByText('1 reply', { exact: true }).click()
   await page.getByText('A reply using another identity.', { exact: true })
     .first().waitFor()
-  assert.equal(await page.locator('article').count(), 3)
+  assert.equal(await page.locator('#feed > article').count(), 2)
   const downloadPromise = page.waitForEvent('download')
   await page.getByRole('button', { name: 'Download identity backup' }).click()
   assert.equal(
@@ -198,7 +198,10 @@ try {
     }),
   )
   assert.equal(accepted.status, 201)
-  await page.evaluate(() => scrollTo(0, 100))
+  await page.evaluate(() => {
+    document.body.style.minHeight = '2000px'
+    scrollTo(0, 100)
+  })
   const scrollBefore = await page.evaluate(() => scrollY)
   await page.evaluate(() =>
     document.dispatchEvent(new Event('visibilitychange'))
