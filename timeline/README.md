@@ -16,6 +16,8 @@ Import a Wiredove keypair into the browser or create a visitor identity. Identit
 
 The widget opens on its feed. Its **Write** view opens the composer, and **Reply** opens the composer with the selected post as its target. Identity, import/export, and manual sync controls live under **Settings**. The Timeline verifies signed messages before passing them to the widget.
 
+On an empty site, the browser runs a first sync from the configured Wiredove relay before showing the feed. Later syncs leave the current widget view in place and offer a new-updates button.
+
 Only the owner can start a post. Other identities can reply to known conversations, including with attachments. Draft text is retained on a failed publish. There is no cross-device private-key synchronization or key recovery service.
 
 ## Signed-message compatibility

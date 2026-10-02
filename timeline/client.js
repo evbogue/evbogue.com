@@ -264,7 +264,17 @@ await run(async () => {
   }
   updateIdentity()
   await refresh()
-  status('')
+  if (config.relay && !posts.length) {
+    status('Syncing posts from Wiredove…')
+    try {
+      await request('sync', { method: 'POST' })
+      await refresh()
+      status('')
+    } catch (error) {
+      status('Wiredove sync unavailable: ' + error.message)
+    }
+  }
+  if (posts.length || !config.relay) status('')
   setInterval(checkUpdates, 30000)
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) void checkUpdates()
