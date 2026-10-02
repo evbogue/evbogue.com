@@ -2,7 +2,7 @@
 
 A page at `/timeline/` using the blog’s shared navigation and stylesheet for Ev's posts and public replies. Deno serves the page and stores exact signed Wiredove-compatible messages on disk. Browser signing uses the existing ANProto keypair format. AndFS stores audio/video and image bytes separately from the signed posts.
 
-The browser imports Wiredove's message component from `https://wiredove.net/client/ui.js`. The Timeline continues to verify, store, and publish posts on this site. If the component cannot load, the page uses its built-in post renderer.
+The browser imports Wiredove's full `<wiredove-widget>` from `https://wiredove.net/client/ui.js`. The widget owns the feed, search, threads, and composer. This site verifies and stores posts, supplies them to the widget, and signs and publishes drafts through its callback. The widget requires the Wiredove module to load.
 
 ## Run
 
@@ -14,7 +14,7 @@ For a local-only preview, run `TIMELINE_RELAY='' deno task start`. This disables
 
 Import a Wiredove keypair into the browser or create a visitor identity. Identities are remembered on this browser by default. Uncheck “Remember my key on this browser” for a session-only identity, or use “Forget identity” to remove the saved key. Download an identity backup to keep access after closing the page. Remembered keys use this origin's localStorage; they are not encrypted at rest. Display names are labels, not proof of identity. Owner permissions use the public key, not the label.
 
-The feed opens in reading mode. The owner opens the composer with **Write a post**; identity, import/export and manual sync controls live under **Settings**. Posts show the name embedded in each signed message (or a shortened public key if absent), relative time (with an exact timestamp on hover), and compact reply/Details controls. Signed bytes and media hashes remain available in Details.
+The widget opens on its feed. Its **Write** view opens the composer, and **Reply** opens the composer with the selected post as its target. Identity, import/export, and manual sync controls live under **Settings**. The Timeline verifies signed messages before passing them to the widget.
 
 Only the owner can start a post. Other identities can reply to known conversations, including with attachments. Draft text is retained on a failed publish. There is no cross-device private-key synchronization or key recovery service.
 
@@ -69,8 +69,8 @@ Browser checks use a disposable loopback server, generated identities and Chrome
 
 ## First-version limits
 
-- Wiredove inline AndFS playback awaits the migration work order; old clients get the body link. Legacy anblob attachments link to Wiredove here rather than being decoded locally.
-- Edit events are rejected; Markdown is displayed as safe text with HTTP(S) links, not full Wiredove rendering. Profile-only events and complete avatar replication are not implemented.
+- The widget renders AndFS attachments through the verified media gateway. Legacy anblob attachments still need Wiredove's legacy reader.
+- Edit events are rejected; the widget renders message text and HTTP(S) links safely. Profile-only events and complete avatar replication are not implemented.
 - Moderation UI, block lists, robust spam controls, resumable upload, garbage collection and complete history sync remain follow-up work. Basic signature checks, reply permissions, per-author write limits and media quotas exist; they are not a full public abuse-defense system.
-- Up to 10,000 stored messages; the API returns the stored feed and the browser pages its display. Storage is a single-process prototype, not a multi-writer database.
+- Up to 10,000 stored messages; the API returns the stored feed to the widget. Storage is a single-process prototype, not a multi-writer database.
 - Exports contain public signed messages and media references, not private keys or a complete media backup. Save identity backups separately and back up `timeline-data/andfs` together with metadata.

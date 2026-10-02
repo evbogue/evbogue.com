@@ -7,27 +7,15 @@
   <link rel="icon" href="/assets/ev.png">
 </head>
 <body>
-  <script type="module" src="/timeline/client.js?v=20261002wiredove"></script>
+  <script type="module" src="/timeline/client.js?v=20261002widget"></script>
   <main class="timeline">
   <div class="timeline-heading"><h1>Timeline</h1><div>
-    <button id="write-post" type="button" hidden aria-expanded="false" aria-controls="composer-section">Write a post</button>
     <button id="settings-toggle" type="button" aria-expanded="false" aria-controls="settings">Settings</button>
   </div></div>
   <p id="owner-identity" aria-label="Timeline owner identity"></p>
   <p id="status" role="status" aria-live="polite">Loading posts…</p>
-  <section id="composer-section" hidden aria-labelledby="compose-label">
-    <h2 id="compose-label">Write a post</h2>
-    <form id="composer">
-      <p id="reply-context"></p>
-      <p><label>Message<br><textarea id="body" rows="5" cols="40" maxlength="50000"></textarea></label></p>
-      <p><label>Attach audio, video, or an image <input id="media" type="file" accept="audio/*,video/*,image/png,image/jpeg,image/gif,image/webp"></label></p>
-      <p id="media-limit"></p>
-      <p><button id="publish">Post</button> <button id="cancel-reply" type="button">Cancel</button></p>
-    </form>
-  </section>
   <div class="timeline-updates" aria-live="polite"><button id="new-updates" type="button" hidden></button></div>
-  <section id="feed" aria-label="Posts"></section>
-  <p><button id="older" hidden>Older posts</button></p>
+  <wiredove-widget id="widget" interactive aria-label="Wiredove timeline"></wiredove-widget>
   <section id="settings" hidden aria-label="Timeline settings">
     <h2>Settings</h2>
   <details id="identity-panel">
