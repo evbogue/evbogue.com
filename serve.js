@@ -1,10 +1,21 @@
 import { Hono } from "npm:hono@4.12.15";
 import { marked } from "./vendor/marked.esm.js";
 import { excerptFromBody, loadPosts as readPosts } from "./lib/posts.js";
-import { addSubscriber, confirmByToken, findByToken, markConfirmationSent, unsubscribeByToken } from "./lib/subscribers.js";
-import { sendAdminNotification, sendConfirmation } from "./lib/mailer.js";
-import { issueFormToken, verifyFormToken } from "./lib/formtoken.js";
-import { aggregateDailyViews, aggregateViews, loadViews, recordEvent, recordView, renderBarChart, renderLineChart } from "./lib/analytics.js";
+import {
+  confirmByToken,
+  findByToken,
+  unsubscribeByToken,
+} from "./lib/subscribers.js";
+import { sendAdminNotification } from "./lib/mailer.js";
+import {
+  aggregateDailyViews,
+  aggregateViews,
+  loadViews,
+  recordEvent,
+  recordView,
+  renderBarChart,
+  renderLineChart,
+} from "./lib/analytics.js";
 import { loadSites, REPO_ROOT, siteFromRequest } from "./lib/sites.js";
 
 import { createTimeline } from "./timeline/server.js";
@@ -35,63 +46,26 @@ const getTimeline = () =>
     },
   });
 
-const ANALYTICS_SALT = Deno.env.get("ANALYTICS_SALT") ?? ""
+const ANALYTICS_SALT = Deno.env.get("ANALYTICS_SALT") ?? "";
 if (!ANALYTICS_SALT) {
-  console.warn("ANALYTICS_SALT not set — unique visitor counts will stay at 0.")
+  console.warn(
+    "ANALYTICS_SALT not set — unique visitor counts will stay at 0.",
+  );
 }
 
 function clientIp(c) {
-  const xff = c.req.header('x-forwarded-for')
-  if (xff) return xff.split(',')[0].trim()
-  return c.req.header('x-real-ip') ?? c.req.header('cf-connecting-ip') ?? ""
+  const xff = c.req.header("x-forwarded-for");
+  if (xff) return xff.split(",")[0].trim();
+  return c.req.header("x-real-ip") ?? c.req.header("cf-connecting-ip") ?? "";
 }
 
-// In-memory per-IP rate limiter for the subscribe endpoint. Single tmux
-// process, so a Map is plenty. Sliding window: SUBSCRIBE_MAX hits per window.
-const SUBSCRIBE_RATE = { max: 3, windowMs: 10 * 60 * 1000 }
-const subscribeHits = new Map()
+const app = new Hono();
 
-function subscribeRateLimited(ip) {
-  if (!ip) return false
-  const now = Date.now()
-  const recent = (subscribeHits.get(ip) ?? []).filter((t) => now - t < SUBSCRIBE_RATE.windowMs)
-  recent.push(now)
-  subscribeHits.set(ip, recent)
-  // Opportunistic cleanup so the Map can't grow unbounded.
-  if (subscribeHits.size > 5000) {
-    for (const [key, times] of subscribeHits) {
-      if (times.every((t) => now - t >= SUBSCRIBE_RATE.windowMs)) subscribeHits.delete(key)
-    }
-  }
-  return recent.length > SUBSCRIBE_RATE.max
-}
-
-// Per-address cooldown: never send more than one confirmation email to the same
-// address within this window, no matter how many times the form is submitted for
-// it. Stops the form being used to bomb a victim's inbox and to flood the admin.
-const CONFIRM_COOLDOWN_MS = 24 * 60 * 60 * 1000
-
-// Global ceiling on outbound confirmation emails across every IP. The per-IP
-// limiter can't see a distributed, IP-rotating subscription bomb; this caps the
-// total blast radius in any one hour regardless of source. Over the ceiling we
-// still record the signup (double opt-in keeps the list clean) but send nothing.
-const SEND_CEILING = { max: 40, windowMs: 60 * 60 * 1000 }
-let sendWindow = { start: Date.now(), count: 0 }
-function globalSendAllowed() {
-  const now = Date.now()
-  if (now - sendWindow.start > SEND_CEILING.windowMs) sendWindow = { start: now, count: 0 }
-  if (sendWindow.count >= SEND_CEILING.max) return false
-  sendWindow.count++
-  return true
-}
-
-const app = new Hono()
-
-const ROOT = REPO_ROOT
-const SITE_REGISTRY = await loadSites()
+const ROOT = REPO_ROOT;
+const SITE_REGISTRY = await loadSites();
 
 async function loadPosts(site) {
-  return readPosts(site.root)
+  return readPosts(site.root);
 }
 
 const CONTENT_TYPES = {
@@ -102,13 +76,13 @@ const CONTENT_TYPES = {
   ".svg": "image/svg+xml",
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
-}
+};
 
 function getContentType(path) {
   for (const [ext, contentType] of Object.entries(CONTENT_TYPES)) {
-    if (path.endsWith(ext)) return contentType
+    if (path.endsWith(ext)) return contentType;
   }
-  return "application/octet-stream"
+  return "application/octet-stream";
 }
 
 function escapeXml(value = "") {
@@ -117,85 +91,98 @@ function escapeXml(value = "") {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
-    .replaceAll("'", "&apos;")
+    .replaceAll("'", "&apos;");
 }
 
-const escapeHtml = escapeXml
+const escapeHtml = escapeXml;
 
 function filterPosts(posts, query) {
-  if (!query) return posts
-  const q = query.toLowerCase()
+  if (!query) return posts;
+  const q = query.toLowerCase();
   return posts.filter((post) =>
     (post.title ?? "").toLowerCase().includes(q) ||
     (post.excerpt ?? "").toLowerCase().includes(q) ||
     (post.body ?? "").toLowerCase().includes(q)
-  )
+  );
 }
 
 function cleanTag(tag = "") {
-  return String(tag).trim().replace(/^['"]|['"]$/g, '')
+  return String(tag).trim().replace(/^['"]|['"]$/g, "");
 }
 
 function tagsFor(post) {
-  if (Array.isArray(post.tags)) return post.tags.map(cleanTag).filter(Boolean)
-  if (typeof post.tags === "string") return [cleanTag(post.tags)].filter(Boolean)
-  if (post.tag) return [cleanTag(post.tag)].filter(Boolean)
-  return []
+  if (Array.isArray(post.tags)) return post.tags.map(cleanTag).filter(Boolean);
+  if (typeof post.tags === "string") {
+    return [cleanTag(post.tags)].filter(Boolean);
+  }
+  if (post.tag) return [cleanTag(post.tag)].filter(Boolean);
+  return [];
 }
 
 function descriptionFor(post) {
-  return post.excerpt || post.description || excerptFromBody(post.body)
+  return post.excerpt || post.description || excerptFromBody(post.body);
 }
 
 function primaryTagFor(post) {
-  return tagsFor(post)[0] || "Essay"
+  return tagsFor(post)[0] || "Essay";
 }
 
 function signalTagFor(post) {
-  const tags = tagsFor(post).map((tag) => tagSlugFor(tag))
-  if (tags.includes("ai") || tags.includes("agents")) return "AI"
-  if (tags.includes("media") || tags.includes("blogging")) return "Media"
-  if (tags.includes("meta") || tags.includes("business")) return "Analysis"
-  if (tags.includes("archive") || tags.includes("evbogue") || tags.includes("fbts")) return "Archive"
-  return primaryTagFor(post).replace(/\b\w/g, (letter) => letter.toUpperCase())
+  const tags = tagsFor(post).map((tag) => tagSlugFor(tag));
+  if (tags.includes("ai") || tags.includes("agents")) return "AI";
+  if (tags.includes("media") || tags.includes("blogging")) return "Media";
+  if (tags.includes("meta") || tags.includes("business")) return "Analysis";
+  if (
+    tags.includes("archive") || tags.includes("evbogue") ||
+    tags.includes("fbts")
+  ) return "Archive";
+  return primaryTagFor(post).replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
 function imageFor(post) {
-  return post.image || post.cover || post.thumbnail || post.photo || ""
+  return post.image || post.cover || post.thumbnail || post.photo || "";
 }
 
 function authorFor(post) {
-  return post.author || "Everett Bogue"
+  return post.author || "Everett Bogue";
 }
 
 function readTimeFor(post) {
-  const words = (post.body || "").trim().split(/\s+/).filter(Boolean).length
-  return Math.max(1, Math.round(words / 200))
+  const words = (post.body || "").trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
 }
 
 function formatDisplayDate(date, style = "short") {
-  const parsed = new Date(`${date}T00:00:00`)
-  if (Number.isNaN(parsed.valueOf())) return date || ""
+  const parsed = new Date(`${date}T00:00:00`);
+  if (Number.isNaN(parsed.valueOf())) return date || "";
   const options = style === "long"
     ? { year: "numeric", month: "long", day: "numeric" }
-    : { year: "numeric", month: "short", day: "numeric" }
-  return parsed.toLocaleDateString("en-US", options)
+    : { year: "numeric", month: "short", day: "numeric" };
+  return parsed.toLocaleDateString("en-US", options);
 }
 
 function tagSlugFor(tag) {
-  return cleanTag(tag).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+  return cleanTag(tag).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(
+    /^-|-$/g,
+    "",
+  );
 }
 
 function wordmarkHtml(site) {
-  const wordmark = site.wordmark || site.title
+  const wordmark = site.wordmark || site.title;
   if (wordmark.endsWith(".com")) {
-    return `${escapeHtml(wordmark.slice(0, -4))}<span>.</span>com`
+    return `${escapeHtml(wordmark.slice(0, -4))}<span>.</span>com`;
   }
-  return escapeHtml(wordmark)
+  return escapeHtml(wordmark);
 }
 
-function sitePage(site, { title = site.title, description = site.description, body }) {
-  const fullTitle = title === site.title ? site.title : `${title} - ${site.title}`
+function sitePage(
+  site,
+  { title = site.title, description = site.description, body, headExtra = "" },
+) {
+  const fullTitle = title === site.title
+    ? site.title
+    : `${title} - ${site.title}`;
 
   return `<!doctype html>
 <html lang="en">
@@ -204,10 +191,15 @@ function sitePage(site, { title = site.title, description = site.description, bo
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="description" content="${escapeHtml(description)}">
-    ${site.noindex ? '<meta name="robots" content="noindex, nofollow">' : ''}
+    ${site.noindex ? '<meta name="robots" content="noindex, nofollow">' : ""}
     <link rel="icon" href="/${escapeHtml(site.favicon || "assets/ev.png")}">
-    <link rel="alternate" type="application/rss+xml" title="${escapeHtml(site.title)}" href="/feed.xml">
-    <link rel="stylesheet" href="/${escapeHtml(site.cssFile)}?v=20260917reading">
+    <link rel="alternate" type="application/rss+xml" title="${
+    escapeHtml(site.title)
+  }" href="/feed.xml">
+    <link rel="stylesheet" href="/${
+    escapeHtml(site.cssFile)
+  }?v=20261004widget">
+    ${headExtra}
   </head>
   <body>
     <header>
@@ -215,7 +207,11 @@ function sitePage(site, { title = site.title, description = site.description, bo
         <a href="/" class="wordmark">${wordmarkHtml(site)}</a>
         <nav>
           <a href="/posts" class="nav-priority">Writing</a>
-          ${site.id === "evbogue.com" ? '<a href="/timeline/">Timeline</a><a href="/projects">Projects</a>' : ''}
+          ${
+    site.id === "evbogue.com"
+      ? '<a href="/timeline/">Timeline</a><a href="/projects">Projects</a>'
+      : ""
+  }
           <a href="/about">About</a>
           <a href="mailto:${escapeHtml(site.emailReplyTo)}?subject=Subscribe%20me%20to%20${encodeURIComponent(site.title)}" class="subscribe-btn">Subscribe by email</a>
         </nav>
@@ -229,31 +225,70 @@ function sitePage(site, { title = site.title, description = site.description, bo
         <a href="/" class="wordmark">${wordmarkHtml(site)}</a>
         <div class="footer-links">
           <a href="/posts">Writing</a>
-          ${site.id === "evbogue.com" ? '<a href="/timeline/">Timeline</a><a href="/projects">Projects</a>' : ''}
+          ${
+    site.id === "evbogue.com"
+      ? '<a href="/timeline/">Timeline</a><a href="/projects">Projects</a>'
+      : ""
+  }
           <a href="/about">About</a>
           <a href="/feed.xml">RSS</a>
         </div>
-        <span class="footer-copy">&copy; ${new Date().getFullYear()} ${escapeHtml(site.footerCopy || site.title)}</span>
+        <span class="footer-copy">&copy; ${new Date().getFullYear()} ${
+    escapeHtml(site.footerCopy || site.title)
+  }</span>
       </div>
     </footer>
   </body>
-</html>`
+</html>`;
 }
 
 const SUBSCRIBE_BANNERS = {
-  new: { tone: "ok", label: "Check your inbox", text: "Click the confirmation link to start receiving dispatches." },
-  pending: { tone: "ok", label: "We resent it", text: "Still waiting on confirmation — a fresh link is on its way." },
-  resubscribed: { tone: "ok", label: "Welcome back", text: "Confirm the link in your inbox to reactivate." },
-  existing: { tone: "ok", label: "Already on the list", text: "You're already subscribed. Nothing to do." },
-  invalid: { tone: "warn", label: "Check the address", text: "That email didn't parse. Try it again." },
-  error: { tone: "error", label: "Something broke", text: "Couldn't save that on our end. Try again in a minute." },
-  unsubscribed: { tone: "ok", label: "Unsubscribed", text: "You're off the list. No hard feelings." },
-  confirmed: { tone: "ok", label: "Confirmed", text: "You're on the list for real now. Next dispatch heads out from Chicago." },
-}
+  new: {
+    tone: "ok",
+    label: "Check your inbox",
+    text: "Click the confirmation link to start receiving dispatches.",
+  },
+  pending: {
+    tone: "ok",
+    label: "We resent it",
+    text: "Still waiting on confirmation — a fresh link is on its way.",
+  },
+  resubscribed: {
+    tone: "ok",
+    label: "Welcome back",
+    text: "Confirm the link in your inbox to reactivate.",
+  },
+  existing: {
+    tone: "ok",
+    label: "Already on the list",
+    text: "You're already subscribed. Nothing to do.",
+  },
+  invalid: {
+    tone: "warn",
+    label: "Check the address",
+    text: "That email didn't parse. Try it again.",
+  },
+  error: {
+    tone: "error",
+    label: "Something broke",
+    text: "Couldn't save that on our end. Try again in a minute.",
+  },
+  unsubscribed: {
+    tone: "ok",
+    label: "Unsubscribed",
+    text: "You're off the list. No hard feelings.",
+  },
+  confirmed: {
+    tone: "ok",
+    label: "Confirmed",
+    text:
+      "You're on the list for real now. Next dispatch heads out from Chicago.",
+  },
+};
 
 function subscribeBanner(status) {
-  const b = SUBSCRIBE_BANNERS[status]
-  if (!b) return ""
+  const b = SUBSCRIBE_BANNERS[status];
+  if (!b) return "";
   return `
     <div class="subscribe-banner subscribe-banner--${b.tone}" role="status">
       <div class="subscribe-banner-inner">
@@ -262,47 +297,53 @@ function subscribeBanner(status) {
         <a class="subscribe-banner-dismiss" href="/" aria-label="Dismiss">&times;</a>
       </div>
     </div>
-  `
+  `;
 }
 
 function signalPostHref(post) {
-  return `/posts/${encodeURIComponent(post.slug)}`
+  return `/posts/${encodeURIComponent(post.slug)}`;
 }
 
 function signalTagHref(tag) {
-  return `/tag/${encodeURIComponent(tagSlugFor(tag))}`
+  return `/tag/${encodeURIComponent(tagSlugFor(tag))}`;
 }
 
 function signalMeta(post, { className = "", dateStyle = "short" } = {}) {
-  const classes = ["story-meta", className].filter(Boolean).join(" ")
+  const classes = ["story-meta", className].filter(Boolean).join(" ");
 
   return `
     <div class="${escapeHtml(classes)}">
       <span class="author">${escapeHtml(authorFor(post))}</span>
       <span class="dot">&middot;</span>
-      <time datetime="${escapeHtml(post.date)}">${escapeHtml(formatDisplayDate(post.date, dateStyle))}</time>
+      <time datetime="${escapeHtml(post.date)}">${
+    escapeHtml(formatDisplayDate(post.date, dateStyle))
+  }</time>
       <span class="dot">&middot;</span>
       <span>${readTimeFor(post)} min read</span>
     </div>
-  `
+  `;
 }
 
 function signalCard(post) {
-  const tag = signalTagFor(post)
-  const image = imageFor(post)
+  const tag = signalTagFor(post);
+  const image = imageFor(post);
   return `
     <a href="${signalPostHref(post)}" class="card">
-      ${image ? `<div class="card-img"><img src="${escapeHtml(image)}" alt=""></div>` : ''}
+      ${
+    image
+      ? `<div class="card-img"><img src="${escapeHtml(image)}" alt=""></div>`
+      : ""
+  }
       <span class="tag">${escapeHtml(tag)}</span>
       <div class="card-title">${escapeHtml(post.title)}</div>
       <p class="card-dek">${escapeHtml(descriptionFor(post))}</p>
       ${signalMeta(post, { className: "card-meta" })}
     </a>
-  `
+  `;
 }
 
 function signalHomeHtml(posts) {
-  const latest = posts.slice(0, 7)
+  const latest = posts.slice(0, 7);
 
   return `
     <main class="home">
@@ -321,14 +362,18 @@ function signalHomeHtml(posts) {
 
       <section class="listing" aria-labelledby="latest-heading">
         <h2 id="latest-heading">Latest Writing</h2>
-        ${latest.length ? latest.map((post) => signalCard(post)).join('') : '<p class="empty-state">No posts are published yet.</p>'}
+        ${
+    latest.length
+      ? latest.map((post) => signalCard(post)).join("")
+      : '<p class="empty-state">No posts are published yet.</p>'
+  }
       </section>
     </main>
-  `
+  `;
 }
 
 function signalPostHtml(post) {
-  const tag = signalTagFor(post)
+  const tag = signalTagFor(post);
   return `
     <article>
       <div class="post-header">
@@ -344,22 +389,24 @@ function signalPostHtml(post) {
         ${marked(post.body)}
       </div>
     </article>
-  `
+  `;
 }
 
 function signalArchiveHtml(posts) {
   const list = posts.map((post) => {
-    const tag = signalTagFor(post)
+    const tag = signalTagFor(post);
     return `
       <a href="${signalPostHref(post)}" class="archive-row">
         <div class="archive-row-main">
           <span class="tag">${escapeHtml(tag)}</span>
           <span class="archive-row-title">${escapeHtml(post.title)}</span>
         </div>
-        <time datetime="${escapeHtml(post.date)}">${escapeHtml(formatDisplayDate(post.date))}</time>
+        <time datetime="${escapeHtml(post.date)}">${
+      escapeHtml(formatDisplayDate(post.date))
+    }</time>
       </a>
-    `
-  }).join('')
+    `;
+  }).join("");
 
   return `
     <div class="section-header">
@@ -369,7 +416,7 @@ function signalArchiveHtml(posts) {
     <div class="archive-list-signal">
       ${list}
     </div>
-  `
+  `;
 }
 
 function signalTagHtml(posts, label) {
@@ -378,12 +425,16 @@ function signalTagHtml(posts, label) {
       <span class="section-label">${escapeHtml(label)}</span>
       <div class="section-rule"></div>
     </div>
-    ${posts.length ? `
+    ${
+    posts.length
+      ? `
       <div class="listing">
-        ${posts.map((post) => signalCard(post)).join('')}
+        ${posts.map((post) => signalCard(post)).join("")}
       </div>
-    ` : `<p class="empty-state">No posts found for ${escapeHtml(label)}.</p>`}
-  `
+    `
+      : `<p class="empty-state">No posts found for ${escapeHtml(label)}.</p>`
+  }
+  `;
 }
 
 function postsForTag(posts, tagSlug) {
@@ -391,116 +442,132 @@ function postsForTag(posts, tagSlug) {
     tagsFor(post).some((tag) => tagSlugFor(tag) === tagSlug) ||
     tagSlugFor(primaryTagFor(post)) === tagSlug ||
     tagSlugFor(signalTagFor(post)) === tagSlug
-  )
+  );
 }
 
 function labelForTag(posts, tagSlug) {
   return posts.length
-    ? signalTagFor(posts.find((post) => tagSlugFor(signalTagFor(post)) === tagSlug) || posts[0])
-    : tagSlug.replace(/-/g, " ")
+    ? signalTagFor(
+      posts.find((post) => tagSlugFor(signalTagFor(post)) === tagSlug) ||
+        posts[0],
+    )
+    : tagSlug.replace(/-/g, " ");
 }
 
-app.get('/assets/*', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const assetPath = c.req.path.replace(/^\/assets\//, '')
+app.get("/assets/*", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const assetPath = c.req.path.replace(/^\/assets\//, "");
   const normalized = assetPath
-    .split('/')
-    .map((part) => part.replace(/[^a-zA-Z0-9._-]/g, ''))
+    .split("/")
+    .map((part) => part.replace(/[^a-zA-Z0-9._-]/g, ""))
     .filter(Boolean)
-    .join('/')
-  const path = `${site.assetsDir}/${normalized}`
+    .join("/");
+  const path = `${site.assetsDir}/${normalized}`;
   try {
-    const data = await Deno.readFile(path)
+    const data = await Deno.readFile(path);
     return new Response(data, {
       headers: {
         "content-type": getContentType(path),
         "cache-control": "public, max-age=86400",
       },
-    })
+    });
   } catch {
-    return c.notFound()
+    return c.notFound();
   }
-})
+});
 
 // Standalone talk deck — served raw so it keeps its own stylesheet instead of
 // the blog's sitePage() chrome. Not linked from anywhere; here for a talk.
-app.get('/ddc', async (c) => {
+app.get("/ddc", async (c) => {
   try {
-    const html = await Deno.readFile(`${ROOT}/sites/evbogue.com/talks/ddc.html`)
+    const html = await Deno.readFile(
+      `${ROOT}/sites/evbogue.com/talks/ddc.html`,
+    );
     return new Response(html, {
       headers: { "content-type": "text/html; charset=utf-8" },
-    })
+    });
   } catch {
-    return c.notFound()
+    return c.notFound();
   }
-})
+});
 
 async function timelinePage(c) {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  if (site.id !== 'evbogue.com') return c.notFound()
-  const template = await Deno.readTextFile(`${ROOT}/timeline/index.html`)
-  const body = template.split('<body>')[1].split('</body>')[0]
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  if (site.id !== "evbogue.com") return c.notFound();
+  const template = await Deno.readTextFile(`${ROOT}/timeline/index.html`);
+  const body = template.split("<body>")[1].split("</body>")[0];
   return c.html(sitePage(site, {
-    title: 'Timeline',
-    description: 'Posts and conversations from Ev Bogue.',
+    title: "Timeline",
+    description: "Posts and conversations from Ev Bogue.",
     body,
-  }))
+  }));
 }
-app.get('/timeline/', timelinePage)
-app.get('/timeline/index.html', timelinePage)
-app.get('/timeline', (c) => c.redirect('/timeline/'))
-app.all('/timeline/*', async (c) => {
-  if (siteFromRequest(c, SITE_REGISTRY).id !== 'evbogue.com') return c.notFound()
-  return (await getTimeline()).fetch(c.req.raw)
-})
+app.get("/timeline/", timelinePage);
+app.get("/timeline/index.html", timelinePage);
+app.get("/timeline", (c) => c.redirect("/timeline/"));
+app.all("/timeline/*", async (c) => {
+  if (siteFromRequest(c, SITE_REGISTRY).id !== "evbogue.com") {
+    return c.notFound();
+  }
+  return (await getTimeline()).fetch(c.req.raw);
+});
 
-app.get('/', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const query = c.req.query('q')?.trim() ?? ''
-  const subscribeStatus = c.req.query('subscribe') ?? ''
-  const allPosts = await loadPosts(site)
-  const searchResults = query ? filterPosts(allPosts, query) : []
-  const main = query ? `
+app.get("/", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const query = c.req.query("q")?.trim() ?? "";
+  const subscribeStatus = c.req.query("subscribe") ?? "";
+  const allPosts = await loadPosts(site);
+  const searchResults = query ? filterPosts(allPosts, query) : [];
+  const main = query
+    ? `
     <main class="listing">
       <h1>Search</h1>
-      <p class="empty-state">Showing ${searchResults.length} result${searchResults.length === 1 ? '' : 's'} for "${escapeHtml(query)}". <a href="/">Clear search</a></p>
-      ${searchResults.map((post) => signalCard(post)).join('')}
+      <p class="empty-state">Showing ${searchResults.length} result${
+      searchResults.length === 1 ? "" : "s"
+    } for "${escapeHtml(query)}". <a href="/">Clear search</a></p>
+      ${searchResults.map((post) => signalCard(post)).join("")}
     </main>
-  ` : signalHomeHtml(allPosts)
+  `
+    : signalHomeHtml(allPosts);
   return c.html(sitePage(site, {
     title: site.title,
     description: site.tagline || site.description,
     body: subscribeBanner(subscribeStatus) + main,
-  }))
-})
+  }));
+});
 
-app.get('/posts', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const posts = await loadPosts(site)
+app.get("/posts", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const posts = await loadPosts(site);
   return c.html(sitePage(site, {
     title: "Archive",
     description: `The full ${site.title} archive.`,
     body: signalArchiveHtml(posts),
-  }))
-})
+  }));
+});
 
-app.get('/posts/:slug', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const slug = c.req.param('slug')
-  const posts = await loadPosts(site)
-  const post = posts.find(p => p.slug === slug)
-  if (!post) return c.notFound()
-  recordView(ROOT, { slug: post.slug, userAgent: c.req.header('user-agent') ?? "", ip: clientIp(c), salt: ANALYTICS_SALT }, site.analyticsNamespace)
+app.get("/posts/:slug", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const slug = c.req.param("slug");
+  const posts = await loadPosts(site);
+  const post = posts.find((p) => p.slug === slug);
+  if (!post) return c.notFound();
+  recordView(ROOT, {
+    slug: post.slug,
+    userAgent: c.req.header("user-agent") ?? "",
+    ip: clientIp(c),
+    salt: ANALYTICS_SALT,
+  }, site.analyticsNamespace);
   return c.html(sitePage(site, {
     title: post.title,
     description: descriptionFor(post),
     body: signalPostHtml(post),
-  }))
-})
+  }));
+});
 
-app.get('/about', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const doc = await Deno.readTextFile(site.aboutFile)
+app.get("/about", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const doc = await Deno.readTextFile(site.aboutFile);
   return c.html(sitePage(site, {
     title: "About",
     description: `About ${site.title}.`,
@@ -512,24 +579,30 @@ app.get('/about', async (c) => {
         </div>
         <hr class="post-divider">
         <div class="post-body about-body">
-          ${site.aboutPortrait ? `<img class="about-portrait" src="/${escapeHtml(site.aboutPortrait)}" alt="${escapeHtml(site.aboutPortraitAlt || site.title)}">` : ""}
+          ${
+      site.aboutPortrait
+        ? `<img class="about-portrait" src="/${
+          escapeHtml(site.aboutPortrait)
+        }" alt="${escapeHtml(site.aboutPortraitAlt || site.title)}">`
+        : ""
+    }
           ${marked(doc)}
         </div>
       </article>
     `,
-  }))
-})
+  }));
+});
 
 async function loadProjects(site) {
   try {
-    const raw = await Deno.readTextFile(`${site.root}/projects.json`)
-    const data = JSON.parse(raw)
+    const raw = await Deno.readTextFile(`${site.root}/projects.json`);
+    const data = JSON.parse(raw);
     return {
       projects: Array.isArray(data.projects) ? data.projects : [],
       groups: Array.isArray(data.groups) ? data.groups : [],
-    }
+    };
   } catch {
-    return { projects: [], groups: [] }
+    return { projects: [], groups: [] };
   }
 }
 
@@ -537,83 +610,118 @@ async function loadProjects(site) {
 // dropped into assets/projects/. Missing dir or no shots is fine — cards fall
 // back to a rendered browser-frame placeholder.
 async function availableProjectShots(site) {
-  const map = new Map()
+  const map = new Map();
   try {
     for await (const entry of Deno.readDir(`${site.assetsDir}/projects`)) {
-      if (!entry.isFile) continue
-      const m = entry.name.match(/^(.+)\.(png|jpe?g|webp|gif)$/i)
-      if (m) map.set(m[1], `/assets/projects/${entry.name}`)
+      if (!entry.isFile) continue;
+      const m = entry.name.match(/^(.+)\.(png|jpe?g|webp|gif)$/i);
+      if (m) map.set(m[1], `/assets/projects/${entry.name}`);
     }
   } catch {
     // no screenshots captured yet
   }
-  return map
+  return map;
 }
 
 function splitOnPortfolioMarker(doc) {
-  const parts = String(doc).split(/<!--\s*PORTFOLIO\s*-->/i)
-  if (parts.length < 2) return [doc, ""]
-  return [parts[0], parts.slice(1).join("")]
+  const parts = String(doc).split(/<!--\s*PORTFOLIO\s*-->/i);
+  if (parts.length < 2) return [doc, ""];
+  return [parts[0], parts.slice(1).join("")];
 }
 
 function prettyHost(url = "") {
   try {
-    return new URL(url).host.replace(/^www\./, "")
+    return new URL(url).host.replace(/^www\./, "");
   } catch {
-    return String(url).replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/+$/, "")
+    return String(url).replace(/^https?:\/\//, "").replace(/^www\./, "")
+      .replace(/\/+$/, "");
   }
 }
 
 function projectCardHtml(project, shots) {
-  const shot = shots.get(project.slug)
-  const external = /^https?:\/\//i.test(project.url || "")
-  const primary = project.url || project.repo || "#"
-  const primaryAttrs = external ? ' target="_blank" rel="noopener"' : ''
-  const visitLabel = external ? prettyHost(project.url) : (project.urlLabel || "Read more")
+  const shot = shots.get(project.slug);
+  const external = /^https?:\/\//i.test(project.url || "");
+  const primary = project.url || project.repo || "#";
+  const primaryAttrs = external ? ' target="_blank" rel="noopener"' : "";
+  const visitLabel = external
+    ? prettyHost(project.url)
+    : (project.urlLabel || "Read more");
   const addr = external
     ? prettyHost(project.url)
-    : (project.url ? (project.urlLabel || project.name) : project.name)
+    : (project.url ? (project.urlLabel || project.name) : project.name);
 
   const media = shot
-    ? `<img src="${escapeHtml(shot)}" alt="Screenshot of ${escapeHtml(project.name)}" loading="lazy">`
+    ? `<img src="${escapeHtml(shot)}" alt="Screenshot of ${
+      escapeHtml(project.name)
+    }" loading="lazy">`
     : `<div class="project-frame" aria-hidden="true">
-         <div class="project-frame-bar"><span></span><span></span><span></span><em>${escapeHtml(addr)}</em></div>
-         <div class="project-frame-body"><span>${escapeHtml(project.name)}</span></div>
-       </div>`
+         <div class="project-frame-bar"><span></span><span></span><span></span><em>${
+      escapeHtml(addr)
+    }</em></div>
+         <div class="project-frame-body"><span>${
+      escapeHtml(project.name)
+    }</span></div>
+       </div>`;
 
-  const links = []
+  const links = [];
   if (project.url) {
-    links.push(`<a href="${escapeHtml(project.url)}"${primaryAttrs} class="project-link project-link--visit">${escapeHtml(visitLabel)}${external ? ' <span class="ext">&#8599;</span>' : ''}</a>`)
+    links.push(
+      `<a href="${
+        escapeHtml(project.url)
+      }"${primaryAttrs} class="project-link project-link--visit">${
+        escapeHtml(visitLabel)
+      }${external ? ' <span class="ext">&#8599;</span>' : ""}</a>`,
+    );
   }
   if (project.repo) {
-    links.push(`<a href="${escapeHtml(project.repo)}" target="_blank" rel="noopener" class="project-link project-link--repo">Source <span class="ext">&#8599;</span></a>`)
+    links.push(
+      `<a href="${
+        escapeHtml(project.repo)
+      }" target="_blank" rel="noopener" class="project-link project-link--repo">Source <span class="ext">&#8599;</span></a>`,
+    );
   }
   for (const link of project.links || []) {
-    if (!link || !link.href) continue
-    links.push(`<a href="${escapeHtml(link.href)}" target="_blank" rel="noopener" class="project-link">${escapeHtml(link.label || prettyHost(link.href))} <span class="ext">&#8599;</span></a>`)
+    if (!link || !link.href) continue;
+    links.push(
+      `<a href="${
+        escapeHtml(link.href)
+      }" target="_blank" rel="noopener" class="project-link">${
+        escapeHtml(link.label || prettyHost(link.href))
+      } <span class="ext">&#8599;</span></a>`,
+    );
   }
 
   return `
     <article class="project-card">
-      <a class="project-shot${shot ? '' : ' project-shot--placeholder'}" href="${escapeHtml(primary)}"${primaryAttrs} tabindex="-1" aria-hidden="true">
+      <a class="project-shot${
+    shot ? "" : " project-shot--placeholder"
+  }" href="${
+    escapeHtml(primary)
+  }"${primaryAttrs} tabindex="-1" aria-hidden="true">
         ${media}
       </a>
       <div class="project-info">
         <div class="project-eyebrow">
           <span class="tag">${escapeHtml(project.kind || "Project")}</span>
-          <span class="project-period">${escapeHtml(project.period || "")}</span>
+          <span class="project-period">${
+    escapeHtml(project.period || "")
+  }</span>
         </div>
-        <h2 class="project-name"><a href="${escapeHtml(primary)}"${primaryAttrs}>${escapeHtml(project.name)}</a></h2>
+        <h2 class="project-name"><a href="${
+    escapeHtml(primary)
+  }"${primaryAttrs}>${escapeHtml(project.name)}</a></h2>
         <p class="project-blurb">${escapeHtml(project.blurb || "")}</p>
-        ${links.length ? `<div class="project-links">${links.join("")}</div>` : ""}
+        ${
+    links.length ? `<div class="project-links">${links.join("")}</div>` : ""
+  }
       </div>
     </article>
-  `
+  `;
 }
 
 function portfolioSectionHtml({ label, blurb, cards, shots, grouped }) {
-  if (!cards.length) return ""
-  const groupClass = grouped ? " portfolio-grid--group" : ""
+  if (!cards.length) return "";
+  const groupClass = grouped ? " portfolio-grid--group" : "";
   return `
     <section class="portfolio-section${grouped ? " project-group" : ""}">
       <div class="section-header portfolio-header">
@@ -625,51 +733,59 @@ function portfolioSectionHtml({ label, blurb, cards, shots, grouped }) {
         ${cards.map((project) => projectCardHtml(project, shots)).join("")}
       </div>
     </section>
-  `
+  `;
 }
 
 function portfolioHtml(projects, groups, shots) {
-  if (!projects.length) return ""
-  const bySlug = new Map(projects.map((p) => [p.slug, p]))
-  const claimed = new Set()
-  let out = ""
+  if (!projects.length) return "";
+  const bySlug = new Map(projects.map((p) => [p.slug, p]));
+  const claimed = new Set();
+  let out = "";
 
   // Grouped clusters first (e.g. the ANProto stack), in declared member order.
   for (const group of groups) {
     const cards = (group.members || [])
       .map((slug) => bySlug.get(slug))
-      .filter(Boolean)
-    if (!cards.length) continue
-    for (const card of cards) claimed.add(card.slug)
+      .filter(Boolean);
+    if (!cards.length) continue;
+    for (const card of cards) claimed.add(card.slug);
     out += portfolioSectionHtml({
       label: group.label || "Related work",
       blurb: group.blurb,
       cards,
       shots,
       grouped: true,
-    })
+    });
   }
 
   // Everything not pulled into a group falls under Selected work, source order.
-  const singles = projects.filter((p) => !claimed.has(p.slug))
-  out += portfolioSectionHtml({ label: "Selected work", cards: singles, shots, grouped: false })
-  return out
+  const singles = projects.filter((p) => !claimed.has(p.slug));
+  out += portfolioSectionHtml({
+    label: "Selected work",
+    cards: singles,
+    shots,
+    grouped: false,
+  });
+  return out;
 }
 
-app.get('/projects', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  let doc
+app.get("/projects", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  let doc;
   try {
-    doc = await Deno.readTextFile(site.projectsFile)
+    doc = await Deno.readTextFile(site.projectsFile);
   } catch {
-    return c.notFound()
+    return c.notFound();
   }
-  const { projects, groups } = await loadProjects(site)
-  const shots = await availableProjectShots(site)
-  const [intro, outro] = splitOnPortfolioMarker(doc)
+  const { projects, groups } = await loadProjects(site);
+  const shots = await availableProjectShots(site);
+  const [intro, outro] = splitOnPortfolioMarker(doc);
   return c.html(sitePage(site, {
     title: "Projects",
-    description: `From LiveJournal in 1999 to decentralized protocols today — a portfolio by ${site.wordmark || site.title}, latest work first.`,
+    description:
+      `From LiveJournal in 1999 to decentralized protocols today — a portfolio by ${
+        site.wordmark || site.title
+      }, latest work first.`,
     body: `
       <article>
         <div class="post-header">
@@ -684,27 +800,32 @@ app.get('/projects', async (c) => {
         ${outro.trim() ? `<div class="post-body">${marked(outro)}</div>` : ""}
       </article>
     `,
-  }))
-})
+  }));
+});
 
-app.get('/tag/:tag', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const tagSlug = c.req.param('tag')
-  const posts = postsForTag(await loadPosts(site), tagSlug)
-  const label = labelForTag(posts, tagSlug)
+app.get("/tag/:tag", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const tagSlug = c.req.param("tag");
+  const posts = postsForTag(await loadPosts(site), tagSlug);
+  const label = labelForTag(posts, tagSlug);
   return c.html(sitePage(site, {
     title: label,
     description: `Posts tagged ${label} on ${site.title}.`,
     body: signalTagHtml(posts, label),
-  }))
-})
+  }));
+});
 
-app.get('/feed.xml', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  recordView(ROOT, { kind: "rss", userAgent: c.req.header('user-agent') ?? "", ip: clientIp(c), salt: ANALYTICS_SALT }, site.analyticsNamespace)
-  const posts = await loadPosts(site)
+app.get("/feed.xml", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  recordView(ROOT, {
+    kind: "rss",
+    userAgent: c.req.header("user-agent") ?? "",
+    ip: clientIp(c),
+    salt: ANALYTICS_SALT,
+  }, site.analyticsNamespace);
+  const posts = await loadPosts(site);
   const items = posts.slice(0, 50).map((post) => {
-    const description = post.excerpt || excerptFromBody(post.body)
+    const description = post.excerpt || excerptFromBody(post.body);
     return `
       <item>
         <title>${escapeXml(post.title)}</title>
@@ -712,8 +833,8 @@ app.get('/feed.xml', async (c) => {
         <guid>${escapeXml(site.baseUrl)}/posts/${escapeXml(post.slug)}</guid>
         <pubDate>${new Date(`${post.date}T00:00:00Z`).toUTCString()}</pubDate>
         <description>${escapeXml(description)}</description>
-      </item>`
-  }).join('')
+      </item>`;
+  }).join("");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
@@ -724,82 +845,25 @@ app.get('/feed.xml', async (c) => {
     ${items}
   </channel>
 </rss>
-`
+`;
 
   return new Response(xml, {
     headers: {
       "content-type": "application/rss+xml; charset=utf-8",
     },
-  })
-})
+  });
+});
 
+app.get("/subscribe", (c) => c.redirect("/about", 302));
 
-app.get('/subscribe', (c) => c.redirect('/#subscribe'))
-
-app.post('/subscribe', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  return c.text(`Email ${site.emailReplyTo} to subscribe.`, 410)
-  try {
-    const form = await c.req.formData()
-    const email = form.get('email')?.toString() ?? ''
-
-    // Honeypot: bots fill the hidden "website" field; humans never see it.
-    // Fake a success redirect so bots don't learn they were filtered.
-    if ((form.get('website')?.toString() ?? '').trim() !== '') {
-      recordEvent(ROOT, { kind: "subscribe_attempt", outcome: "honeypot" }, site.analyticsNamespace).catch(() => {})
-      return c.redirect('/?subscribe=new', 303)
-    }
-
-    // Signed form token: proves this POST came from a page we rendered and that
-    // it wasn't submitted inhumanly fast. Direct-to-endpoint and IP-rotating
-    // bots have no valid token. Same fake-success so scripts get no signal.
-    const tokenState = verifyFormToken(form.get('ft')?.toString())
-    if (tokenState !== 'ok') {
-      recordEvent(ROOT, { kind: "subscribe_attempt", outcome: `token_${tokenState}` }, site.analyticsNamespace).catch(() => {})
-      return c.redirect('/?subscribe=new', 303)
-    }
-
-    // Per-IP rate limit. Same fake-success response so scripts get no signal.
-    if (subscribeRateLimited(clientIp(c))) {
-      recordEvent(ROOT, { kind: "subscribe_attempt", outcome: "rate_limited" }, site.analyticsNamespace).catch(() => {})
-      return c.redirect('/?subscribe=new', 303)
-    }
-
-    const result = await addSubscriber(site.subscribersPath, email)
-    if (!result) {
-      recordEvent(ROOT, { kind: "subscribe_attempt", outcome: "invalid" }, site.analyticsNamespace).catch(() => {})
-      return c.redirect('/?subscribe=invalid', 303)
-    }
-    recordEvent(ROOT, { kind: "subscribe_attempt", outcome: result.status }, site.analyticsNamespace).catch(() => {})
-
-    if (result.status === 'new' || result.status === 'pending' || result.status === 'resubscribed') {
-      // Per-address cooldown + global ceiling gate every outbound email. A
-      // victim address is never mailed twice inside the window, and a flood
-      // can't push total sends past the hourly ceiling. Stamp before sending so
-      // a send failure can't reopen the cooldown for a retry storm.
-      const lastSent = result.entry.confirmation_sent_at
-      const cooled = !lastSent || (Date.now() - Date.parse(lastSent)) > CONFIRM_COOLDOWN_MS
-      if (cooled && globalSendAllowed()) {
-        await markConfirmationSent(site.subscribersPath, result.entry.email)
-        sendConfirmation(result.entry, site).catch((err) => {
-          console.error('confirmation send failed:', err)
-        })
-        if (result.status === 'new' || result.status === 'resubscribed') {
-          sendAdminNotification(result.status, result.entry, site).catch((err) => {
-            console.error('admin notification failed:', err)
-          })
-        }
-      } else {
-        recordEvent(ROOT, { kind: "subscribe_attempt", outcome: cooled ? "send_ceiling" : "confirm_cooldown" }, site.analyticsNamespace).catch(() => {})
-      }
-    }
-    return c.redirect(`/?subscribe=${result.status}`, 303)
-  } catch (err) {
-    console.error('subscribe error:', err)
-    recordEvent(ROOT, { kind: "subscribe_attempt", outcome: "error" }, site.analyticsNamespace).catch(() => {})
-    return c.redirect('/?subscribe=error', 303)
-  }
-})
+// Signup is intentionally paused. Keep the route inert so direct POSTs from
+// bots cannot write subscriber data or trigger confirmation/admin email.
+app.post("/subscribe", (c) =>
+  c.text(
+    `Email ${siteFromRequest(c, SITE_REGISTRY).emailReplyTo} to subscribe.`,
+    410,
+  )
+);
 
 function unsubscribePage(site, { heading, message, confirmToken }) {
   const form = confirmToken
@@ -809,7 +873,7 @@ function unsubscribePage(site, { heading, message, confirmToken }) {
         <button type="submit">Confirm unsubscribe</button>
       </form>
     `
-    : `<p style="margin-top:1.5rem"><a href="/">Back to evbogue.com</a></p>`
+    : `<p style="margin-top:1.5rem"><a href="/">Back to evbogue.com</a></p>`;
   return sitePage(site, {
     title: "Unsubscribe",
     description: `Unsubscribe from ${site.title}.`,
@@ -824,57 +888,67 @@ function unsubscribePage(site, { heading, message, confirmToken }) {
         <div class="post-body">${form}</div>
       </article>
     `,
-  })
+  });
 }
 
-app.get('/unsubscribe', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const token = c.req.query('token')
-  const entry = await findByToken(site.subscribersPath, token)
+app.get("/unsubscribe", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const token = c.req.query("token");
+  const entry = await findByToken(site.subscribersPath, token);
   if (!entry) {
-    return c.html(unsubscribePage(site, {
-      heading: "Link not found",
-      message: `That unsubscribe link is missing or expired. Email ${site.emailReplyTo} and I'll take you off the list by hand.`,
-    }), 404)
+    return c.html(
+      unsubscribePage(site, {
+        heading: "Link not found",
+        message:
+          `That unsubscribe link is missing or expired. Email ${site.emailReplyTo} and I'll take you off the list by hand.`,
+      }),
+      404,
+    );
   }
   if (entry.unsubscribed_at) {
     return c.html(unsubscribePage(site, {
       heading: "Already unsubscribed",
       message: `${entry.email} is no longer on the list.`,
-    }))
+    }));
   }
   return c.html(unsubscribePage(site, {
     heading: "Unsubscribe?",
     message: `Click below to remove ${entry.email} from the list.`,
     confirmToken: entry.token,
-  }))
-})
+  }));
+});
 
-app.post('/unsubscribe', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const form = await c.req.formData().catch(() => null)
-  const token = form?.get('token')?.toString() ?? c.req.query('token')
-  const result = await unsubscribeByToken(site.subscribersPath, token)
+app.post("/unsubscribe", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const form = await c.req.formData().catch(() => null);
+  const token = form?.get("token")?.toString() ?? c.req.query("token");
+  const result = await unsubscribeByToken(site.subscribersPath, token);
   if (!result) {
-    return c.html(unsubscribePage(site, {
-      heading: "Link not found",
-      message: `That unsubscribe link is missing or expired. Email ${site.emailReplyTo} and I'll take you off the list by hand.`,
-    }), 404)
+    return c.html(
+      unsubscribePage(site, {
+        heading: "Link not found",
+        message:
+          `That unsubscribe link is missing or expired. Email ${site.emailReplyTo} and I'll take you off the list by hand.`,
+      }),
+      404,
+    );
   }
-  if (result.status === 'fresh') {
-    recordEvent(ROOT, { kind: "unsubscribe" }, site.analyticsNamespace).catch(() => {})
-    sendAdminNotification('unsubscribe', result.entry, site).catch((err) => {
-      console.error('admin notification failed:', err)
-    })
+  if (result.status === "fresh") {
+    recordEvent(ROOT, { kind: "unsubscribe" }, site.analyticsNamespace).catch(
+      () => {},
+    );
+    sendAdminNotification("unsubscribe", result.entry, site).catch((err) => {
+      console.error("admin notification failed:", err);
+    });
   }
   return c.html(unsubscribePage(site, {
     heading: "Unsubscribed",
     message: `${result.entry.email} has been removed from the list.`,
-  }))
-})
+  }));
+});
 
 function formatChicagoDateTime(ts) {
-  if (!ts) return "—"
+  if (!ts) return "—";
   return new Date(ts).toLocaleString("en-US", {
     timeZone: "America/Chicago",
     year: "numeric",
@@ -882,27 +956,39 @@ function formatChicagoDateTime(ts) {
     day: "numeric",
     hour: "numeric",
     minute: "2-digit",
-  })
+  });
 }
 
 function dashboardData(stats, views, generatedAt, { saltSet = true } = {}) {
-  const topTen = stats.top.slice(0, 10)
-  const chart = renderBarChart(topTen.map((r) => ({ label: r.title, value: r.all })))
-  const lineChart = renderLineChart(aggregateDailyViews(views))
+  const topTen = stats.top.slice(0, 10);
+  const chart = renderBarChart(
+    topTen.map((r) => ({ label: r.title, value: r.all })),
+  );
+  const lineChart = renderLineChart(aggregateDailyViews(views));
   const rows = stats.top.map((row, i) => `
     <div class="archive-row">
       <div class="archive-row-main">
-        <span class="tag">${String(i + 1).padStart(2, '0')}</span>
+        <span class="tag">${String(i + 1).padStart(2, "0")}</span>
         <span class="archive-row-title">${escapeHtml(row.title)}</span>
       </div>
-      <time>${row.all} views · ${row.uniqAll} unique · last ${escapeHtml(formatChicagoDateTime(row.last))}</time>
+      <time>${row.all} views · ${row.uniqAll} unique · last ${
+    escapeHtml(formatChicagoDateTime(row.last))
+  }</time>
     </div>
-  `).join('')
+  `).join("");
   const since = stats.firstSeen
-    ? new Date(stats.firstSeen).toLocaleDateString("en-US", { timeZone: "America/Chicago", year: "numeric", month: "long", day: "numeric" })
-    : "—"
-  const dek = `First-party view counts. Bots filtered. Generated ${formatChicagoDateTime(generatedAt)} America/Chicago. Tracking since ${since}.`
-  const rssLine = `${stats.rss.day} today · ${stats.rss.week} this week · ${stats.rss.all} all time`
+    ? new Date(stats.firstSeen).toLocaleDateString("en-US", {
+      timeZone: "America/Chicago",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+    : "—";
+  const dek = `First-party view counts. Bots filtered. Generated ${
+    formatChicagoDateTime(generatedAt)
+  } America/Chicago. Tracking since ${since}.`;
+  const rssLine =
+    `${stats.rss.day} today · ${stats.rss.week} this week · ${stats.rss.all} all time`;
   return {
     totals: stats.totals,
     rss: stats.rss,
@@ -913,7 +999,7 @@ function dashboardData(stats, views, generatedAt, { saltSet = true } = {}) {
     rssLine,
     saltSet,
     hasViews: stats.top.length > 0,
-  }
+  };
 }
 
 function dashboardBody(data) {
@@ -945,18 +1031,28 @@ function dashboardBody(data) {
         </div>
 
         <div class="section-header"><span class="section-label">Daily hits</span><div class="section-rule"></div></div>
-        <div id="dash-line" style="margin:1rem 0 2.5rem;">${data.lineChart || '<p class="empty-state">No daily data yet.</p>'}</div>
+        <div id="dash-line" style="margin:1rem 0 2.5rem;">${
+    data.lineChart || '<p class="empty-state">No daily data yet.</p>'
+  }</div>
 
         <div class="section-header"><span class="section-label">Top 10 posts</span><div class="section-rule"></div></div>
-        <div id="dash-chart" style="margin:1rem 0 2.5rem;">${data.chart || '<p class="empty-state">No post views recorded yet.</p>'}</div>
+        <div id="dash-chart" style="margin:1rem 0 2.5rem;">${
+    data.chart || '<p class="empty-state">No post views recorded yet.</p>'
+  }</div>
 
         <div class="section-header"><span class="section-label">All posts with hits</span><div class="section-rule"></div></div>
         <div id="dash-rows" class="archive-list-signal">${data.rows}</div>
 
         <div class="section-header" style="margin-top:2.5rem;"><span class="section-label">RSS</span><div class="section-rule"></div></div>
-        <p id="dash-rss" style="margin:0.5rem 0 2rem;font-family:'DM Mono',ui-monospace,monospace;font-size:0.9rem;">${escapeHtml(data.rssLine)}</p>
+        <p id="dash-rss" style="margin:0.5rem 0 2rem;font-family:'DM Mono',ui-monospace,monospace;font-size:0.9rem;">${
+    escapeHtml(data.rssLine)
+  }</p>
 
-        <p style="opacity:0.6;font-size:0.85rem;margin-top:2rem;">Raw events live in the site analytics JSONL file on the VPS. Gitignored. Not backed up automatically. This page polls <code>/analytics.json</code> every 10s. Uniques are distinct salted-hash buckets of client IP; one IP = one unique, no cookies.${data.saltSet ? "" : " <strong>ANALYTICS_SALT is not set on the server — uniques will stay at 0.</strong>"}</p>
+        <p style="opacity:0.6;font-size:0.85rem;margin-top:2rem;">Raw events live in the site analytics JSONL file on the VPS. Gitignored. Not backed up automatically. This page polls <code>/analytics.json</code> every 10s. Uniques are distinct salted-hash buckets of client IP; one IP = one unique, no cookies.${
+    data.saltSet
+      ? ""
+      : " <strong>ANALYTICS_SALT is not set on the server — uniques will stay at 0.</strong>"
+  }</p>
       </div>
       <script>
         (function () {
@@ -991,58 +1087,88 @@ function dashboardBody(data) {
         })()
       </script>
     </article>
-  `
+  `;
 }
 
-app.get('/c/:campaign/:sub/:url', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const { campaign, sub, url } = c.req.param()
-  let dest
-  try { dest = decodeURIComponent(url) } catch { return c.redirect('/') }
-  if (!dest.startsWith('http://') && !dest.startsWith('https://')) return c.redirect('/')
-  await recordEvent(ROOT, { kind: 'email_click', sub, campaign, url: dest }, site.analyticsNamespace)
-  return c.redirect(dest, 302)
-})
+app.get("/c/:campaign/:sub/:url", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const { campaign, sub, url } = c.req.param();
+  let dest;
+  try {
+    dest = decodeURIComponent(url);
+  } catch {
+    return c.redirect("/");
+  }
+  if (!dest.startsWith("http://") && !dest.startsWith("https://")) {
+    return c.redirect("/");
+  }
+  await recordEvent(
+    ROOT,
+    { kind: "email_click", sub, campaign, url: dest },
+    site.analyticsNamespace,
+  );
+  return c.redirect(dest, 302);
+});
 
-app.get('/analytics', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const [views, posts] = await Promise.all([loadViews(ROOT, site.analyticsNamespace), loadPosts(site)])
-  const stats = aggregateViews(views, posts)
-  const data = dashboardData(stats, views, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
-  return c.html(sitePage(site, {
-    title: "Analytics",
-    description: `${site.title} analytics`,
-    body: dashboardBody(data),
-  }), 200, {
-    "Cache-Control": "no-store",
-  })
-})
+app.get("/analytics", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const [views, posts] = await Promise.all([
+    loadViews(ROOT, site.analyticsNamespace),
+    loadPosts(site),
+  ]);
+  const stats = aggregateViews(views, posts);
+  const data = dashboardData(stats, views, Date.now(), {
+    saltSet: ANALYTICS_SALT !== "",
+  });
+  return c.html(
+    sitePage(site, {
+      title: "Analytics",
+      description: `${site.title} analytics`,
+      body: dashboardBody(data),
+    }),
+    200,
+    {
+      "Cache-Control": "no-store",
+    },
+  );
+});
 
-app.get('/analytics.json', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const [views, posts] = await Promise.all([loadViews(ROOT, site.analyticsNamespace), loadPosts(site)])
-  const stats = aggregateViews(views, posts)
-  const data = dashboardData(stats, views, Date.now(), { saltSet: ANALYTICS_SALT !== "" })
-  return c.json(data, 200, { "Cache-Control": "no-store" })
-})
+app.get("/analytics.json", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const [views, posts] = await Promise.all([
+    loadViews(ROOT, site.analyticsNamespace),
+    loadPosts(site),
+  ]);
+  const stats = aggregateViews(views, posts);
+  const data = dashboardData(stats, views, Date.now(), {
+    saltSet: ANALYTICS_SALT !== "",
+  });
+  return c.json(data, 200, { "Cache-Control": "no-store" });
+});
 
-app.get('/confirm', async (c) => {
-  const site = siteFromRequest(c, SITE_REGISTRY)
-  const token = c.req.query('token')
-  const result = await confirmByToken(site.subscribersPath, token)
+app.get("/confirm", async (c) => {
+  const site = siteFromRequest(c, SITE_REGISTRY);
+  const token = c.req.query("token");
+  const result = await confirmByToken(site.subscribersPath, token);
   if (!result) {
-    return c.html(unsubscribePage(site, {
-      heading: "Link not found",
-      message: "That confirmation link is missing, expired, or already unsubscribed. Try subscribing again.",
-    }), 404)
+    return c.html(
+      unsubscribePage(site, {
+        heading: "Link not found",
+        message:
+          "That confirmation link is missing, expired, or already unsubscribed. Try subscribing again.",
+      }),
+      404,
+    );
   }
-  if (result.status === 'fresh') {
-    recordEvent(ROOT, { kind: "confirm" }, site.analyticsNamespace).catch(() => {})
-    sendAdminNotification('confirm', result.entry, site).catch((err) => {
-      console.error('admin notification failed:', err)
-    })
+  if (result.status === "fresh") {
+    recordEvent(ROOT, { kind: "confirm" }, site.analyticsNamespace).catch(
+      () => {},
+    );
+    sendAdminNotification("confirm", result.entry, site).catch((err) => {
+      console.error("admin notification failed:", err);
+    });
   }
-  return c.redirect('/?subscribe=confirmed', 303)
-})
+  return c.redirect("/?subscribe=confirmed", 303);
+});
 
-export default app
+export default app;
