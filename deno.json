@@ -11,6 +11,8 @@
     "playwright": "npm:playwright@1.62.1",
     "https://esm.sh/gh/evbogue/anproto@ddc040c/an.js": "./timeline/vendor/anproto/an.js",
     "https://esm.sh/gh/evbogue/apds@e091911502c46feaff8f18ec9865c23f42a7dc40/lib/yaml.js": "./timeline/vendor/yaml.js",
-    "https://esm.sh/gh/evbogue/apds@e091911502c46feaff8f18ec9865c23f42a7dc40/apds.js": "https://esm.sh/gh/evbogue/apds@e091911502c46feaff8f18ec9865c23f42a7dc40/denonext/__apds.mjs"
+    "https://esm.sh/gh/evbogue/apds@e091911502c46feaff8f18ec9865c23f42a7dc40/apds.js": "https://esm.sh/gh/evbogue/apds@e091911502c46feaff8f18ec9865c23f42a7dc40/es2022/__apds.mjs",
+    "https://cdn.jsdelivr.net/npm/idb@8/+esm": "https://esm.sh/idb@8.0.3",
+    "https://cdn.jsdelivr.net/npm/idb@8.0.3/+esm": "https://esm.sh/idb@8.0.3"
   }
 }
