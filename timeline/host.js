@@ -81,15 +81,25 @@ export function createHost({ owner, relay }, { fetcher = fetch } = {}) {
 
 export function readRoute(url) {
   const params = new URL(url).searchParams;
+  if (params.get('view') === 'identity') return { type: 'identity' };
+  if (isHash(params.get('reply'))) return { type: 'compose', replyId: params.get('reply') };
+  if (params.get('view') === 'compose') return { type: 'compose' };
   if (isHash(params.get('post'))) return { type: 'post', id: params.get('post') };
   if (isHash(params.get('author'))) return { type: 'profile', author: params.get('author') };
   if (params.has('q')) return { type: 'search', query: params.get('q') };
+  try {
+    const legacy = decodeURIComponent(new URL(url).hash.slice(1));
+    if (isHash(legacy)) return { type: 'post', id: legacy };
+  } catch {}
   return { type: 'feed' };
 }
 
 export function routeURL(route, base) {
   const url = new URL('/timeline/', base);
-  if (route.type === 'post' && isHash(route.id)) url.searchParams.set('post', route.id);
+  if (route.type === 'identity') url.searchParams.set('view', 'identity');
+  else if (route.type === 'compose' && isHash(route.replyTo?.id || route.replyId)) url.searchParams.set('reply', route.replyTo?.id || route.replyId);
+  else if (route.type === 'compose') url.searchParams.set('view', 'compose');
+  else if (route.type === 'post' && isHash(route.id)) url.searchParams.set('post', route.id);
   else if (route.type === 'profile' && isHash(route.author)) url.searchParams.set('author', route.author);
   else if (route.type === 'search') url.searchParams.set('q', route.query || '');
   else if (route.type !== 'feed') return null;

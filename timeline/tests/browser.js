@@ -1,4 +1,5 @@
 // Actual upstream modules, separate origins, disposable data, no public traffic.
+import { Buffer } from 'node:buffer';
 import { chromium } from 'playwright';
 import { strict as assert } from 'node:assert';
 import { an, compose } from '../protocol.js';
@@ -81,49 +82,56 @@ try {
       await page.screenshot({ path: screenshotDirectory + '/timeline-thread-' + width + '.png', fullPage: true, animations: 'disabled' });
     }
   }
-  // Test-only identity injection exercises the real publisher boundary without
-  // adding a second identity/composer UI to the site or using Ev's identity.
-  await page.evaluate(async visitorKey => {
-    const { createHost } = await import('/timeline/host.js');
-    const { compose } = await import('/timeline/protocol.js');
-    const config = await (await fetch('/timeline/api/config')).json();
-    const host = createHost(config);
-    const widget = document.querySelector('wiredove-widget');
-    widget.capabilities = { reply: true, compose: false };
-    widget.onPublish = async draft => {
-      if (!draft.replyTo || draft.file) throw new Error('This fixture permits text replies only');
-      const { latest, remoteAvailable } = await host.latest(visitorKey.slice(0, 44));
-      if (!remoteAvailable) throw new Error('Keep the draft until history is available');
-      const record = await compose(visitorKey, draft.body, {
-        reply: draft.replyTo.id, replyto: draft.replyTo.author,
-        ...(latest ? { previous: latest.id } : {}),
-      });
-      return await host.publishSigned(record);
-    };
-    widget.addEventListener('wiredove-compose', async event => {
-      widget.posts = await host.loadPosts();
-      widget.navigate({ type: 'post', id: event.detail.result.post.parsed.reply });
-    }, { once: true });
-  }, visitor);
-  assert.equal(await page.getByRole('button', { name: 'Write', exact: true }).count(), 0);
+  // Exercise the actual reusable identity UI and IndexedDB draft/outbox.
   const replyAction = page.getByRole('button', { name: 'Reply to this post', exact: true }).first();
-  await replyAction.focus();
-  await replyAction.press('Enter');
+  await replyAction.focus(); await replyAction.press('Enter');
+  await page.getByLabel('Display name', { exact: false }).fill('Disposable visitor');
+  await page.getByRole('button', { name: 'Create identity', exact: true }).click();
+  await page.getByRole('button', { name: 'Download identity backup', exact: true }).waitFor();
+  assert.equal(await page.getByRole('button', { name: 'Write', exact: true }).count(), 0);
   await page.getByPlaceholder('Write a reply').fill('Published through the real site host adapter');
+  // A real page reload must restore the route, identity and draft, including files.
+  const imageBytes = Uint8Array.from(atob('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII='), c => c.charCodeAt(0));
+  await page.locator('wiredove-composer input[accept="image/*"]').setInputFiles({ name: 'fixture.png', mimeType: 'image/png', buffer: Buffer.from(imageBytes) });
+  await page.getByText('Attachment ready', { exact: true }).waitFor();
+  await page.waitForTimeout(150);
+  await page.reload();
+  await page.getByRole('button', { name: 'Download identity backup', exact: true }).waitFor();
+  await page.getByText('Attachment ready', { exact: true }).waitFor();
+  assert.equal(await page.getByPlaceholder('Write a reply').inputValue(), 'Published through the real site host adapter');
   await page.route('**/timeline/api/posts', route => route.request().method() === 'POST'
     ? route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ error: 'Fixture storage unavailable' }) })
     : route.continue());
   await page.locator('wiredove-composer').getByRole('button', { name: 'Reply', exact: true }).click();
   await page.getByText('Fixture storage unavailable', { exact: true }).waitFor();
   assert.equal(await page.getByPlaceholder('Write a reply').inputValue(), 'Published through the real site host adapter');
+  await page.getByRole('button', { name: 'Retry pending publication', exact: true }).waitFor();
+  await page.reload();
+  await page.getByRole('button', { name: 'Retry pending publication', exact: true }).waitFor();
   await page.unroute('**/timeline/api/posts');
-  await page.locator('wiredove-composer').getByRole('button', { name: 'Reply', exact: true }).click();
+  await page.getByRole('button', { name: 'Retry pending publication', exact: true }).click();
   await page.getByText('Published through the real site host adapter', { exact: true }).waitFor();
   const stored = await (await app.fetch(new Request(origin + '/timeline/api/posts'))).json();
   assert.equal(stored.posts.length, 3);
+  const published = stored.posts.find(row => row.parsed.body === 'Published through the real site host adapter');
+  assert.equal(published.parsed.mime, 'image/png');
+  assert.ok(published.parsed.andfs);
   await page.reload();
   await page.getByText('Published through the real site host adapter', { exact: true }).waitFor();
   assert.equal(await page.getByRole('button', { name: 'Write', exact: true }).count(), 0);
+  // Owner backup import enables Write; signing keys never go to the API.
+  await page.getByRole('button', { name: 'Identity & pending posts', exact: true }).click();
+  // This context has a local-only outbox, so use a separate browser for owner import.
+  const ownerPage = await browser.newPage();
+  await ownerPage.route('**/*', route => [origin, widgetOrigin].includes(new URL(route.request().url()).origin) ? route.continue() : route.abort());
+  await ownerPage.goto(origin + '/timeline/');
+  await ownerPage.getByRole('button', { name: 'Identity & pending posts', exact: true }).click();
+  await ownerPage.getByLabel('Import Wiredove identity backup', { exact: false }).setInputFiles({ name: 'identity.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify({ keypair: key, name: 'Local owner' })) });
+  await ownerPage.getByRole('button', { name: 'Write', exact: true }).click();
+  await ownerPage.getByPlaceholder('Write a message').fill('Owner publication through shared components');
+  await ownerPage.locator('wiredove-composer').getByRole('button', { name: 'Publish', exact: true }).click();
+  await ownerPage.getByText('Owner publication through shared components', { exact: true }).waitFor();
+  await ownerPage.close();
   assert.deepEqual(errors, []);
   assert.deepEqual(failedModules, []);
   assert.deepEqual(blocked.filter(url => new URL(url).hostname !== 'fonts.googleapis.com'), [], 'Widget must not request public data or relay services in this fixture');
@@ -131,7 +139,7 @@ try {
   await page.reload();
   await page.getByRole('status').filter({ hasText: 'Unable to load the Wiredove widget:' }).waitFor();
   assert.equal(await page.locator('article, wiredove-message').count(), 0);
-  console.log('Passed: actual separate-origin widget, owner feed, visitor thread, durable URLs/reload/Back, 1280/390/320px, real signed reply via site API with disposable injected identity, reply reload, public traffic blocked, module failure.');
+  console.log('Passed: actual separate-origin widget, owner feed, visitor thread, durable URLs/reload/Back, 1280/390/320px, real identity create/import, persistent file drafts/outbox, signed reply retry and owner publish via site API, reply reload, public traffic blocked, module failure.');
 } finally {
   await browser?.close();
   await server.shutdown();

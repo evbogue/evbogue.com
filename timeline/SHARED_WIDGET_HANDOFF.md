@@ -1,3 +1,23 @@
+# Current interactive integration — 2026-10-30
+
+The current site uses the shared Wiredove identity panel, publishing session and
+composer. Browser IndexedDB holds identity, file drafts and exact signed outbox
+records; site adapters supply verification, upload, storage and relay services.
+Reply is available to visitors; Write requires the configured owner identity.
+Routes restore compose targets after reload. Historical images are verified and
+cached; bounded history retrieval resumes across server restarts.
+
+Local acceptance passes identity create/import, owner publish, image draft reload,
+failed-save exact-record retry and reply reload across separate origins with public
+traffic blocked, at 1280/390/320px. The pinned asset manifest identifies the exact
+release. Production deployment, real owner/media review and the complete
+interactive two-client relay loop remain unverified. No public fixtures were sent.
+
+The following chronological notes are historical and their read-only statements
+are superseded by this checkpoint. Existing data/media routes remain unchanged.
+Rollback the site commit and asset pin together and restart; retain the entire
+timeline data directory independently. This update performs no data migration.
+
 # Site host integration handoff
 
 2026-10-30. The site agent owns `evbogue.com/*`; the other active agent owns

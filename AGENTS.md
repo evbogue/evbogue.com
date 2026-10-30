@@ -383,3 +383,14 @@ Ev explicitly requested on 30 October 2026 that local work and GitHub stay synch
 - Fetch again before pushing. If GitHub advanced, integrate the new commits, rerun affected checks, and retry a normal push. After pushing, verify the local HEAD equals the intended GitHub branch tip and inspect the remaining worktree status. Report the commit, branch, checks, and any remaining changes or divergence automatically.
 - If authentication, network access, conflicts, failing checks, or unfinished work prevent synchronization, preserve the work and report the exact blocker. Do not claim synchronization from an attempted push or a stale remote-tracking ref. Clearly label any intentionally preserved unfinished checkpoint.
 - A GitHub push is source synchronization, not permission to deploy services, publish public test messages, send email, or change production data. Existing release and publication rules still apply. Do not install background auto-pull jobs; sync at session boundaries and coordinated handoffs.
+
+## Interactive embed checkpoint — 2026-10-30
+
+The local timeline now integrates shared Wiredove identity/composer/session UI,
+persistent browser identity/file drafts and exact signed outbox retry, owner-only
+Write, historical image caching and resumable bounded history. The current manifest
+pins the runtime byte-for-byte. Earlier read-only checkpoints above are historical.
+Separate-origin browser acceptance checks create/import, owner publish, image draft
+reload, failed-save retry and thread reload with public requests blocked. Backend
+and host tests pass. Complete interactive two-client relay acceptance, real owner
+history/legacy-media inspection and production deployment remain open.

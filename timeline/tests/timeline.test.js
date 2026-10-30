@@ -245,3 +245,50 @@ Deno.test('relay round trip uses exact signed content and receives a Wiredove re
     await f.close()
   }
 })
+
+Deno.test('historical images verify exact hashes, cache across restart and reject unrelated requests', async () => {
+  const source = 'data:image/png;base64,iVBORw0KGgo=';
+  const id = await an.hash(source);
+  let offline = false;
+  const f = await fixture(async (_url, options) => {
+    if (offline) throw new Error('offline');
+    return Response.json({ messages: options.body === id ? [source + 'tampered', source] : [] });
+  });
+  try {
+    const post = await compose(f.ownerKey, '![](' + id + ')', { image: id });
+    // Import is a local verified ingestion without an outbound publication.
+    await f.call('api/import', { posts: [post] });
+    let response = await f.call('api/image?hash=' + encodeURIComponent(id));
+    assert.equal(response.status, 200);
+    assert.equal((await response.json()).source, source);
+    offline = true;
+    const reopened = await createTimeline({ directory: f.directory, config: f.config });
+    response = await reopened.fetch(new Request('http://localhost/timeline/api/image?hash=' + encodeURIComponent(id)));
+    assert.equal((await response.json()).source, source);
+    assert.equal((await f.call('api/image?hash=' + encodeURIComponent(await an.hash('unrelated')))).status, 400);
+  } finally { await f.close(); }
+});
+
+Deno.test('bounded owner history resumes beyond thirty messages across server restarts', async () => {
+  const key = await an.gen(), directory = await Deno.makeTempDir();
+  const values = new Map();
+  let previous;
+  for (let index = 0; index < 65; index++) {
+    const record = await compose(key, 'History ' + index, previous ? { previous } : {});
+    values.set(record.id, record.signature); values.set(record.contentHash, record.content);
+    previous = record.id;
+  }
+  values.set(key.slice(0, 44), values.get(previous));
+  const config = { owner: key.slice(0, 44), relay: 'http://local.test', maxMediaBytes: 33554432, mediaQuotaBytes: 1073741824 };
+  const relayFetch = (url, options) => Promise.resolve(Response.json(url.includes('/poll?')
+    ? { messages: [], nextSince: 1 } : { messages: values.has(options.body) ? [values.get(options.body)] : [] }));
+  try {
+    for (const expected of [30, 60, 65, 65]) {
+      const app = await createTimeline({ directory, config, relayFetch });
+      const sync = await app.fetch(new Request('http://localhost/timeline/api/sync', { method: 'POST' }));
+      assert.equal(sync.status, 200);
+      const posts = await (await app.fetch(new Request('http://localhost/timeline/api/posts'))).json();
+      assert.equal(posts.posts.length, expected);
+    }
+  } finally { await Deno.remove(directory, { recursive: true }); }
+});

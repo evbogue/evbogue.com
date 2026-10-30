@@ -55,7 +55,8 @@ Deno.test('durable routes round trip padded base64 identifiers and reject extern
   for (const route of [{ type: 'post', id }, { type: 'profile', author: id }, { type: 'search', query: 'hello & goodbye' }, { type: 'feed' }]) {
     assert.deepEqual(readRoute(new URL(routeURL(route, 'https://evbogue.com/'), 'https://evbogue.com/')), route);
   }
-  assert.equal(routeURL({ type: 'compose' }, 'https://evbogue.com/'), null);
+  assert.equal(routeURL({ type: 'compose' }, 'https://evbogue.com/'), '/timeline/?view=compose');
+  assert.deepEqual(readRoute('https://evbogue.com' + routeURL({ type: 'compose', replyTo: { id } }, 'https://evbogue.com/')), { type: 'compose', replyId: id });
   assert.deepEqual(readRoute('https://evbogue.com/timeline/?post=https://evil.test'), { type: 'feed' });
 });
 

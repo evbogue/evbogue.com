@@ -1,7 +1,7 @@
 # Wiredove timeline embed
 
 `/timeline/` mounts the actual `wiredove-widget` from
-the pinned Wiredove revision `781cfdc65a3c0d41ef691d10707d4f28c92d11b4`
+the pinned Wiredove revision `8ca24c8aea3a2e08ff567f53b1db3e9a7e49f5dc`
 inside the site shell. `WIREDOVE_CLIENT` overrides the module URL for development. Wiredove owns the feed, search, profiles, threads,
 and post rendering. There is no local renderer or copied component fork.
 
@@ -10,9 +10,12 @@ public APIs. `host.js` owns same-origin data/storage services; it contains no
 message renderer, composer, or identity UI. See [SHARED_WIDGET_HANDOFF.md](SHARED_WIDGET_HANDOFF.md)
 for the supported methods and the upstream integration boundary.
 
-The current page is read-only. Identity setup, composer integration, durable
-pending drafts and interactive delivery/retry controls remain unfinished.
-Existing browser identity backups and server data have not been deleted.
+The page supports replies through Wiredove's shared identity and composer UI.
+Choose Reply to create a browser identity or import a Wiredove backup. Only the
+configured owner identity can start top-level posts. Identity, text/file drafts
+and exact signed pending records persist in browser IndexedDB. Identity & pending
+posts exposes backup import/download and retry. Existing older browser storage
+and server data have not been deleted; import a backup to reuse an older identity.
 
 On load, the adapter reads locally stored records, then requests one bounded
 inbound sync if a relay is configured. It shows Ev's originals in the feed and
@@ -75,11 +78,11 @@ composer can avoid silently breaking history during a relay outage.
 then publishes content followed by signature using `POST /gossip` and checks both
 objects can be retrieved. `{saved:true,relayed:false}` means a local save awaiting
 network delivery; it is not confirmed publication to Wiredove. Retry with the same
-signed record to avoid duplicate posts. JSON import stays local. The host does not
-yet implement browser draft/outbox persistence or expose a retry UI.
+signed record to avoid duplicate posts. JSON import stays local. The shared publishing session persists browser drafts/outbox records and supplies retry UI.
 
-Sync follows up to 30 owner-history links plus bounded relay poll results and
-ancestor lookups. It is not a full archive crawler. Thread/feed service results
+Each sync follows up to 30 owner-history links plus bounded relay poll results and
+ancestor lookups. The history cursor survives server restarts; Load older posts
+continues retrieval. Referenced historical APDS images are hash-verified and cached. It is not a full archive crawler. Thread/feed service results
 report `complete:false`, because local storage does not prove network completeness.
 Historical edits, profile events and legacy media compatibility remain release
 checks; current backend ingestion rejects edit events.
@@ -124,10 +127,10 @@ origin (or the adjacent checkout when no pin exists), uses disposable owner/visi
 public requests. It checks owner feed, conversation replies, search, durable
 links/reload/Back, 1280/390/320px layout, and module failure without a fallback UI.
 `WIREDOVE_TEST_ROOT=/absolute/path/to/pinned/assets` runs it against a generated
-asset snapshot instead. The suite also injects a disposable browser identity into
-the shared reply composer and signs/stores through the real site API, including
-a failed-save retry with draft retention. This is a test harness; the normal
-page remains read-only. Set `TIMELINE_SCREENSHOTS=/tmp/timeline-screenshots` to save
-screenshots. Alternatively, pass the absolute widget asset directory and screenshot
-directory as the first and second task arguments. An interactive cross-client reply round trip, real owner-history
+asset snapshot instead. The suite exercises actual shared identity creation/import, owner publication,
+image drafts across reload, exact signed outbox retry after failed storage, and
+reply reload through the real site API. All identities and data are disposable.
+Set `TIMELINE_SCREENSHOTS=/tmp/timeline-screenshots` to save screenshots.
+Alternatively pass the absolute widget asset directory and screenshot directory
+as task arguments. An interactive cross-client reply round trip, real owner-history
 inspection and complete legacy-media acceptance remain unverified.

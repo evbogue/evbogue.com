@@ -82,6 +82,7 @@ export async function createTimeline(
   const files = createAndFS({ store });
   await Deno.mkdir(directory + "/messages", { recursive: true });
   await Deno.mkdir(directory + "/media", { recursive: true });
+  await Deno.mkdir(directory + "/images", { recursive: true });
   for await (const file of Deno.readDir(directory + "/messages")) {
     if (!file.name.endsWith(".json")) continue;
     const row = JSON.parse(
@@ -232,13 +233,34 @@ export async function createTimeline(
     await persist(row);
     return true;
   }
-  let syncAt = 0, cursor = 0;
+  const imageRequests = new Map();
+  async function legacyImage(id) {
+    if (!isHash(id)) throw new Error('Invalid historical image hash');
+    const referenced = [...messages.values()].some(row => row.parsed.image === id ||
+      (row.parsed.body || '').includes('](' + id + ')'));
+    if (!referenced) throw new Error('Image is not referenced by this timeline');
+    const path = directory + '/images/' + safeID(id) + '.json';
+    const valid = async source => typeof source === 'string' && source.length <= 4 * 1024 * 1024 &&
+      /^data:image\/(?:png|jpeg|jpg|gif|webp);base64,[A-Za-z0-9+/=\r\n]+$/.test(source) && await an.hash(source) === id;
+    try {
+      const source = JSON.parse(await Deno.readTextFile(path));
+      if (await valid(source)) return source;
+    } catch { /* Fetch a missing or invalid cached image again. */ }
+    if (!config.relay) throw new Error('Historical image is not cached and relay is disabled');
+    for (const source of await gossip(id)) {
+      if (await valid(source)) { await atomic(path, source); return source; }
+    }
+    throw new Error('Historical image is unavailable or failed verification');
+  }
+  let syncAt = 0, cursor = 0, historyNext = null, historyHead = null;
   const syncSeen = new Set();
   try {
     const state = JSON.parse(
       await Deno.readTextFile(directory + "/cursor.json"),
     );
     cursor = state.since || 0;
+    historyNext = isHash(state.historyNext) ? state.historyNext : null;
+    historyHead = isHash(state.historyHead) ? state.historyHead : null;
     for (const id of state.seen || []) syncSeen.add(id);
   } catch { /* First sync. */ }
   async function sync() {
@@ -258,12 +280,16 @@ export async function createTimeline(
       } catch { /* Unrelated or unsupported event. */ }
     }
     let row = await remoteRow(config.owner);
+    if (row && row.id === historyHead) row = historyNext ? await remoteRow(historyNext) : null;
+    else if (row) historyHead = row.id;
     const visited = new Set();
     for (let count = 0; row && count < 30 && !visited.has(row.id); count++) {
       visited.add(row.id);
       await ingest(row);
-      row = row.parsed.previous ? await remoteRow(row.parsed.previous) : null;
+      historyNext = row.parsed.previous || null;
+      row = historyNext ? await remoteRow(historyNext) : null;
     }
+    await atomic(directory + "/cursor.json", { since: cursor, seen: [...syncSeen], historyNext, historyHead });
     const response = await relayFetch(
       config.relay + "/gossip/poll?since=" + cursor,
       { signal: AbortSignal.timeout(10000) },
@@ -320,12 +346,12 @@ export async function createTimeline(
     }
     await atomic(directory + "/cursor.json", {
       since: cursor,
-      seen: [...syncSeen],
+      seen: [...syncSeen], historyNext, historyHead,
     });
     return {
-      added,
+      added, historyMore: Boolean(historyNext),
       message: complete
-        ? "Synced from Wiredove."
+        ? (historyNext ? "Synced from Wiredove. Older history remains; load older posts to continue." : "Synced from Wiredove.")
         : "Partial sync; more messages remain. Sync again to continue.",
     };
   }
@@ -410,6 +436,8 @@ export async function createTimeline(
   const assets = new Set([
     "client.js",
     "host.js",
+    "session.js",
+    "preview.js",
     "protocol.js",
     "vendor/yaml.js",
     "vendor/anproto/an.js",
@@ -419,6 +447,7 @@ export async function createTimeline(
     "vendor/andfs/stores.js",
   ]);
   return {
+    readPosts: () => [...messages.values()].sort((a, b) => b.timestamp - a.timestamp),
     async fetch(request) {
       const url = new URL(request.url),
         path = url.pathname.replace(/^\/timeline\/?/, "");
@@ -467,6 +496,14 @@ export async function createTimeline(
             relay: config.relay,
             wiredoveClient: config.wiredoveClient,
           });
+        }
+        if (request.method === "GET" && path === "api/image") {
+          const id = url.searchParams.get('hash');
+          if (!imageRequests.has(id)) {
+            const operation = legacyImage(id).finally(() => imageRequests.delete(id));
+            imageRequests.set(id, operation);
+          }
+          return json({ source: await imageRequests.get(id) });
         }
         if (request.method === "GET" && path === "api/posts") {
           return json({
