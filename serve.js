@@ -9,11 +9,31 @@ import { loadSites, REPO_ROOT, siteFromRequest } from "./lib/sites.js";
 
 import { createTimeline } from "./timeline/server.js";
 import timelineConfig from "./timeline/config.json" with { type: "json" };
+// An explicit development override takes precedence over the reviewed asset pin.
+let wiredoveClient = "https://wiredove.net/client/ui.js";
+try {
+  const pinned = JSON.parse(await Deno.readTextFile(`${REPO_ROOT}/timeline/wiredove-client.json`));
+  if (!/^[a-f0-9]{40}$/.test(pinned.revision) ||
+    pinned.entry !== `/timeline/vendor/wiredove/${pinned.revision}/client/ui.js`) {
+    throw new Error("Invalid Wiredove asset pin");
+  }
+  wiredoveClient = pinned.entry;
+} catch (error) {
+  if (!(error instanceof Deno.errors.NotFound)) throw error;
+}
 let timeline;
-const getTimeline = () => timeline ??= createTimeline({
-  directory: Deno.env.get("TIMELINE_DATA") || `${REPO_ROOT}/timeline-data`,
-  config: { ...timelineConfig, ...(Deno.env.get("TIMELINE_RELAY") !== undefined ? { relay: Deno.env.get("TIMELINE_RELAY") } : {}) },
-});
+const getTimeline = () =>
+  timeline ??= createTimeline({
+    directory: Deno.env.get("TIMELINE_DATA") || `${REPO_ROOT}/timeline-data`,
+    config: {
+      ...timelineConfig,
+      wiredoveClient: Deno.env.get("WIREDOVE_CLIENT") ||
+        wiredoveClient,
+      ...(Deno.env.get("TIMELINE_RELAY") !== undefined
+        ? { relay: Deno.env.get("TIMELINE_RELAY") }
+        : {}),
+    },
+  });
 
 const ANALYTICS_SALT = Deno.env.get("ANALYTICS_SALT") ?? ""
 if (!ANALYTICS_SALT) {

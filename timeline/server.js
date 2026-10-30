@@ -409,6 +409,7 @@ export async function createTimeline(
   }
   const assets = new Set([
     'client.js',
+    'host.js',
     'protocol.js',
     'vendor/yaml.js',
     'vendor/anproto/an.js',
@@ -436,10 +437,26 @@ export async function createTimeline(
             { headers: { 'Content-Type': 'text/javascript; charset=utf-8' } },
           )
         }
+        if (request.method === "GET" && /^vendor\/wiredove\/[a-f0-9]{40}\//.test(path)) {
+          const pin = JSON.parse(await Deno.readTextFile(new URL('./wiredove-client.json', import.meta.url)));
+          const prefix = 'vendor/wiredove/' + pin.revision + '/';
+          const asset = path.startsWith(prefix) ? path.slice(prefix.length) : '';
+          if (!Object.hasOwn(pin.files, asset)) return json({ error: 'Not found' }, 404);
+          const bytes = await Deno.readFile(new URL('./' + path, import.meta.url));
+          const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)))
+            .map(byte => byte.toString(16).padStart(2, '0')).join('');
+          if (digest !== pin.files[asset]) throw new Error('Pinned Wiredove asset integrity failure');
+          return new Response(bytes, { headers: {
+            'Content-Type': asset.endsWith('.css') ? 'text/css; charset=utf-8'
+              : asset.endsWith('.js') ? 'text/javascript; charset=utf-8' : 'text/plain; charset=utf-8',
+            'X-Content-Type-Options': 'nosniff',
+          } });
+        }
         if (request.method === 'GET' && path === 'api/config') {
           return json({
             owner: config.owner,
             maxMediaBytes: config.maxMediaBytes,
+            wiredoveClient: config.wiredoveClient,
             relay: config.relay,
           })
         }

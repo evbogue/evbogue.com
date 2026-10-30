@@ -3,7 +3,7 @@
     "start": "deno serve --allow-net --allow-read --allow-write --allow-env --port 8082 serve.js",
     "weekly-report": "deno run --allow-read --allow-write --allow-env --allow-net scripts/weekly_report.js",
     "screenshots": "deno run -A scripts/screenshot_projects.js",
-    "timeline:test": "deno test --allow-read --allow-write timeline/tests/timeline.test.js",
+    "timeline:test": "deno test --allow-read --allow-write timeline/tests/timeline.test.js timeline/tests/host.test.js",
     "timeline:browser": "deno run -A timeline/tests/browser.js"
   },
   "imports": {

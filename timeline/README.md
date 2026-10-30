@@ -1,32 +1,88 @@
-# Personal ANProto timeline
+# Wiredove timeline embed
 
-A page at `/timeline/` using the blog’s shared navigation and stylesheet for Ev's posts and public replies. Deno serves the page and stores exact signed Wiredove-compatible messages on disk. Browser signing uses the existing ANProto keypair format. AndFS stores audio/video and image bytes separately from the signed posts.
+`/timeline/` mounts the actual `wiredove-widget` from
+`https://wiredove.net/client/ui.js` inside the site shell. `WIREDOVE_CLIENT`
+overrides the module URL. Wiredove owns the feed, search, profiles, threads,
+and post rendering. There is no local renderer or copied component fork.
 
-## Run
+`client.js` supplies verified records and durable navigation through the widget's
+public APIs. `host.js` owns same-origin data/storage services; it contains no
+message renderer, composer, or identity UI. See [SHARED_WIDGET_HANDOFF.md](SHARED_WIDGET_HANDOFF.md)
+for the supported methods and the upstream integration boundary.
 
-From the repository root, run `deno task start` and visit `http://127.0.0.1:8082/timeline/`. `/timeline` redirects there. The existing homepage stays at `/`. Existing `/posts`, `/posts/:slug`, RSS and other site routes remain available. Other hosted sites retain their existing homepage.
+The current page is read-only. Identity setup, composer integration, durable
+pending drafts and interactive delivery/retry controls remain unfinished.
+Existing browser identity backups and server data have not been deleted.
 
-For a local-only preview, run `TIMELINE_RELAY='' deno task start`. This disables relay publication and synchronization. Do not publish localhost media URLs to a public relay; deploy the site at its intended HTTPS origin first.
+On load, the adapter reads locally stored records, then requests one bounded
+inbound sync if a relay is configured. It shows Ev's originals in the feed and
+connected visitor replies in conversations. Edit/profile events stay out of the
+ordinary post list. Network failure, local-only mode and incomplete history are
+reported explicitly. If the visitor has begun interacting, synchronization does
+not replace the widget; reload shows newly stored records. There is no background
+polling. The old standalone composer, Settings, “Send to Wiredove”, visit markers,
+and 30-second update controls were removed; descriptions of them in older
+handoffs do not describe this implementation.
 
-`timeline/config.json` sets Ev's approved owner public key, the Wiredove relay, a 32 MiB attachment limit and a 1 GiB media quota. `TIMELINE_RELAY` overrides the relay, including an empty value to disable it. `TIMELINE_DATA` overrides storage (default `timeline-data/`, gitignored). Back up that whole directory; a JSON post export does not include media bytes. The key is never configured on the server.
+Conversation URLs use `/timeline/?post=<encoded-message-id>`. Profile and search
+routes use `?author=` and `?q=`. Reload and browser Back restore the route; Back
+also restores the recorded scroll position. Signed identifiers retain their
+original padded base64 representation, with URL encoding only at the boundary.
 
-Import a Wiredove keypair into the browser or create a visitor identity. Identities are remembered on this browser by default. Uncheck “Remember my key on this browser” for a session-only identity, or use “Forget identity” to remove the saved key. Download an identity backup to keep access after closing the page. Remembered keys use this origin's localStorage; they are not encrypted at rest. Display names are labels, not proof of identity. Owner permissions use the public key, not the label.
+Run `deno task start` and visit `http://127.0.0.1:8082/timeline/`.
+For a preview with no public relay traffic, use `TIMELINE_RELAY=''` and a disposable
+`TIMELINE_DATA` directory. Back up the production data directory (`timeline-data/`
+by default), including messages, media metadata, AndFS blocks and sync cursor.
+No private key is configured on the server.
 
-The feed opens in reading mode. The owner opens the composer with **Write a post**; identity, import/export and manual sync controls live under **Settings**. Posts show the name embedded in each signed message (or a shortened public key if absent), relative time (with an exact timestamp on hover), and compact reply/Details controls. Signed bytes and media hashes remain available in Details.
+## Pinning the shared widget
 
-Only the owner can start a post. Other identities can reply to known conversations, including with attachments. Draft text is retained on a failed publish. There is no cross-device private-key synchronization or key recovery service.
+`WIREDOVE_CLIENT` overrides the module URL for development. A release should use
+the local asset pin rather than the unversioned production module:
+
+```sh
+deno run --allow-read --allow-write --allow-run=git scripts/pin-wiredove.js ../wiredove <full-reviewed-commit-sha>
+```
+
+The script copies committed `client/`, `vendor/`, stylesheet and license assets
+without changing their bytes, omits tests/demos, and writes
+`timeline/wiredove-client.json` last. Its manifest records the upstream repository,
+full revision, entry URL and each file's SHA-256. Local uncommitted upstream edits
+are never represented as a release. Review and commit the manifest and generated
+asset directory together; do not edit generated UI files. Update by reviewing and
+pinning another upstream commit, then run both acceptance suites. Without a pin,
+the existing production URL remains a development fallback.
+
+`serve.js` selects the pinned entry unless overridden. The timeline server serves
+only manifest-listed files and checks their bytes against the recorded digest.
+Changing the pin requires restarting the application. Roll back the site release
+and pin together, then restart; retain data backups independently. Code rollback
+does not undo public signed publications. This task does not deploy anything.
 
 ## Signed-message compatibility
 
-Vendored ANProto performs the same Ed25519 timestamp + content-hash signing as Wiredove's APDS dependency. Wiredove's YAML encoder/parser is used unchanged. The signed envelope, YAML bytes, and their standard padded-base64 hashes are stored unchanged.
+Vendored ANProto performs the same Ed25519 timestamp + content-hash signing as
+Wiredove's APDS dependency. Signed envelopes, YAML bytes and padded-base64 message
+IDs are stored unchanged. `previous` references the previous signed message ID
+for that author; `reply` references a parent message ID; `replyto` is its author.
 
-`previous` references the previous signed message hash for that author. `reply` references the parent signed message hash, and `replyto` is its author public key. These are distinct from the content hash and the AndFS manifest hash. Before composing, the client checks the latest known local and relay message, including its signature; when the configured relay is unavailable it keeps the draft rather than silently starting disconnected feed history. Concurrent publishing across devices can still fork history.
+The backend verifies signatures, permits owner-only root posts and visitor replies
+to known conversations, and retains quotas/abuse controls. `host.latest(author)`
+verifies the latest-author response and exposes `remoteAvailable` so the future
+composer can avoid silently breaking history during a relay outage.
 
-Posts are sent to the configured relay using its existing `POST /gossip` protocol, content first and signature second. A separate request for the message hash confirms receipt. Local persistence happens first; unconfirmed posts show “Send to Wiredove” for their author, including after reload. JSON import only imports locally; it does not automatically republish.
+`host.publishSigned()` sends exact signed bytes. The backend persists locally,
+then publishes content followed by signature using `POST /gossip` and checks both
+objects can be retrieved. `{saved:true,relayed:false}` means a local save awaiting
+network delivery; it is not confirmed publication to Wiredove. Retry with the same
+signed record to avoid duplicate posts. JSON import stays local. The host does not
+yet implement browser draft/outbox persistence or expose a retry UI.
 
-While the page is visible, it checks for updates every 30 seconds (and when returning to the tab). If a relay is configured, it first attempts bounded inbound sync. New messages appear behind a **new updates** button; background checks never rebuild the feed or interrupt playback. Clicking the button shows the updates and takes you to the feed. The previous visit time is stored per owner in this browser to mark new posts and the last-visit boundary; this is a visit marker, not a read receipt.
-
-“Sync from Wiredove” in Settings also performs bounded synchronization: up to 30 owner-history links, plus the relay's poll results, with capped content lookups and ancestor depth. It is not a full network crawler, a service that runs while the page is closed, or a complete archive import. Unavailable content is not forged or replaced. The poll cursor is persisted only after processing the batch; retained incomplete batches may require further sync work for large histories. Export/import provides an additional transport for signed posts. Imports report rejected messages and support parents appearing after children within the batch.
+Sync follows up to 30 owner-history links plus bounded relay poll results and
+ancestor lookups. It is not a full archive crawler. Thread/feed service results
+report `complete:false`, because local storage does not prove network completeness.
+Historical edits, profile events and legacy media compatibility remain release
+checks; current backend ingestion rejects edit events.
 
 ## AndFS attachment contract
 
@@ -59,16 +115,18 @@ The gateway verifies AndFS blocks while streaming. Native HTML audio/video eleme
 
 ```sh
 deno check serve.js timeline/server.js timeline/client.js
-deno test --allow-read --allow-write timeline/tests/timeline.test.js
-deno run -A timeline/tests/browser.js
+deno task timeline:test
+deno task timeline:browser
 ```
 
-Browser checks use a disposable loopback server, generated identities and Chrome (installed locally), with the public relay disabled. They exercise owner posting, visitor replies, identity backup, text-safe rendering, a real multi-chunk WAV with seeking, and a real WebM video. The relay test uses a protocol-compatible local mock; an existing live owner message and its content have also been retrieved and successfully verified using the local implementation, but no test posts were published publicly. This is not yet an observed end-to-end test through Wiredove's actual UI.
-
-## First-version limits
-
-- Wiredove inline AndFS playback awaits the migration work order; old clients get the body link. Legacy anblob attachments link to Wiredove here rather than being decoded locally.
-- Edit events are rejected; Markdown is displayed as safe text with HTTP(S) links, not full Wiredove rendering. Profile-only events and complete avatar replication are not implemented.
-- Moderation UI, block lists, robust spam controls, resumable upload, garbage collection and complete history sync remain follow-up work. Basic signature checks, reply permissions, per-author write limits and media quotas exist; they are not a full public abuse-defense system.
-- Up to 10,000 stored messages; the API returns the stored feed and the browser pages its display. Storage is a single-process prototype, not a multi-writer database.
-- Exports contain public signed messages and media references, not private keys or a complete media backup. Save identity backups separately and back up `timeline-data/andfs` together with metadata.
+The browser check serves actual Wiredove modules from the adjacent checkout on a
+second localhost origin, uses disposable owner/visitor records, and blocks all
+public requests. It checks owner feed, conversation replies, search, durable
+links/reload/Back, 1280/390/320px layout, and module failure without a fallback UI.
+`WIREDOVE_TEST_ROOT=/absolute/path/to/pinned/assets` runs it against a generated
+asset snapshot instead. The suite also injects a disposable browser identity into
+the shared reply composer and signs/stores through the real site API, including
+a failed-save retry with draft retention. This is a test harness; the normal
+page remains read-only. Set `TIMELINE_SCREENSHOTS=/tmp/timeline-screenshots` to save
+screenshots. An interactive cross-client reply round trip, real owner-history
+inspection and complete legacy-media acceptance remain unverified.
