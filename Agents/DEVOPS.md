@@ -142,11 +142,12 @@ When finished, report:
 
 ## Interactive timeline production release — 2026-10-30
 
-Application revision `6e41e327d000342ca912a537f2d34799f6663b54` is live in
+Application revision `2ce443bd6e88a5cce5c55ad66c055d4ee2488d44` is live in
 tmux `10:0.0`, `/root/evbogue.com`, port 8082. The existing command remains
 `deno serve -A --no-lock --port=8082 serve.js`; frozen-lock Deno checks passed
-before reload. Import-map overrides pin APDS/IDB resolution and use vendored
-ANProto/YAML after upstream wrapper hashes changed.
+before reload. Import-map overrides resolve the already-locked APDS bundle, integrity-locked
+`npm:idb@8.0.3`, and vendored ANProto/YAML after CDN wrapper hashes varied.
+Frozen-lock checks and an error-free dependency graph were verified on the host.
 
 Public config confirms owner `ev4/4vRXmzuPXlIUFbvGaFkiIkKfErW9nLnvKTPls5A=`
 and Wiredove pin `4e56893506bf21e1b12e15129d4a8692a6a0ad34`. Public client,
@@ -160,4 +161,8 @@ backup files were preserved. Previous disk revision was e534983, but the running
 process was older. Roll back to a reviewed known-good code revision using a
 separate worktree or deliberate revert, retaining current data and private site
 files; reload only the app in tmux. Do not blindly restore data after new writes.
-Real owner/history and complete legacy-media acceptance remain open checks.
+Live desktop/390px/320px checks show the current owner’s posts, verified image,
+permalink/reload, reply identity setup, three-post homepage preview and no-JS
+cached links with no JavaScript errors. Only inbound synchronization was allowed;
+no public test post was sent. Full history completeness, edit/moderation parity
+and physical Safari recording remain follow-up checks.

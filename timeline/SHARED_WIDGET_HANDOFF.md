@@ -191,3 +191,27 @@ Read-only real-content review shows the current owner's Coffee on Argyle post,
 verified AndFS image and avatar, plus legacy APDS photos in preserved older
 records. Full edit/moderation parity and physical Safari recording remain open.
 Production release verification will be appended after deployment.
+
+## Production verified — 2026-10-30
+
+Application `2ce443bd6e88a5cce5c55ad66c055d4ee2488d44` is running in the existing
+app tmux pane `10:0.0` on 8082. Proxy unchanged. Full timeline backup is retained
+at `/root/backups/evbogue-timeline-20261030T135013Z.tgz`; existing server-only video
+and subscriber backup files remain untouched. Deployment retained the existing
+launch command and environment. The application and frozen-lock dependency graph
+were checked on the host; final IDB resolution uses integrity-locked npm 8.0.3.
+
+Public config identifies the configured current owner and widget pin `4e56893`.
+SHA-256 comparisons of live client.js, session.js, preview.js, widget.js and CSS
+match reviewed source bytes. Live desktop/390px/320px browser review confirms
+seven current-owner root posts, the Coffee on Argyle image/avatar, durable
+permalink/reload, Reply identity setup, three-post homepage preview, cached text
+links without JavaScript, no overflow and no JavaScript exceptions. The smoke
+allows only reads and inbound sync; no public fixture publication occurred.
+The live sync truthfully reports partial history; complete history is not claimed.
+Screenshots are in `/tmp/evbogue-live-*.png` on the development machine.
+
+Rollback may switch the app to a reviewed earlier code revision while preserving
+all current timeline data and server-only files, then reload only tmux app 10.
+Never restore an old data snapshot over subsequent signed publications merely to
+roll back UI code. The final documentation-only commit does not require a reload.
