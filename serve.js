@@ -38,6 +38,7 @@ const getTimeline = () =>
     directory: Deno.env.get("TIMELINE_DATA") || `${REPO_ROOT}/timeline-data`,
     config: {
       ...timelineConfig,
+      publicOrigins: ["https://evbogue.com", "https://www.evbogue.com"],
       wiredoveClient: Deno.env.get("WIREDOVE_CLIENT") ||
         wiredoveClient,
       ...(Deno.env.get("TIMELINE_RELAY") !== undefined

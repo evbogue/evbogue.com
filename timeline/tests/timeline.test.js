@@ -292,3 +292,24 @@ Deno.test('bounded owner history resumes beyond thirty messages across server re
     }
   } finally { await Deno.remove(directory, { recursive: true }); }
 });
+
+Deno.test('configured public origins permit proxy writes without trusting forwarded headers', async () => {
+  const f = await fixture();
+  try {
+    const app = await createTimeline({ directory: f.directory, config: { ...f.config, publicOrigins: ['https://evbogue.com', 'https://www.evbogue.com'] } });
+    const post = await compose(f.ownerKey, 'Proxy origin fixture');
+    const request = (origin, record = post, extra = {}) => new Request('http://localhost:8082/timeline/api/posts', {
+      method: 'POST', headers: { ...(origin === undefined ? {} : { Origin: origin }), ...extra }, body: JSON.stringify(record),
+    });
+    for (const origin of ['https://foreign.example', 'null', 'http://evbogue.com', 'https://evbogue.com.evil.example', 'https://evbogue.com:444']) {
+      assert.equal((await app.fetch(request(origin, post, { 'X-Forwarded-Host': 'evbogue.com', 'X-Forwarded-Proto': 'https' }))).status, 403, origin);
+    }
+    assert.equal((await app.fetch(request('https://evbogue.com', { ...post, content: 'tampered' }))).status, 400);
+    assert.equal((await app.fetch(request('https://evbogue.com'))).status, 201);
+    for (const origin of ['https://www.evbogue.com', 'http://localhost:8082', undefined]) {
+      assert.ok((await app.fetch(request(origin))).ok, String(origin));
+    }
+    const unconfigured = await createTimeline({ directory: f.directory, config: f.config });
+    assert.equal((await unconfigured.fetch(request('https://evbogue.com'))).status, 403);
+  } finally { await f.close(); }
+});

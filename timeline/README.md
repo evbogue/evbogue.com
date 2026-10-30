@@ -134,3 +134,16 @@ Set `TIMELINE_SCREENSHOTS=/tmp/timeline-screenshots` to save screenshots.
 Alternatively pass the absolute widget asset directory and screenshot directory
 as task arguments. An interactive cross-client reply round trip, real owner-history
 inspection and complete legacy-media acceptance remain unverified.
+
+## Writes behind the TLS proxy
+
+The site explicitly allows `https://evbogue.com` and `https://www.evbogue.com`
+Origin headers when the proxy forwards requests to the HTTP application. Other
+origins must match the request URL's origin exactly. Forwarded host/protocol
+headers do not expand this allowlist. Requests without Origin remain supported
+for signed clients. All accepted origins still require valid signatures and
+owner/reply authorization; no cross-origin CORS access is enabled.
+
+Local proxy-origin regression tests cover both public origins, local requests,
+foreign/null/scheme/port/lookalike origins, spoofed forwarded headers, and invalid
+signed content. Production verification remains a separate release check.

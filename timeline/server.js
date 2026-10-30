@@ -571,7 +571,8 @@ export async function createTimeline(
         }
         if (request.method === "POST") {
           const origin = request.headers.get("Origin");
-          if (origin && origin !== url.origin) {
+          // Explicit external origins support TLS proxying; forwarded headers are not trusted.
+          if (origin && origin !== url.origin && !(config.publicOrigins || []).includes(origin)) {
             return json({ error: "Cross-origin writes are not accepted" }, 403);
           }
           if (path === "api/media") return await mutate(() => upload(request));

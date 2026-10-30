@@ -394,3 +394,12 @@ Separate-origin browser acceptance checks create/import, owner publish, image dr
 reload, failed-save retry and thread reload with public requests blocked. Backend
 and host tests pass. Complete interactive two-client relay acceptance, real owner
 history/legacy-media inspection and production deployment remain open.
+
+## Timeline proxy origin handling — 2026-10-30
+
+The site configures exact HTTPS origins for evbogue.com and www.evbogue.com so
+signed writes survive TLS proxy forwarding to the HTTP app. Foreign origins are
+rejected; forwarded headers cannot expand the allowlist. Signature, owner/reply,
+and quota checks remain active. Deno checks and all 13 timeline tests passed on
+an isolated staged snapshot, including origin spoofing and invalid content.
+This source change does not deploy the app; production verification is pending.
