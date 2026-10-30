@@ -1,3 +1,15 @@
+# Latest local acceptance — 2026-10-30
+
+Pinned upstream 4e56893506bf21e1b12e15129d4a8692a6a0ad34. The local HTTP
+relay roundtrip now passes with two shared-widget browser clients: image publish,
+reverse reply and reload, audio/video playback/seek, outage and exact retry without
+duplicates. Full production Wiredove website interoperability remains a distinct
+check. Homepage preview, server-readable cached links/metadata and bounded partial
+sync are implemented. Missing-parent replies remain retryable. Deno checks, 14
+backend/host tests and separate-origin browser acceptance pass. Production and
+real owner legacy-media review remain pending. Earlier open local-runtime gates
+below are historical; no production data migration or public fixture writes occur.
+
 # Current interactive integration — 2026-10-30
 
 The current site uses the shared Wiredove identity panel, publishing session and
@@ -154,3 +166,28 @@ retry, real signed reply persistence and reload, and 1280/390/320px layout. Publ
 traffic is blocked. The normal page remains read-only pending upstream identity
 setup and persistent draft/outbox integration. No production deployment or public
 fixture publication occurred. The final pin/site commit is recorded in Git.
+
+## Interactive reader/reply release — 2026-10-30
+
+The normal site now wires the shared identity, composer, IndexedDB file drafts and
+signed outbox UI. Remembered site identities are verified and retained across the
+upgrade. Owner-only Write uses the current configured public key from `907a55c`;
+older stored records and media are preserved. Shared widget pin is
+`4e56893506bf21e1b12e15129d4a8692a6a0ad34`, with 58 unchanged source assets.
+
+Added a three-post homepage preview using the canonical message component,
+server-rendered cached text links and post-specific description metadata, signed
+Details/reply counts, twenty-post cached pagination, and explicit older-history
+sync. Historical APDS image data URLs are hash-verified on both server and browser
+and cached without rewriting signed records. Sync has a twelve-second network
+budget and retains unavailable-parent polls for retry.
+
+Acceptance: 14 backend/host/provenance tests; separate-origin browser identity
+create/import, owner publish, failed-save retry, File draft reload and durable
+thread routes at 1280/390/320px; real HTTP local-relay two-client image/reply
+round trip and reload; actual WAV/WebM playback and seek in both frames; relay
+outage/exact retry without duplicate delivery. Public fixture writes are blocked.
+Read-only real-content review shows the current owner's Coffee on Argyle post,
+verified AndFS image and avatar, plus legacy APDS photos in preserved older
+records. Full edit/moderation parity and physical Safari recording remain open.
+Production release verification will be appended after deployment.

@@ -403,3 +403,27 @@ rejected; forwarded headers cannot expand the allowlist. Signature, owner/reply,
 and quota checks remain active. Deno checks and all 13 timeline tests passed on
 an isolated staged snapshot, including origin spoofing and invalid content.
 This source change does not deploy the app; production verification is pending.
+
+## Verified shared timeline release slice — 2026-10-30
+
+The site uses pinned shared identity/composer/session widgets, persistent File
+drafts/outbox, owner-only Write and visitor replies. Homepage preview shares the
+message component; cached text links survive module failure. Local acceptance
+includes real HTTP local-relay bidirectional replies/reload, verified WAV/WebM
+playback/seek in both browser frames, exact outage retry and no duplicates.
+Current owner configuration from `907a55c` is authoritative. Historical stored
+records/media are preserved. See timeline/SHARED_WIDGET_HANDOFF.md for the final
+source pin and deployment verification. Earlier read-only and injected-identity
+checkpoints are historical; full edit/moderation and physical Safari acceptance
+are still outstanding.
+
+## Remaining embed work completed locally — 2026-10-30
+
+Pinned Wiredove 4e56893506bf21e1b12e15129d4a8692a6a0ad34. Homepage previews,
+cached/no-module timeline links, post descriptions, bounded partial sync and
+retryable missing reply parents are implemented. Deno checks and 14 backend/host
+tests pass. Separate-origin browser tests and a two-widget local HTTP relay
+roundtrip verify image publication, replies/reload, audio/video playback/seek and
+outage retry without duplicate records. Full-site mobile homepage/fallback checks
+block writes. This does not prove full production Wiredove website parity or
+legacy-media completeness; production deployment remains pending.

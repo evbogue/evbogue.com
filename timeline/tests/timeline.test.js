@@ -313,3 +313,25 @@ Deno.test('configured public origins permit proxy writes without trusting forwar
     assert.equal((await unconfigured.fetch(request('https://evbogue.com'))).status, 403);
   } finally { await f.close(); }
 });
+
+Deno.test('unavailable reply parents do not advance the relay cursor past an unimported conversation', async () => {
+  const owner = await an.gen(), visitor = await an.gen();
+  const root = await compose(owner, 'Parent becomes available later');
+  const reply = await compose(visitor, 'Retain this pending inbound reply', { reply: root.id, replyto: root.author });
+  const directory = await Deno.makeTempDir();
+  const config = { owner: root.author, relay: 'http://local.test', maxMediaBytes: 33554432, mediaQuotaBytes: 1073741824 };
+  let available = false;
+  const relayFetch = (url, options) => {
+    if (url.includes('/poll?')) return Promise.resolve(Response.json({ messages: Number(new URL(url).searchParams.get('since')) < 1 ? [reply.signature, reply.content] : [], nextSince: 1 }));
+    const rows = available ? new Map([[root.author, root.signature], [root.id, root.signature], [root.contentHash, root.content]]) : new Map();
+    return Promise.resolve(Response.json({ messages: rows.has(options.body) ? [rows.get(options.body)] : [] }));
+  };
+  try {
+    let app = await createTimeline({ directory, config, relayFetch });
+    const sync = () => app.fetch(new Request('http://localhost/timeline/api/sync', { method: 'POST' }));
+    await sync(); assert.equal(app.readPosts().length, 0);
+    available = true;
+    app = await createTimeline({ directory, config, relayFetch });
+    await sync(); assert.equal(app.readPosts().length, 2);
+  } finally { await Deno.remove(directory, { recursive: true }); }
+});

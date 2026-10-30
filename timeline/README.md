@@ -1,7 +1,7 @@
 # Wiredove timeline embed
 
 `/timeline/` mounts the actual `wiredove-widget` from
-the pinned Wiredove revision `8ca24c8aea3a2e08ff567f53b1db3e9a7e49f5dc`
+the pinned Wiredove revision `4e56893506bf21e1b12e15129d4a8692a6a0ad34`
 inside the site shell. `WIREDOVE_CLIENT` overrides the module URL for development. Wiredove owns the feed, search, profiles, threads,
 and post rendering. There is no local renderer or copied component fork.
 
@@ -15,7 +15,8 @@ Choose Reply to create a browser identity or import a Wiredove backup. Only the
 configured owner identity can start top-level posts. Identity, text/file drafts
 and exact signed pending records persist in browser IndexedDB. Identity & pending
 posts exposes backup import/download and retry. Existing older browser storage
-and server data have not been deleted; import a backup to reuse an older identity.
+and server data have not been deleted. An identity previously remembered by the
+site is verified and copied into the new browser store; its old entry remains for rollback.
 
 On load, the adapter reads locally stored records, then requests one bounded
 inbound sync if a relay is configured. It shows Ev's originals in the feed and
@@ -60,7 +61,8 @@ the existing production URL remains a development fallback.
 only manifest-listed files and checks their bytes against the recorded digest.
 Changing the pin requires restarting the application. Roll back the site release
 and pin together, then restart; retain data backups independently. Code rollback
-does not undo public signed publications. This task does not deploy anything.
+does not undo public signed publications. See SHARED_WIDGET_HANDOFF.md for the
+observed deployment revision and verification.
 
 ## Signed-message compatibility
 
@@ -112,7 +114,10 @@ Public reads:
 - `/timeline/blobs/:hash`: verified manifest/chunk bytes for another AndFS client.
 - `/timeline/media/:hash`: native media bytes, GET/HEAD and single HTTP byte ranges (including suffix and open-ended ranges).
 
-The gateway verifies AndFS blocks while streaming. Native HTML audio/video elements use its range responses for playback and seeking; they do not independently verify hashes in the browser. An imported remote media URL relies on that remote gateway. AndFS storage chunks are not MediaSource segments. No transcoding, adaptive bitrate or live streaming is included. Unsupported codecs can still be downloaded.
+The gateway verifies AndFS blocks while streaming. Shared media components also
+verify the manifest and chunks in the browser before assigning a Blob URL to
+native audio/video controls. Signed source URLs locate replaceable storage;
+remote availability still depends on that source. AndFS storage chunks are not MediaSource segments. No transcoding, adaptive bitrate or live streaming is included. Unsupported codecs can still be downloaded.
 
 ## Verification
 
@@ -120,20 +125,42 @@ The gateway verifies AndFS blocks while streaming. Native HTML audio/video eleme
 deno check serve.js timeline/server.js timeline/client.js
 deno task timeline:test
 deno task timeline:browser
+deno task timeline:roundtrip
 ```
 
 The browser check serves the pinned actual Wiredove modules on a second localhost
 origin (or the adjacent checkout when no pin exists), uses disposable owner/visitor records, and blocks all
 public requests. It checks owner feed, conversation replies, search, durable
-links/reload/Back, 1280/390/320px layout, and module failure without a fallback UI.
+links/reload/Back, 1280/390/320px layout, and module failure. The full site shell
+retains server-rendered cached text links when modules fail or JavaScript is off.
 `WIREDOVE_TEST_ROOT=/absolute/path/to/pinned/assets` runs it against a generated
 asset snapshot instead. The suite exercises actual shared identity creation/import, owner publication,
 image drafts across reload, exact signed outbox retry after failed storage, and
 reply reload through the real site API. All identities and data are disposable.
 Set `TIMELINE_SCREENSHOTS=/tmp/timeline-screenshots` to save screenshots.
 Alternatively pass the absolute widget asset directory and screenshot directory
-as task arguments. An interactive cross-client reply round trip, real owner-history
-inspection and complete legacy-media acceptance remain unverified.
+as task arguments.
+
+`timeline:roundtrip` uses two real browser origins and a third local HTTP gossip
+relay. An owner publishes an image through the site; the other Wiredove host reads
+it and replies; the site retrieves that reply and both clients reload it. Actual
+locally generated WAV/WebM attachments play and seek in both clients after AndFS
+verification. A relay outage saves locally and exact retry delivers without a
+duplicate. All fixture identities and state are disposable and public requests
+are blocked. This is controlled local interoperability, not a public write test.
+
+A separate local read-only review retrieved the configured current owner's actual
+public records, including Coffee on Argyle and its verified AndFS image/avatar,
+and historical APDS photos from preserved older records. Full old edit/profile
+semantics, exhaustive historical media durability and physical Safari/mobile
+recording remain outside this release's acceptance.
+
+The homepage previews three verified owner roots using the same pinned message
+component. The main feed initially renders twenty cached originals, offers older
+cached posts, and has an explicit bounded sync control. History sync checkpoints
+its next owner link and has a twelve-second network budget per request; missing
+conversation ancestors retain their poll cursor for retry. Completeness is never
+inferred from an empty or bounded reply result.
 
 ## Writes behind the TLS proxy
 
@@ -147,3 +174,29 @@ owner/reply authorization; no cross-origin CORS access is enabled.
 Local proxy-origin regression tests cover both public origins, local requests,
 foreign/null/scheme/port/lookalike origins, spoofed forwarded headers, and invalid
 signed content. Production verification remains a separate release check.
+
+## Completed local integration — 2026-10-30
+
+The homepage previews the three latest cached owner originals using the pinned
+shared message component. Cached links remain if modules fail. Timeline pages
+also supply cached text links without JavaScript and post-specific descriptions.
+A missing selected post has an explicit unavailable-cache message. The preview
+reads local verified storage; visiting the timeline initiates synchronization.
+
+Synchronization shares a 12-second network deadline and reports partial results
+while retaining cached content. Missing conversation parents remain retryable;
+the relay cursor does not advance past their pending replies.
+
+`deno task timeline:roundtrip` uses two browser origins, disposable identities and
+a local HTTP relay. It observes site image publication, a reply from a second
+Wiredove widget client, inbound site synchronization and reload, verified audio
+and video playback/seeking in both clients, and relay outage/retry without
+duplicates. The second client is a shared-widget harness, not the full production
+Wiredove website. No public test messages are sent.
+
+Deno checks, 14 backend/host tests, the separate-origin browser suite and local
+relay roundtrip pass. Full-site homepage layouts are checked at 1280/390/320px,
+and module-failure fallback is checked with writes blocked. Production deployment
+and real owner/history/legacy-media verification remain separate release gates.
+Rollback the site revision and asset pin together and restart; retain the entire
+timeline-data directory (including images, media, blocks and cursor) independently.

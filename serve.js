@@ -343,7 +343,7 @@ function signalCard(post) {
   `;
 }
 
-function signalHomeHtml(posts) {
+function signalHomeHtml(posts, timelinePreview = '') {
   const latest = posts.slice(0, 7);
 
   return `
@@ -361,6 +361,7 @@ function signalHomeHtml(posts) {
         <a href="mailto:ev@evbogue.com?subject=Subscribe%20me%20to%20evbogue.com">Subscribe by email</a>
       </nav>
 
+      ${timelinePreview}
       <section class="listing" aria-labelledby="latest-heading">
         <h2 id="latest-heading">Latest Writing</h2>
         ${
@@ -492,14 +493,30 @@ app.get("/ddc", async (c) => {
   }
 });
 
+async function cachedTimelinePosts() {
+  try { return (await getTimeline()).readPosts(); }
+  catch { return []; }
+}
+function timelineExcerpt(post) {
+  const text = (post.parsed.body || '').replace(/!\[[^\]]*\]\([^)]+\)/g, 'Image attachment');
+  return text.slice(0, 180) || (post.parsed.type ? post.parsed.type + ' attachment' : 'Timeline post');
+}
+function timelineLinks(posts) {
+  return '<ol>' + posts.map(post => `<li><a href="/timeline/?post=${encodeURIComponent(post.id)}">${escapeHtml(timelineExcerpt(post))}</a></li>`).join('') + '</ol>';
+}
 async function timelinePage(c) {
   const site = siteFromRequest(c, SITE_REGISTRY);
   if (site.id !== "evbogue.com") return c.notFound();
   const template = await Deno.readTextFile(`${ROOT}/timeline/index.html`);
-  const body = template.split("<body>")[1].split("</body>")[0];
+  let body = template.split("<body>")[1].split("</body>")[0];
+  const posts = (await getTimeline()).readPosts();
+  const selected = posts.find(post => post.id === c.req.query('post'));
+  const readable = selected ? [selected, ...posts.filter(post => post.parsed.reply === selected.id)]
+    : posts.filter(post => post.author === timelineConfig.owner && !post.parsed.reply && !post.parsed.edit && !['profile', 'edit'].includes(post.parsed.type)).slice(0, 20);
+  body = body.replace('<wiredove-widget', `<div id="timeline-fallback"><p>${c.req.query('post') && !selected ? 'This post is not available in the local cache.' : readable.length ? 'Cached timeline posts:' : 'No verified posts are cached yet. History may be unavailable or incomplete.'}</p>${timelineLinks(readable)}</div><wiredove-widget`);
   return c.html(sitePage(site, {
     title: "Timeline",
-    description: "Posts and conversations from Ev Bogue.",
+    description: selected ? timelineExcerpt(selected) : "Notes, images, audio, and video from Ev Bogue.",
     body,
   }));
 }
@@ -529,7 +546,13 @@ app.get("/", async (c) => {
       ${searchResults.map((post) => signalCard(post)).join("")}
     </main>
   `
-    : signalHomeHtml(allPosts);
+    : signalHomeHtml(allPosts, site.id === 'evbogue.com' ? `
+      <section class="listing" aria-labelledby="timeline-preview-heading">
+        <h2 id="timeline-preview-heading">Latest on the timeline</h2>
+        <div id="timeline-preview">${timelineLinks((await cachedTimelinePosts()).filter(post => post.author === timelineConfig.owner && !post.parsed.reply && !post.parsed.edit && !['profile', 'edit'].includes(post.parsed.type)).slice(0, 3))}</div>
+        <p><a href="/timeline/">Visit the timeline</a></p>
+        <script type="module" src="/timeline/preview.js"></script>
+      </section>` : '');
   return c.html(sitePage(site, {
     title: site.title,
     description: site.tagline || site.description,

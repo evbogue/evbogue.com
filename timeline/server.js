@@ -179,13 +179,13 @@ export async function createTimeline(
     }
     hits.set(key, entry);
   }
-  async function gossip(value) {
+  async function gossip(value, options = {}) {
     if (!config.relay) throw new Error("Wiredove relay is disabled");
     const response = await relayFetch(config.relay + "/gossip", {
       method: "POST",
       headers: { "Content-Type": "text/plain" },
       body: value,
-      signal: AbortSignal.timeout(10000),
+      signal: options.signal || AbortSignal.timeout(10000),
     });
     if (!response.ok) {
       throw new Error("Wiredove relay returned " + response.status);
@@ -199,20 +199,20 @@ export async function createTimeline(
       ? result.messages.filter((x) => typeof x === "string")
       : [];
   }
-  async function remoteContent(proof) {
-    const values = await gossip(proof.contentHash);
+  async function remoteContent(proof, options) {
+    const values = await gossip(proof.contentHash, options);
     for (const value of values) {
       if (await an.hash(value) === proof.contentHash) return value;
     }
     throw new Error("Wiredove content is not available");
   }
-  async function remoteRow(id) {
-    const values = await gossip(id);
+  async function remoteRow(id, options) {
+    const values = await gossip(id, options);
     for (const signature of values) {
       try {
         const proof = await open(signature);
         if (proof.author !== id && await an.hash(signature) !== id) continue;
-        return await verify(signature, await remoteContent(proof));
+        return await verify(signature, await remoteContent(proof, options));
       } catch { /* Not the requested valid message. */ }
     }
     return null;
@@ -269,37 +269,45 @@ export async function createTimeline(
     }
     syncAt = Date.now();
     let added = 0;
+    const syncOptions = { signal: AbortSignal.timeout(12000) };
+    let complete = true;
     async function ingest(row, depth = 0) {
       if (!row || messages.has(row.id) || depth > 12) return;
       if (row.parsed.reply && !messages.has(row.parsed.reply)) {
-        await ingest(await remoteRow(row.parsed.reply), depth + 1);
+        await ingest(await remoteRow(row.parsed.reply, syncOptions), depth + 1);
+        if (!messages.has(row.parsed.reply)) throw new Error("Conversation parent is unavailable");
       }
       try {
         await accept(row.signature, row.content);
         added++;
       } catch { /* Unrelated or unsupported event. */ }
     }
-    let row = await remoteRow(config.owner);
-    if (row && row.id === historyHead) row = historyNext ? await remoteRow(historyNext) : null;
-    else if (row) historyHead = row.id;
-    const visited = new Set();
-    for (let count = 0; row && count < 30 && !visited.has(row.id); count++) {
-      visited.add(row.id);
-      await ingest(row);
-      historyNext = row.parsed.previous || null;
-      row = historyNext ? await remoteRow(historyNext) : null;
-    }
+    try {
+      let row = await remoteRow(config.owner, syncOptions);
+      if (row && row.id === historyHead) row = historyNext ? await remoteRow(historyNext, syncOptions) : null;
+      else if (row) historyHead = row.id;
+      const visited = new Set();
+      for (let count = 0; row && count < 30 && !visited.has(row.id); count++) {
+        visited.add(row.id);
+        await ingest(row);
+        historyNext = row.parsed.previous || null;
+        row = historyNext ? await remoteRow(historyNext, syncOptions) : null;
+      }
+    } catch { complete = false; }
     await atomic(directory + "/cursor.json", { since: cursor, seen: [...syncSeen], historyNext, historyHead });
-    const response = await relayFetch(
-      config.relay + "/gossip/poll?since=" + cursor,
-      { signal: AbortSignal.timeout(10000) },
-    );
-    if (!response.ok) throw new Error("Wiredove reply sync failed");
-    const polled = JSON.parse(
-      new TextDecoder().decode(
-        await readLimited(response.body, 4 * 1024 * 1024),
-      ),
-    );
+    let polled = { messages: [] };
+    try {
+      const response = await relayFetch(
+        config.relay + "/gossip/poll?since=" + cursor,
+        { signal: syncOptions.signal },
+      );
+      if (!response.ok) throw new Error("Wiredove reply sync failed");
+      polled = JSON.parse(
+        new TextDecoder().decode(
+          await readLimited(response.body, 4 * 1024 * 1024),
+        ),
+      );
+    } catch { complete = false; }
     const values = Array.isArray(polled.messages) ? polled.messages : [];
     const contentByHash = new Map();
     for (const value of values) {
@@ -307,7 +315,7 @@ export async function createTimeline(
         contentByHash.set(await an.hash(value), value);
       }
     }
-    let requests = 0, complete = true;
+    let requests = 0;
     for (const signature of values) {
       let proof;
       try {
@@ -324,7 +332,7 @@ export async function createTimeline(
           break;
         }
         try {
-          content = await remoteContent(proof);
+          content = await remoteContent(proof, syncOptions);
         } catch {
           complete = false;
           continue;
@@ -337,7 +345,9 @@ export async function createTimeline(
         (incoming.author === config.owner ||
           incoming.parsed.replyto === config.owner ||
           messages.has(incoming.parsed.reply))
-      ) await ingest(incoming);
+      ) {
+        try { await ingest(incoming); } catch { complete = false; continue; }
+      }
       syncSeen.add(messageID);
     }
     if (complete && Number.isFinite(polled.nextSince)) {

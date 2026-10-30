@@ -26,6 +26,7 @@ try {
   widget.pageSize = 20;
   widget.presentation = {
     appearance: 'publication', title: '',
+    emptyMessage: 'No verified posts cached yet. Wiredove history may be unavailable or incomplete.',
     replyCount: post => replyCounts.get(post.id) || 0,
     resolveImage: async hash => {
       if (!images.has(hash)) images.set(hash, request('image?hash=' + encodeURIComponent(hash))
