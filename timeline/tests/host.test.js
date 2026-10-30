@@ -88,3 +88,32 @@ Deno.test('host retains exact signed pending post for relay retry and confirmati
     assert.equal((await host.loadPosts()).length, 1);
   } finally { await Deno.remove(directory, { recursive: true }); }
 });
+
+Deno.test('pinned widget assets match provenance and are served only from the manifest', async () => {
+  const pin = JSON.parse(await Deno.readTextFile(new URL('../wiredove-client.json', import.meta.url)));
+  assert.match(pin.revision, /^[a-f0-9]{40}$/);
+  assert.equal(pin.repository, 'https://github.com/evbogue/wiredove');
+  assert.equal(pin.entry, '/timeline/vendor/wiredove/' + pin.revision + '/client/ui.js');
+  for (const [path, expected] of Object.entries(pin.files)) {
+    const bytes = await Deno.readFile(new URL('../vendor/wiredove/' + pin.revision + '/' + path, import.meta.url));
+    const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)))
+      .map(byte => byte.toString(16).padStart(2, '0')).join('');
+    assert.equal(digest, expected, path);
+  }
+  const directory = await Deno.makeTempDir();
+  try {
+    const key = await an.gen();
+    const app = await createTimeline({ directory, config: { owner: key.slice(0, 44), relay: '', wiredoveClient: pin.entry } });
+    const get = path => app.fetch(new Request('http://localhost' + path));
+    const response = await get(pin.entry);
+    assert.equal(response.status, 200);
+    assert.match(response.headers.get('Content-Type'), /javascript/);
+    assert.match(await response.text(), /defineWiredoveElements/);
+    const style = await get(pin.entry.replace('client/ui.js', 'style.css'));
+    assert.equal(style.status, 200);
+    assert.match(style.headers.get('Content-Type'), /text\/css/);
+    assert.equal((await get(pin.entry.replace('client/ui.js', 'config.json'))).status, 404);
+    const different = (pin.revision[0] === '0' ? '1' : '0') + pin.revision.slice(1);
+    assert.equal((await get(pin.entry.replace(pin.revision, different))).status, 404);
+  } finally { await Deno.remove(directory, { recursive: true }); }
+});

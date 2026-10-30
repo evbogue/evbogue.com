@@ -8,9 +8,16 @@ const directory = await Deno.makeTempDir();
 const key = await an.gen(), visitor = await an.gen();
 const post = await compose(key, 'Hello from Wiredove. <script>throw new Error("unsafe")</script>', { name: 'Local owner' });
 const reply = await compose(visitor, 'Local visitor reply', { reply: post.id, replyto: post.author });
-const pinnedRoot = Deno.env.get('WIREDOVE_TEST_ROOT');
-const widgetRoot = pinnedRoot ? new URL('file://' + pinnedRoot.replace(/\/$/, '') + '/')
+const pinnedRoot = Deno.env.get('WIREDOVE_TEST_ROOT') || Deno.args[0];
+let widgetRoot = pinnedRoot ? new URL('file://' + pinnedRoot.replace(/\/$/, '') + '/')
   : new URL('../../../wiredove/', import.meta.url);
+if (!pinnedRoot) {
+  try {
+    const pin = JSON.parse(await Deno.readTextFile(new URL('../wiredove-client.json', import.meta.url)));
+    if (!/^[a-f0-9]{40}$/.test(pin.revision)) throw new Error('Invalid widget test revision');
+    widgetRoot = new URL('../vendor/wiredove/' + pin.revision + '/', import.meta.url);
+  } catch (error) { if (!(error instanceof Deno.errors.NotFound)) throw error; }
+}
 const widgetServer = Deno.serve({ hostname: '127.0.0.1', port: 0, onListen() {} }, async request => {
   const path = new URL(request.url).pathname;
   if (!(path.startsWith('/client/') || path.startsWith('/vendor/') || path === '/style.css') || path.includes('..')) return new Response('Not found', { status: 404 });
@@ -65,7 +72,7 @@ try {
   assert.equal(await page.getByPlaceholder('Search messages').inputValue(), 'Hello');
   await page.goto(origin + '/timeline/?post=' + encodeURIComponent(post.id));
   await page.locator('wiredove-thread').waitFor();
-  const screenshotDirectory = Deno.env.get('TIMELINE_SCREENSHOTS');
+  const screenshotDirectory = Deno.env.get('TIMELINE_SCREENSHOTS') || Deno.args[1];
   for (const width of [1280, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'Horizontal overflow at ' + width);

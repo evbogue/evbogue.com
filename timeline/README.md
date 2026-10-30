@@ -1,8 +1,8 @@
 # Wiredove timeline embed
 
 `/timeline/` mounts the actual `wiredove-widget` from
-`https://wiredove.net/client/ui.js` inside the site shell. `WIREDOVE_CLIENT`
-overrides the module URL. Wiredove owns the feed, search, profiles, threads,
+the pinned Wiredove revision `781cfdc65a3c0d41ef691d10707d4f28c92d11b4`
+inside the site shell. `WIREDOVE_CLIENT` overrides the module URL for development. Wiredove owns the feed, search, profiles, threads,
 and post rendering. There is no local renderer or copied component fork.
 
 `client.js` supplies verified records and durable navigation through the widget's
@@ -119,8 +119,8 @@ deno task timeline:test
 deno task timeline:browser
 ```
 
-The browser check serves actual Wiredove modules from the adjacent checkout on a
-second localhost origin, uses disposable owner/visitor records, and blocks all
+The browser check serves the pinned actual Wiredove modules on a second localhost
+origin (or the adjacent checkout when no pin exists), uses disposable owner/visitor records, and blocks all
 public requests. It checks owner feed, conversation replies, search, durable
 links/reload/Back, 1280/390/320px layout, and module failure without a fallback UI.
 `WIREDOVE_TEST_ROOT=/absolute/path/to/pinned/assets` runs it against a generated
@@ -128,5 +128,6 @@ asset snapshot instead. The suite also injects a disposable browser identity int
 the shared reply composer and signs/stores through the real site API, including
 a failed-save retry with draft retention. This is a test harness; the normal
 page remains read-only. Set `TIMELINE_SCREENSHOTS=/tmp/timeline-screenshots` to save
-screenshots. An interactive cross-client reply round trip, real owner-history
+screenshots. Alternatively, pass the absolute widget asset directory and screenshot
+directory as the first and second task arguments. An interactive cross-client reply round trip, real owner-history
 inspection and complete legacy-media acceptance remain unverified.

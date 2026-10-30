@@ -13,7 +13,7 @@ async function git(...args) {
 const resolved = decoder.decode(await git('rev-parse', revision + '^{commit}')).trim();
 if (resolved !== revision) throw new Error('Revision is not an exact commit');
 const paths = decoder.decode(await git('ls-tree', '-r', '--name-only', revision, '--', 'client', 'vendor', 'style.css', 'LICENSE'))
-  .trim().split('\n').filter(path => !path.endsWith('_test.js') &&
+  .trim().split('\n').filter(path => !/[._]test\.js$/.test(path) &&
     !path.includes('/tests/') && !path.includes('demo') && !path.endsWith('.html'));
 if (!paths.includes('client/ui.js') || !paths.includes('style.css')) throw new Error('Missing Wiredove entry points');
 const root = new URL('../timeline/vendor/wiredove/', import.meta.url);

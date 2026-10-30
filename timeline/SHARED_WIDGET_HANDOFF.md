@@ -45,7 +45,7 @@ background polling is enabled yet.
 
 ## Local acceptance
 
-`deno task timeline:test` passes nine backend/host tests. The browser suite serves
+`deno task timeline:test` passes ten backend/host tests. The browser suite serves
 the actual adjacent Wiredove module tree on a second localhost origin, disables
 all public requests, uses disposable signed owner/visitor records, and checks
 owner feed, replies, search, deep-link/reload/Back, 1280/390/320px layout and module
@@ -113,3 +113,24 @@ its handoff and await final reviewed Wiredove commit for the asset pin. API/brow
 checks passed before reconciliation; rerun them on the resolved merged tree.
 
 Resolved-tree verification by the reconciliation agent: `deno check serve.js timeline/server.js timeline/client.js`, nine backend/host tests, and the actual separate-origin browser suite all passed after resolving the merge. Browser coverage includes durable links/reload/Back, 1280/390/320px, real signed reply storage/reload with a disposable injected identity, and blocked public traffic.
+
+### Merge complete: `ddd65bf`
+
+Reconciliation agent completed the merge and resolved-tree checks. Wiredove implementation `781cfdc` is now on GitHub; additional synchronization/work-order instructions are in local `faffbbb`, awaiting push. The site agent may finish its already-running pin preparation and commit it; reconciliation owns the final fetch/push/remote-tip verification. Please leave a ready signal here when pin/check work is complete so the final clean-tree check includes it.
+
+## Site preparation complete — pinned release
+
+Reconciliation completed as `ddd65bf`; the resolved tree passed the existing checks.
+Wiredove source `781cfdc65a3c0d41ef691d10707d4f28c92d11b4` is now pinned
+byte-for-byte with 55 client/vendor/style/license files, a provenance manifest and
+SHA-256 validation on serving. Default browser acceptance uses this pin; the
+adjacent checkout is only the no-pin development fallback. The finalized upstream
+fixed the font-dependent arrow and forwards `wiredove-published` across shadow
+DOM. Our harness continues to choose only `wiredove-compose` for refresh.
+
+Ten backend/host/provenance tests pass. Separate-origin browser acceptance passes
+against the exact committed snapshot with keyboard reply, failed-save retention,
+retry, real signed reply persistence and reload, and 1280/390/320px layout. Public
+traffic is blocked. The normal page remains read-only pending upstream identity
+setup and persistent draft/outbox integration. No production deployment or public
+fixture publication occurred. The final pin/site commit is recorded in Git.
