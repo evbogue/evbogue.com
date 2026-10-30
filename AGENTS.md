@@ -251,7 +251,7 @@ Coordination: `../wiredove/SHARED_UI_WORK_ORDER.md` owns shared behavior; `../an
 Owner public key (match exactly; preserve `+` and `=` when encoding URLs):
 
 ```text
-evSFOKnXaF9ZWSsff8bVfXP6+XnGZUj8XNp6bca590k=
+ev4/4vRXmzuPXlIUFbvGaFkiIkKfErW9nLnvKTPls5A=
 ```
 
 #### Read first and preserve existing work
