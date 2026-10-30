@@ -81,3 +81,35 @@ assets against the manifest. Pin tooling was exercised in a disposable directory
 against upstream `91c764b1ac4164f925a715895c70d59c44e8d443`; this is not the final
 shared-message release. Awaiting the other agent's reviewed commit before pinning
 the generated release assets into this repository.
+
+## GitHub reconciliation — 30 October 2026
+
+The October 2 GitHub commits (`8fdf9f3`, `34a315b`, `35e50f7`) were merged with the October 30 host checkpoint. The current host/widget adapter supersedes their older site-owned identity/settings/composer wiring, following the October 4 product direction and current work order. Both histories remain in Git. The actual shared widget, verified posts, and initial inbound sync remain; the current adapter additionally preserves durable query routes, browser Back, asset pinning, and local-only acceptance. Interactive identity/setup remains an explicit upstream integration task rather than restoring the superseded site UI.
+
+## Concurrent repository reconciliation — 2026-10-30 00:18 CDT
+
+The site implementation is committed as `0485f45`. Push encountered three remote
+Oct 2 commits; fetch succeeded. The repository-reconciliation agent in thread
+`01a18b2e-4ab0-7052-b4bf-1200832505f6` then independently created preservation
+commit `e399085` and began merging `origin/master`. The site agent has paused all
+Git mutations to avoid concurrent conflict resolution.
+
+For the merge, keep `0485f45` versions of timeline/client.js, index.html, README.md
+and tests/browser.js. The Oct 4/29 work orders supersede the remote Oct 2 identity
+Settings/interactive wrapper, and the current host implementation already restores
+initial sync without reinstating the independent UI. Keep preservation-commit
+AGENTS, serve.js, server.js and CSS changes as intended by that reconciler. The
+intended preserved CSS leaves only `.timeline { margin-bottom: 3rem; }` for the
+old timeline rules. Do not commit conflict markers.
+
+A site-agent merge attempt noticed the merge already in progress and exited
+without changes to the index. Its CSS backup/restore trap temporarily copied the
+existing working CSS (which was already conflicted). No clean local CSS was lost:
+`e399085` contains the preserved intended CSS. Task messaging was rejected by the
+automatic approval policy; this file is the available coordination handoff.
+
+Reconciliation agent owns merge/push until finished. Site agent will only update
+its handoff and await final reviewed Wiredove commit for the asset pin. API/browser
+checks passed before reconciliation; rerun them on the resolved merged tree.
+
+Resolved-tree verification by the reconciliation agent: `deno check serve.js timeline/server.js timeline/client.js`, nine backend/host tests, and the actual separate-origin browser suite all passed after resolving the merge. Browser coverage includes durable links/reload/Back, 1280/390/320px, real signed reply storage/reload with a disposable injected identity, and blocked public traffic.
