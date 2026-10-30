@@ -139,3 +139,25 @@ When finished, report:
 - Current service status
 - Deployment verification
 - Any manual follow-up
+
+## Interactive timeline production release — 2026-10-30
+
+Application revision `6e41e327d000342ca912a537f2d34799f6663b54` is live in
+tmux `10:0.0`, `/root/evbogue.com`, port 8082. The existing command remains
+`deno serve -A --no-lock --port=8082 serve.js`; frozen-lock Deno checks passed
+before reload. Import-map overrides pin APDS/IDB resolution and use vendored
+ANProto/YAML after upstream wrapper hashes changed.
+
+Public config confirms owner `ev4/4vRXmzuPXlIUFbvGaFkiIkKfErW9nLnvKTPls5A=`
+and Wiredove pin `4e56893506bf21e1b12e15129d4a8692a6a0ad34`. Public client,
+session, preview and widget SHA-256 hashes match the reviewed files. Mobile
+390px browser smoke passes identity controls, no overflow and no JS errors with
+all non-GET requests blocked. No public test posts were sent. Proxy untouched.
+
+Data backup: `/root/deploy-backups/evbogue-timeline-pre-reload-20261030.tar.gz`
+contains the entire timeline-data directory. Server-only video and subscriber
+backup files were preserved. Previous disk revision was e534983, but the running
+process was older. Roll back to a reviewed known-good code revision using a
+separate worktree or deliberate revert, retaining current data and private site
+files; reload only the app in tmux. Do not blindly restore data after new writes.
+Real owner/history and complete legacy-media acceptance remain open checks.
