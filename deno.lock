@@ -2,6 +2,7 @@
   "version": "5",
   "specifiers": {
     "npm:hono@4.12.15": "4.12.15",
+    "npm:idb@8.0.3": "8.0.3",
     "npm:nodemailer@8.0.6": "8.0.6",
     "npm:playwright@*": "1.62.1",
     "npm:playwright@1.62.1": "1.62.1"
@@ -14,6 +15,9 @@
     },
     "hono@4.12.15": {
       "integrity": "sha512-qM0jDhFEaCBb4TxoW7f53Qrpv9RBiayUHo0S52JudprkhvpjIrGoU1mnnr29Fvd1U335ZFPZQY1wlkqgfGXyLg=="
+    },
+    "idb@8.0.3": {
+      "integrity": "sha512-LtwtVyVYO5BqRvcsKuB2iUMnHwPVByPCXFXOpuU96IZPPoPN6xjOGxZQ74pgSVVLQWtUOYgyeL4GE98BY5D3wg=="
     },
     "nodemailer@8.0.6": {
       "integrity": "sha512-Nm2XeuDwwy2wi5A+8jPWwQwNzcjNjhWdE3pVLoXEusxJqCnAPAgnBGkSmiLknbnWuOF9qraRpYZjfxqtKZ4tPw=="
@@ -43,6 +47,7 @@
   },
   "workspace": {
     "dependencies": [
+      "npm:idb@8.0.3",
       "npm:playwright@1.62.1"
     ]
   }

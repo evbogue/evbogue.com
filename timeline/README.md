@@ -200,3 +200,11 @@ and module-failure fallback is checked with writes blocked. Production deploymen
 and real owner/history/legacy-media verification remain separate release gates.
 Rollback the site revision and asset pin together and restart; retain the entire
 timeline-data directory (including images, media, blocks and cursor) independently.
+
+Deno preflight resolves the optional AndFS APDS adapter through its exact already
+locked `es2022/__apds.mjs` bundle, maps its ANProto/YAML helpers to local vendored
+code, and resolves IDB as integrity-locked `npm:idb@8.0.3`. CDN-generated wrappers
+varied between machines; their lock hashes are retained rather than overwritten.
+The timeline itself uses explicit AndFS stores and never boots that optional APDS
+default. `deno check --frozen` and an error-free `deno info --json serve.js` were
+verified on both the development machine and production host.
