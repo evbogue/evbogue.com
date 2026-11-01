@@ -201,7 +201,7 @@ function sitePage(
   }" href="/feed.xml">
     <link rel="stylesheet" href="/${
     escapeHtml(site.cssFile)
-  }?v=20261101home">
+  }?v=20261101dark">
     ${headExtra}
   </head>
   <body>

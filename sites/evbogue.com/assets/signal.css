@@ -1,14 +1,32 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   --bg: #fafafa;
   --text: #181818;
   --muted: #666;
   --faint: #e6e6e6;
   --link: #0088cc;
+  --body-text: #303030;
+  --surface: #f0f0f0;
+  --field: #fff;
+  --button-text: #fff;
   --max: 38rem;
   --wide: 58rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #181818;
+    --text: #ededed;
+    --muted: #aaa;
+    --faint: #383838;
+    --link: #66c2ff;
+    --body-text: #d5d5d5;
+    --surface: #252525;
+    --field: #202020;
+    --button-text: #181818;
+  }
 }
 
 html {
@@ -157,14 +175,14 @@ h3 {
 
 p,
 li {
-  color: #303030;
+  color: var(--body-text);
 }
 
 .intro p,
 .dek,
 .card-dek,
 .project-blurb {
-  color: #333;
+  color: var(--body-text);
 }
 
 .start-links {
@@ -264,7 +282,7 @@ li {
 }
 
 .post-body code {
-  background: #f0f0f0;
+  background: var(--surface);
   border-radius: 3px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.9em;
@@ -272,7 +290,7 @@ li {
 }
 
 .post-body pre {
-  background: #f0f0f0;
+  background: var(--surface);
   overflow-x: auto;
   padding: 1rem;
 }
@@ -363,14 +381,15 @@ li {
 }
 
 .newsletter-form input {
-  background: white;
+  background: var(--field);
+  color: var(--text);
   flex: 1;
   min-width: 0;
 }
 
 .newsletter-form button {
   background: var(--text);
-  color: white;
+  color: var(--button-text);
   cursor: pointer;
 }
 
@@ -477,7 +496,7 @@ footer {
 
 .project-frame {
   align-items: center;
-  background: #f3f3f3;
+  background: var(--surface);
   color: var(--muted);
   display: flex;
   height: 100%;
