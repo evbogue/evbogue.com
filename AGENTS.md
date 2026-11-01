@@ -505,3 +505,22 @@ live historical playback is no-sample, not accepted by local fixtures. Live pin
 remains `220d155`; compatibility source `59c2b67` still needs deployment. This check
 made no signed publications or production configuration changes; public GET readers
 may use their normal verified caches. It does not block independent shared UI parity.
+
+
+## Scoped shared widget source release — 2026-11-01
+
+The source pin now targets Wiredove `2992b9d`, whose website and embedded application
+consume the same full profile/settings/rich message-control widgets. The upstream
+release passed build/frozen check, 41 unit tests, 14 media tests, the complete browser
+suite and standalone profile-links checks. Real two-origin acceptance includes signed
+photo original/crop metadata and bytes, empty bio, links, reload/re-crop, scoped
+settings refresh, edit versions and hide/unhide with immutable originals. Public
+writes were blocked. Accessibility/discovery/post-image cursor work stays deferred.
+
+The unrelated local historical-image limit patch is preserved in the Git stash
+`Deferred historical-image size-limit fix outside shared-widget release`; restore it
+selectively in a later task. This pin update does not include that patch. Deployment
+results are recorded separately after live verification.
+Site frozen check, all 16 backend/host tests and the expanded two-origin application
+browser suite passed against this exact pin, including old-link/APDS/anblob/AndFS
+compatibility, migration, edits/reload and exact retry. No public test writes occurred.

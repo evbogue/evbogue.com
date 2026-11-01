@@ -126,3 +126,19 @@ AndFS gateway full/range and hash-route reads, and unchanged signed originals.
 No public fixtures are published. These tests do not audit every production-stored
 historical item, all profile-photo/format combinations or physical Safari/mobile.
 The source pin update has not been deployed by this compatibility-check session.
+
+
+## Shared profile/settings/control widgets — 2026-11-01
+
+The application source pin is Wiredove `2992b9d`. It includes the full shared
+profile header/editor, settings screen, and rich edit-history/moderation control
+factories. The site still supplies configuration/services only; it does not rebuild
+those screens. Signed photo originals/crops, profile links/empty bio, revisions,
+identity storage and historical readers remain intact. Archive-only settings use
+selected-backend refresh/retry. Accessibility, discovery and historical-image-limit
+changes from the paused batch are excluded from this release.
+
+The historical-image size-limit patch is preserved separately in the named local
+Git stash; it is not fixed by this pin update. Full shared-application parity and
+physical-device acceptance remain open. See upstream SHARED_UI_WORK_ORDER.md for
+the scoped widget acceptance and current deferred work.
