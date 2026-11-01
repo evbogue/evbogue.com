@@ -47,9 +47,13 @@ try {
       )
     );
     staging.append(...messages);
-    target.after(staging);
+    target.append(staging);
     await Promise.all(styled);
-    target.replaceChildren(...messages);
+    for (const child of [...target.childNodes]) {
+      if (child !== staging) child.remove();
+    }
+    staging.hidden = false;
+    staging = null;
   }
 } catch { /* Server-rendered cached links remain readable. */ }
 finally { staging?.remove(); }

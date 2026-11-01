@@ -544,7 +544,7 @@ app.get("/", async (c) => {
       <section class="listing home-timeline" aria-labelledby="timeline-preview-heading">
         <div class="home-section-heading"><h2 id="timeline-preview-heading">On the timeline</h2><a href="/timeline/">View timeline <span aria-hidden="true">→</span></a></div>
         <div id="timeline-preview">${timelineLinks((await cachedTimelinePosts()).filter(post => post.author === timelineConfig.owner && !post.parsed.reply && !post.parsed.edit && !['profile', 'edit'].includes(post.parsed.type)).slice(0, 3))}</div>
-        <script type="module" src="/timeline/preview.js?v=20261101styles"></script>
+        <script type="module" src="/timeline/preview.js?v=20261101reveal"></script>
       </section>` : '');
   return c.html(sitePage(site, {
     title: site.title,
