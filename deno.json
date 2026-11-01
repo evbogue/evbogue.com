@@ -4,8 +4,8 @@
     "weekly-report": "deno run --allow-read --allow-write --allow-env --allow-net scripts/weekly_report.js",
     "screenshots": "deno run -A scripts/screenshot_projects.js",
     "timeline:test": "deno test --allow-read --allow-write timeline/tests/timeline.test.js timeline/tests/host.test.js",
-    "timeline:browser": "deno run -A timeline/tests/browser.js",
-    "timeline:roundtrip": "deno run -A timeline/tests/roundtrip.browser.js"
+    "timeline:browser": "deno run -A timeline/tests/application.browser.js",
+    "timeline:roundtrip": "deno run -A timeline/tests/application.browser.js"
   },
   "imports": {
     "playwright": "npm:playwright@1.62.1",

@@ -1,3 +1,10 @@
+# Historical widget integration evidence
+
+The full application replacement supersedes the widget integration below.
+See [README.md](README.md) for the active application pin, ownership, migration,
+checks and release procedure. The following dated notes describe the previous
+component integration and do not establish full-application acceptance.
+
 # Latest local acceptance — 2026-10-30
 
 Pinned upstream 4e56893506bf21e1b12e15129d4a8692a6a0ad34. The local HTTP

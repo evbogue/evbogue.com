@@ -24,6 +24,7 @@ const json = (value, status = 200) =>
     headers: {
       "Content-Type": "application/json",
       "Cache-Control": "no-store",
+      "Access-Control-Allow-Origin": "*",
     },
   });
 const safeID = (id) => encodeURIComponent(id);
@@ -98,6 +99,10 @@ export async function createTimeline(
     );
     media.set(meta.andfs, meta);
   }
+  let archiveOrder = [];
+  try { archiveOrder = JSON.parse(await Deno.readTextFile(directory + '/application-order.json')); } catch (error) { if (!(error instanceof Deno.errors.NotFound)) throw error; }
+  archiveOrder = [...new Set(archiveOrder)].filter(id => messages.has(id));
+  for (const row of [...messages.values()].sort((a,b) => a.timestamp - b.timestamp || a.id.localeCompare(b.id))) if (!archiveOrder.includes(row.id)) archiveOrder.push(row.id);
   async function atomic(path, value) {
     const temporary = path + "." + crypto.randomUUID() + ".tmp";
     try {
@@ -107,6 +112,7 @@ export async function createTimeline(
       await Deno.remove(temporary).catch(() => {});
     }
   }
+  await atomic(directory + '/application-order.json', archiveOrder);
   function allowed(author, parent, replyto) {
     if (!parent) return author === config.owner;
     const target = messages.get(parent);
@@ -114,10 +120,9 @@ export async function createTimeline(
   }
   function acceptShape(row) {
     const p = row.parsed;
-    if (p.edit) {
-      throw new Error("Edit events are not supported in this first version");
-    }
-    if (!allowed(row.author, p.reply, p.replyto)) {
+    if (p.edit && messages.get(p.edit)?.author !== row.author) throw new Error('Only the original author can edit a known post');
+    if (!(p.body || '').trim() && !p.andfs && !p.blob && ['name', 'bio', 'links', 'image'].some(field => Object.hasOwn(p, field))) return;
+    if (!p.edit && !allowed(row.author, p.reply, p.replyto)) {
       throw new Error(
         "Only Ev can start posts; replies must reference a known conversation and its author",
       );
@@ -129,6 +134,11 @@ export async function createTimeline(
       content: row.content,
       relayed: !!row.relayed,
     });
+    if (!archiveOrder.includes(row.id)) {
+      const next = [...archiveOrder, row.id];
+      await atomic(directory + '/application-order.json', next);
+      archiveOrder = next;
+    }
     messages.set(row.id, row);
   }
   async function accept(signature, content, local = false) {
@@ -273,6 +283,10 @@ export async function createTimeline(
     let complete = true;
     async function ingest(row, depth = 0) {
       if (!row || messages.has(row.id) || depth > 12) return;
+      if (row.parsed.edit && !messages.has(row.parsed.edit)) {
+        await ingest(await remoteRow(row.parsed.edit, syncOptions), depth + 1);
+        if (!messages.has(row.parsed.edit)) throw new Error('Edit original is unavailable');
+      }
       if (row.parsed.reply && !messages.has(row.parsed.reply)) {
         await ingest(await remoteRow(row.parsed.reply, syncOptions), depth + 1);
         if (!messages.has(row.parsed.reply)) throw new Error("Conversation parent is unavailable");
@@ -344,7 +358,8 @@ export async function createTimeline(
         incoming &&
         (incoming.author === config.owner ||
           incoming.parsed.replyto === config.owner ||
-          messages.has(incoming.parsed.reply))
+          messages.has(incoming.parsed.reply) ||
+          messages.get(incoming.parsed.edit)?.author === incoming.author)
       ) {
         try { await ingest(incoming); } catch { complete = false; continue; }
       }
@@ -446,7 +461,6 @@ export async function createTimeline(
   const assets = new Set([
     "client.js",
     "host.js",
-    "session.js",
     "preview.js",
     "protocol.js",
     "vendor/yaml.js",
@@ -475,6 +489,7 @@ export async function createTimeline(
             await Deno.readFile(new URL("./" + path, import.meta.url)),
             {
               headers: {
+                "Access-Control-Allow-Origin": "*",
                 "Content-Type": path.endsWith(".css")
                   ? "text/css; charset=utf-8"
                   : path.endsWith(".ttf")
@@ -495,8 +510,9 @@ export async function createTimeline(
           if (digest !== pin.files[asset]) throw new Error('Pinned Wiredove asset integrity failure');
           return new Response(bytes, { headers: {
             'Content-Type': asset.endsWith('.css') ? 'text/css; charset=utf-8'
-              : asset.endsWith('.js') ? 'text/javascript; charset=utf-8' : 'text/plain; charset=utf-8',
+              : asset.endsWith('.png') ? 'image/png' : asset.endsWith('.ttf') ? 'font/ttf' : asset.endsWith('.js') ? 'text/javascript; charset=utf-8' : 'text/plain; charset=utf-8',
             'X-Content-Type-Options': 'nosniff',
+            'Access-Control-Allow-Origin': '*',
           } });
         }
         if (request.method === "GET" && path === "api/config") {
@@ -505,6 +521,7 @@ export async function createTimeline(
             maxMediaBytes: config.maxMediaBytes,
             relay: config.relay,
             wiredoveClient: config.wiredoveClient,
+            wiredoveApplication: config.wiredoveApplication,
           });
         }
         if (request.method === "GET" && path === "api/image") {
@@ -514,6 +531,12 @@ export async function createTimeline(
             imageRequests.set(id, operation);
           }
           return json({ source: await imageRequests.get(id) });
+        }
+        if (request.method === 'GET' && path === 'api/application') {
+          const after = Number(url.searchParams.get('after') || 0);
+          if (!Number.isSafeInteger(after) || after < 0 || after > archiveOrder.length) throw new Error('Invalid archive cursor');
+          const ids = archiveOrder.slice(after, after + 100);
+          return json({ records: ids.map(id => { const row = messages.get(id); return { id, signature: row.signature, content: row.content }; }), cursor: after + ids.length, more: after + ids.length < archiveOrder.length, scope: 'backend-archive' });
         }
         if (request.method === "GET" && path === "api/posts") {
           return json({
@@ -589,7 +612,7 @@ export async function createTimeline(
           if (path === "api/sync") {
             return await mutate(async () => json(await sync()));
           }
-          if (path === "api/posts" || path === "api/import") {
+          if (path === "api/posts" || path === "api/import" || path === "api/application") {
             const data = JSON.parse(
               new TextDecoder().decode(
                 await readLimited(
@@ -638,7 +661,7 @@ export async function createTimeline(
               return json({
                 id: row.id,
                 saved: true,
-                relayed: !!row.relayed,
+                relayed: path === 'api/application' && !config.relay ? true : !!row.relayed,
                 relayError,
               }, 201);
             });

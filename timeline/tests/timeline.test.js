@@ -335,3 +335,54 @@ Deno.test('unavailable reply parents do not advance the relay cursor past an uni
     await sync(); assert.equal(app.readPosts().length, 2);
   } finally { await Deno.remove(directory, { recursive: true }); }
 });
+
+Deno.test('full application archive preserves cursors, profile events, authorization and exact artifacts across restart', async () => {
+  const directory = await Deno.makeTempDir();
+  const owner = await an.gen(), visitor = await an.gen();
+  const config = { owner: owner.slice(0,44), relay: '', maxMediaBytes: 33554432, mediaQuotaBytes: 1073741824 };
+  try {
+    let app = await createTimeline({ directory, config });
+    const publish = async record => await app.fetch(new Request('http://local/timeline/api/application', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(record) }));
+    const root = await compose(owner, 'Owner original');
+    assert.equal((await publish(root)).status, 201);
+    const page = await (await app.fetch(new Request('http://local/timeline/api/application'))).json();
+    assert.equal(page.records[0].signature, root.signature);
+    const profile = await compose(visitor, '', { name: 'Local visitor', bio: '' });
+    assert.equal((await publish(profile)).status, 201);
+    assert.equal((await publish(await compose(visitor, 'Unauthorized root'))).status, 400);
+    const reply = await compose(visitor, 'Reply', { reply: root.id, replyto: root.author, previous: profile.id });
+    assert.equal((await publish(reply)).status, 201);
+    assert.equal((await publish(reply)).status, 201);
+    assert.equal((await publish({ ...reply, content: 'tampered' })).status, 400);
+    app = await createTimeline({ directory, config });
+    const next = await (await app.fetch(new Request('http://local/timeline/api/application?after=' + page.cursor))).json();
+    assert.deepEqual(next.records.map(row => row.id), [profile.id, reply.id]);
+    assert.equal(next.records[1].content, reply.content);
+    assert.equal(next.cursor, 3);
+  } finally { await Deno.remove(directory, { recursive: true }); }
+});
+
+Deno.test('Wiredove edit events target original IDs, retain signed originals and reject another author', async () => {
+  const directory = await Deno.makeTempDir(), owner = await an.gen(), visitor = await an.gen();
+  const config = { owner: owner.slice(0,44), relay: '', maxMediaBytes: 33554432, mediaQuotaBytes: 1073741824 };
+  try {
+    let app = await createTimeline({ directory, config });
+    const publish = record => app.fetch(new Request('http://local/timeline/api/application', {method:'POST',body:JSON.stringify(record)}));
+    const root = await compose(owner,'Owner original'), reply = await compose(visitor,'Visitor original',{reply:root.id,replyto:root.author});
+    for(const row of [root,reply]) assert.equal((await publish(row)).status,201);
+    const edit = await compose(visitor,'Visitor edited',{edit:reply.id,previous:reply.id});
+    assert.equal((await publish(edit)).status,201);
+    assert.equal((await publish(await compose(owner,'Forbidden edit',{edit:reply.id}))).status,400);
+    assert.equal((await publish(await compose(visitor,'Unknown target',{edit:await an.hash('missing')}))).status,400);
+    app = await createTimeline({directory,config});
+    assert.equal(app.readPosts().find(row=>row.id===reply.id).content,reply.content);
+    assert.equal(app.readPosts().find(row=>row.id===edit.id).content,edit.content);
+    assert.equal(app.readPosts().find(row=>row.id===edit.id).parsed.edit,reply.id);
+    const remoteEdit = await compose(visitor,'Visitor relay edit',{edit:reply.id,previous:edit.id});
+    const relayFetch = url => Promise.resolve(Response.json(url.includes('/poll?') ? {messages:[remoteEdit.signature,remoteEdit.content],nextSince:2} : {messages:[]}));
+    app = await createTimeline({directory,config:{...config,relay:'http://local-relay'},relayFetch});
+    await app.fetch(new Request('http://local/timeline/api/sync',{method:'POST'}));
+    assert.equal(app.readPosts().find(row=>row.id===remoteEdit.id)?.content,remoteEdit.content);
+    assert.equal(app.readPosts().find(row=>row.id===reply.id).content,reply.content);
+  } finally { await Deno.remove(directory,{recursive:true}); }
+});

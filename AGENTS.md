@@ -427,3 +427,33 @@ roundtrip verify image publication, replies/reload, audio/video playback/seek an
 outage retry without duplicate records. Full-site mobile homepage/fallback checks
 block writes. This does not prove full production Wiredove website parity or
 legacy-media completeness; production deployment remains pending.
+
+## Full application replacement — 2026-11-01
+
+The timeline now mounts the shared full application from pinned Wiredove
+`220d155f288821c228416bdb6e6964f0b58d0210`, replacing old widget routing,
+reply-count and publication glue. `timeline/session.js` was removed. Homepage
+previews remain consumers of the individual shared message widget. See
+`timeline/README.md` for the current boundary; older widget notes are historical.
+
+The existing backend exposes `/timeline/api/application` with a persistent
+append-order cursor while retaining exact signed artifacts, owner/reply policy,
+quotas, relay verification and media storage/endpoints. Metadata-only profiles
+and same-author known-post edits are supported. The app explicitly upgrades the
+old browser identity/text/File drafts and exact outbox without deleting them.
+Compose is owner-only; keys remain browser-owned. Local two-origin acceptance
+covers replies both ways, reload, profile creation and exact retry after outage,
+plus mobile/light/dark screenshots. Full feature/device/history completeness
+remains separate. Production release evidence follows after deployment.
+
+## Final-review corrections — 2026-11-01
+
+Ev accepts offline signing with available history, including possible forks; do
+not add an online latest-head prerequisite. Shared artifact readers retain failed
+historical image requests beyond archive-cursor advancement and retry on later
+pulls, notifying mounted galleries only after hash verification. Visitor reply
+edits use the existing Wiredove composer and `edit` target contract; backend and
+relay ingestion validate the original author and preserve all original bytes.
+Local tests verify edit publication, original retention, foreign-author rejection,
+relay edit ingestion and display/reload in both full application mounts. No
+production deployment or public fixture publication is included in this checkpoint.

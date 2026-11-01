@@ -32,12 +32,14 @@ try {
 } catch (error) {
   if (!(error instanceof Deno.errors.NotFound)) throw error;
 }
+const wiredoveApplication = wiredoveClient.replace(/client\/ui\.js$/, 'dist/app-v1/app-embed.js');
 let timeline;
 const getTimeline = () =>
   timeline ??= createTimeline({
     directory: Deno.env.get("TIMELINE_DATA") || `${REPO_ROOT}/timeline-data`,
     config: {
       ...timelineConfig,
+      wiredoveApplication,
       publicOrigins: ["https://evbogue.com", "https://www.evbogue.com"],
       wiredoveClient: Deno.env.get("WIREDOVE_CLIENT") ||
         wiredoveClient,
@@ -513,7 +515,7 @@ async function timelinePage(c) {
   const selected = posts.find(post => post.id === c.req.query('post'));
   const readable = selected ? [selected, ...posts.filter(post => post.parsed.reply === selected.id)]
     : posts.filter(post => post.author === timelineConfig.owner && !post.parsed.reply && !post.parsed.edit && !['profile', 'edit'].includes(post.parsed.type)).slice(0, 20);
-  body = body.replace('<wiredove-widget', `<div id="timeline-fallback"><p>${c.req.query('post') && !selected ? 'This post is not available in the local cache.' : readable.length ? 'Cached timeline posts:' : 'No verified posts are cached yet. History may be unavailable or incomplete.'}</p>${timelineLinks(readable)}</div><wiredove-widget`);
+  body = body.replace('<div id="wiredove-timeline"', `<div id="timeline-fallback"><p>${c.req.query('post') && !selected ? 'This post is not available in the local cache.' : readable.length ? 'Cached timeline posts:' : 'No verified posts are cached yet. History may be unavailable or incomplete.'}</p>${timelineLinks(readable)}</div><div id="wiredove-timeline"`);
   return c.html(sitePage(site, {
     title: "Timeline",
     description: selected ? timelineExcerpt(selected) : "Notes, images, audio, and video from Ev Bogue.",

@@ -86,7 +86,7 @@ export async function verify(signature, content) {
       !['audio', 'video', 'image'].includes(parsed.type) ||
       !Number.isSafeInteger(parsed.media_size) || parsed.media_size < 0)
   ) throw new Error('Invalid AndFS attachment')
-  if (!(parsed.body || '').trim() && !parsed.andfs && !parsed.blob) {
+  if (!(parsed.body || '').trim() && !parsed.andfs && !parsed.blob && !['name', 'bio', 'links', 'image'].some(field => Object.hasOwn(parsed, field))) {
     throw new Error('Write a post or attach media')
   }
   return { id: await an.hash(signature), signature, content, ...proof, parsed }
