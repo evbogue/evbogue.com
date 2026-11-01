@@ -457,3 +457,12 @@ relay ingestion validate the original author and preserve all original bytes.
 Local tests verify edit publication, original retention, foreign-author rejection,
 relay edit ingestion and display/reload in both full application mounts. No
 production deployment or public fixture publication is included in this checkpoint.
+
+## Full application production verification — 2026-11-01
+
+The `d7dd9f6` full application checkpoint is live and verified. Local frozen
+check, 16 backend/host tests and two-origin browser acceptance passed. Public
+owner/pin and application hashes match; desktop/390/320px smoke checks preserve
+cached reading with browser writes blocked. Production write acceptance was not
+attempted. See `Agents/DEVOPS.md` for backup, screenshots, rollback and limits.
+Earlier statements that deployment is pending are historical checkpoints.

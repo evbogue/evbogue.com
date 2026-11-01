@@ -166,3 +166,32 @@ permalink/reload, reply identity setup, three-post homepage preview and no-JS
 cached links with no JavaScript errors. Only inbound synchronization was allowed;
 no public test post was sent. Full history completeness, edit/moderation parity
 and physical Safari recording remain follow-up checks.
+
+## Full application release verified — 2026-11-01
+
+Application revision `d7dd9f6ae993e6ab4c6d162ce394cd267f124bff` was already
+running when this deployment session inspected production (8082 process started
+2026-11-01 17:07 UTC). Confirmed VPS disk revision, fast-forward pull, frozen Deno
+check, public owner configuration and pinned Wiredove revision
+`220d155f288821c228416bdb6e6964f0b58d0210`. Public application entry/runtime
+SHA-256 hashes match the source manifest. No redundant app reload was needed;
+proxy, private subscriber backup and production-only video were untouched.
+
+Local frozen check, all 16 backend/host tests and the full two-origin application
+browser suite passed, including compatible reply edits and reload. Live Chromium
+checks at 1200/390/320px mount the real application with no page errors or document
+overflow; Ev's profile, posts and an image are visible. Screenshots are retained
+locally in ignored `test-results/production-*.png`. All non-GET/HEAD browser traffic
+was blocked: the resulting automatic-sync failure notice is expected, and these
+checks do not establish production write/retry behavior. Public archive GET
+returned 76 records with scope `backend-archive`; this does not establish complete
+network history. No public fixtures or signed test publications were sent.
+
+Current full-data safety backup:
+`/root/deploy-backups/evbogue-timeline-verified-20261101.tar.gz`.
+This was taken after the application was already live, not before its original
+reload. The October 30 pre-reload backup remains available. For code rollback use
+the earlier reviewed release `8690a4c` in a separate worktree or deliberate revert,
+retain current timeline/private files, and reload only tmux `10:0.0` on 8082.
+Do not restore old data over subsequent signed publications. Full feature/history
+coverage and physical Safari/device recording remain outside this verification.
