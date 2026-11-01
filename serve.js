@@ -201,7 +201,7 @@ function sitePage(
   }" href="/feed.xml">
     <link rel="stylesheet" href="/${
     escapeHtml(site.cssFile)
-  }?v=20261004widget">
+  }?v=20261101home">
     ${headExtra}
   </head>
   <body>
@@ -346,32 +346,24 @@ function signalCard(post) {
 }
 
 function signalHomeHtml(posts, timelinePreview = '') {
-  const latest = posts.slice(0, 7);
+  const latest = posts.slice(0, 5);
 
   return `
     <main class="home">
       <section class="intro">
-        <p class="kicker">Ev Bogue writes and builds on the open web.</p>
-        <h1>Independent publishing, small tools, and notes from the platform wreckage.</h1>
-        <p>I’m Ev, in Chicago. This is my home base for essays about AI, media, autonomy, protocols, and the business of staying human online.</p>
+        <h1>Ev Bogue</h1>
+        <p>I’m a writer and developer in Chicago. I write about the web, AI, media, and publishing, and build tools for an independent internet.</p>
       </section>
 
-      <nav class="start-links" aria-label="Start here">
-        <a href="/about">About Ev</a>
-        <a href="/projects">Projects</a>
-        <a href="/posts">Full Archive</a>
-        <a href="mailto:ev@evbogue.com?subject=Subscribe%20me%20to%20evbogue.com">Subscribe by email</a>
-      </nav>
-
-      ${timelinePreview}
       <section class="listing" aria-labelledby="latest-heading">
-        <h2 id="latest-heading">Latest Writing</h2>
+        <div class="home-section-heading"><h2 id="latest-heading">Recent writing</h2><a href="/posts">All writing <span aria-hidden="true">→</span></a></div>
         ${
     latest.length
       ? latest.map((post) => signalCard(post)).join("")
       : '<p class="empty-state">No posts are published yet.</p>'
   }
       </section>
+      ${timelinePreview}
     </main>
   `;
 }
@@ -549,10 +541,9 @@ app.get("/", async (c) => {
     </main>
   `
     : signalHomeHtml(allPosts, site.id === 'evbogue.com' ? `
-      <section class="listing" aria-labelledby="timeline-preview-heading">
-        <h2 id="timeline-preview-heading">Latest on the timeline</h2>
+      <section class="listing home-timeline" aria-labelledby="timeline-preview-heading">
+        <div class="home-section-heading"><h2 id="timeline-preview-heading">On the timeline</h2><a href="/timeline/">View timeline <span aria-hidden="true">→</span></a></div>
         <div id="timeline-preview">${timelineLinks((await cachedTimelinePosts()).filter(post => post.author === timelineConfig.owner && !post.parsed.reply && !post.parsed.edit && !['profile', 'edit'].includes(post.parsed.type)).slice(0, 3))}</div>
-        <p><a href="/timeline/">Visit the timeline</a></p>
         <script type="module" src="/timeline/preview.js"></script>
       </section>` : '');
   return c.html(sitePage(site, {

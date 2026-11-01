@@ -566,3 +566,30 @@ footer {
 }
 
 .timeline { margin-bottom: 3rem; }
+
+/* Keep homepage sections aligned with the introduction's reading column. */
+.home .listing {
+  padding-inline: 0;
+  padding-bottom: 2rem;
+}
+
+.home .intro { padding-bottom: 1.5rem; }
+.home .intro h1 { font-size: 2rem; }
+.home .intro p { margin-bottom: 0; }
+
+.home-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-section-heading h2 { margin: 0; }
+.home-section-heading > a { font-size: 0.82rem; }
+.home .card .tag,
+.home .card .author,
+.home .card .author + .dot { display: none; }
+.home .card-dek { font-size: 0.94rem; }
+.home-timeline { overflow-wrap: anywhere; }
