@@ -481,3 +481,27 @@ legacy-audio screenshot. This source update is not a new production release:
 coordinate deployment with Wiredove's legacy-endpoint CORS change and verify live
 reads. Full historical-corpus/format/profile-photo and physical-device acceptance
 remain open. Previous production verification remains the `220d155` pin.
+
+## Live historical-content spot check — 2026-11-01
+
+Read-only inspection verified all 76 site archive artifacts (February 2025 onward).
+Live Chromium checked old text/reply permalinks and reload, legacy image/avatar
+query/hash routes and desktop/mobile layout with HTTP writes/WebSockets blocked.
+17 of 21 referenced APDS image hashes resolve to verified data URLs. Two have no
+verified matching source at the configured relay; two exist and verify there but
+are rejected by this site's 4 MiB gossip-response/source limit. The latter data
+URLs are 6,642,923 and 6,229,059 bytes, so treat this as a bounded-reader service bug,
+not missing content. Full evidence and hashes are in Wiredove's
+SHARED_UI_WORK_ORDER.md (2026-11-01 live historical inspection checkpoint).
+
+- [ ] Fix historical-image response/source limits with a deliberate bounded image
+  budget and exact-hash validation; add >4 MiB source/restart/corruption coverage.
+  Affected hashes: `eZszCbyrM5+Fb7qygZkd299utO6w0Y4GFvb0FpofKrs=` and
+  `IAHOFgdj8OgAShV/YvY2MMWAauPV6PAB01Qm68gjF1c=`. Do not rewrite signed posts
+  or remove limits globally from unrelated relay/message queries.
+
+The site media store is empty and its archive contains no audio/video attachments;
+live historical playback is no-sample, not accepted by local fixtures. Live pin
+remains `220d155`; compatibility source `59c2b67` still needs deployment. This check
+made no signed publications or production configuration changes; public GET readers
+may use their normal verified caches. It does not block independent shared UI parity.
