@@ -466,3 +466,18 @@ owner/pin and application hashes match; desktop/390/320px smoke checks preserve
 cached reading with browser writes blocked. Production write acceptance was not
 attempted. See `Agents/DEVOPS.md` for backup, screenshots, rollback and limits.
 Earlier statements that deployment is pending are historical checkpoints.
+
+## Historical compatibility source checkpoint — 2026-11-01
+
+Source now pins Wiredove `a078b53`, with the shared original-ID anblob reader and
+explicit legacy-media service selection. The site restores older search, identity,
+reply/compose query links and encoded hash links. `timeline/README.md` describes the
+transport policy and remaining scope. Frozen check, all 16 backend/host tests and
+the expanded real two-origin application suite passed with public writes blocked.
+Fixtures include decodable APDS inline/avatar images, raw WebM/chunked WAV legacy
+playback and byte equality, audio seek, corrupt retry, old links and AndFS gateway/
+range/hash routes; all signed originals remain unchanged. Reviewed the 390px dark
+legacy-audio screenshot. This source update is not a new production release:
+coordinate deployment with Wiredove's legacy-endpoint CORS change and verify live
+reads. Full historical-corpus/format/profile-photo and physical-device acceptance
+remain open. Previous production verification remains the `220d155` pin.

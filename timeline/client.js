@@ -8,7 +8,16 @@ try {
   const listeners = new Set();
   const readRoute = () => {
     const params = new URLSearchParams(location.search);
-    return location.hash.slice(1) || params.get('post') || params.get('author') || config.owner;
+    let hash = location.hash.slice(1);
+    try { hash = decodeURIComponent(hash); } catch {}
+    if (hash) return hash;
+    if (params.has('post')) return params.get('post');
+    if (params.has('author')) return params.get('author');
+    if (params.has('q')) return '?' + params.get('q');
+    if (params.has('reply')) return 'reply=' + params.get('reply');
+    if (params.get('view') === 'compose') return 'compose';
+    if (params.get('view') === 'identity') return 'settings';
+    return config.owner;
   };
   const notify = () => Promise.all([...listeners].map(listener => listener()));
   const navigation = {
@@ -28,6 +37,7 @@ try {
     owner: config.owner, backendURL: location.origin + '/timeline',
     mediaURL: location.origin + '/timeline', canonicalURL: location.origin + '/timeline',
     legacyImageURL: location.origin + '/timeline/api/image',
+    legacyMediaURL: config.legacyMediaURL || 'https://wiredove.net',
     capabilities: { compose: true, reply: true, upload: true, recording: false, notifications: false },
   });
   document.getElementById('timeline-fallback')?.remove();

@@ -522,6 +522,7 @@ export async function createTimeline(
             relay: config.relay,
             wiredoveClient: config.wiredoveClient,
             wiredoveApplication: config.wiredoveApplication,
+            legacyMediaURL: config.legacyMediaURL,
           });
         }
         if (request.method === "GET" && path === "api/image") {

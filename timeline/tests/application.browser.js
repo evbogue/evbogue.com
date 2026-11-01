@@ -1,4 +1,5 @@
 // Actual site bootstrap + full pinned application, two origins, disposable keys.
+import { historicalCompatibility } from './historical.browser.js';
 import { chromium } from 'playwright';
 import { strict as assert } from 'node:assert';
 import { an, compose } from '../protocol.js';
@@ -15,15 +16,15 @@ try {
   await app.fetch(new Request('http://local/timeline/api/posts', { method: 'POST', body: JSON.stringify(root) }));
   server = Deno.serve({ hostname: '127.0.0.1', port: 0, onListen() {} }, request => new URL(request.url).pathname === '/seed' ? new Response('<!doctype html><title>Storage fixture</title>', { headers: { 'Content-Type': 'text/html' } }) : app.fetch(request));
   const origin = 'http://127.0.0.1:' + server.addr.port;
-  second = Deno.serve({ hostname: '127.0.0.1', port: 0, onListen() {} }, () => new Response(`<!doctype html><meta name="viewport" content="width=device-width"><div id="embed"></div><script type="module">import {mountWiredove} from '${origin}${pin.entry.replace('client/ui.js','dist/app-v1/app-embed.js')}';window.app=await mountWiredove(document.getElementById('embed'),{backendURL:'${origin}/timeline',mediaURL:'${origin}/timeline'});window.ready=true;</script>`, { headers: { 'Content-Type': 'text/html' } }));
+  second = Deno.serve({ hostname: '127.0.0.1', port: 0, onListen() {} }, () => new Response(`<!doctype html><meta name="viewport" content="width=device-width"><div id="embed"></div><script type="module">import {mountWiredove} from '${origin}${pin.entry.replace('client/ui.js','dist/app-v1/app-embed.js')}';const config=await(await fetch('${origin}/timeline/api/config')).json();window.app=await mountWiredove(document.getElementById('embed'),{backendURL:'${origin}/timeline',mediaURL:'${origin}/timeline',legacyImageURL:'${origin}/timeline/api/image',legacyMediaURL:config.legacyMediaURL});window.ready=true;</script>`, { headers: { 'Content-Type': 'text/html' } }));
   const otherOrigin = 'http://127.0.0.1:' + second.addr.port;
   config.publicOrigins.push(otherOrigin);
-  const cache = new Map();
+  const cache = new Map(), allowedOrigins = new Set([origin, otherOrigin]);
   browser = await chromium.launch({ channel: 'chrome', headless: true });
   const context = await browser.newContext({ viewport: { width: 1200, height: 1000 } });
   const routeHandler = async route => {
     const request = route.request(), url = request.url();
-    if (url.startsWith(origin + '/') || url.startsWith(otherOrigin + '/')) return route.continue();
+    if (allowedOrigins.has(new URL(url).origin)) return route.continue();
     if (request.method() !== 'GET') return route.abort();
     const match = url.match(/^https:\/\/esm.sh\/gh\/evbogue\/apds@(4934fac|78abedd)\/(.+)$/);
     if (match || /^https:\/\/cdn.jsdelivr.net\/npm\/idb@8(?:\.0\.3)?\/\+esm$/.test(url)) {
@@ -120,6 +121,9 @@ try {
   assert.equal(app.readPosts().find(row=>row.id===pending[0].id).signature,pending[0].signature);
   await embed.evaluate(async id => { await app.session.refresh(); await app.navigate(id); }, pending[0].id);
   await embed.getByText('Local owner exact retry',{exact:true}).waitFor();
+  await historicalCompatibility({ page, embed, ownerPage, app, config, directory, owner, origin, pin,
+    allowOrigin: value => { allowedOrigins.add(value); } });
+  await page.evaluate(id => timelineApplication.navigate(id), root.id);
   await ownerContext.close();
   await Deno.mkdir('test-results' , { recursive: true });
   for (const width of [1200,390,320]) for (const colorScheme of ['light','dark']) {

@@ -105,3 +105,24 @@ code rollback does not undo public signed publications. Proxy/DNS/TLS stay uncha
 
 Remaining scope: full shared feature parity, complete historical/legacy media
 coverage, physical Safari/device recording, and broader network discovery.
+
+## Historical compatibility checks — 2026-11-01
+
+The source pin is Wiredove `a078b53`. The site adapter preserves `?post=`,
+`?author=`, `?q=`, `?reply=`, `?view=identity`, owner `?view=compose`, and raw or
+percent-encoded hash links. Wiredove owns the resulting screens/composer actions.
+Legacy APDS data-URL image hashes still resolve through the verified image service.
+Historical anblob playback uses the shared reader and original IDs/verifier/cache.
+Signed `media_source` selects its source; otherwise `legacyMediaURL` from site
+configuration defaults to `https://wiredove.net`, independently of new AndFS storage.
+The remote legacy blob service must permit CORS GET/HEAD. This source change requires
+Wiredove's companion CORS release before deployment acceptance of source-free reads.
+
+`deno task timeline:browser` now includes `tests/historical.browser.js` through the
+real site bootstrap and separate-origin application. Disposable signed fixtures
+cover APDS image/avatar decoding/reload, old links, raw WebM and chunked WAV legacy
+playback and byte equality, audio seek, corrupt-read rejection/retry, source adapter,
+AndFS gateway full/range and hash-route reads, and unchanged signed originals.
+No public fixtures are published. These tests do not audit every production-stored
+historical item, all profile-photo/format combinations or physical Safari/mobile.
+The source pin update has not been deployed by this compatibility-check session.
