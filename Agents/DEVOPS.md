@@ -195,3 +195,32 @@ the earlier reviewed release `8690a4c` in a separate worktree or deliberate reve
 retain current timeline/private files, and reload only tmux `10:0.0` on 8082.
 Do not restore old data over subsequent signed publications. Full feature/history
 coverage and physical Safari/device recording remain outside this verification.
+
+## Shared widget release verified — 2026-11-01
+
+Application `65c817587584f9849680fa269f72501e0f2fe44c` is live on port 8082,
+`/root/evbogue.com`, tmux 10:0.0. It pins Wiredove
+`2992b9d4a9a7726f35e788ebe2df8d8bf2a14611`, also deployed on wiredove.net. Source
+frozen check, all 16 backend/host tests and expanded real two-origin browser
+acceptance passed before release. Public config and pinned entry/runtime, three
+shared widgets, profile/settings/renderer adapters and manifest hashes match.
+
+Pre-update full-data backup (includes cached images/media):
+`/root/deploy-backups/evbogue-timeline-before-widgets-65c8175.tar.gz` (mode 600).
+Previous source was `93e1abf`. Reloaded only the site process with original
+`deno serve -A --no-lock --port=8082 serve.js`, working directory and complete
+runtime environment preserved. Temporary private restart files were removed on
+exec; no environment secrets were printed. Production-only video and subscriber
+backup are intact; reverse proxy unchanged. For code rollback restore reviewed
+`93e1abf` code through an isolated worktree or deliberate revert, preserve current
+timeline/private files, run the frozen check and reload only this tmux app with its
+existing environment. Do not restore old data over later signed publications.
+
+Live isolated 390/1200px light/dark public profile checks mounted the real shared
+app with no document/application overflow or JS exceptions. Reviewed the live 390px
+dark screenshot from the Wiredove checkout's ignored test-results directory. All
+HTTP writes and WebSockets were blocked; automatic-sync failure and unavailable
+images under those restrictions are expected. No public fixture/profile/post/upload
+or identity backup was written. This does not prove production publication/retry,
+full historical availability or physical-device behavior. Accessibility and unrelated
+historical-image limit/discovery changes are excluded from this scoped release.

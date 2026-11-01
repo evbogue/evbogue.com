@@ -524,3 +524,12 @@ results are recorded separately after live verification.
 Site frozen check, all 16 backend/host tests and the expanded two-origin application
 browser suite passed against this exact pin, including old-link/APDS/anblob/AndFS
 compatibility, migration, edits/reload and exact retry. No public test writes occurred.
+
+## Shared widget production verification — 2026-11-01
+
+Application `65c8175` with Wiredove pin `2992b9d` is deployed and verified. See
+Agents/DEVOPS.md for the full-data backup, preserved command/environment, hash and
+read-only responsive browser evidence and rollback. Full widget local checks and
+site 16-test/two-origin acceptance passed. Accessibility, discovery and historical
+image-limit work remain deferred outside this release; their named stashes are
+preserved. No production fixture publication or secret backup download occurred.
