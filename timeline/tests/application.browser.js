@@ -51,7 +51,9 @@ try {
   assert.equal(await page.getByRole('button', { name: 'Compose', exact: true }).count(), 0);
   await page.evaluate(id => window.timelineApplication.navigate(id), root.id);
   console.log('Migrated site ready');
-  await page.getByRole('button', { name: 'Reply', exact: true }).first().click();
+  const replyButton = page.getByRole('button', { name: 'Reply', exact: true }).first();
+  await replyButton.focus();
+  await page.keyboard.press('Enter');
   assert.equal(await page.getByPlaceholder('Write a message').inputValue(), 'Migrated visitor reply draft');
   await page.getByRole('button', { name: 'Restore previous attachment: previous.wav', exact: true }).waitFor();
   await page.getByPlaceholder('Write a message').fill('Local full application visitor reply');
@@ -86,7 +88,8 @@ try {
   await embed.getByText('Local edited visitor reply', { exact: true }).waitFor();
   await embed.getByRole('button',{name:'Create or import identity',exact:true}).click();
   await embed.getByPlaceholder('How should people know you?').fill('Local Reverse Visitor');
-  await embed.getByRole('button',{name:'Create identity',exact:true}).click();
+  await embed.getByRole('button',{name:'Create identity',exact:true}).focus();
+  await embed.keyboard.press('Enter');
   await embed.getByRole('button',{name:'Save changes',exact:true}).click();
   await embed.getByRole('button',{name:'Save changes',exact:true}).waitFor({state:'hidden'});
   await embed.evaluate(id => app.navigate(id), root.id);
