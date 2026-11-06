@@ -107,6 +107,45 @@ Deno.test('owner-only roots, visitor replies, duplicate posts, durable storage a
     await f.close()
   }
 })
+Deno.test('edits apply to the author\'s own post only; profile statements store without post content', async () => {
+  const f = await fixture()
+  try {
+    const root = await compose(f.ownerKey, 'Original body', { name: 'Ev' })
+    assert.equal((await f.call('api/posts', root)).status, 201)
+    // Another author's edit of Ev's post is rejected.
+    const foreign = await compose(f.visitorKey, 'Hijacked', { edit: root.id, previous: root.id })
+    assert.equal((await f.call('api/posts', foreign)).status, 400)
+    // An edit whose target is missing is rejected on direct post...
+    const orphan = await compose(f.ownerKey, 'Too early', { edit: await an.hash('nobody'), previous: root.id })
+    assert.equal((await f.call('api/posts', orphan)).status, 400)
+    // ...but lands via /api/import when the target arrives in the same batch.
+    const root2 = await compose(f.ownerKey, 'Second root', { previous: root.id })
+    const edit2 = await compose(f.ownerKey, 'Second root, edited', { edit: root2.id, previous: root2.id, name: 'Renamed' })
+    const imported = await (await f.call('api/import', { posts: [
+      { signature: edit2.signature, content: edit2.content },
+      { signature: root2.signature, content: root2.content },
+    ] })).json()
+    assert.equal(imported.imported, 2)
+    const rows = await (await f.call('api/posts')).json()
+    const stored = rows.posts.find(row => row.id === edit2.id)
+    assert.ok(stored)
+    assert.equal(stored.parsed.edit, root2.id)
+    assert.equal(stored.parsed.body, 'Second root, edited')
+    // The owner's own edit of their post is accepted directly.
+    const edit = await compose(f.ownerKey, 'Edited body', { edit: root.id, previous: root.id, name: 'Renamed' })
+    assert.equal((await f.call('api/posts', edit)).status, 201)
+    // Profile statements: name/image/bio with an empty body store fine.
+    const profile = await compose(f.ownerKey, '', { name: 'Ev', image: 'A'.repeat(43), previous: root.id })
+    assert.equal((await f.call('api/posts', profile)).status, 201)
+    const bio = await compose(f.ownerKey, '', { name: 'Ev', bio: 'Hello', previous: profile.id })
+    assert.equal((await f.call('api/posts', bio)).status, 201)
+    // An empty record with no body, media, edit or profile fields still fails
+    // at compose time: verify() rejects it before it can be signed.
+    await assert.rejects(() => compose(f.ownerKey, '', { previous: root.id }), /Write a post or attach media/)
+  } finally {
+    await f.close()
+  }
+})
 Deno.test('AndFS signed upload, corruption rejection, full/range reads, HEAD and restart', async () => {
   const f = await fixture()
   try {

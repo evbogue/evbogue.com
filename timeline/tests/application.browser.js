@@ -20,7 +20,8 @@ try {
   const otherOrigin = 'http://127.0.0.1:' + second.addr.port;
   config.publicOrigins.push(otherOrigin);
   const cache = new Map(), allowedOrigins = new Set([origin, otherOrigin]);
-  browser = await chromium.launch({ channel: 'chrome', headless: true });
+  // This VM has Playwright's bundled Chrome, not /opt/google/chrome/chrome.
+  browser = await chromium.launch({ ...(Deno.env.get('CHROMIUM_EXECUTABLE') ? { executablePath: Deno.env.get('CHROMIUM_EXECUTABLE') } : { channel: 'chrome' }), headless: true });
   const context = await browser.newContext({ viewport: { width: 1200, height: 1000 } });
   const routeHandler = async route => {
     const request = route.request(), url = request.url();
