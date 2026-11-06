@@ -101,6 +101,32 @@ try {
   await page.evaluate(async () => { await timelineApplication.session.refresh(); });
   await page.reload(); await page.waitForFunction(() => window.timelineApplication);
   await page.getByText('Local reverse application reply',{exact:true}).waitFor();
+  // One disposable identity in both clients: the site already runs as the
+  // visitor; import the same keypair into the embed from its settings view
+  // (the navbar create/import button only exists before any identity is
+  // set), then compare the settings panel on both mounts.
+  await page.goto(origin + '/timeline/?view=identity'); await page.waitForFunction(() => window.timelineApplication);
+  assert.equal(await page.getByRole('link', { name: 'Open your profile', exact: true }).getAttribute('href'), '#' + visitor.slice(0,44));
+  await embed.getByRole('link', { name: 'Settings', exact: true }).click();
+  const keyField = embed.locator('span', { has: embed.getByRole('button', { name: 'Import key', exact: true }) }).locator('textarea');
+  await keyField.fill(visitor);
+  await embed.getByRole('button', { name: 'Import key', exact: true }).click();
+  // The import is async: wait for the rebuilt navbar profile link to point
+  // at the imported pubkey before reading the settings panel.
+  await embed.waitForFunction(pubkey => {
+    const hrefs = [];
+    const walk = root => {
+      for (const link of root.querySelectorAll('a[aria-label="Your profile"]')) hrefs.push(link.getAttribute('href'));
+      for (const el of root.querySelectorAll('*')) if (el.shadowRoot) walk(el.shadowRoot);
+    };
+    walk(document);
+    return hrefs.includes('#' + pubkey);
+  }, visitor.slice(0,44));
+  await embed.getByRole('link', { name: 'Settings', exact: true }).click();
+  assert.equal(await embed.getByRole('link', { name: 'Open your profile', exact: true }).getAttribute('href'), '#' + visitor.slice(0,44));
+  await embed.evaluate(id => window.app.navigate(id), root.id);
+  await embed.getByText('Local edited visitor reply', { exact: true }).waitFor();
+  console.log('One identity in both clients passed');
   const ownerContext = await browser.newContext({ viewport: { width: 1200, height: 950 } });
   await ownerContext.route('**/*', routeHandler);
   const ownerPage = await ownerContext.newPage();
@@ -138,7 +164,7 @@ try {
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   }
   assert.deepEqual(errors, []);
-  console.log('Passed full pinned application: old identity/File/text draft migration, owner-only Compose, signed visitor reply, durable site URLs/reload, separate-origin retrieval/reload, 1200/390/320 light/dark. No public writes.');
+  console.log('Passed full pinned application: old identity/File/text draft migration, owner-only Compose, signed visitor reply, durable site URLs/reload, separate-origin retrieval/reload, one identity in both clients, 1200/390/320 light/dark. No public writes.');
 } finally {
   await browser?.close(); await second?.shutdown(); await server?.shutdown(); await Deno.remove(directory, { recursive: true });
 }
