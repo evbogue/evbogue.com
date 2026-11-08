@@ -228,7 +228,7 @@ Status: planned. This section is the current execution order for the timeline; o
 #### Next ticket: connect the real interactive Wiredove embed
 
 - [ ] Preserve and inspect existing uncommitted site work. Reconcile `timeline/README.md`: its opening correctly describes a read-only widget, while later descriptions of removed controls/background behavior need an explicit historical label or correction after source inspection.
-- [ ] Work with Wiredove’s `SHARED_UI_WORK_ORDER.md` current priority. Document the host/runtime boundary before wiring it. Shared UI and interaction fixes belong upstream; this repo supplies site chrome, configuration, verified data/storage/media services, and capability/route adapters.
+- [ ] Work with Wiredove’s `docs/BEHAVIOR_MATRIX.md` current priority. Document the host/runtime boundary before wiring it. Shared UI and interaction fixes belong upstream; this repo supplies site chrome, configuration, verified data/storage/media services, and capability/route adapters.
 - [ ] Load verified owner originals for the configured Ev public key; keep replies in conversations and profile/edit events out of the ordinary post list. Distinguish truly empty history from unavailable or incomplete synchronization. Start with a real read-only owner-content inspection, without publishing test artifacts.
 - [ ] Pin a known Wiredove client revision and its dependencies with provenance and an update procedure. Confirm actual module availability; avoid depending on an unversioned production module. A pinned asset copy must not become a divergent UI fork.
 - [ ] Enable opening a thread, identity setup when Reply is chosen, draft preservation, signing, publication status, retry, and reload through the supplied Wiredove runtime. Keep top-level posting owner-only. Never configure Ev’s secret key on the server.
@@ -240,7 +240,7 @@ Status: planned. This section is the current execution order for the timeline; o
 
 **Stop point:** the interactive loop works locally. Next prepare a reviewed release and, after release, select actual work for the Fame ledger. Homepage preview, wider historical import, broader moderation, and extra analytics follow only as separate priorities.
 
-Coordination: `../wiredove/SHARED_UI_WORK_ORDER.md` owns shared behavior; `../anproto-fame/WORK_ORDER.md` owns research records. These are local workspace links, not deployment dependencies.
+Coordination: `../wiredove/docs/BEHAVIOR_MATRIX.md` owns shared behavior; `../anproto-fame/WORK_ORDER.md` owns research records. These are local workspace links, not deployment dependencies.
 
 ### Wiredove publication handoff — 2026-10-01
 
@@ -257,7 +257,7 @@ ev4/4vRXmzuPXlIUFbvGaFkiIkKfErW9nLnvKTPls5A=
 #### Read first and preserve existing work
 
 - Site repo: `/Users/evbogue/Code/evbogue.com`. Read this file, `Agents/DESIGNER.md`, `Agents/CODER.md`, `timeline/README.md`, `timeline/config.json`, `timeline/client.js`, `timeline/server.js`, `timeline/index.html`, `serve.js`, and `sites/evbogue.com/assets/signal.css`. Read `Agents/DEVOPS.md` before any authorized deployment.
-- Wiredove repo: `/Users/evbogue/Code/wiredove`. Read its `AGENTS.md`, `WORK_ORDER.md`, `client/README.md`, `client/index.js`, `client/ui.js`, `client/render.js`, `client/protocol.js`, `client/relay.js`, `client/andfs.js`, and `style.css`.
+- Wiredove repo: `/Users/evbogue/Code/wiredove`. Read its `AGENTS.md`, `docs/SECOND_NODE_RECOVERY.md`, `client/README.md`, `client/index.js`, `client/ui.js`, `client/render.js`, `client/protocol.js`, `client/relay.js`, `client/andfs.js`, and `style.css`.
 - Research context: `/Users/evbogue/Code/anproto-fame/README.md`.
 - At research time the site had uncommitted changes in `serve.js`, `timeline/client.js`, and `timeline/server.js`. Wiredove had uncommitted changes in `composer.js`, `media.js`, `profile.js`, `profile_header.js`, `render.js`, `serve.js`, and `style.css`, plus untracked `andfs_media.js`, `client/`, and `vendor/`. Recheck status and diffs; preserve and reconcile this work. Do not reset it, blindly stage it, or assume it is all part of this task.
 - The existing site changes already dynamically import Wiredove and render `wiredove-message`. They are a partial integration, not a completed replacement.
@@ -492,9 +492,9 @@ verified matching source at the configured relay; two exist and verify there but
 are rejected by this site's 4 MiB gossip-response/source limit. The latter data
 URLs are 6,642,923 and 6,229,059 bytes, so treat this as a bounded-reader service bug,
 not missing content. Full evidence and hashes are in Wiredove's
-SHARED_UI_WORK_ORDER.md (2026-11-01 live historical inspection checkpoint).
+docs/SECOND_NODE_RECOVERY.md (production audit and correction).
 
-- [ ] Fix historical-image response/source limits with a deliberate bounded image
+- [x] Fix historical-image response/source limits with a deliberate bounded image
   budget and exact-hash validation; add >4 MiB source/restart/corruption coverage.
   Affected hashes: `eZszCbyrM5+Fb7qygZkd299utO6w0Y4GFvb0FpofKrs=` and
   `IAHOFgdj8OgAShV/YvY2MMWAauPV6PAB01Qm68gjF1c=`. Do not rewrite signed posts
@@ -551,3 +551,17 @@ Ev explicitly requested on 1 November 2026 that all projects also be pushed to g
 - If the remote is missing, query sbot's `messagesByType` for `git-repo` messages and compare repository IDs, authors, names, and known remotes. Names alone are not unique. Only create a repository when no existing match is found: run `node bin.js git.create <project-name>` from `ssbc`, then configure `ssb` with the returned HTTP URL. Remove surrounding JSON quotes and preserve URL encoding.
 - Fetch both remotes again before pushing. If either advanced, reconcile incoming commits and rerun affected checks before a normal push. Push the intended branch to both remotes; never use force or mirror pushes.
 - Verify local HEAD against fresh `git ls-remote --heads origin` and `git ls-remote --heads ssb` results for the intended branch. Re-read HEAD and worktree status afterward to catch concurrent changes. Report any remaining changes or divergence.
+
+## Historical-image limit fixed — 2026-11-07
+
+`f41188c` is deployed. Historical images use a dedicated 48 MiB source budget,
+with bounded streamed relay/cache reads and exact APDS hash checks. Unrelated
+message limits remain unchanged. The two recorded large images now verify and
+decode at 4000×3000. Eighteen unit tests and the full pinned application browser
+suite passed; live 390px light/dark smoke has no overflow/JS exceptions. Runtime
+argv/environment were captured privately and preserved exactly. Backup/rollback:
+`/root/deploy-backups/evbogue-images-f41188c/`; proxy and private data unchanged.
+
+Wiredove's recovery guide records a separate-machine restore of available production
+media and the four image hashes whose original bytes remain unavailable. Do not
+rewrite signed references or mistake missing source data for a reader regression.

@@ -140,5 +140,14 @@ changes from the paused batch are excluded from this release.
 
 The historical-image size-limit patch is preserved separately in the named local
 Git stash; it is not fixed by this pin update. Full shared-application parity and
-physical-device acceptance remain open. See upstream SHARED_UI_WORK_ORDER.md for
+physical-device acceptance remain open. See upstream docs/BEHAVIOR_MATRIX.md for
 the scoped widget acceptance and current deferred work.
+
+## Historical photo reads — 2026-11-07
+
+Large historical APDS images have a dedicated 48 MiB source budget and a bounded
+JSON response allowance. Gossip reads for posts retain the 4 MiB default.
+Cache and upstream values must match the referenced APDS hash before serving;
+oversized streams are cancelled. Regression coverage includes >4 MiB images,
+restart, corrupt cache, oversized response and retry. The two previously rejected
+4000×3000 photos now decode from the deployed service without changing their hashes.

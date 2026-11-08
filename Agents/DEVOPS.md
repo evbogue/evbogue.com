@@ -242,3 +242,19 @@ All 97 timeline-data files match the backup after release. Private video/subscri
 files remain intact. Roll back source/pin to `65c8175` while preserving later
 private/data files, check and reload only tmux `10:0.0` on 8082. Proxy untouched.
 The shell-history restart issue and corrected procedure are documented above.
+
+## Historical image release — 2026-11-07
+
+Source `f41188c` is deployed; application pin remains Wiredove `d80b0b9`.
+The site's two previously rejected historical image sources (6,642,923 and
+6,229,059 bytes) now return exact hash-matching bytes and decode at 4000×3000.
+Unit (18) and pinned application browser suites passed; live mobile light/dark
+smoke passed with HTTP writes/WebSockets blocked. No public test publication.
+
+Pre-release source and consistent timeline-data copy are retained at
+`/root/deploy-backups/evbogue-images-f41188c/`. The root-only `runtime.json` and
+`restart.py` capture and re-exec the exact prior argv/environment; equality was
+verified after restart. Prior source: `9d132c9`. Roll back the code while preserving
+later data and rerun the saved runtime in tmux `10:0.0`; do not touch the proxy.
+Available referenced images are also in the independent media content backup
+recorded in Wiredove's `docs/SECOND_NODE_RECOVERY.md`.
