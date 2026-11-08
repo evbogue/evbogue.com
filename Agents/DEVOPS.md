@@ -81,16 +81,17 @@ The `/path/to/...` placeholders elsewhere in this file resolve to these actual f
 
 ### Safe reload procedure (app only, proxy untouched)
 
-The app is a foreground process in tmux session `10`, so reload it in place — this keeps its exact launch command and env, and never touches the `:443`/`:80` proxy:
+The app is a foreground process in tmux session `10`. Before stopping it, capture
+its actual argv and `/proc/<pid>/environ` into a root-only backup/restart helper.
+Keep secret environment values out of logs/source. Re-exec that captured command
+and environment in the same tmux pane after checking the updated source.
 
-```sh
-ssh root@evbogue.com
-tmux send-keys -t 10:0.0 C-c            # stop the app (8082 goes down ~seconds)
-tmux send-keys -t 10:0.0 Up Enter       # re-run the same command from shell history
-# verify locally, then publicly:
-curl -s -o /dev/null -w '%{http_code}\n' http://localhost:8082/projects   # expect 200
-curl -s -o /dev/null -w '%{http_code}\n' https://evbogue.com/projects      # expect 200
-```
+Do **not** use Up/Enter to restart: the November 7 reload found shell history
+pointing at a deleted temporary helper, which left the app stopped. The recorded
+command is `deno serve -A --no-lock --port=8082 serve.js` in `/root/evbogue.com`;
+verify the running command/environment before each release. Confirm port 8082 and
+public HTTP responses after reload; a successful tmux send-keys is not proof of
+startup. Keep the proxy untouched.
 
 Never `git pull` and expect a `serve.js` change to be live without this. Never kill the `:443`/`:80` processes to "restart the site" — they are the proxy, not the app. And note: the app does **not** auto-start on reboot (foreground tmux process); a reboot needs a manual relaunch of the session-`10` command.
 
@@ -224,3 +225,20 @@ images under those restrictions are expected. No public fixture/profile/post/upl
 or identity backup was written. This does not prove production publication/retry,
 full historical availability or physical-device behavior. Accessibility and unrelated
 historical-image limit/discovery changes are excluded from this scoped release.
+
+## Shared application closeout release — 2026-11-07
+
+Source `9d132c9` is deployed in `/root/evbogue.com`, pinning Wiredove
+`d80b0b9a12a7857d83ac6088e6366c91bb5aa8c0`. Running `/timeline/api/config`
+selects that pin; all 186 public pinned files match manifest SHA-256 hashes.
+Local unit tests (17) and full application browser acceptance passed. Live
+390px light/dark mounts have no horizontal overflow or JavaScript exceptions;
+dark screenshot reviewed. Writes/WebSockets were blocked; sync errors during
+this smoke do not prove live historical-media availability. No public fixtures.
+
+Complete pre-release site backup:
+`/root/deploy-backups/evbogue-closeout-9d132c9/site.tar.gz`; prior source `65c8175`.
+All 97 timeline-data files match the backup after release. Private video/subscriber
+files remain intact. Roll back source/pin to `65c8175` while preserving later
+private/data files, check and reload only tmux `10:0.0` on 8082. Proxy untouched.
+The shell-history restart issue and corrected procedure are documented above.
