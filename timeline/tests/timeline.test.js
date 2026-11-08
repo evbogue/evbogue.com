@@ -1,6 +1,6 @@
 import { strict as assert } from 'node:assert'
 import { an, compose, identity, verify, yaml } from '../protocol.js'
-import { byteRange, createTimeline } from '../server.js'
+import { byteRange, createTimeline, MAX_LEGACY_IMAGE_SOURCE } from '../server.js'
 import { createAndFS } from '../vendor/andfs/andfs.js'
 import { memoryStore } from '../vendor/andfs/stores.js'
 
@@ -424,4 +424,45 @@ Deno.test('Wiredove edit events target original IDs, retain signed originals and
     assert.equal(app.readPosts().find(row=>row.id===remoteEdit.id)?.content,remoteEdit.content);
     assert.equal(app.readPosts().find(row=>row.id===reply.id).content,reply.content);
   } finally { await Deno.remove(directory,{recursive:true}); }
+});
+
+Deno.test('large historical images retain exact bytes across restart, corruption and bounded retry', async () => {
+  const source = 'data:image/png;base64,' + 'A'.repeat(7 * 1024 * 1024);
+  const id = await an.hash(source);
+  let oversized = false, cancelled = false;
+  const f = await fixture(() => {
+    if (!oversized) return Promise.resolve(Response.json({ messages: [source] }));
+    let remaining = MAX_LEGACY_IMAGE_SOURCE + 2 * 1024 * 1024;
+    return Promise.resolve(new Response(new ReadableStream({
+      pull(controller) {
+        if (remaining <= 0) return controller.close();
+        const chunk = new Uint8Array(Math.min(1024 * 1024, remaining));
+        remaining -= chunk.length; controller.enqueue(chunk);
+      },
+      cancel() { cancelled = true; },
+    })));
+  });
+  try {
+    await f.call('api/import', { posts: [await compose(f.ownerKey, '![](' + id + ')')] });
+    const url = 'api/image?hash=' + encodeURIComponent(id);
+    let response = await f.call(url);
+    assert.equal(response.status, 200);
+    assert.equal((await response.json()).source, source);
+    const reopened = await createTimeline({ directory: f.directory, config: { ...f.config, relay: '' } });
+    response = await reopened.fetch(new Request('http://localhost/timeline/' + url));
+    assert.equal(response.status, 200);
+    assert.equal((await response.json()).source, source);
+    const cached = f.directory + '/images/' + encodeURIComponent(id) + '.json';
+    await Deno.writeTextFile(cached, JSON.stringify(source + 'tampered'));
+    response = await reopened.fetch(new Request('http://localhost/timeline/' + url));
+    assert.equal(response.status, 400, 'Corrupt cache must never be returned');
+    oversized = true;
+    response = await f.call(url);
+    assert.equal(response.status, 400);
+    assert(cancelled, 'Oversized upstream stream must be cancelled');
+    oversized = false;
+    response = await f.call(url);
+    assert.equal(response.status, 200);
+    assert.equal((await response.json()).source, source);
+  } finally { await f.close(); }
 });

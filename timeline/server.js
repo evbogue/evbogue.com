@@ -3,6 +3,9 @@ import { createAndFS, MAX_MANIFEST } from "./vendor/andfs/andfs.js";
 import { diskStore, memoryStore } from "./vendor/andfs/stores.js";
 
 const encoder = new TextEncoder();
+// Allow base64-encoded historical photos up to a bounded 48 MiB source.
+export const MAX_LEGACY_IMAGE_SOURCE = 48 * 1024 * 1024;
+const MAX_LEGACY_IMAGE_RESPONSE = MAX_LEGACY_IMAGE_SOURCE + 65536;
 const MIME = new Set([
   "audio/mpeg",
   "audio/mp4",
@@ -202,7 +205,7 @@ export async function createTimeline(
     }
     const result = JSON.parse(
       new TextDecoder().decode(
-        await readLimited(response.body, 4 * 1024 * 1024),
+        await readLimited(response.body, options.maxResponseBytes || 4 * 1024 * 1024),
       ),
     );
     return Array.isArray(result.messages)
@@ -250,14 +253,16 @@ export async function createTimeline(
       (row.parsed.body || '').includes('](' + id + ')'));
     if (!referenced) throw new Error('Image is not referenced by this timeline');
     const path = directory + '/images/' + safeID(id) + '.json';
-    const valid = async source => typeof source === 'string' && source.length <= 4 * 1024 * 1024 &&
+    const valid = async source => typeof source === 'string' && source.length <= MAX_LEGACY_IMAGE_SOURCE &&
       /^data:image\/(?:png|jpeg|jpg|gif|webp);base64,[A-Za-z0-9+/=\r\n]+$/.test(source) && await an.hash(source) === id;
     try {
-      const source = JSON.parse(await Deno.readTextFile(path));
+      const file = await Deno.open(path, { read: true });
+      const source = JSON.parse(new TextDecoder().decode(
+        await readLimited(file.readable, MAX_LEGACY_IMAGE_RESPONSE)));
       if (await valid(source)) return source;
     } catch { /* Fetch a missing or invalid cached image again. */ }
     if (!config.relay) throw new Error('Historical image is not cached and relay is disabled');
-    for (const source of await gossip(id)) {
+    for (const source of await gossip(id, { maxResponseBytes: MAX_LEGACY_IMAGE_RESPONSE })) {
       if (await valid(source)) { await atomic(path, source); return source; }
     }
     throw new Error('Historical image is unavailable or failed verification');
