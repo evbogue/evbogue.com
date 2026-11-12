@@ -22,7 +22,9 @@ const siteId = arg("site") || "evbogue.com"
 const only = arg("only")?.split(",").map((s) => s.trim()).filter(Boolean)
 
 const site = siteById(await loadSites(), siteId)
-const { projects = [] } = JSON.parse(await Deno.readTextFile(`${site.root}/projects.json`))
+const projectsFile = `${site.root}/projects.json`
+const data = JSON.parse(await Deno.readTextFile(projectsFile))
+const { projects = [] } = data
 
 const targets = projects
   .filter((p) => /^https?:\/\//i.test(p.url || ""))
@@ -43,26 +45,33 @@ const pwPath = Deno.env.get("PLAYWRIGHT_BROWSERS_PATH")
 const preinstalled = pwPath ? `${pwPath}/chromium` : ""
 const usePreinstalled = preinstalled && await Deno.stat(preinstalled).then(() => true, () => false)
 const browser = await chromium.launch(usePreinstalled ? { executablePath: preinstalled } : {})
-const context = await browser.newContext({
-  viewport: { width: 1280, height: 800 },
-  deviceScaleFactor: 2,
-})
-
 let ok = 0
 for (const project of targets) {
+  const context = await browser.newContext({
+    viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1,
+    colorScheme: "light", serviceWorkers: "block",
+  })
   const out = `${outDir}/${project.slug}.png`
   try {
     const page = await context.newPage()
-    await page.goto(project.url, { waitUntil: "networkidle", timeout: 45000 })
-    await page.waitForTimeout(1500)
+    const response = await page.goto(project.url, { waitUntil: "domcontentloaded", timeout: 45000 })
+    if (!response?.ok()) throw new Error(`HTTP ${response?.status()}`)
+    // A successful HTTP response can still be an empty application shell.
+    await page.waitForFunction(() => document.body.innerText.trim().length > 200, null, { timeout: 120000 })
+    await page.evaluate(() => document.fonts.ready)
+    await page.waitForTimeout(5000)
     await page.screenshot({ path: out })
-    await page.close()
+    project.screenshotDate = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago" }).format(new Date())
+    delete project.screenshotNote
     ok++
     console.log(`✓ ${project.slug} → ${out}`)
   } catch (err) {
     console.error(`✗ ${project.slug} (${project.url}): ${err.message}`)
+  } finally {
+    await context.close()
   }
 }
-
 await browser.close()
-console.log(`\nCaptured ${ok}/${targets.length}. Commit the PNGs in ${outDir} to publish them.`)
+await Deno.writeTextFile(projectsFile, JSON.stringify(data, null, 2) + "\n")
+console.log(`\nCaptured ${ok}/${targets.length}. Review the PNGs before committing.`)
+if (ok !== targets.length) Deno.exitCode = 1

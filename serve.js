@@ -201,7 +201,7 @@ function sitePage(
   }" href="/feed.xml">
     <link rel="stylesheet" href="/${
     escapeHtml(site.cssFile)
-  }?v=20261101dark">
+  }?v=20261112projects">
     ${headExtra}
   </head>
   <body>
@@ -660,15 +660,13 @@ function projectCardHtml(project, shots) {
   const external = /^https?:\/\//i.test(project.url || "");
   const primary = project.url || project.repo || "#";
   const primaryAttrs = external ? ' target="_blank" rel="noopener"' : "";
-  const visitLabel = external
-    ? prettyHost(project.url)
-    : (project.urlLabel || "Read more");
+  const visitLabel = project.urlLabel || (external ? prettyHost(project.url) : "Read more");
   const addr = external
     ? prettyHost(project.url)
     : (project.url ? (project.urlLabel || project.name) : project.name);
 
   const media = shot
-    ? `<img src="${escapeHtml(shot)}" alt="Screenshot of ${
+    ? `<img src="${escapeHtml(shot + (project.screenshotDate ? `?v=${project.screenshotDate}` : ""))}" alt="Screenshot of ${
       escapeHtml(project.name)
     }" loading="lazy">`
     : `<div class="project-frame" aria-hidden="true">
@@ -709,12 +707,12 @@ function projectCardHtml(project, shots) {
   }
 
   return `
-    <article class="project-card">
+    <article class="project-card" id="${escapeHtml(project.slug)}">
       <a class="project-shot${
     shot ? "" : " project-shot--placeholder"
   }" href="${
     escapeHtml(primary)
-  }"${primaryAttrs} tabindex="-1" aria-hidden="true">
+  }"${primaryAttrs}>
         ${media}
       </a>
       <div class="project-info">
@@ -727,7 +725,13 @@ function projectCardHtml(project, shots) {
         <h2 class="project-name"><a href="${
     escapeHtml(primary)
   }"${primaryAttrs}>${escapeHtml(project.name)}</a></h2>
+        ${project.tagline ? `<p class="project-tagline">${escapeHtml(project.tagline)}</p>` : ""}
         <p class="project-blurb">${escapeHtml(project.blurb || "")}</p>
+        ${project.update ? `<p class="project-update">${escapeHtml(project.update)}</p>` : ""}
+        ${project.next ? `<p class="project-next">${escapeHtml(project.next)}</p>` : ""}
+        ${project.credit ? `<p class="project-credit">${escapeHtml(project.credit)}</p>` : ""}
+        ${shot && project.screenshotNote ? `<p class="project-capture">${escapeHtml(project.screenshotNote)}</p>` : ""}
+        ${shot && project.screenshotDate ? `<p class="project-capture">Screenshot captured <time datetime="${escapeHtml(project.screenshotDate)}">${escapeHtml(new Date(`${project.screenshotDate}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }))}</time></p>` : ""}
         ${
     links.length ? `<div class="project-links">${links.join("")}</div>` : ""
   }
@@ -800,11 +804,9 @@ app.get("/projects", async (c) => {
   return c.html(sitePage(site, {
     title: "Projects",
     description:
-      `From LiveJournal in 1999 to decentralized protocols today — a portfolio by ${
-        site.wordmark || site.title
-      }, latest work first.`,
+      `Tools for an independent internet: Wiredove, ANProto, Secure Scuttlebot Classic, and ${site.wordmark || site.title}.`,
     body: `
-      <article>
+      <article class="projects-page">
         <div class="post-header">
           <span class="tag">Projects</span>
           <h1>Projects</h1>

@@ -565,3 +565,23 @@ argv/environment were captured privately and preserved exactly. Backup/rollback:
 Wiredove's recovery guide records a separate-machine restore of available production
 media and the four image hashes whose original bytes remain unavailable. Do not
 rewrite signed references or mistake missing source data for a reader regression.
+
+## Projects page local review — 2026-11-12
+
+The page now leads with Wiredove, ANProto, Secure Scuttlebot Classic (including
+Decent and its skins), and evbogue.com; earlier work and a shortened history follow.
+Content remains in projects.json/projects.md. The renderer adds taglines,
+development notes, source/action links, and dated screenshot captions.
+
+Fresh public screenshots were captured November 12 for ANProto, ssbc/Decent,
+and evbogue.com. Wiredove returned HTTP 200 but stayed blank for two minutes in
+fresh Chromium; a separate reload attempt also stayed blank. The live site's
+Timeline displayed its loading/fallback state. Do not label the existing August
+Wiredove screenshot as current; its caption explicitly marks it as an earlier
+interface. Refresh it once the live application can be captured successfully.
+The screenshot helper now rejects empty shells and dates only successful captures.
+
+Validation: frozen Deno checks; all 18 existing backend/host tests; local browser
+checks at 1280px, 390px, and 320px including light/dark, image loads and horizontal
+overflow. User requested local review/no push earlier in this conversation;
+this change is intentionally local, with no deployment or remote publication.

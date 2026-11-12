@@ -612,3 +612,21 @@ footer {
 .home .card .author + .dot { display: none; }
 .home .card-dek { font-size: 0.94rem; }
 .home-timeline { overflow-wrap: anywhere; }
+
+/* Projects: current work leads, with readable screenshots and development notes. */
+.projects-page { max-width: var(--wide); }
+.projects-page > .post-header,
+.projects-page > .post-divider,
+.projects-page > .post-body { max-width: var(--max); margin-inline: auto; }
+.projects-page .portfolio-grid { grid-template-columns: 1fr; gap: 2rem; }
+.projects-page .project-card { max-width: none; width: 100%; padding: 1.5rem 0 0; border-top: 1px solid var(--faint); }
+.projects-page .project-shot { margin-bottom: 1rem; }
+.projects-page .project-name { font-size: 1.5rem; }
+.project-tagline { font-weight: 600; margin-top: 0; }
+.project-credit, .project-capture { font-size: 0.8rem; color: var(--muted); }
+.project-next { border-left: 2px solid var(--faint); padding-left: 1rem; }
+.projects-page .project-shot--placeholder { display: none; }
+@media (min-width: 900px) {
+  .projects-page .project-card { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  .projects-page .project-shot--placeholder + .project-info { grid-column: 1 / -1; max-width: var(--max); }
+}

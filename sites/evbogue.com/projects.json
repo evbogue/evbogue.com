@@ -1,89 +1,94 @@
 {
   "groups": [
     {
-      "id": "anproto",
-      "label": "The ANProto Stack",
-      "period": "2024 – now",
-      "blurb": "One system in three layers. ANProto is the primitive that everything hangs off — a signed, timestamped hash and nothing else. Wiredove is the client you actually open. apds is an optional data server that relays and notifies. Take the protocol on its own and it still works; the client and the server are conveniences you can throw away without breaking anything.",
-      "members": ["anproto", "wiredove", "apds"]
+      "id": "current",
+      "label": "Current work",
+      "members": [
+        "wiredove",
+        "anproto",
+        "ssbc",
+        "this-site"
+      ]
     },
     {
-      "id": "ssb",
-      "label": "Secure Scuttlebutt, Restored",
-      "period": "2016 – now",
-      "blurb": "Scuttlebutt was the peer-to-peer social protocol I bet on early. When the original project was discontinued in 2024 I came back and took over the classic restoration — which makes me the current maintainer of git-ssb, hosting git repositories over SSB with no GitHub in the loop. It's one browser-based engine wearing three faces: same feed, same keys, live-switchable skins.",
-      "members": ["decent", "ssbski", "ssbpro"]
+      "id": "earlier",
+      "label": "Earlier work",
+      "members": [
+        "bogbook",
+        "far-beyond-the-stars"
+      ]
     }
   ],
   "projects": [
     {
-      "slug": "anproto",
-      "name": "ANProto",
-      "group": "anproto",
-      "period": "2025 – now",
-      "kind": "Protocol",
-      "blurb": "The Authenticated, Non-networked Protocol — the load-bearing piece. An ed25519 signature over a timestamp and a content hash, encoded in base64, and nothing more. No log, no chain, no opinion about how the message reaches you: bring your own network. Small enough that implementations already exist in JavaScript, Go, Rust, and Python.",
-      "url": "https://anproto.com/",
-      "repo": "https://github.com/evbogue/ANProto"
-    },
-    {
       "slug": "wiredove",
       "name": "Wiredove",
-      "group": "anproto",
+      "kind": "Social application",
       "period": "2024 – now",
-      "kind": "Client",
-      "blurb": "The client you actually open. A distributed social app that runs entirely in a browser window — ANProto for identity, WebRTC for serverless peer-to-peer collaboration, and apds when you want it for delivery. Local-first, no install, no account to be deleted. Works on its own; the server just makes it nicer.",
+      "tagline": "A social application you can make your own.",
+      "blurb": "Wiredove brings profiles, posts, replies, and shared media into a browser application built on ANProto. You hold the keys to your identity and can back them up for use in another browser.",
+      "update": "Wiredove and this website’s timeline now use the same shared application. Improvements to publishing, profiles, and media can reach both through coordinated releases.",
+      "next": "Proposed: readable web pages for individual posts, so shared links open the conversation and show useful previews wherever they travel.",
       "url": "https://wiredove.net/",
-      "repo": "https://github.com/evbogue/wiredove"
+      "urlLabel": "Open Wiredove",
+      "repo": "https://github.com/evbogue/wiredove",
+      "screenshotNote": "Earlier interface, archived August 2026. A fresh live capture is pending."
     },
     {
-      "slug": "apds",
-      "name": "apds",
-      "group": "anproto",
-      "period": "2024 – now",
-      "kind": "Data server",
-      "blurb": "The optional always-on box. A personal data server for ANProto that stores and relays your signed messages and wakes your clients over web push when something new arrives. A convenience layer for people who want one — never a dependency for people who don't. This one runs as the wiredove.net pub, and its root is just the raw signed-message store as JSON.",
-      "url": "https://pub.wiredove.net/",
-      "repo": "https://github.com/evbogue/apds"
+      "slug": "anproto",
+      "name": "ANProto",
+      "kind": "Protocol",
+      "period": "2025 – now",
+      "tagline": "Signed messages. Bring your own network.",
+      "blurb": "ANProto is the small protocol underneath Wiredove: a signature over a timestamp and a content hash. It establishes verifiable authorship without deciding how a message must travel.",
+      "update": "Implementations exist in JavaScript, Go, Rust, and Python. Wiredove and this site’s timeline put the protocol into everyday use; further experiments explore shared work between people and agents.",
+      "url": "https://anproto.com/",
+      "urlLabel": "Explore ANProto",
+      "repo": "https://github.com/evbogue/anproto",
+      "links": [
+        {
+          "href": "https://anproto.com/try",
+          "label": "Try a signed message"
+        }
+      ],
+      "screenshotDate": "2026-11-12"
     },
     {
-      "slug": "decent",
-      "name": "Decent",
-      "group": "ssb",
+      "slug": "ssbc",
+      "name": "Secure Scuttlebot Classic",
+      "kind": "Peer-to-peer network",
       "period": "2016 – now",
-      "kind": "Classic client",
-      "blurb": "The original. I forked Patchbay into Decent in 2016 — my first Scuttlebutt client — and it's the classic face of the restoration: a Patchwork-style reader that runs in the browser and shows the git-ssb activity feed, no native install and no upstream to depend on.",
-      "url": "https://decent.evbogue.com/",
-      "repo": "https://github.com/evbogue/ssbc"
-    },
-    {
-      "slug": "ssbski",
-      "name": "ssbski",
-      "group": "ssb",
-      "period": "2025 – now",
-      "kind": "Social skin",
-      "blurb": "A dark, modern skin over the same engine — Discover and Following timelines, trending channels, a feed that reads like the social apps everyone already knows. Same signed messages underneath; the skin switches live and the identity never moves.",
-      "url": "https://ssbski.evbogue.com/",
-      "repo": "https://github.com/evbogue/ssbc"
-    },
-    {
-      "slug": "ssbpro",
-      "name": "ssbpro",
-      "group": "ssb",
-      "period": "2025 – now",
-      "kind": "Pro skin",
-      "blurb": "The professional-network skin — Feed, Network, Messaging, and a Start-a-Post composer styled like the business social site you're avoiding, except every post is an SSB message on a feed you own. The interface is a costume; the protocol is the thing.",
-      "url": "https://ssbpro.evbogue.com/",
-      "repo": "https://github.com/evbogue/ssbc"
+      "tagline": "Keeping a peer-to-peer social network working.",
+      "blurb": "Secure Scuttlebot Classic continues the classic Scuttlebutt model on a modern Node.js stack: signed personal feeds, messages replicated between peers, private conversations, and shared files.",
+      "update": "It includes Decent, a browser client with several interchangeable appearances, and Git over SSB, which lets the network carry software repositories. I use that capability to maintain copies of these projects alongside GitHub.",
+      "credit": "Built on the contributions of Dominic Tarr, Paul Frazee, Charles Lehner, and the wider Scuttlebutt community. My work on Decent began in 2016.",
+      "url": "https://ssb.evbogue.com/",
+      "urlLabel": "Explore Decent",
+      "repo": "https://github.com/evbogue/ssbc",
+      "screenshotDate": "2026-11-12"
     },
     {
       "slug": "this-site",
       "name": "evbogue.com",
+      "kind": "Publishing",
       "period": "2025 – now",
-      "kind": "This site",
-      "blurb": "The current desk. Deno and Hono, markdown files on disk, an RSS feed, and a subscriber list that is literally a JSON file. No CMS, no build step, nothing between me and publishing. The minimalism argument compiled into a stack.",
+      "tagline": "A personal website that participates in the work.",
+      "blurb": "This site holds my writing, recovered archive, and an interactive timeline powered by the shared Wiredove application. It is also where I use what I build.",
+      "update": "Recent work connected the timeline to the shared application, restored support for large historical photographs, and checked recovery of the available media. Maintaining a personal site makes the questions concrete: can the work still be read, and can it be recovered?",
       "url": "https://evbogue.com/",
-      "repo": "https://github.com/evbogue/evbogue.com"
+      "urlLabel": "Visit the site",
+      "repo": "https://github.com/evbogue/evbogue.com",
+      "links": [
+        {
+          "href": "/posts",
+          "label": "Read the writing"
+        },
+        {
+          "href": "/timeline/",
+          "label": "Visit the timeline"
+        }
+      ],
+      "screenshotDate": "2026-11-12"
     },
     {
       "slug": "bogbook",
