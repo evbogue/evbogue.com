@@ -666,9 +666,7 @@ function projectCardHtml(project, shots) {
     : (project.url ? (project.urlLabel || project.name) : project.name);
 
   const media = shot
-    ? `<img src="${escapeHtml(shot + (project.screenshotDate ? `?v=${project.screenshotDate}` : ""))}" alt="Screenshot of ${
-      escapeHtml(project.name)
-    }" loading="lazy">`
+    ? `<img src="${escapeHtml(shot + (project.screenshotDate ? `?v=${project.screenshotVersion || project.screenshotDate}` : ""))}" alt="${escapeHtml(project.screenshotAlt || `Screenshot of ${project.name}`)}" loading="lazy">`
     : `<div class="project-frame" aria-hidden="true">
          <div class="project-frame-bar"><span></span><span></span><span></span><em>${
       escapeHtml(addr)
@@ -711,7 +709,7 @@ function projectCardHtml(project, shots) {
       <a class="project-shot${
     shot ? "" : " project-shot--placeholder"
   }" href="${
-    escapeHtml(primary)
+    escapeHtml(project.screenshotUrl || primary)
   }"${primaryAttrs}>
         ${media}
       </a>

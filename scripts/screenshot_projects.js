@@ -54,14 +54,34 @@ for (const project of targets) {
   const out = `${outDir}/${project.slug}.png`
   try {
     const page = await context.newPage()
-    const response = await page.goto(project.url, { waitUntil: "domcontentloaded", timeout: 45000 })
+    const response = await page.goto(project.screenshotUrl || project.url, { waitUntil: "domcontentloaded", timeout: 45000 })
     if (!response?.ok()) throw new Error(`HTTP ${response?.status()}`)
     // A successful HTTP response can still be an empty application shell.
     await page.waitForFunction(() => document.body.innerText.trim().length > 200, null, { timeout: 120000 })
     await page.evaluate(() => document.fonts.ready)
-    await page.waitForTimeout(5000)
+    if (project.screenshotContentSelector) {
+      await page.locator(project.screenshotContentSelector).first().waitFor({ state: "visible", timeout: 60000 })
+    }
+    if (project.screenshotReadySelector) {
+      await page.locator(project.screenshotReadySelector).waitFor({ state: "visible", timeout: 60000 })
+    }
+    // Allow asynchronous profiles to replace initial identicons, then require
+    // all visible images (including avatar photos) to finish decoding.
+    await page.waitForTimeout(15000)
+    await page.waitForFunction(() => [...document.images].filter(image => {
+      const r = image.getBoundingClientRect()
+      return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight
+    }).every(image => image.complete && image.naturalWidth > 0), null, { timeout: 60000 })
+    await page.evaluate(async () => {
+      const visible = [...document.images].filter(image => {
+        const r = image.getBoundingClientRect()
+        return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight
+      })
+      await Promise.all(visible.map(image => image.decode()))
+    })
     await page.screenshot({ path: out })
     project.screenshotDate = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago" }).format(new Date())
+    project.screenshotVersion = String(Date.now())
     delete project.screenshotNote
     ok++
     console.log(`✓ ${project.slug} → ${out}`)

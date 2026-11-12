@@ -65,7 +65,18 @@
       "url": "https://ssb.evbogue.com/",
       "urlLabel": "Explore Decent",
       "repo": "https://github.com/evbogue/ssbc",
-      "screenshotDate": "2026-11-12"
+      "screenshotDate": "2026-11-12",
+      "screenshotUrl": "https://ssb.evbogue.com/#git/%25Nt7ziOIyUsdpFl865jpnstgZsDXYM%2Basm%2FjTjw%2Fwmuc%3D.sha256",
+      "screenshotReadySelector": ".git-forge-repo-title img[src*=\"/blobs/\"]",
+      "screenshotAlt": "Wiredove repository in the Decent Git-over-SSB forge",
+      "links": [
+        {
+          "label": "Wiredove in the forge",
+          "href": "https://ssb.evbogue.com/#git/%25Nt7ziOIyUsdpFl865jpnstgZsDXYM%2Basm%2FjTjw%2Fwmuc%3D.sha256"
+        }
+      ],
+      "screenshotVersion": "1794510122341",
+      "screenshotContentSelector": ".git-tree-table"
     },
     {
       "slug": "this-site",

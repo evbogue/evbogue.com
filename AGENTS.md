@@ -585,3 +585,19 @@ Validation: frozen Deno checks; all 18 existing backend/host tests; local browse
 checks at 1280px, 390px, and 320px including light/dark, image loads and horizontal
 overflow. User requested local review/no push earlier in this conversation;
 this change is intentionally local, with no deployment or remote publication.
+
+## Projects page release and forge screenshot — 2026-11-12
+
+Ev subsequently authorized push and deployment. The initial revamp `8d86aa0`
+was verified on GitHub and git-ssb and deployed with its original runtime argv
+and environment preserved. Public copy, CSS and three fresh image hashes matched;
+1280px/390px/320px light/dark checks showed loaded images, no overflow or JS errors.
+Backup: `/root/deploy-backups/projects-8d86aa0-20261112/`. Existing server-only
+files were hash-checked unchanged; proxy untouched.
+
+Follow-up requested: show the Wiredove repository in Decent's git-ssb forge,
+using the replicated default branch available on the public node. Capture waits for the repo owner's blob-backed
+avatar, then visible image loading/decoding and fonts. The initial anonymous
+visitor identicon is expected and is not replaced with someone else's identity.
+Screenshot links and alt text identify the forge; a per-capture version prevents
+same-day stale image caches. Wiredove's older app screenshot remains labeled.
